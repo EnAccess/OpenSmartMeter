@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+- phpMyAdmin XML Dump
+- version 4.9.5
+- https://www.phpmyadmin.net
+-
+- Host: localhost:3306
+- Generation Time: Sep 14, 2022 at 10:08 AM
+- Server version: 10.5.16-MariaDB
+- PHP Version: 7.3.32
+-->
+
+<pma_xml_export version="1.0" xmlns:pma="https://www.phpmyadmin.net/some_doc_url/">
+    <!--
+    - Structure schemas
+    -->
+    <pma:structure_schemas>
+        <pma:database name="id17130795_energymeter" collation="utf8_unicode_ci" charset="utf8">
+            <pma:table name="meter">
+                CREATE TABLE `meter` (
+                  `meterid` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+                  `amount` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+                  `transaction_id` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+                  `status` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+                  `conn_status` varchar(20) COLLATE utf8_unicode_ci NOT NULL
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+            </pma:table>
+        </pma:database>
+    </pma:structure_schemas>
+
+    <!--
+    - Database: 'id17130795_energymeter'
+    -->
+    <database name="id17130795_energymeter">
+        <!-- Table meter -->
+        <table name="meter">
+            <column name="meterid">mt001</column>
+            <column name="amount">0</column>
+            <column name="transaction_id">0</column>
+            <column name="status">sucess</column>
+            <column name="conn_status"></column>
+        </table>
+        <table name="meter">
+            <column name="meterid">mt100</column>
+            <column name="amount">3000</column>
+            <column name="transaction_id">hhdlsfamom</column>
+            <column name="status">pending</column>
+            <column name="conn_status"></column>
+        </table>
+        <table name="meter">
+            <column name="meterid">mt1</column>
+            <column name="amount">0</column>
+            <column name="transaction_id">0</column>
+            <column name="status">sucess</column>
+            <column name="conn_status"></column>
+        </table>
+        <table name="meter">
+            <column name="meterid">mt50</column>
+            <column name="amount">1500</column>
+            <column name="transaction_id">jsby9y9haq</column>
+            <column name="status">pending</column>
+            <column name="conn_status"></column>
+        </table>
+        <table name="meter">
+            <column name="meterid">MT25</column>
+            <column name="amount">10000</column>
+            <column name="transaction_id">xnwphhfxd8</column>
+            <column name="status">pending</column>
+            <column name="conn_status"></column>
+        </table>
+        <table name="meter">
+            <column name="meterid"></column>
+            <column name="amount"></column>
+            <column name="transaction_id"></column>
+            <column name="status"></column>
+            <column name="conn_status"></column>
+        </table>
+    </database>
+</pma_xml_export>
