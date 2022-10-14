@@ -37,16 +37,19 @@ This folder contain the web software codes used. the link to the web demo is  : 
 
 #### Microcontroller voltage regulation stage : 
 The voltage regulation stage contains the 7805IC to regulate the voltage from the SMPS power supply to 5V as this is the safe voltage level to power the microcontroller, also this stage contains the LM350IC to regulate the SMPS power sully to 4V to power the GSM module.  
+
 ![image](https://user-images.githubusercontent.com/99180312/195889249-82d45939-8c51-4948-8c72-a401e8434b23.png)
 
 
 #### Analog front end chip connection : 
-The analog front end chip (AFE) is a metering IC suitable for a class1 and class2 accuracy meter and fit for use according to the relevant metering standard as specified by IEC. it is used in this design to measure power, voltage, current, power factor e.t.c
+The analog front end chip (AFE) is a metering IC suitable for a class1 and class2 accuracy meter and fit for use according to the relevant metering standard as specified by IEC. it is used in this design to measure power, voltage, current, power factor e.t.c.
+
 ![image](https://user-images.githubusercontent.com/99180312/195888941-8220682d-cc43-435a-833b-c85cde8cb5fb.png)
 
 
 #### SMPS power supply stage : 
 The SMPS stage converts the AC input voltage supplied into the meter to 12V DC to power the internal electronics circuit.
+
 ![image](https://user-images.githubusercontent.com/99180312/195889282-7c816822-8ac1-4781-a278-c50e86c304fc.png)
 
 
