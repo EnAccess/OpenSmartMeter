@@ -39,7 +39,8 @@ This folder contain the web software codes used. the link to the web demo is  : 
 #### Microcontroller voltage regulation stage : 
 The voltage regulation stage contains the 7805IC to regulate the voltage from the SMPS power supply to 5V as this is the safe voltage level to power the microcontroller, also this stage contains the LM350IC to regulate the SMPS power sully to 4V to power the GSM module.  
 
-![image](https://user-images.githubusercontent.com/99180312/195889249-82d45939-8c51-4948-8c72-a401e8434b23.png)
+ <img width="716" alt="Screen Shot 2022-10-20 at 3 24 06 PM" src="https://user-images.githubusercontent.com/99180312/196975773-aa3449d5-49b1-4783-9f9f-867684f050d3.png">
+
 
 
 #### Analog front end chip connection : 
