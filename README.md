@@ -45,7 +45,7 @@ The voltage regulation stage contains the 7805IC to regulate the voltage from th
 #### Analog front end chip connection : 
 The analog front end chip (AFE) is a metering IC suitable for a class1 and class2 accuracy meter and fit for use according to the relevant metering standard as specified by IEC. it is used in this design to measure power, voltage, current, power factor e.t.c.
 
-![image](https://user-images.githubusercontent.com/99180312/195888941-8220682d-cc43-435a-833b-c85cde8cb5fb.png)
+<img width="648" alt="Screen Shot 2022-10-20 at 3 22 27 PM" src="https://user-images.githubusercontent.com/99180312/196975383-3d3c08d3-d81d-4f1d-9e23-7cb3d03cdbc5.png">
 
 
 #### SMPS power supply stage : 
@@ -59,5 +59,5 @@ The SMPS stage converts the AC input voltage supplied into the meter to 12V DC t
 The master of this stage is the microcontroller(STM32f103ccu8) popularly known as bluepill, it fethes outputted meter values from the AFE chip via the USART communication interface, it also communicate with the webpage via the Cicada GSM module and sends neccesary meter parameters to the RS232 port, this stage also interface with other hardware pheripherials such as keypad, buzzer, magnetic latching relay, LED, LCD.
  
 
-<img width="475" alt="Screen Shot 2022-10-14 at 2 33 33 PM" src="https://user-images.githubusercontent.com/99180312/195888904-0bd73e82-5dbd-4e26-bc52-04fa8206d831.png">
+<img width="521" alt="Screen Shot 2022-10-20 at 3 22 12 PM" src="https://user-images.githubusercontent.com/99180312/196975441-1a624a4a-a18b-4802-9d05-9fbae708dcd0.png">
 
