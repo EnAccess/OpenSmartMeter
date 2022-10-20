@@ -2,7 +2,8 @@
 
 This repository contains manufacturing details as related to smart energy meter, details such as hardware design, web software, firmware, exterior casing STL files, rationale behing design, how-to document to guide a skilled user to replicate every part of the smart meter is available in the repository.
 
- ![3D PCB front](https://user-images.githubusercontent.com/99180312/195889797-644fe6c3-d154-4719-94bc-e93386494971.png)
+  ![EnAcess PCB new](https://user-images.githubusercontent.com/99180312/196974871-8cfb9366-eee0-4abf-8d39-d806d01217dd.png)
+
 
  
 
