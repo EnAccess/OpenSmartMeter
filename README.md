@@ -63,16 +63,12 @@ The master of this stage is the microcontroller(STM32f103ccu8) popularly known a
 <img width="521" alt="Screen Shot 2022-10-20 at 3 22 12 PM" src="https://user-images.githubusercontent.com/99180312/196975441-1a624a4a-a18b-4802-9d05-9fbae708dcd0.png">
 
 
-##
-##
-##
-##
+ 
 # How to get started
 
 This document summarizes the manufacturing guide to enable a skilled person to manufacture the smart energy meter. 
 
-##
-##
+ 
 ## Web Software : 
 The web software is split into different parts as highlighted below. 
 i.  Extraction of zip file from Github.
@@ -89,8 +85,7 @@ https://github.com/EnAccess/OpenSmartMeter/blob/main/Documentations/Web%20Softwa
 ### Linking Thingsboard public link to webpage : 
   After Thingsboard page is setup, developer make the data available by changing the privacy setting from private to public, next the public link is copied to the Thingsboard column specified in the database for each user. 
   
-##
-##
+ 
 ## Hardware :
  The hardware is splitted into different parts as highlighted below. 
 a.Extracting manufacturing file.
@@ -111,8 +106,7 @@ Output(12v) = 10 turns.
 
 Figure 1 : Transformer configuration/turn diagram. 
 
-##
-##
+ 
 ## Calibration : 
 The meter calibration is done after the meter PCB component is fully assembled alongside exterior casing. 
 Step 1 : Calibrating voltage and current
