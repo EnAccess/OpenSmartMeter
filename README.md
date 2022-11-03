@@ -63,13 +63,16 @@ The master of this stage is the microcontroller(STM32f103ccu8) popularly known a
 <img width="521" alt="Screen Shot 2022-10-20 at 3 22 12 PM" src="https://user-images.githubusercontent.com/99180312/196975441-1a624a4a-a18b-4802-9d05-9fbae708dcd0.png">
 
 
-
-
+#
+#
+#
+#
 # How to get started
 
 This document summarizes the manufacturing guide to enable a skilled person to manufacture the smart energy meter. 
 
-
+#
+#
 ## Web Software : 
 The web software is split into different parts as highlighted below. 
 i.  Extraction of zip file from Github.
@@ -86,7 +89,8 @@ https://github.com/EnAccess/OpenSmartMeter/blob/main/Documentations/Web%20Softwa
 ### Linking Thingsboard public link to webpage : 
   After Thingsboard page is setup, developer make the data available by changing the privacy setting from private to public, next the public link is copied to the Thingsboard column specified in the database for each user. 
   
-
+#
+#
 ## Hardware :
  The hardware is splitted into different parts as highlighted below. 
 a.Extracting manufacturing file.
@@ -107,15 +111,15 @@ Output(12v) = 10 turns.
 
 Figure 1 : Transformer configuration/turn diagram. 
 
-
-
+#
+#
 ## Calibration : 
 The meter calibration is done after the meter PCB component is fully assembled alongside exterior casing. 
 Step 1 : Calibrating voltage and current
 The design engineer proceed to calibrate the voltage, current. The voltage and current is calibrated by calculating the value measured by meter as compared to the true value measured by a test bench, the excel sheet available in the link provided below is used to calibrate the voltage and current by inputting the measured and actual values of voltage and current in the appropriate cell of the excel calculator. 
  https://github.com/EnAccess/OpenSmartMeter/blob/main/Documentations/Datasheet/Energy%20setpoint%20calculator.xlsx,  after this is done, the hex code gotten is written to the neccesary registers of Ugain, IgainN in the SAM_UART.cpp library provided in the link below.
 https://github.com/EnAccess/OpenSmartMeter/blob/main/Firmware%20code/Library/SamATM90E26_library after this is done, the checksum2 value displayed on the LCD screen while the meter is starting up is written to the CSTwo register in the SAM_UART.cpp library, after this is done, design engineer re-uploads the code to the chip and all measuring parameter is correct.
-### Note : A meter test bench is needed to know the true value of voltage and current to be calibrated into the meter.
+##### Note : A meter test bench is needed to know the true value of voltage and current to be calibrated into the meter.
 Step 2 : setting impulse rate 
 The impulse rate is changed by writing to PLconstH and PLconstL in the SAM_UART.cpp library after inputting the correct value of 
 Un = 240V (measured voltage).
@@ -124,7 +128,7 @@ GL = 1 (line current circuit gain).
 VL = 21.3(sampling voltage of current circuit in MV).
 VU = 260 (sampling voltage of voltage circuit in MV).
 MC = 2000 (impulse rate) Note: the impulse is 1000, however the value is multiplied by 2 due to current scaling.
-### Note : The values specified above is the values used according to the resistor value used in meter PCB.
+##### Note : The values specified above is the values used according to the resistor value used in meter PCB.
 Step 3 : calibrating impulse  
  A test bench is required to measure the % error of the meter, after this is done the design engineer can input the error gotten into the excel calculator provided in the link below.
 https://github.com/EnAccess/OpenSmartMeter/blob/main/Documentations/Datasheet/Energy%20setpoint%20calculator.xlsx, after the error is calculated, the design engineer write the value gotten for Lgain and Igain to the neccesary register in the SAM_UART.cpp library, then the new value of checksum1 is rewritten to the library for the meter to blink properly.  
@@ -140,4 +144,4 @@ Connect the input of the meter through an incandescent bulb without any load to 
 
 
 
-### Warning : Pls do not assemble or try manufacturing the meter if you are not a skilled electronics engineer or engineer with similar skill.
+##### Warning : Pls do not assemble or try manufacturing the meter if you are not a skilled electronics engineer or engineer with similar skill.
