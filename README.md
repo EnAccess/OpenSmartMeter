@@ -73,7 +73,7 @@ The documentation folder is sub-divided into different folder containing relatin
 The firmware code folder contain the Firmware code and all library used in the smart meter design.
 #### Meter hardware design 
 The meter hardware design folder contain all relating files as relating the manufacturing meter hardware such as design images, exterior casing design file, PCB CAD design file, GERBER file.
-#### Web softare 
+#### Web software 
 The meter web software folder contain the web software code, from the front end, backend, images, styling file e.t.c.
  
 ## Web Software : 
