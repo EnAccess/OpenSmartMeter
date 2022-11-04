@@ -173,11 +173,11 @@ Set the Upload method to STM32CubeProgrammer (Serial)
 ![F103_Upload_serial](https://user-images.githubusercontent.com/99180312/199870434-f61d9457-e50a-4fe5-895f-1408074dcb67.png)
 
 
-##### Follow the configuration setting below :
+##### Follow the configuration setting below to upload sketch
 
 ![F103_Serial_config](https://user-images.githubusercontent.com/99180312/199870488-910dce33-9abc-44df-956a-6d0e083dea6a.png)
 
-##### Upload sketch.
+##### .
 
 ![STM32-Operating-and-Programming-Mode](https://user-images.githubusercontent.com/99180312/199870977-c64e9489-3a55-4f7f-8f12-951993fe7093.jpg)
 
