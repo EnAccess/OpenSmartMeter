@@ -66,8 +66,15 @@ The master of this stage is the microcontroller(STM32f103ccu8) popularly known a
  
 # How to get started
 
-This document summarizes the manufacturing guide to enable a skilled person to manufacture the smart energy meter. 
-
+This document summarizes the manufacturing guide to enable a skilled person to manufacture the smart energy meter. the foldered is structured as highlighted below including informations available in each folder.
+### Documentations 
+The documentation folder is sub-divided into different folder containing relating documents as named in the folder title.
+### Firmware code 
+The firmware code folder contain the Firmware code and all library used in the smart meter design.
+### Meter hardware design 
+The meter hardware design folder contain all relating files as relating the manufacturing meter hardware such as design images, exterior casing design file, PCB CAD design file, GERBER file.
+### Web softare 
+The meter web software folder contain the web software code, from the front end, backend, images, styling file e.t.c.
  
 ## Web Software : 
 The web software is split into different parts as highlighted below. 
