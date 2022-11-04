@@ -172,7 +172,9 @@ Make sure the boot 0 jumper pin on the board is set to 1 (programming mode) whil
 Set the Upload method to STM32CubeProgrammer (Serial)
 ![F103_Upload_serial](https://user-images.githubusercontent.com/99180312/199870434-f61d9457-e50a-4fe5-895f-1408074dcb67.png)
 
-follow the configuration setting below :
+
+##### Follow the configuration setting below :
+
 ![F103_Serial_config](https://user-images.githubusercontent.com/99180312/199870488-910dce33-9abc-44df-956a-6d0e083dea6a.png)
 
 ##### Upload sketch.
