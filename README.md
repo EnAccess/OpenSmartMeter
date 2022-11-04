@@ -134,8 +134,50 @@ Connect the input of the meter through an incandescent bulb without any load to 
 
 
 ## Firmware flashing to microcontroller :
+the first thing to do is to Install STM32 Add-on to Arduino IDE by following the steps below.
 
+### Step 1 
 
+#### Add the URL below to Additional Board Manager URLs text box:
+https://github.com/stm32duino/BoardManagerFiles/raw/master/STM32/package_stm_index.json
+
+![STM32_addon](https://user-images.githubusercontent.com/99180312/199869088-a163b93e-a334-4630-9ccb-e97fff5a2613.jpg)
+
+#### Go to Tools > Board > Boards Manager
+
+![F103_board_manager_b](https://user-images.githubusercontent.com/99180312/199869190-283580e3-4e54-4b0f-a86a-7e7e673f808c.png)
+
+#### Search for STM32, select latest version and click Install.
+
+![board_manager_install](https://user-images.githubusercontent.com/99180312/199869297-91828edf-e6ff-4c66-9e37-c62477e7a937.png)
+
+### Step 2 : Installing STM32CubeProg 
+
+##### Follow the instructions below to install STM32CubeProg to your computer.
+  Download and install STM32CubeProg from ST.com: https://www.st.com/en/development-tools/stm32cubeprog.html
+  
+  ![STM32CubeProg](https://user-images.githubusercontent.com/99180312/199869757-469fb24e-7a8f-43b7-9312-0069bfad0b34.png)
+  
+### Step 3 : Flashing firmware to microcontroller using USB to 3.3V TTL adapter (Windows only)
+
+##### Wiring : Follow the wiring digram below to connect the STM32 Blue Pill to USB to 3.3V TTL adapter:
+
+<img width="315" alt="Screenshot 2022-11-04 at 3 10 50 AM" src="https://user-images.githubusercontent.com/99180312/199870215-0a96cab3-e3a7-4437-8d45-ef3df5802f72.png">
+
+![Getting-Started-with-STM32-using-Arduino-IDE](https://user-images.githubusercontent.com/99180312/199870843-0a215562-81d4-469b-b06d-e5517c7352f4.jpg)
+
+Make sure the boot 0 jumper pin on the board is set to 1 (programming mode) while uploading the boot loader. Once the boot loader is flashed this pin can be changed back to initial position (operating mode).
+
+### Step 4 : Setup Arduino IDE
+Set the Upload method to STM32CubeProgrammer (Serial)
+![F103_Upload_serial](https://user-images.githubusercontent.com/99180312/199870434-f61d9457-e50a-4fe5-895f-1408074dcb67.png)
+
+follow the configuration setting below :
+![F103_Serial_config](https://user-images.githubusercontent.com/99180312/199870488-910dce33-9abc-44df-956a-6d0e083dea6a.png)
+
+##### Upload sketch.
+
+![STM32-Operating-and-Programming-Mode](https://user-images.githubusercontent.com/99180312/199870977-c64e9489-3a55-4f7f-8f12-951993fe7093.jpg)
 
 
 ##### Warning : Pls do not assemble or try manufacturing the meter if you are not a skilled electronics engineer or engineer with similar skill.
