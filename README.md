@@ -188,5 +188,22 @@ Set the Upload method to STM32CubeProgrammer (Serial)
 
 ![STM32-Operating-and-Programming-Mode](https://user-images.githubusercontent.com/99180312/199870977-c64e9489-3a55-4f7f-8f12-951993fe7093.jpg)
 
+#### Things to consider in firmware deployment 
+There are some hardcoded variables in the firmware code which needs to be in sync with the values used on the web server e.g token, API key,web server. sample pictures of variables to be changed is shown below.
+
+<img width="550" alt="Screenshot 2022-11-05 at 4 27 46 AM" src="https://user-images.githubusercontent.com/99180312/200099029-684179a3-0544-4850-9503-b68cba274b4c.png">
+<img width="802" alt="Screenshot 2022-11-05 at 4 28 05 AM" src="https://user-images.githubusercontent.com/99180312/200099030-9bd7129b-58d5-4973-958b-e6cdef8a7df1.png">
+<img width="314" alt="Screenshot 2022-11-05 at 4 28 49 AM" src="https://user-images.githubusercontent.com/99180312/200099031-cd5049f9-c523-42f1-9017-3e679856612e.png">
+
+More information as relating to the implementation of the firmware with the software is available in https://github.com/EnAccess/OpenSmartMeter/blob/main/Documentations/Web%20Software%20and%20API%20documentation/API%20Documentation.pdf
+
+#### Things to consider in software/API deployment 
+There are some variables that needs to be changed in the backend codes, the database details need to be changed to the databases details as created on the webserver.
+More information as relating to the implementation of the software/API deployment is available in https://github.com/EnAccess/OpenSmartMeter/blob/main/Documentations/Web%20Software%20and%20API%20documentation/API%20Documentation.pdf
+
+#### infrastructure diagram
+<img width="707" alt="Screenshot 2022-11-05 at 4 14 06 AM" src="https://user-images.githubusercontent.com/99180312/200098555-717123fc-a56d-44c0-b2da-77d279fcb1c4.png">
+
+
 
 ##### Warning : Pls do not assemble or try manufacturing the meter if you are not a skilled electronics engineer or engineer with similar skill.
