@@ -188,7 +188,7 @@ Set the Upload method to STM32CubeProgrammer (Serial)
 
 ![STM32-Operating-and-Programming-Mode](https://user-images.githubusercontent.com/99180312/199870977-c64e9489-3a55-4f7f-8f12-951993fe7093.jpg)
 
-#### Things to consider in firmware deployment 
+### Things to consider in firmware deployment 
 There are some hardcoded variables in the firmware code which needs to be in sync with the values used on the web server e.g token, API key,web server. sample pictures of variables to be changed is shown below.
 
 <img width="550" alt="Screenshot 2022-11-05 at 4 27 46 AM" src="https://user-images.githubusercontent.com/99180312/200099029-684179a3-0544-4850-9503-b68cba274b4c.png">
