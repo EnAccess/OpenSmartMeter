@@ -201,7 +201,7 @@ More information as relating to the implementation of the firmware with the soft
 There are some variables that needs to be changed in the backend codes, the database details need to be changed to the databases details as created on the webserver.
 More information as relating to the implementation of the software/API deployment is available in https://github.com/EnAccess/OpenSmartMeter/blob/main/Documentations/Web%20Software%20and%20API%20documentation/API%20Documentation.pdf
 
-### infrastructure diagram
+### Infrastructure diagram
 <img width="707" alt="Screenshot 2022-11-05 at 4 14 06 AM" src="https://user-images.githubusercontent.com/99180312/200098555-717123fc-a56d-44c0-b2da-77d279fcb1c4.png">
 
 
