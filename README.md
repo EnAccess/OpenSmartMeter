@@ -5,8 +5,6 @@ This repository contains manufacturing details as related to smart energy meter,
   ![EnAcess PCB new](https://user-images.githubusercontent.com/99180312/196974871-8cfb9366-eee0-4abf-8d39-d806d01217dd.png)
 
 
- 
-
 ## Technical developmental breakdown
 The open-source smart meter development has four main parts to it as highlighted below:
 
