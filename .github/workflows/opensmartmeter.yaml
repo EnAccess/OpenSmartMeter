@@ -9,6 +9,14 @@ on:
       - main
 
 jobs:
+  clang-format:
+    name: Lint clang-format
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run clang-format lint
+        working-directory: Firmware code/smart_energy_meter
+        run: clang-format --style=file -n --Werror smart_energy_meter.ino
   compile-firmware:
     name: Compile Firmware
     runs-on: ubuntu-latest
