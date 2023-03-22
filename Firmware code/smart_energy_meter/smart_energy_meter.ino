@@ -824,7 +824,7 @@ void reconnect() {
   
    while (!tb.connected()){
    if ( tb.connect(THINGSBOARD_SERVER, TOKEN) ){
-   tb.RPC_subscribe();
+//    tb.RPC_subscribe();
    lcd.setCursor(0, 0);
    lcd.print("  reconnected   ");
    }
