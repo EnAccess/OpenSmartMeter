@@ -21,11 +21,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Setup tmate session
-        # if: ${{ github.event_name == 'workflow_dispatch' && inputs.debug_enabled }}
-        uses: mxschmitt/action-tmate@v3
-        with:
-          limit-access-to-actor: true
       - name: Install Arduino CLI
         uses: arduino/setup-arduino-cli@v1
       - name: Install board and platform
@@ -37,3 +32,9 @@ jobs:
         working-directory: Firmware code/smart_energy_meter
         run: |
           arduino-cli compile --fqbn "STM32:stm32:GenF1:pnum=BLUEPILL_F103C8" --libraries=Library/
+      - name: Setup tmate session
+        # if: ${{ github.event_name == 'workflow_dispatch' && inputs.debug_enabled }}
+        if: ${{ failure() }}
+        uses: mxschmitt/action-tmate@v3
+        with:
+          limit-access-to-actor: true
