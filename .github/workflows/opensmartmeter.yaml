@@ -16,6 +16,10 @@ jobs:
       - uses: actions/checkout@v3
       - name: Install Arduino CLI
         uses: arduino/setup-arduino-cli@v1
+      - name: Install board and platform
+        working-directory: Firmware code/smart_energy_meter
+        run: |
+          arduino-cli core install --additional-urls https://raw.githubusercontent.com/stm32duino/BoardManagerFiles/07bcfb337e4c9abe83a029b39e33ddff5a6df2ef/STM32/package_stm_index.json STM32:stm32@1.9.0
       - name: Compile the firmware
         working-directory: Firmware code/smart_energy_meter
         run: |
