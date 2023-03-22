@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - Name: Run clang-format lint
+      - name: Run clang-format lint
         working-directory: Firmware code/smart_energy_meter
         run: clang-format --style=file -n --Werror smart_energy_meter.ino
   compile-firmware:
