@@ -1,0 +1,22 @@
+name: OpenSmartMeter
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  compile-firmware:
+    name: Compile Firmware
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install Arduino CLI
+        uses: arduino/setup-arduino-cli@v1
+      - name: Compile the firmware
+        working-directory: Firmware code/smart_energy_meter
+        run: |
+          arduino-cli compile --fqbn "STM32:stm32:GenF1:pnum=BLUEPILL_F103C8" --libraries=Library/
