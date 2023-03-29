@@ -255,17 +255,16 @@ void setup() {
 }
 
 void loop() {
-
-   mesure();
-   if ( (mains_input_value > 50) ) {
-   credit_reminder();
-   }
-   if ( (mains_input_value < 50) ) {
-   digitalWrite(red_led, LOW);
-   digitalWrite(green_led, LOW);
-   }
-   get_time();
-   if ( (sts_mode == 0) && (mains_input_value > 50) ) {
-   gsm_func();
-   }
+  mesure();
+  if ((mains_input_value > 50)) {
+    credit_reminder();
+  }
+  if ((mains_input_value < 50)) {
+    digitalWrite(red_led, LOW);
+    digitalWrite(green_led, LOW);
+  }
+  get_time();
+  if ((sts_mode == 0) && (mains_input_value > 50)) {
+    gsm_func();
+  }
 }
