@@ -1,4 +1,3 @@
- 
    #include <SAM_UART.h>
    ATM90E26_UART::ATM90E26_UART(Stream* UART){
    ATM_UART = UART;
@@ -17,7 +16,7 @@
    //begin UART command
    ATM_UART->write(0xFE);
    ATM_UART->write(address);
- 
+
    if(!RW)
    {
    byte MSBWrite = val>>8;
@@ -25,17 +24,17 @@
    ATM_UART->write(MSBWrite);
    ATM_UART->write(LSBWrite);
    }
-   ATM_UART->write(host_chksum); 
+   ATM_UART->write(host_chksum);
    delay(10);
-  
 
-   //Read register only  
+
+   //Read register only
    if(RW)
    {
    byte MSByte = ATM_UART->read();
    byte LSByte = ATM_UART->read();
    byte atm90_chksum = ATM_UART->read();
- 
+
    if(atm90_chksum == ((LSByte + MSByte) & 0xFF))
    {
    output=(MSByte << 8) | LSByte; //join MSB and LSB;
@@ -58,18 +57,18 @@
    }
    return 0xFFFF;
    }
- 
+
 
    double  ATM90E26_UART::FETCH_mains(){
    unsigned short ACvoltage=AFECHIP(1,Urms,0xFFFF);
    return (double)ACvoltage/100;
    }
-   
+
    double ATM90E26_UART::FETCH_NEUTRALCurrent(){
    unsigned short neucurrent=AFECHIP(1,Irms2,0xFFFF);
    return (double)neucurrent/100;
    }
-   
+
    double ATM90E26_UART::FETCH_LIVECurrent(){
    unsigned short LIVEcurrent=AFECHIP(1,Irms,0xFFFF);
    return (double)LIVEcurrent/1000;
@@ -106,7 +105,7 @@
    unsigned short eenergy=AFECHIP(1,ANenergy,0xFFFF);
    return (double)eenergy*0.0001; //returns kWh if PL constant set to 1000imp/kWh
    }
-   
+
    double ATM90E26_UART::FETCH_ActiveEnergy(){
    //Register is cleared after reading
    unsigned short Aenergy=AFECHIP(1,ATenergy,0xFFFF);
@@ -120,36 +119,36 @@
    unsigned short  ATM90E26_UART::FETCH_MeterStatus(){
    return AFECHIP(1,EnStatus,0xFFFF);
    }
-   
+
    unsigned short  ATM90E26_UART::FETCH_MeterCSOne(){
-   return  AFECHIP(1,  CSOne,  0x0000) ; 
+   return  AFECHIP(1,  CSOne,  0x0000) ;
    }
-	
+
    unsigned short  ATM90E26_UART::FETCH_MeterCSTwo(){
-   return  AFECHIP(1,  CSTwo,  0x0000) ; 
+   return  AFECHIP(1,  CSTwo,  0x0000) ;
    }
 
 /*
 Initialise Energy IC, assume UART has already began in the main code
 */
 
- 
+
 
 void ATM90E26_UART::SET_register_values(){
-   
+
    unsigned short systemstatus;
-   AFECHIP(0,  SoftReset,  0x789A);  
-   AFECHIP(0,  FuncEn,     0x0030);  
-   AFECHIP(0,  SagTh,      0x1F2F);  
-		
+   AFECHIP(0,  SoftReset,  0x789A);
+   AFECHIP(0,  FuncEn,     0x0030);
+   AFECHIP(0,  SagTh,      0x1F2F);
+
 
    //Set metering calibration values
-   AFECHIP(0,  CalStart,   0x5678);  
+   AFECHIP(0,  CalStart,   0x5678);
    AFECHIP(0,  PLconstH,   0x001E); //PL Constant MSB
    AFECHIP(0,  PLconstL,   0xC8B4); //PL Constant LSB
    AFECHIP(0,  Lgain,      0x1D39); 	//Line calibration gain
    AFECHIP(0,  Ngain,      0x1D39); 	//Neutrl calibration gain
-   AFECHIP(0,  Lphi,       0x0000);  
+   AFECHIP(0,  Lphi,       0x0000);
    AFECHIP(0,  PStartTh,   0x08BD); //Active Startup Power Threshold
    AFECHIP(0,  PNolTh,     0x08BD); //Active No-Load Power Threshold
    AFECHIP(0,  QStartTh,   0x0AEC); //Reactive Startup Power Threshold
@@ -157,10 +156,10 @@ void ATM90E26_UART::SET_register_values(){
    AFECHIP(0,  MMode,      0x9422); //9022 Metering Mode Configuration. All defaults. See pg 31 of datasheet.
    AFECHIP(0,  CSOne,      0x327C); //Write CSOne, as self calculated
 
-  
+
    Serial.print("Checksum 1:");
    Serial.println(AFECHIP(1,  CSOne,  0x0000),HEX); //Checksum 1. Needs to be calculated based off the above values.
- 
+
 
    //Set measurement calibration values
    AFECHIP(0,  AdjStart,    0x5678); //Measurement calibration startup command, registers 31-3A
@@ -176,18 +175,18 @@ void ATM90E26_UART::SET_register_values(){
    AFECHIP(0,  QoffsetL,    0x0000); //L line reactive power offset
    AFECHIP(0,  Pmean,       0x0000); //L Line Mean Activze Power
    AFECHIP(0,  Qmean,       0x0000); //L Line Mean Active Power
-   AFECHIP(0,  EnStatus,    0x4802); 
+   AFECHIP(0,  EnStatus,    0x4802);
 
-   
-   AFECHIP(1,  APenergy,    0x0000);  
-   AFECHIP(1,  ANenergy ,   0x0000); 
-   AFECHIP(1,  ATenergy ,   0x0000); 
+
+   AFECHIP(1,  APenergy,    0x0000);
+   AFECHIP(1,  ANenergy ,   0x0000);
+   AFECHIP(1,  ATenergy ,   0x0000);
    AFECHIP(0,  CSTwo,       0x993B); //mt50,  0x13B5 Write CSTwo 0x6BB9, as self calculated 0x7F75
-   
+
    Serial.print("Checksum 2:");
    Serial.println(AFECHIP(1,CSTwo,0x0000),HEX);    //Checksum 2. Needs to be calculated based off the above values.
-   
-   
+
+
    AFECHIP(0,  CalStart,   0x8765); //Checks correctness of 21-2B registers and starts normal metering if ok
    AFECHIP(0,  AdjStart,   0x8765); //Checks correctness of 31-3A registers and starts normal measurement  if ok
    systemstatus = FETCH_SysStatus();
@@ -200,4 +199,3 @@ void ATM90E26_UART::SET_register_values(){
    Serial.println("Checksum 2 Error!!");
    }
 }
-
