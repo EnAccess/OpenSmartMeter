@@ -9,8 +9,8 @@ PLATFORM_URLS = \
 	https://github.com/stm32duino/BoardManagerFiles/raw/master/STM32/package_stm_index.json
 
 # Define the command to install platform libraries
-ARDUINO_PLATFORM_INSTALL = arduino-cli core update-index && \
-	arduino-cli core install $(BOARD_TAG)
+ARDUINO_PLATFORM_UPDATE = arduino-cli core update-index
+ARDUINO_PLATFORM_INSTALL = arduino-cli core install $(BOARD_TAG)
 
 # Parse the library dependencies from platformio.ini
 PLATFORMIO_LIBS = $(shell sed -n '/^lib_deps *= *$$/,/^$$/p' platformio.ini | sed '1d;$d;s/ //g')
@@ -22,6 +22,7 @@ print-platformio-libs:
 .PHONY: install
 install:
 	# Install platform libraries
+	$(ARDUINO_PLATFORM_UPDATE) $(foreach url,$(PLATFORM_URLS),--additional-urls $(url))
 	$(ARDUINO_PLATFORM_INSTALL) $(foreach url,$(PLATFORM_URLS),--additional-urls $(url))
 
 	# Install libraries from GitHub
