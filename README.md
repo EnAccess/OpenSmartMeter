@@ -2,7 +2,7 @@
   <a href="https://github.com/EnAccess/OpenSmartMeter">
     <img
       src="https://enaccess.org/wp-content/uploads/2022/10/Smart-meter.svg"
-      alt="FastAPI"
+      alt="OpenSmartMeter"
       width="120"
     >
   </a>
