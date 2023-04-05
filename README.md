@@ -1,4 +1,38 @@
-# Open Smart Energy Meter
+<p align="center">
+  <a href="https://github.com/EnAccess/OpenSmartMeter">
+    <img
+      src="https://enaccess.org/wp-content/uploads/2022/10/Smart-meter.svg"
+      alt="FastAPI"
+      width="120"
+    >
+  </a>
+</p>
+<p align="center">
+    <b>Open Smart Meter</b>
+</p>
+<p align="center">
+    <em>The Open Smart Meter solves a problem that affects most solar developers in the industry. This inexpensive and open source Smart Meter meets IEC and key elements of the local regulations in Nigeria.</em>
+</p>
+<p align="center">
+  <img
+    alt="Project Status"
+    src="https://img.shields.io/badge/Project%20Status-Functional%20prototype-yellow"
+  >
+  <img
+    alt="GitHub Workflow Status"
+    src="https://img.shields.io/github/actions/workflow/status/enaccess/OpenSmartMeter/opensmartmeter.yaml"
+  >
+  <a href="https://github.com/EnAccess/OpenSmartMeter/blob/main/LICENSE" target="_blank">
+    <img
+      alt="License"
+      src="https://img.shields.io/github/license/enaccess/OpenSmartMeter"
+    >
+  </a>
+</p>
+
+---
+
+## Description
 
 This repository contains manufacturing details as related to smart energy meter, details such as hardware design, web software, firmware, exterior casing STL files, rationale behing design, how-to document to guide a skilled user to replicate every part of the smart meter is available in the repository.
 
