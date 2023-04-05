@@ -196,29 +196,30 @@ Figure 1 : Transformer configuration/turn diagram.
 
 The meter calibration is done after the meter PCB component is fully assembled alongside exterior casing.
 
+> Note: A meter test bench is needed to know the true value of voltage and current to be calibrated into the meter.
+
 **Step 1: Calibrating voltage and current**
 
-The design engineer proceed to calibrate the voltage and current.
 The voltage and current is calibrated by calculating the value _measured by meter_ as compared to the true value _measured by a test bench_.
-The excel sheet available in the link provided below is used to calibrate the voltage and current by inputting the measured and actual values of voltage and current in the appropriate cell of the [Excel calculator](https://github.com/EnAccess/OpenSmartMeter/blob/main/Documentations/Datasheet/Energy%20setpoint%20calculator.xlsx).
-After this is done, the HEX code gotten is written to the neccesary registers of `Ugain`, `IgainN` in the `SAM_UART.cpp` library provided [here](https://github.com/EnAccess/OpenSmartMeter/blob/main/Firmware%20code/Library/SamATM90E26_library).
-After this is done, the checksum2 value displayed on the LCD screen while the meter is starting up is written to the CSTwo register in the `SAM_UART.cpp` library
-After this is done, design engineer re-uploads the code to the chip and all measuring parameter is correct.
 
-> Note: A meter test bench is needed to know the true value of voltage and current to be calibrated into the meter.
+- The excel sheet available in the link provided below is used to calibrate the voltage and current by inputting the measured and actual values of voltage and current in the appropriate cell of the [Excel calculator](https://github.com/EnAccess/OpenSmartMeter/blob/main/Documentations/Datasheet/Energy%20setpoint%20calculator.xlsx).
+
+- The HEX code gotten is written to the neccesary registers of `Ugain`, `IgainN` in the `SAM_UART.cpp` library provided [here](https://github.com/EnAccess/OpenSmartMeter/blob/main/Firmware%20code/Library/SamATM90E26_library).
+- The checksum2 value displayed on the LCD screen while the meter is starting up is written to the CSTwo register in the `SAM_UART.cpp` library
+- design engineer re-uploads the code to the chip and all measuring parameter is correct.
 
 **Step 2: setting impulse rate**
 
 The impulse rate is changed by writing to `PLconstH` and `PLconstL` in the `SAM_UART.cpp` library after inputting the correct value of
 
-Un = 240V (measured voltage).
-Ib = 5A (base current).
-GL = 1 (line current circuit gain).
-VL = 21.3(sampling voltage of current circuit in MV).
-VU = 260 (sampling voltage of voltage circuit in MV).
-MC = 2000 (impulse rate) Note: the impulse is 1000, however the value is multiplied by 2 due to current scaling.
+- `Un = 240V` (measured voltage).
+- `Ib = 5A` (base current).
+- `GL = 1` (line current circuit gain).
+- `VL = 21.3` (sampling voltage of current circuit in `MV`).
+- `VU = 260` (sampling voltage of voltage circuit in `MV`).
+- `MC = 2000` (impulse rate) Note: the impulse is 1000, however the value is multiplied by 2 due to current scaling.
 
-> Note : The values specified above is the values used according to the resistor value used in meter PCB.
+> Note: The values specified above is the values used according to the resistor value used in meter PCB.
 
 **Step 3: calibrating impulse**
 
