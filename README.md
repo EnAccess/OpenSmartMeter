@@ -58,6 +58,7 @@ The firmware code was written in Arduino IDE using C++, while the web front end 
 Links to all these codes are here. Thingsboard API was used to view meter parameters such as energy, credit.
 
 ### Calibration & Testing
+
 After putting the hardware and software together, we needed to validate the performance of the smart meter and ascertain its accuracy.
 Due to varying tolerances of used components, it is vital to perform a calibration exercise.
 This is used to correct any errors due to varying tolerances.
@@ -197,15 +198,19 @@ The meter calibration is done after the meter PCB component is fully assembled a
 
 **Step 1: Calibrating voltage and current**
 
-The design engineer proceed to calibrate the voltage, current. The voltage and current is calibrated by calculating the value measured by meter as compared to the true value measured by a test bench, the excel sheet available in the link provided below is used to calibrate the voltage and current by inputting the measured and actual values of voltage and current in the appropriate cell of the excel calculator.
-https://github.com/EnAccess/OpenSmartMeter/blob/main/Documentations/Datasheet/Energy%20setpoint%20calculator.xlsx, after this is done, the hex code gotten is written to the neccesary registers of Ugain, IgainN in the SAM_UART.cpp library provided in the link below.
-https://github.com/EnAccess/OpenSmartMeter/blob/main/Firmware%20code/Library/SamATM90E26_library after this is done, the checksum2 value displayed on the LCD screen while the meter is starting up is written to the CSTwo register in the SAM_UART.cpp library, after this is done, design engineer re-uploads the code to the chip and all measuring parameter is correct.
+The design engineer proceed to calibrate the voltage and current.
+The voltage and current is calibrated by calculating the value _measured by meter_ as compared to the true value _measured by a test bench_.
+The excel sheet available in the link provided below is used to calibrate the voltage and current by inputting the measured and actual values of voltage and current in the appropriate cell of the [Excel calculator](https://github.com/EnAccess/OpenSmartMeter/blob/main/Documentations/Datasheet/Energy%20setpoint%20calculator.xlsx).
+After this is done, the HEX code gotten is written to the neccesary registers of `Ugain`, `IgainN` in the `SAM_UART.cpp` library provided [here](https://github.com/EnAccess/OpenSmartMeter/blob/main/Firmware%20code/Library/SamATM90E26_library).
+After this is done, the checksum2 value displayed on the LCD screen while the meter is starting up is written to the CSTwo register in the `SAM_UART.cpp` library
+After this is done, design engineer re-uploads the code to the chip and all measuring parameter is correct.
 
 > Note: A meter test bench is needed to know the true value of voltage and current to be calibrated into the meter.
 
 **Step 2: setting impulse rate**
 
-The impulse rate is changed by writing to PLconstH and PLconstL in the SAM_UART.cpp library after inputting the correct value of
+The impulse rate is changed by writing to `PLconstH` and `PLconstL` in the `SAM_UART.cpp` library after inputting the correct value of
+
 Un = 240V (measured voltage).
 Ib = 5A (base current).
 GL = 1 (line current circuit gain).
@@ -217,8 +222,8 @@ MC = 2000 (impulse rate) Note: the impulse is 1000, however the value is multipl
 
 **Step 3: calibrating impulse**
 
-A test bench is required to measure the % error of the meter, after this is done the design engineer can input the error gotten into the excel calculator provided in the link below.
-https://github.com/EnAccess/OpenSmartMeter/blob/main/Documentations/Datasheet/Energy%20setpoint%20calculator.xlsx, after the error is calculated, the design engineer write the value gotten for Lgain and Igain to the neccesary register in the SAM_UART.cpp library, then the new value of checksum1 is rewritten to the library for the meter to blink properly.
+A test bench is required to measure the % error of the meter, after this is done the design engineer can input the error gotten into the [Excel calculator](https://github.com/EnAccess/OpenSmartMeter/blob/main/Documentations/Datasheet/Energy%20setpoint%20calculator.xlsx).
+After the error is calculated, the design engineer write the value gotten for Lgain and Igain to the neccesary register in the SAM_UART.cpp library, then the new value of checksum1 is rewritten to the library for the meter to blink properly.
 
 ### First trial
 
