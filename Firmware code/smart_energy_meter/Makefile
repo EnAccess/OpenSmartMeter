@@ -26,7 +26,7 @@ install:
 	$(ARDUINO_PLATFORM_INSTALL) $(foreach url,$(PLATFORM_URLS),--additional-urls $(url))
 
 	# Install libraries from GitHub
-	$(foreach lib,$(filter %.git,$(PLATFORMIO_LIBS)),arduino-cli lib install --git-url $(lib);)
+	$(foreach lib,$(filter %.git,$(PLATFORMIO_LIBS)),ARDUINO_LIBRARY_ENABLE_UNSAFE_INSTALL=true arduino-cli lib install --git-url $(lib);)
 
 	# Install libraries from the Arduino Library Manager
 	arduino-cli lib install $(filter-out %.git,$(PLATFORMIO_LIBS))
