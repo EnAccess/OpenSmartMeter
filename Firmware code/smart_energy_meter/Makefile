@@ -13,7 +13,7 @@ ARDUINO_PLATFORM_UPDATE = arduino-cli core update-index
 ARDUINO_PLATFORM_INSTALL = arduino-cli core install $(BOARD_TAG)
 
 # Parse the library dependencies from platformio.ini to Arduino compatible format
-PLATFORMIO_LIBS = $(shell sed -n '/^lib_deps *= *$$/,/^$$/p' platformio.ini | sed '1d;$d;s/^[^/]*\///;s/ //g')
+PLATFORMIO_LIBS = $(shell sed -n '/^lib_deps *= *$$/,/^$$/p' platformio.ini | sed '1d;$d;s/ //g;/^http/!s/^[^/]*\///')
 
 .PHONY: print-platformio-libs
 print-platformio-libs:
