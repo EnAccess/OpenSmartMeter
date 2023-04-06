@@ -17,6 +17,18 @@ jobs:
       - name: Run clang-format lint
         working-directory: Firmware code/smart_energy_meter
         run: clang-format --style=file -n --Werror smart_energy_meter.ino
+  editorconfig-checker:
+    name: Lint EditorConfig
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v3
+        with:
+          python-version: 3.11
+      - run: 'pip install "editorconfig-checker"'
+      - name: Run editorconfig-checker
+        working-directory: Firmware code/smart_energy_meter
+        run: ec
   compile-firmware-arduino-cli:
     name: Compile Firmware with Arduino CLI
     runs-on: ubuntu-latest
