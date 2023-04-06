@@ -1,0 +1,18 @@
+# EditorConfig is awesome: https://EditorConfig.org
+
+# Unix-style newlines with a newline ending every file
+[*]
+indent_style = space
+
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+end_of_line = lf
+charset = utf-8
+
+[*.json]
+insert_final_newline = false
+
+# Tab indentation (no size specified)
+[Makefile]
+indent_style = tab
