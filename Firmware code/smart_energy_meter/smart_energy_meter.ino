@@ -1,10 +1,33 @@
+// defines
+#define TINY_GSM_MODEM_SIM800
+#define TINY_GSM_RX_BUFFER 60  // Set RX buffer to 1Kb
+
+#define TOKEN "5GBw6kqNCN93BN3nuuvJ"  //"YOUR_ACCESS_TOKEN"
+#define THINGSBOARD_SERVER "demo.thingsboard.io"
+#define THINGSBOARD_PORT 80
+
+// Arduino base libraries
+#include <Wire.h>
+#include "Arduino.h"
+
+// third party libraries
+#include <AT24CX.h>
+#include <ArduinoHttpClient.h>
+#include <Keypad.h>
+#include <LiquidCrystal.h>
+#include <RTClib.h>
+#include <ThingsBoard.h>
+#include <TinyGsmClient.h>
+
+// OpenSmartMeter libraries
+#include "SAM_UART.h"
+#include "global_defines.hpp"
+
 HardwareSerial Serial2(PA3, PA2);
-#include <SAM_UART.h>
 HardwareSerial ATM90E26(PB11, PB10);
 ATM90E26_UART AFE_chip(&ATM90E26);
 
 // keypad
-#include <Keypad.h>
 #define Lengths 20
 char Data[Lengths];
 int lcd_count, convertedsts_data = 0;
@@ -21,19 +44,9 @@ byte colPins[COLS] = {PA7, PA6, PA5, PC13};
 Keypad customKeypad =
     Keypad(makeKeymap(hexaKeys), rowPins, colPins, ROWS, COLS);
 
-#define TINY_GSM_MODEM_SIM800
-#define TINY_GSM_RX_BUFFER 60  // Set RX buffer to 1Kb
-#include <ArduinoHttpClient.h>
-#include <TinyGsmClient.h>
-#include "ThingsBoard.h"
-
 const char apn[] = "terminal";
 const char user[] = "";
 const char pass[] = "";
-
-#define TOKEN "5GBw6kqNCN93BN3nuuvJ"  //"YOUR_ACCESS_TOKEN"
-#define THINGSBOARD_SERVER "demo.thingsboard.io"
-#define THINGSBOARD_PORT 80
 
 TinyGsm modem(Serial1);
 TinyGsmClient client(modem);
@@ -63,26 +76,14 @@ String sts_data = "";
 String sts_data1 = "";
 int private_stskey = 109;
 
-#include <Wire.h>
-#include "RTClib.h"
 RTC_DS1307 rtc;
 char daysOfTheWeek[7][12] = {"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"};
 unsigned int hours, minutes, seconds, rtcday = 0;
-#include <AT24CX.h>
 // EEPROM object
 AT24CX mem;
 
-#include <LiquidCrystal.h>
 const int rs = PB3, en = PA15, d4 = PA8, d5 = PB15, d6 = PB14, d7 = PB13;
 LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
-
-#define buzzer PB5
-#define relaya PB12
-#define relayb PB4
-
-#define red_led PA0
-#define green_led PA4
-#define battery_input PA1
 
 unsigned int encodernew = 0;
 unsigned long eepromupdate_time, eeprom_sts_data, prev_energypulse,
