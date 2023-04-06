@@ -22,6 +22,7 @@
 // OpenSmartMeter libraries
 #include "SAM_UART.h"
 #include "global_defines.hpp"
+#include "relay.hpp"
 
 HardwareSerial Serial2(PA3, PA2);
 HardwareSerial ATM90E26(PB11, PB10);
@@ -109,8 +110,6 @@ unsigned long sts_value, convertedsts_day, pulsetime, current_time, previous,
     previousenergytime, previousenergytime2, energytime, energytime2,
     currentenergytime, currentenergytime2 = 0;
 byte get_credit, fault, fault_written = 0;
-byte off_exec = 0;
-byte on_exec = 0;
 int confirmkey, tamper_log = 0;
 byte token_used, thingsboard_check = 0;
 
