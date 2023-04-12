@@ -3,7 +3,7 @@
     <img
       src="https://enaccess.org/wp-content/uploads/2023/04/Open-Smart-Meter-GitHub-2240-%C3%97-800-transparent.svg"
       alt="OpenSmartMeter"
-      width="480"
+      width="640"
     >
   </a>
 </p>
