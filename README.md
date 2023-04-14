@@ -1,14 +1,11 @@
 <p align="center">
   <a href="https://github.com/EnAccess/OpenSmartMeter">
     <img
-      src="https://enaccess.org/wp-content/uploads/2022/10/Smart-meter.svg"
+      src="https://enaccess.org/wp-content/uploads/2023/04/Open-Smart-Meter-GitHub-2240-%C3%97-800-transparent.svg"
       alt="OpenSmartMeter"
-      width="120"
+      width="640"
     >
   </a>
-</p>
-<p align="center">
-    <b>Open Smart Meter</b>
 </p>
 <p align="center">
     <em>The Open Smart Meter solves a problem that affects most solar developers in the industry. This inexpensive and open source Smart Meter meets IEC and key elements of the local regulations in Nigeria.</em>
