@@ -1,3 +1,17 @@
+#pragma once
+
+// defines
+
+// Arduino base libraries
+
+// third party libraries
+
+// OpenSmartMeter libraries
+#include "global_defines.hpp"
+
+byte off_exec = 0;
+byte on_exec = 0;
+
 void relay_on() {
   if (on_exec == 0) {
     digitalWrite(relaya, HIGH);
