@@ -1,13 +1,5 @@
 #pragma once
-
-// defines
-
-// Arduino base libraries
-
-// third party libraries
-
-// OpenSmartMeter libraries
-#include "global_defines.hpp"
+#include "global_defines.h"
 
 byte off_exec = 0;
 byte on_exec = 0;

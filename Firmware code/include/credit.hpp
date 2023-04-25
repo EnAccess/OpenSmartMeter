@@ -1,3 +1,40 @@
+#pragma once
+#include "smart_energy_meter.h"
+#include "lcd.hpp"
+#include "global_defines.h"
+#include "relay.hpp"
+
+void credit_formular() {
+  if (true_power > 0) {
+    ENERGY = ENERGY + ((true_power) /
+                       (3600000));  // energy per KWH(energy gotten per sec)
+    billing = (true_power * tariff) / 3600000;  // cost per sec
+    if (creditt > billing) {
+      creditt = (creditt - billing);
+    }
+  }
+}
+
+
+void credit_reminder() {
+  if (creditt > 1 && creditt < 200) {
+    digitalWrite(red_led, HIGH);
+    digitalWrite(green_led, LOW);
+    delay(80);
+    digitalWrite(red_led, LOW);
+    delay(80);
+  }
+  if (creditt < 1 || fault == 1) {
+    digitalWrite(red_led, HIGH);
+    relay_off();
+  }
+  if (creditt > 200 && fault == 0) {
+    digitalWrite(red_led, LOW);
+    relay_on();
+    digitalWrite(green_led, HIGH);
+  }
+}
+
 void urgeent() {
   if (true_power < 15) {
     true_power = 0;
@@ -67,25 +104,4 @@ void urgeent() {
   }
 }
 
-void mesure() {
-  freq = AFE_chip.FETCH_Frequency();
-  delay(20);
-  powerFactor = AFE_chip.FETCH_PowerFactor();
-  delay(20);
-  mains_input_value = AFE_chip.FETCH_mains();
-  delay(20);
-  curr = AFE_chip.FETCH_NEUTRALCurrent();
-  curr = curr * 2;
-  delay(20);
-  true_power = curr * mains_input_value * powerFactor;
-  if (true_power < 5) {
-    curr = 0;
-  }
-  delay(20);
-}
 
-void buss() {
-  digitalWrite(buzzer, HIGH);
-  delay(10);
-  digitalWrite(buzzer, LOW);
-}
