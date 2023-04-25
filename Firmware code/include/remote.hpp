@@ -1,3 +1,43 @@
+#pragma once
+#include "smart_energy_meter.h"
+
+void post_sucess() {
+  Serial2.print("Connecting to APN: ");
+  Serial2.print(apn);
+  if (!modem.gprsConnect(apn, user, pass)) {
+    Serial2.println(" fail");
+  }
+
+  else {
+    Serial2.println(" OK");
+    Serial2.print("Connecting to ");
+    Serial2.print(server);
+  }
+  if (!client.connect(server, port)) {
+    Serial2.println(" fail");
+  } else {
+    Serial2.println(" OK");
+  }
+
+  Serial2.println("Performing HTTP POST request...");
+  String httpRequestData = "api_key=" + apiKeyValue + "&stat=" + String(stat) +
+                           "&meter=" + String(meter) + "";
+
+  client.print(String("POST ") + resource + " HTTP/1.1\r\n");
+  client.print(String("Host: ") + server + "\r\n");
+  client.println("Connection: close");
+  client.println("Content-Type: application/x-www-form-urlencoded");
+  client.print("Content-Length: ");
+  client.println(httpRequestData.length());
+  client.println();
+  client.println(httpRequestData);
+  String fetched = http.responseBody();
+  Serial2.println(fetched);
+  http.stop();
+  client.stop();
+  Serial2.println(F("Server disconnected"));
+}
+
 void gsm_func() {
   Serial2.print("Connecting to APN: ");
   Serial2.print(apn);
@@ -90,39 +130,3 @@ void gsm_func() {
   Serial2.println(creditt);
 }
 
-void post_sucess() {
-  Serial2.print("Connecting to APN: ");
-  Serial2.print(apn);
-  if (!modem.gprsConnect(apn, user, pass)) {
-    Serial2.println(" fail");
-  }
-
-  else {
-    Serial2.println(" OK");
-    Serial2.print("Connecting to ");
-    Serial2.print(server);
-  }
-  if (!client.connect(server, port)) {
-    Serial2.println(" fail");
-  } else {
-    Serial2.println(" OK");
-  }
-
-  Serial2.println("Performing HTTP POST request...");
-  String httpRequestData = "api_key=" + apiKeyValue + "&stat=" + String(stat) +
-                           "&meter=" + String(meter) + "";
-
-  client.print(String("POST ") + resource + " HTTP/1.1\r\n");
-  client.print(String("Host: ") + server + "\r\n");
-  client.println("Connection: close");
-  client.println("Content-Type: application/x-www-form-urlencoded");
-  client.print("Content-Length: ");
-  client.println(httpRequestData.length());
-  client.println();
-  client.println(httpRequestData);
-  String fetched = http.responseBody();
-  Serial2.println(fetched);
-  http.stop();
-  client.stop();
-  Serial2.println(F("Server disconnected"));
-}

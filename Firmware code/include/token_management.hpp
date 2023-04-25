@@ -1,3 +1,47 @@
+#pragma once
+#include "smart_energy_meter.h"
+#include "sts_token.hpp"
+
+void buss() {
+  digitalWrite(buzzer, HIGH);
+  delay(10);
+  digitalWrite(buzzer, LOW);
+}
+
+
+void check_tokenused() {
+  token_eeprom_location = mem.readLong(eeprom_location_cnt);
+  if (token_eeprom_location > 4000) {
+    mem.writeLong(eeprom_location_cnt, 40);
+    token_eeprom_location = 40;
+  }
+  // token_eeprom_location = token_eeprom_location +1;
+  unsigned int locationcount;
+  for (locationcount = 40; locationcount < token_eeprom_location;
+       locationcount++) {
+    sts_eeprom_fetched = mem.readLong(locationcount);
+    String ee_fetched = String(sts_eeprom_fetched);
+    String sts_keyco = sts_data.substring(0, 10);
+    String keyco = ee_fetched.substring(0, 10);
+
+    long conv_keyco = keyco.toInt();
+    long conv_sts_keyco = sts_keyco.toInt();
+    if ((conv_keyco == conv_sts_keyco)) {
+      if (c_chek == 0) {
+        warntime = warn_now;
+        c_chek = 1;
+      }
+      lcd.setCursor(0, 0);
+      lcd.print("  WARNING!!!!!  ");
+      lcd.setCursor(0, 1);
+      lcd.print("   USED TOKEN   ");
+      digitalWrite(buzzer, HIGH);
+      token_used = 1;
+    }
+  }
+}
+
+
 void STS_keypad() {
   customKey = customKeypad.getKey();
   if (customKey == '*') {
@@ -55,38 +99,6 @@ void STS_keypad() {
     check_tokenused();
     if (token_used == 0) {
       STStoken_decode();
-    }
-  }
-}
-
-void check_tokenused() {
-  token_eeprom_location = mem.readLong(eeprom_location_cnt);
-  if (token_eeprom_location > 4000) {
-    mem.writeLong(eeprom_location_cnt, 40);
-    token_eeprom_location = 40;
-  }
-  // token_eeprom_location = token_eeprom_location +1;
-  unsigned int locationcount;
-  for (locationcount = 40; locationcount < token_eeprom_location;
-       locationcount++) {
-    sts_eeprom_fetched = mem.readLong(locationcount);
-    String ee_fetched = String(sts_eeprom_fetched);
-    String sts_keyco = sts_data.substring(0, 10);
-    String keyco = ee_fetched.substring(0, 10);
-
-    long conv_keyco = keyco.toInt();
-    long conv_sts_keyco = sts_keyco.toInt();
-    if ((conv_keyco == conv_sts_keyco)) {
-      if (c_chek == 0) {
-        warntime = warn_now;
-        c_chek = 1;
-      }
-      lcd.setCursor(0, 0);
-      lcd.print("  WARNING!!!!!  ");
-      lcd.setCursor(0, 1);
-      lcd.print("   USED TOKEN   ");
-      digitalWrite(buzzer, HIGH);
-      token_used = 1;
     }
   }
 }

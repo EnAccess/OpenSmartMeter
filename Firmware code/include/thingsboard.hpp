@@ -1,3 +1,23 @@
+#pragma once
+#include "smart_energy_meter.h"
+
+
+void reconnect() {
+  while (!tb.connected()) {
+    if (tb.connect(THINGSBOARD_SERVER, TOKEN)) {
+      // subscribe without callbacks
+      RPC_Callback callbacks[0] = {};
+      tb.RPC_Subscribe(callbacks, 0);
+
+      lcd.setCursor(0, 0);
+      lcd.print("  reconnected   ");
+    } else {
+      delay(5000);
+    }
+  }
+}
+
+
 void post_to_thingsboard() {
   delay(1000);
   if (!modemConnected) {
@@ -35,19 +55,4 @@ void post_to_thingsboard() {
   tb.sendTelemetryFloat("energy", ENERGY);
   tb.sendTelemetryFloat("credit", creditt);
   tb.loop();
-}
-
-void reconnect() {
-  while (!tb.connected()) {
-    if (tb.connect(THINGSBOARD_SERVER, TOKEN)) {
-      // subscribe without callbacks
-      RPC_Callback callbacks[0] = {};
-      tb.RPC_Subscribe(callbacks, 0);
-
-      lcd.setCursor(0, 0);
-      lcd.print("  reconnected   ");
-    } else {
-      delay(5000);
-    }
-  }
 }
