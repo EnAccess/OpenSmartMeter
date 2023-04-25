@@ -1,3 +1,7 @@
+#pragma once
+#include "smart_energy_meter.h"
+#include "thingsboard.hpp"
+
 void get_time() {
   DateTime now = rtc.now();
   hours = (now.hour());

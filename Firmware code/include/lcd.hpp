@@ -1,3 +1,9 @@
+#pragma once
+#include "smart_energy_meter.h"
+#include "token_management.hpp"
+#include "time_management.hpp"
+
+
 void lcd_update() {
   lcdtime_now = millis();
   if (lcdtime_now - prev_lcdtime >= LCD_scroll_time) {
