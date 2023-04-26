@@ -1,9 +1,37 @@
-#include "smart_energy_meter.h"
-#include "global_defines.h"
-#include "time_management.hpp"
-#include "remote.hpp"
+// defines
+#define TINY_GSM_MODEM_SIM800
+#define TINY_GSM_RX_BUFFER 60  // Set RX buffer to 1Kb
+
+#define TOKEN "5GBw6kqNCN93BN3nuuvJ"  //"YOUR_ACCESS_TOKEN"
+#define THINGSBOARD_SERVER "demo.thingsboard.io"
+#define THINGSBOARD_PORT 80
+
+
+// Arduino base libraries
+#include <Wire.h>
+#include "Arduino.h"
+
+// third party libraries
+#include <AT24CX.h>
+#include <ArduinoHttpClient.h>
+#include <Keypad.h>
+#include <LiquidCrystal.h>
+#include <RTClib.h>
+#include <ThingsBoard.h>
+#include <TinyGsmClient.h>
+
+// OpenSmartMeter libraries
+#include "SAM_UART.h"
+#include "global_defines.hpp"
+#include "relay.hpp"
 #include "credit.hpp"
+#include "lcd.hpp"
 #include "mesure.hpp"
+#include "remote.hpp"
+#include "sts_token.hpp"
+#include "thingsboard.hpp"
+#include "time_management.hpp"
+#include "token_management.hpp"
 
 
 void setup() {
@@ -115,7 +143,6 @@ void setup() {
   MyTim->attachInterrupt(urgeent);
   MyTim->resume();
 }
-
 
 void loop() {
   mesure();

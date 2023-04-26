@@ -1,5 +1,5 @@
 #pragma once
-#include "smart_energy_meter.h"
+#include "global_defines.hpp"
 
 void post_sucess() {
   Serial2.print("Connecting to APN: ");
