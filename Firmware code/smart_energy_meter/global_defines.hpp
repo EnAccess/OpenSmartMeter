@@ -1,28 +1,14 @@
 #pragma once
 // defines
-#define TINY_GSM_MODEM_SIM800
-#define TINY_GSM_RX_BUFFER 60  // Set RX buffer to 1Kb
 
-#define TOKEN "5GBw6kqNCN93BN3nuuvJ"  //"YOUR_ACCESS_TOKEN"
-#define THINGSBOARD_SERVER "demo.thingsboard.io"
-#define THINGSBOARD_PORT 80
+#define buzzer PB5
+#define relaya PB12
+#define relayb PB4
 
-// Arduino base libraries
-#include <Wire.h>
-#include "Arduino.h"
+#define red_led PA0
+#define green_led PA4
+#define battery_input PA1
 
-// third party libraries
-#include <AT24CX.h>
-#include <ArduinoHttpClient.h>
-#include <Keypad.h>
-#include <LiquidCrystal.h>
-#include <RTClib.h>
-#include <ThingsBoard.h>
-#include <TinyGsmClient.h>
-
-// OpenSmartMeter libraries
-#include "SAM_UART.h"
-#include "global_defines.h"
 
 HardwareSerial Serial2(PA3, PA2);
 HardwareSerial ATM90E26(PB11, PB10);
@@ -144,4 +130,3 @@ byte fe2[8] = {0b11111, 0b11111, 0b00000, 0b00000,
 
 byte fe4[8] = {0b01111, 0b01100, 0b01100, 0b00000,
                0b00000, 0b00000, 0b00000, 0b00000};
-

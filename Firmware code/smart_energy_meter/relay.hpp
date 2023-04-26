@@ -1,5 +1,5 @@
 #pragma once
-#include "global_defines.h"
+#include "global_defines.hpp"
 
 byte off_exec = 0;
 byte on_exec = 0;

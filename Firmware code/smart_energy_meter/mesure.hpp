@@ -1,5 +1,5 @@
 #pragma once
-#include "smart_energy_meter.h"
+#include "global_defines.hpp"
 
 void mesure() {
   freq = AFE_chip.FETCH_Frequency();
