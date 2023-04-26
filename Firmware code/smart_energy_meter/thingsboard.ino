@@ -40,7 +40,10 @@ void post_to_thingsboard() {
 void reconnect() {
   while (!tb.connected()) {
     if (tb.connect(THINGSBOARD_SERVER, TOKEN)) {
-      //    tb.RPC_subscribe();
+      // subscribe without callbacks
+      RPC_Callback callbacks[0] = {};
+      tb.RPC_Subscribe(callbacks, 0);
+
       lcd.setCursor(0, 0);
       lcd.print("  reconnected   ");
     } else {
