@@ -1,5 +1,5 @@
 #pragma once
-#include "smart_energy_meter.h"
+#include "global_defines.hpp"
 #include "token_management.hpp"
 #include "time_management.hpp"
 

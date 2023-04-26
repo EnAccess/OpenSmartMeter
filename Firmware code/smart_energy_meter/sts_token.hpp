@@ -1,5 +1,5 @@
 #pragma once
-#include "smart_energy_meter.h"
+#include "global_defines.hpp"
 
 void STStoken_decode() {
   String keycofirmation = sts_data.substring(0, 3);
