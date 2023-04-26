@@ -2,7 +2,8 @@
 BOARD_TAG = "STM32:stm32"
 SERIAL_PORT = "/dev/ttyACM0"
 # Define the FQBN
-FQBN = "STM32:stm32:GenF1:pnum=BLUEPILL_F103C8"
+# FQBN = "STM32:stm32:GenF1:pnum=BLUEPILL_F103C8"  # 64k version
+FQBN = "STM32:stm32:GenF1:pnum=BLUEPILL_F103CB"  # 128k version
 
 # Define the URLs of the platform libraries you want to install
 PLATFORM_URLS = \

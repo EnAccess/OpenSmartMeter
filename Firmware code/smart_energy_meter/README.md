@@ -1,9 +1,13 @@
 ## Get started / How to build it
 
 **Pre-requisits**
+
 - For this README we assume you have an installed version of either of
   - [PlatformIO VSCode Plugin](https://platformio.org/platformio-ide) (Recommended for quick start)
   - [PlatformIO Core (CLI)](https://docs.platformio.org/en/latest/core/index.html) ([See below](#additional-step-for-platformio-core-cli-setup))
+- Access to either of
+  - USB to 3.3V TTL adapter
+  - ST-LINK
 
 ### Build the image
 
@@ -20,6 +24,30 @@ pio run
 
 `upload` is a preconfigured target script by PIO.
 
+### Uploading using a USB to 3.3V TTL adapter
+
+Connect the USB to 3.3V TTL adapter to the STM32 Bluepill
+
+| STM32 Bluepill | USB to 3.3V TTL adapter |
+| --- | --- |
+| `3.3V` | `3.3V` |
+| `GND` | `GND` |
+| `A9` | `RXD-->` |
+| `A10` | `TXD<--` |
+
+Set the device into programming mode, by adjusting the onboard jumper configuration
+
+| Jumper pin | value |
+| --- | --- |
+| `BOOT0` | `1` |
+| `BOOT1` | `0` |
+
+Press the onboard `RESET` button to boot into programming mode.
+
+> ⚠️ Pressing the onboard `RESET` button is mandatory to enter programming mode.
+  If the device restarts after a succesful flash it won't enter programming mode again.
+  Hence the onboard `RESET` button has to be pressed again to enter programming mode.
+
 **Platform.IO:**
 Click the button that says `Upload`.
 
@@ -29,21 +57,38 @@ Run
 pio run --target upload
 ```
 
+### Uploading using ST-LINK
+
+**TBD**
+
 ### Serial Monitor
 
 PIO reads the baud rate from `platformio.ini` and hence does not require additional configuration.
 
+### Serial Monitor using a USB to 3.3V TTL adapter
+
+Connect the USB to 3.3V TTL adapter to the STM32 Bluepill
+
+| STM32 Bluepill | USB to 3.3V TTL adapter |
+| --- | --- |
+| `3.3V` | `3.3V` |
+| `GND` | `GND` |
+| `A2` | `RXD-->` |
+| `A3` | `TXD<--` |
+
 **Platform.IO:**
-Make sure you have the ESP connected via USB.
-Then, click the button that says `Serial Monitor`
+Click the button that says `Serial Monitor`
 
 **CLI:**
-Make sure you have the ESP connected via USB.
-Then, run
+Run
 
 ```sh
 pio device monitor
 ```
+
+### Serial Monitor using ST-LINK
+
+**TBD**
 
 ## Additional step for PlatformIO Core (CLI) setup
 
