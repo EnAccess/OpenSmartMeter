@@ -44,6 +44,10 @@ Set the device into programming mode, by adjusting the onboard jumper configurat
 
 Press the onboard `RESET` button to boot into programming mode.
 
+> ⚠️ Pressing the onboard `RESET` button is mandatory to enter programming mode.
+  If the device restarts after a succesful flash it won't enter programming mode again.
+  Hence the onboard `RESET` button has to be pressed again to enter programming mode.
+
 **Platform.IO:**
 Click the button that says `Upload`.
 
