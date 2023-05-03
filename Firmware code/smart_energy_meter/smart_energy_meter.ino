@@ -1,7 +1,4 @@
 // defines
-#define TOKEN "5GBw6kqNCN93BN3nuuvJ"  //"YOUR_ACCESS_TOKEN"
-#define THINGSBOARD_SERVER "demo.thingsboard.io"
-#define THINGSBOARD_PORT 80
 
 // Arduino base libraries
 #include <Wire.h>
@@ -12,7 +9,6 @@
 #include <Keypad.h>
 #include <LiquidCrystal.h>
 #include <RTClib.h>
-#include <ThingsBoard.h>
 
 // OpenSmartMeter libraries
 #include "credit.hpp"
@@ -23,6 +19,7 @@
 #include "relay.hpp"
 #include "remote.hpp"
 #include "sts_token.hpp"
+#include "thingsboard.hpp"
 
 HardwareSerial Serial2(PA3, PA2);
 
@@ -42,8 +39,6 @@ byte rowPins[ROWS] = {PB9, PB8, PB1, PB0};
 byte colPins[COLS] = {PA7, PA6, PA5, PC13};
 Keypad customKeypad =
     Keypad(makeKeymap(hexaKeys), rowPins, colPins, ROWS, COLS);
-
-ThingsBoard tb(client);
 
 // SIM card PIN (leave empty, if not defined)
 const char simPIN[] = "";
