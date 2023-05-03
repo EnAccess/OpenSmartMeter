@@ -20,13 +20,12 @@
 #include <TinyGsmClient.h>
 
 // OpenSmartMeter libraries
-#include "SAM_UART.h"
+#include "credit.hpp"
 #include "global_defines.hpp"
+#include "power.hpp"
 #include "relay.hpp"
 
 HardwareSerial Serial2(PA3, PA2);
-HardwareSerial ATM90E26(PB11, PB10);
-ATM90E26_UART AFE_chip(&ATM90E26);
 
 // keypad
 #define Lengths 20
@@ -71,7 +70,6 @@ unsigned int over_load = 25000;
 unsigned int low_voltage = 150;
 unsigned int low_freq = 45;
 
-unsigned int tariff = 70;
 String stat = "sucess";
 String sts_data = "";
 String sts_data1 = "";
@@ -89,9 +87,8 @@ LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
 unsigned int encodernew = 0;
 unsigned long eepromupdate_time, eeprom_sts_data, prev_energypulse,
     new_energypulse, topupnew = 0;
-float deduction_factor, topup, creditt = 0.0;
-float lcd_creditt, totalbill, energy_billing, dcode, ENERGY, ENERGY2,
-    powerFactor, freq, btValue = 0.0;
+float deduction_factor, topup = 0.0;
+float lcd_creditt, totalbill, energy_billing, dcode, ENERGY2, btValue = 0.0;
 float prevpulsecounttime, pulsetiming, pulsecounttime = 0.0;
 unsigned long LCD_scroll_time =
     5000;  // 10sec according to Nigeria metering code
@@ -99,7 +96,7 @@ unsigned long lcdtime_now, prev_lcdtime = 0;
 unsigned long lcd_refresh, lcd_reset, mains_inputV, cnt, p_time = 0;
 unsigned long set_inv_wattage, pv_v, u, mains_v, j, h, m, sts_mode = 0;
 float cu, dc, t_cu, btt, currinv_adc, currmains_adc, p_mains, curr_mains_Value,
-    curr_inv_Value, init_curr, billing, curr, true_power2, currnew = 0.0;
+    curr_inv_Value, init_curr, true_power2, currnew = 0.0;
 float pvvalue, mainsvalue, curinv_v, curnep_v, relcur, but, bat_curr,
     bat_curr_value, p_inv, inv_power, mains_power = 0.000;
 byte internetpost_time, internetget_time, internetenergy_time, credit_time,
@@ -109,11 +106,11 @@ unsigned int pulse_delay = 200;
 unsigned long sts_value, convertedsts_day, pulsetime, current_time, previous,
     previousenergytime, previousenergytime2, energytime, energytime2,
     currentenergytime, currentenergytime2 = 0;
-byte get_credit, fault, fault_written = 0;
+byte get_credit, fault_written = 0;
 int confirmkey, tamper_log = 0;
 byte token_used, thingsboard_check = 0;
 
-float true_power, mains_input_value, lastmonth_KWH = 0.0;
+float lastmonth_KWH = 0.0;
 float pulsetime_now, prev_pulsetime = 0.0;
 long warn_now = 0;
 int tamper_location = 5;
