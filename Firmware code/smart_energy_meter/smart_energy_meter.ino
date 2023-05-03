@@ -8,7 +8,6 @@
 #include <ArduinoHttpClient.h>
 #include <Keypad.h>
 #include <LiquidCrystal.h>
-#include <RTClib.h>
 
 // OpenSmartMeter libraries
 #include "credit.hpp"
@@ -20,6 +19,7 @@
 #include "remote.hpp"
 #include "sts_token.hpp"
 #include "thingsboard.hpp"
+#include "time_management.hpp"
 
 HardwareSerial Serial2(PA3, PA2);
 
@@ -50,9 +50,7 @@ unsigned int low_freq = 45;
 
 String sts_data1 = "";
 
-RTC_DS1307 rtc;
 char daysOfTheWeek[7][12] = {"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"};
-unsigned int hours, minutes, seconds, rtcday = 0;
 
 unsigned long eepromupdate_time, prev_energypulse, new_energypulse = 0;
 float deduction_factor = 0.0;
@@ -76,12 +74,10 @@ unsigned long sts_value, pulsetime, current_time, previous, previousenergytime,
     currentenergytime2 = 0;
 byte fault_written = 0;
 int tamper_log = 0;
-byte token_used, thingsboard_check = 0;
+byte token_used = 0;
 
-float lastmonth_KWH = 0.0;
 float pulsetime_now, prev_pulsetime = 0.0;
 int tamper_location = 5;
-long nw_month_cnt, rtcmonth, rtcnewmonth, billing_date = 0;
 byte token_ok = 0;
 
 unsigned long token_eeprom_location = 20;
