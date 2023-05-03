@@ -1,3 +1,25 @@
+#pragma once
+
+// defines
+
+// Arduino base libraries
+
+// third party libraries
+#include <RTClib.h>
+
+// OpenSmartMeter libraries
+#include "mem_init.hpp"
+#include "thingsboard.hpp"
+
+RTC_DS1307 rtc;
+
+unsigned int hours, minutes, seconds, rtcday = 0;
+long nw_month_cnt, rtcmonth, rtcnewmonth, billing_date = 0;
+
+byte thingsboard_check = 0;
+
+float lastmonth_KWH = 0.0;
+
 void get_time() {
   DateTime now = rtc.now();
   hours = (now.hour());
