@@ -11,7 +11,6 @@
 #include "Arduino.h"
 
 // third party libraries
-#include <AT24CX.h>
 #include <ArduinoHttpClient.h>
 #include <Keypad.h>
 #include <LiquidCrystal.h>
@@ -22,16 +21,19 @@
 // OpenSmartMeter libraries
 #include "credit.hpp"
 #include "global_defines.hpp"
+#include "lcd_init.hpp"
+#include "mem_init.hpp"
 #include "power.hpp"
 #include "relay.hpp"
+#include "sts_token.hpp"
 
 HardwareSerial Serial2(PA3, PA2);
 
 // keypad
 #define Lengths 20
 char Data[Lengths];
-int lcd_count, convertedsts_data = 0;
-byte data_count, data_count2, dt, sts_accept, encoder = 0;
+int lcd_count = 0;
+byte data_count, data_count2, dt, encoder = 0;
 char customKey;
 const byte ROWS = 4;
 const byte COLS = 4;
@@ -71,24 +73,15 @@ unsigned int low_voltage = 150;
 unsigned int low_freq = 45;
 
 String stat = "sucess";
-String sts_data = "";
 String sts_data1 = "";
-int private_stskey = 109;
 
 RTC_DS1307 rtc;
 char daysOfTheWeek[7][12] = {"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"};
 unsigned int hours, minutes, seconds, rtcday = 0;
-// EEPROM object
-AT24CX mem;
 
-const int rs = PB3, en = PA15, d4 = PA8, d5 = PB15, d6 = PB14, d7 = PB13;
-LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
-
-unsigned int encodernew = 0;
-unsigned long eepromupdate_time, eeprom_sts_data, prev_energypulse,
-    new_energypulse, topupnew = 0;
-float deduction_factor, topup = 0.0;
-float lcd_creditt, totalbill, energy_billing, dcode, ENERGY2, btValue = 0.0;
+unsigned long eepromupdate_time, prev_energypulse, new_energypulse = 0;
+float deduction_factor = 0.0;
+float lcd_creditt, totalbill, energy_billing, ENERGY2, btValue = 0.0;
 float prevpulsecounttime, pulsetiming, pulsecounttime = 0.0;
 unsigned long LCD_scroll_time =
     5000;  // 10sec according to Nigeria metering code
@@ -103,29 +96,24 @@ byte internetpost_time, internetget_time, internetenergy_time, credit_time,
     sucess, parameters = 0;
 unsigned int pulse, pulse_set = 0;
 unsigned int pulse_delay = 200;
-unsigned long sts_value, convertedsts_day, pulsetime, current_time, previous,
-    previousenergytime, previousenergytime2, energytime, energytime2,
-    currentenergytime, currentenergytime2 = 0;
-byte get_credit, fault_written = 0;
-int confirmkey, tamper_log = 0;
+unsigned long sts_value, pulsetime, current_time, previous, previousenergytime,
+    previousenergytime2, energytime, energytime2, currentenergytime,
+    currentenergytime2 = 0;
+byte fault_written = 0;
+int tamper_log = 0;
 byte token_used, thingsboard_check = 0;
 
 float lastmonth_KWH = 0.0;
 float pulsetime_now, prev_pulsetime = 0.0;
-long warn_now = 0;
 int tamper_location = 5;
-long warntime, nw_month_cnt, rtcmonth, rtcnewmonth, billing_date = 0;
-byte c_chek, tp_fetch, token_ok = 0;
+long nw_month_cnt, rtcmonth, rtcnewmonth, billing_date = 0;
+byte tp_fetch, token_ok = 0;
 
 unsigned long token_eeprom_location = 20;
 unsigned long eeprom_location_cnt = 40;
-unsigned long credit_eeprom_location = 9;
 
 //    for meter
 String meter = "MT100";
-unsigned long meter_no = 100;
-unsigned long multiplier = 100;  // to raise meter no to 5 digit
-unsigned int meter_no_count = 3;
 unsigned long sts_eeprom_fetched = 0;
 
 byte fe1[8] = {0b00011, 0b00011, 0b00011, 0b00011,
