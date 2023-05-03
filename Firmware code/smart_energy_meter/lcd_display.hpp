@@ -1,3 +1,27 @@
+#pragma once
+
+// defines
+
+// Arduino base libraries
+
+// third party libraries
+
+// OpenSmartMeter libraries
+#include "lcd_init.hpp"
+#include "mem_init.hpp"
+#include "time_management.hpp"
+#include "token_management.hpp"
+
+int tamper_log = 0;
+int tamper_location = 5;
+
+unsigned long lcdtime_now, prev_lcdtime = 0;
+unsigned long cnt = 0;
+float btt = 0.0;
+
+unsigned long LCD_scroll_time =
+    5000;  // 10sec according to Nigeria metering code
+
 void lcd_update() {
   lcdtime_now = millis();
   if (lcdtime_now - prev_lcdtime >= LCD_scroll_time) {
