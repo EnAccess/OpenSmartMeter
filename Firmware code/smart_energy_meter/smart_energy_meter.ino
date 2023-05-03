@@ -6,11 +6,11 @@
 
 // third party libraries
 #include <ArduinoHttpClient.h>
-#include <LiquidCrystal.h>
 
 // OpenSmartMeter libraries
 #include "credit.hpp"
 #include "global_defines.hpp"
+#include "lcd_display.hpp"
 #include "lcd_init.hpp"
 #include "mem_init.hpp"
 #include "power.hpp"
@@ -41,12 +41,9 @@ unsigned long eepromupdate_time, prev_energypulse, new_energypulse = 0;
 float deduction_factor = 0.0;
 float lcd_creditt, totalbill, energy_billing, ENERGY2, btValue = 0.0;
 float prevpulsecounttime, pulsetiming, pulsecounttime = 0.0;
-unsigned long LCD_scroll_time =
-    5000;  // 10sec according to Nigeria metering code
-unsigned long lcdtime_now, prev_lcdtime = 0;
-unsigned long lcd_refresh, lcd_reset, mains_inputV, cnt, p_time = 0;
+unsigned long lcd_refresh, lcd_reset, mains_inputV, p_time = 0;
 unsigned long set_inv_wattage, pv_v, u, mains_v, j, h, m = 0;
-float cu, dc, t_cu, btt, currinv_adc, currmains_adc, p_mains, curr_mains_Value,
+float cu, dc, t_cu, currinv_adc, currmains_adc, p_mains, curr_mains_Value,
     curr_inv_Value, init_curr, true_power2, currnew = 0.0;
 float pvvalue, mainsvalue, curinv_v, curnep_v, relcur, but, bat_curr,
     bat_curr_value, p_inv, inv_power, mains_power = 0.000;
@@ -58,10 +55,8 @@ unsigned long pulsetime, current_time, previous, previousenergytime,
     previousenergytime2, energytime, energytime2, currentenergytime,
     currentenergytime2 = 0;
 byte fault_written = 0;
-int tamper_log = 0;
 
 float pulsetime_now, prev_pulsetime = 0.0;
-int tamper_location = 5;
 byte token_ok = 0;
 
 byte fe1[8] = {0b00011, 0b00011, 0b00011, 0b00011,
