@@ -66,9 +66,3 @@ void urgeent() {
     }
   }
 }
-
-void buss() {
-  digitalWrite(buzzer, HIGH);
-  delay(10);
-  digitalWrite(buzzer, LOW);
-}
