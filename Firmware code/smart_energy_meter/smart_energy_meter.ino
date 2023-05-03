@@ -1,7 +1,4 @@
 // defines
-#define TINY_GSM_MODEM_SIM800
-#define TINY_GSM_RX_BUFFER 60  // Set RX buffer to 1Kb
-
 #define TOKEN "5GBw6kqNCN93BN3nuuvJ"  //"YOUR_ACCESS_TOKEN"
 #define THINGSBOARD_SERVER "demo.thingsboard.io"
 #define THINGSBOARD_PORT 80
@@ -16,7 +13,6 @@
 #include <LiquidCrystal.h>
 #include <RTClib.h>
 #include <ThingsBoard.h>
-#include <TinyGsmClient.h>
 
 // OpenSmartMeter libraries
 #include "credit.hpp"
@@ -25,6 +21,7 @@
 #include "mem_init.hpp"
 #include "power.hpp"
 #include "relay.hpp"
+#include "remote.hpp"
 #include "sts_token.hpp"
 
 HardwareSerial Serial2(PA3, PA2);
@@ -46,33 +43,16 @@ byte colPins[COLS] = {PA7, PA6, PA5, PC13};
 Keypad customKeypad =
     Keypad(makeKeymap(hexaKeys), rowPins, colPins, ROWS, COLS);
 
-const char apn[] = "terminal";
-const char user[] = "";
-const char pass[] = "";
-
-TinyGsm modem(Serial1);
-TinyGsmClient client(modem);
 ThingsBoard tb(client);
-bool modemConnected = false;
 
 // SIM card PIN (leave empty, if not defined)
 const char simPIN[] = "";
-
-const char server[] =
-    "paygotesting.000webhostapp.com";  // domain name: example.com,
-                                       // maker.ifttt.com, etc
-const char resource[] =
-    "/subscribe.php";  // resource path, for example: /post-data.php
-const int port = 80;   // server port number
-HttpClient http(client, server, port);
-String apiKeyValue = "tPmAT5Ab3j7F9";
 
 unsigned int over_voltage = 250;
 unsigned int over_load = 25000;
 unsigned int low_voltage = 150;
 unsigned int low_freq = 45;
 
-String stat = "sucess";
 String sts_data1 = "";
 
 RTC_DS1307 rtc;
@@ -107,13 +87,12 @@ float lastmonth_KWH = 0.0;
 float pulsetime_now, prev_pulsetime = 0.0;
 int tamper_location = 5;
 long nw_month_cnt, rtcmonth, rtcnewmonth, billing_date = 0;
-byte tp_fetch, token_ok = 0;
+byte token_ok = 0;
 
 unsigned long token_eeprom_location = 20;
 unsigned long eeprom_location_cnt = 40;
 
 //    for meter
-String meter = "MT100";
 unsigned long sts_eeprom_fetched = 0;
 
 byte fe1[8] = {0b00011, 0b00011, 0b00011, 0b00011,
