@@ -29,8 +29,6 @@ byte data_count2, encoder = 0;
 // SIM card PIN (leave empty, if not defined)
 const char simPIN[] = "";
 
-
-
 String sts_data1 = "";
 
 char daysOfTheWeek[7][12] = {"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"};
