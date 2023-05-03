@@ -1,3 +1,43 @@
+#pragma once
+
+// defines
+
+// Arduino base libraries
+
+// third party libraries
+
+// OpenSmartMeter libraries
+#include "credit.hpp"
+#include "global_defines.hpp"
+#include "lcd_init.hpp"
+#include "mem_init.hpp"
+
+String sts_data = "";
+int confirmkey = 0;
+int private_stskey = 109;
+byte sts_accept = 0;
+byte c_chek = 0;
+
+int convertedsts_data = 0;
+unsigned long convertedsts_day = 0;
+unsigned long eeprom_sts_data = 0;
+
+unsigned int encodernew = 0;
+float dcode = 0.0;
+
+unsigned long meter_no = 100;
+unsigned long multiplier = 100;  // to raise meter no to 5 digit
+unsigned int meter_no_count = 3;
+
+float topup = 0.0;
+unsigned long topupnew = 0;
+byte get_credit = 0;
+
+long warntime = 0;
+long warn_now = 0;
+
+unsigned long credit_eeprom_location = 9;
+
 void STStoken_decode() {
   String keycofirmation = sts_data.substring(0, 3);
   int convertekeycofirmation = keycofirmation.toInt();
