@@ -25,6 +25,7 @@ unsigned long eeprom_sts_data = 0;
 unsigned int encodernew = 0;
 float dcode = 0.0;
 
+String meter = "MT100";
 unsigned long meter_no = 100;
 unsigned long multiplier = 100;  // to raise meter no to 5 digit
 unsigned int meter_no_count = 3;
