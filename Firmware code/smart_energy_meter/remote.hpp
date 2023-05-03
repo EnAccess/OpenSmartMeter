@@ -5,11 +5,14 @@
 #define TINY_GSM_RX_BUFFER 60  // Set RX buffer to 1Kb
 
 // Arduino base libraries
+#include "Arduino.h"
 
 // third party libraries
 #include <TinyGsmClient.h>
 
 // OpenSmartMeter libraries
+#include "lcd_init.hpp"
+#include "mem_init.hpp"
 #include "sts_token.hpp"
 
 const char apn[] = "terminal";
