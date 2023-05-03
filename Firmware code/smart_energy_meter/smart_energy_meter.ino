@@ -6,7 +6,6 @@
 
 // third party libraries
 #include <ArduinoHttpClient.h>
-#include <Keypad.h>
 #include <LiquidCrystal.h>
 
 // OpenSmartMeter libraries
@@ -20,25 +19,11 @@
 #include "sts_token.hpp"
 #include "thingsboard.hpp"
 #include "time_management.hpp"
+#include "token_management.hpp"
 
 HardwareSerial Serial2(PA3, PA2);
 
-// keypad
-#define Lengths 20
-char Data[Lengths];
-int lcd_count = 0;
-byte data_count, data_count2, dt, encoder = 0;
-char customKey;
-const byte ROWS = 4;
-const byte COLS = 4;
-char hexaKeys[ROWS][COLS] = {{'1', '2', '3', 'A'},
-                             {'4', '5', '6', 'B'},
-                             {'7', '8', '9', 'C'},
-                             {'*', '0', '#', 'D'}};
-byte rowPins[ROWS] = {PB9, PB8, PB1, PB0};
-byte colPins[COLS] = {PA7, PA6, PA5, PC13};
-Keypad customKeypad =
-    Keypad(makeKeymap(hexaKeys), rowPins, colPins, ROWS, COLS);
+byte data_count2, encoder = 0;
 
 // SIM card PIN (leave empty, if not defined)
 const char simPIN[] = "";
@@ -60,31 +45,24 @@ unsigned long LCD_scroll_time =
     5000;  // 10sec according to Nigeria metering code
 unsigned long lcdtime_now, prev_lcdtime = 0;
 unsigned long lcd_refresh, lcd_reset, mains_inputV, cnt, p_time = 0;
-unsigned long set_inv_wattage, pv_v, u, mains_v, j, h, m, sts_mode = 0;
+unsigned long set_inv_wattage, pv_v, u, mains_v, j, h, m = 0;
 float cu, dc, t_cu, btt, currinv_adc, currmains_adc, p_mains, curr_mains_Value,
     curr_inv_Value, init_curr, true_power2, currnew = 0.0;
 float pvvalue, mainsvalue, curinv_v, curnep_v, relcur, but, bat_curr,
     bat_curr_value, p_inv, inv_power, mains_power = 0.000;
 byte internetpost_time, internetget_time, internetenergy_time, credit_time,
-    sucess, parameters = 0;
+    sucess = 0;
 unsigned int pulse, pulse_set = 0;
 unsigned int pulse_delay = 200;
-unsigned long sts_value, pulsetime, current_time, previous, previousenergytime,
+unsigned long pulsetime, current_time, previous, previousenergytime,
     previousenergytime2, energytime, energytime2, currentenergytime,
     currentenergytime2 = 0;
 byte fault_written = 0;
 int tamper_log = 0;
-byte token_used = 0;
 
 float pulsetime_now, prev_pulsetime = 0.0;
 int tamper_location = 5;
 byte token_ok = 0;
-
-unsigned long token_eeprom_location = 20;
-unsigned long eeprom_location_cnt = 40;
-
-//    for meter
-unsigned long sts_eeprom_fetched = 0;
 
 byte fe1[8] = {0b00011, 0b00011, 0b00011, 0b00011,
                0b00011, 0b11111, 0b11111, 0b11111};
