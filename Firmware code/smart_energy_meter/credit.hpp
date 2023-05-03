@@ -1,3 +1,20 @@
+#pragma once
+
+// defines
+
+// Arduino base libraries
+
+// third party libraries
+
+// OpenSmartMeter libraries
+#include "power.hpp"
+#include "relay.hpp"
+
+float billing = 0.0;
+unsigned int tariff = 70;
+float creditt = 0.0;
+byte fault = 0;
+
 void credit_formular() {
   if (true_power > 0) {
     ENERGY = ENERGY + ((true_power) /
