@@ -5,6 +5,7 @@
 // Arduino base libraries
 
 // third party libraries
+#include <LiquidCrystal.h>
 
 // OpenSmartMeter libraries
 
