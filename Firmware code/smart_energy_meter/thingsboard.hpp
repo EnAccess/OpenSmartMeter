@@ -1,3 +1,36 @@
+#pragma once
+
+// defines
+#define TOKEN "5GBw6kqNCN93BN3nuuvJ"  //"YOUR_ACCESS_TOKEN"
+#define THINGSBOARD_SERVER "demo.thingsboard.io"
+#define THINGSBOARD_PORT 80
+
+// Arduino base libraries
+
+// third party libraries
+#include <ThingsBoard.h>
+
+// OpenSmartMeter libraries
+#include "lcd_init.hpp"
+#include "remote.hpp"
+
+ThingsBoard tb(client);
+
+void reconnect() {
+  while (!tb.connected()) {
+    if (tb.connect(THINGSBOARD_SERVER, TOKEN)) {
+      // subscribe without callbacks
+      RPC_Callback callbacks[0] = {};
+      tb.RPC_Subscribe(callbacks, 0);
+
+      lcd.setCursor(0, 0);
+      lcd.print("  reconnected   ");
+    } else {
+      delay(5000);
+    }
+  }
+}
+
 void post_to_thingsboard() {
   delay(1000);
   if (!modemConnected) {
@@ -35,19 +68,4 @@ void post_to_thingsboard() {
   tb.sendTelemetryFloat("energy", ENERGY);
   tb.sendTelemetryFloat("credit", creditt);
   tb.loop();
-}
-
-void reconnect() {
-  while (!tb.connected()) {
-    if (tb.connect(THINGSBOARD_SERVER, TOKEN)) {
-      // subscribe without callbacks
-      RPC_Callback callbacks[0] = {};
-      tb.RPC_Subscribe(callbacks, 0);
-
-      lcd.setCursor(0, 0);
-      lcd.print("  reconnected   ");
-    } else {
-      delay(5000);
-    }
-  }
 }
