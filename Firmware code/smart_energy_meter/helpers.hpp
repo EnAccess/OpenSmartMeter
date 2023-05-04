@@ -1,3 +1,32 @@
+#pragma once
+
+// defines
+
+// Arduino base libraries
+
+// third party libraries
+
+// OpenSmartMeter libraries
+#include "credit.hpp"
+#include "lcd_display.hpp"
+#include "power.hpp"
+#include "sts_token.hpp"
+#include "token_management.hpp"
+
+float pulsetime_now = 0.0;
+float prev_pulsetime = 0.0;
+
+byte token_ok = 0;
+
+float btValue = 0.0;
+
+byte fault_written = 0;
+
+unsigned int over_voltage = 250;
+unsigned int over_load = 25000;
+unsigned int low_voltage = 150;
+unsigned int low_freq = 45;
+
 void urgeent() {
   if (true_power < 15) {
     true_power = 0;
