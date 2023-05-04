@@ -7,11 +7,11 @@
 // third party libraries
 
 // OpenSmartMeter libraries
-#include "power.hpp"
 #include "credit.hpp"
-#include "token_management.hpp"
-#include "sts_token.hpp"
 #include "lcd_display.hpp"
+#include "power.hpp"
+#include "sts_token.hpp"
+#include "token_management.hpp"
 
 float pulsetime_now = 0.0;
 float prev_pulsetime = 0.0;
