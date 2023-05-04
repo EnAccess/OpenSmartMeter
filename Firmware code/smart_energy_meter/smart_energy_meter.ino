@@ -8,9 +8,9 @@
 #include <ArduinoHttpClient.h>
 
 // OpenSmartMeter libraries
-#include "helpers.hpp"
 #include "credit.hpp"
 #include "global_defines.hpp"
+#include "helpers.hpp"
 #include "lcd_display.hpp"
 #include "lcd_init.hpp"
 #include "mem_init.hpp"
@@ -50,7 +50,6 @@ unsigned int pulse_delay = 200;
 unsigned long pulsetime, current_time, previous, previousenergytime,
     previousenergytime2, energytime, energytime2, currentenergytime,
     currentenergytime2 = 0;
-
 
 byte fe1[8] = {0b00011, 0b00011, 0b00011, 0b00011,
                0b00011, 0b11111, 0b11111, 0b11111};
@@ -188,4 +187,3 @@ void loop() {
     gsm_func();
   }
 }
-
