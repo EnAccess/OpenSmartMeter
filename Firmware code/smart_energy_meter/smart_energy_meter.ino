@@ -10,6 +10,7 @@
 // OpenSmartMeter libraries
 #include "credit.hpp"
 #include "global_defines.hpp"
+#include "helpers.hpp"
 #include "lcd_display.hpp"
 #include "lcd_init.hpp"
 #include "mem_init.hpp"
@@ -28,18 +29,13 @@ byte data_count2, encoder = 0;
 // SIM card PIN (leave empty, if not defined)
 const char simPIN[] = "";
 
-unsigned int over_voltage = 250;
-unsigned int over_load = 25000;
-unsigned int low_voltage = 150;
-unsigned int low_freq = 45;
-
 String sts_data1 = "";
 
 char daysOfTheWeek[7][12] = {"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"};
 
 unsigned long eepromupdate_time, prev_energypulse, new_energypulse = 0;
 float deduction_factor = 0.0;
-float lcd_creditt, totalbill, energy_billing, ENERGY2, btValue = 0.0;
+float lcd_creditt, totalbill, energy_billing, ENERGY2 = 0.0;
 float prevpulsecounttime, pulsetiming, pulsecounttime = 0.0;
 unsigned long lcd_refresh, lcd_reset, mains_inputV, p_time = 0;
 unsigned long set_inv_wattage, pv_v, u, mains_v, j, h, m = 0;
@@ -54,10 +50,6 @@ unsigned int pulse_delay = 200;
 unsigned long pulsetime, current_time, previous, previousenergytime,
     previousenergytime2, energytime, energytime2, currentenergytime,
     currentenergytime2 = 0;
-byte fault_written = 0;
-
-float pulsetime_now, prev_pulsetime = 0.0;
-byte token_ok = 0;
 
 byte fe1[8] = {0b00011, 0b00011, 0b00011, 0b00011,
                0b00011, 0b11111, 0b11111, 0b11111};
