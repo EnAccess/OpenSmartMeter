@@ -29,21 +29,6 @@ jobs:
       - name: Run editorconfig-checker
         working-directory: Firmware code/smart_energy_meter
         run: ec
-  compile-firmware-arduino-cli:
-    name: Compile Firmware with Arduino CLI
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Install Arduino CLI
-        uses: arduino/setup-arduino-cli@v1
-      - name: Install board and platform
-        working-directory: Firmware code/smart_energy_meter
-        run: |
-          make install
-      - name: Compile the firmware
-        working-directory: Firmware code/smart_energy_meter
-        run: |
-          make compile
   compile-firmware-platform-io:
     name: Compile Firmware with PlatformIO
     runs-on: ubuntu-latest
