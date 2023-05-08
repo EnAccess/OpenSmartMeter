@@ -80,7 +80,7 @@ class ATM90E26_UART {
   unsigned short FETCH_MeterCSTwo();
 
  private:
-  unsigned short AFECHIP(unsigned char RW, unsigned char address,
+  unsigned short AFECHIP( unsigned char RW, unsigned char address,
                          unsigned short val);
   Stream* ATM_UART;
 };

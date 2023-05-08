@@ -16,7 +16,7 @@ void relay_on() {
   if (on_exec == 0) {
     digitalWrite(relaya, HIGH);
     digitalWrite(relayb, LOW);
-    delay(200);
+    delay(200 );
     digitalWrite(relaya, LOW);
     digitalWrite(relayb, LOW);
     on_exec = 1;
