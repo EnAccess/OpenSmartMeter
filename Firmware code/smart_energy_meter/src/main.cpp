@@ -24,33 +24,6 @@
 
 HardwareSerial Serial2(PA3, PA2);
 
-byte data_count2, encoder = 0;
-
-// SIM card PIN (leave empty, if not defined)
-const char simPIN[] = "";
-
-String sts_data1 = "";
-
-char daysOfTheWeek[7][12] = {"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"};
-
-unsigned long eepromupdate_time, prev_energypulse, new_energypulse = 0;
-float deduction_factor = 0.0;
-float lcd_creditt, totalbill, energy_billing, ENERGY2 = 0.0;
-float prevpulsecounttime, pulsetiming, pulsecounttime = 0.0;
-unsigned long lcd_refresh, lcd_reset, mains_inputV, p_time = 0;
-unsigned long set_inv_wattage, pv_v, u, mains_v, j, h, m = 0;
-float cu, dc, t_cu, currinv_adc, currmains_adc, p_mains, curr_mains_Value,
-    curr_inv_Value, init_curr, true_power2, currnew = 0.0;
-float pvvalue, mainsvalue, curinv_v, curnep_v, relcur, but, bat_curr,
-    bat_curr_value, p_inv, inv_power, mains_power = 0.000;
-byte internetpost_time, internetget_time, internetenergy_time, credit_time,
-    sucess = 0;
-unsigned int pulse, pulse_set = 0;
-unsigned int pulse_delay = 200;
-unsigned long pulsetime, current_time, previous, previousenergytime,
-    previousenergytime2, energytime, energytime2, currentenergytime,
-    currentenergytime2 = 0;
-
 byte fe1[8] = {0b00011, 0b00011, 0b00011, 0b00011,
                0b00011, 0b11111, 0b11111, 0b11111};
 
