@@ -36,13 +36,14 @@ byte fe2[8] = {0b11111, 0b11111, 0b00000, 0b00000,
 byte fe4[8] = {0b01111, 0b01100, 0b01100, 0b00000,
                0b00000, 0b00000, 0b00000, 0b00000};
 
-void setup() {
+void setup()             
+{
   lcd.begin(16, 2);
   pinMode(buzzer, OUTPUT);
-  pinMode(relaya, OUTPUT);
+      pinMode(relaya, OUTPUT);
   pinMode(relayb, OUTPUT);
   pinMode(red_led, OUTPUT);
-  pinMode(green_led, OUTPUT);
+         pinMode(green_led, OUTPUT);
 
   digitalWrite(buzzer, HIGH);
 
