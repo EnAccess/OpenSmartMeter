@@ -1,3 +1,6 @@
+# MkDocs output
+site/
+
 # custom
 .DS_Store
 .pio/
