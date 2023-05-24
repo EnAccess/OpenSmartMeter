@@ -36,14 +36,13 @@ byte fe2[8] = {0b11111, 0b11111, 0b00000, 0b00000,
 byte fe4[8] = {0b01111, 0b01100, 0b01100, 0b00000,
                0b00000, 0b00000, 0b00000, 0b00000};
 
-void setup()             
-{
+void setup() {
   lcd.begin(16, 2);
   pinMode(buzzer, OUTPUT);
-      pinMode(relaya, OUTPUT);
+  pinMode(relaya, OUTPUT);
   pinMode(relayb, OUTPUT);
   pinMode(red_led, OUTPUT);
-         pinMode(green_led, OUTPUT);
+  pinMode(green_led, OUTPUT);
 
   digitalWrite(buzzer, HIGH);
 
@@ -52,7 +51,7 @@ void setup()
   lcd.createChar(2, fe3);
   lcd.createChar(3, fe4);
   lcd.setCursor(0, 0);
-  lcd.print("  DEVELOPED BY  ");
+  lcd.print("  DEVELOPED BY       ");
   lcd.setCursor(0, 1);
   lcd.print(" FIRST ELECTRIC ");
 
