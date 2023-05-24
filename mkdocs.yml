@@ -1,0 +1,20 @@
+# Project information
+site_name: OpenSmartMeter by EnAccess
+site_url: https://enaccess.github.io/OpenSmartMeter/
+site_description: >-
+  This is the documentation for the OpenSmartMeter by EnAccess
+
+# Repository
+repo_name: EnAccess/OpenSmartMeter
+repo_url: https://github.com/EnAccess/OpenSmartMeter
+
+theme:
+  name: material
+
+# Customization
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/EnAccess
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/enaccessfdn
