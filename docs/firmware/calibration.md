@@ -38,6 +38,9 @@ note the current measurements on the ASIC and the ammeter.
   With 1R resistors use 9V AC as input. The Voltage reference signal to the ASIC and current into the calibration resistors can come from separate transformers (ideally the same one is used).
 - Once a few actual vs measured current values are collected use an equation similar to the `UGain` one to compute `IGain`.
     - IGain_n = (Current Actual / Current Measured) * IGain_o where IGain_n is the new current gain and IGain_o is the old current gain.
+    $$
+    \verb|IGain_new| = \left( \frac{Current_{Actual}}{Current_{Measured}} \right) * \verb|IGain_old|
+    $$
     - Update Checksum as appropriate using built in [library methods](https://github.com/whatnick/ATM90E26_Arduino/blob/master/docs/Calibration_Software.md)
 
 ### Calibrating power
