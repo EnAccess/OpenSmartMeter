@@ -7,9 +7,19 @@ site_description: >-
 # Repository
 repo_name: EnAccess/OpenSmartMeter
 repo_url: https://github.com/EnAccess/OpenSmartMeter
+edit_uri: edit/main/docs/
 
 theme:
   name: material
+  palette:
+    primary: light blue
+  features:
+    - content.action.edit
+    - content.action.view
+    - navigation.tabs
+
+markdown_extensions:
+  - admonition
 
 # Customization
 extra:
@@ -18,3 +28,10 @@ extra:
       link: https://github.com/EnAccess
     - icon: fontawesome/brands/twitter
       link: https://twitter.com/enaccessfdn
+
+# Page tree
+nav:
+  # - Home: index.md
+  - Firmware Documentation: firmware/index.md
+  - Hardware Documentation: hardware/index.md
+  - Web Software and API documentation: backend/index.md
