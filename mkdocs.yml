@@ -31,7 +31,9 @@ extra:
 
 # Page tree
 nav:
-  # - Home: index.md
-  - Firmware Documentation: firmware/index.md
+  - Firmware Documentation:
+    - Accuracy Test and Compliance Report: firmware/accuracy_and_compliance_report.md
+    - Calibration: firmware/calibration.md
+    - Firmware Design: firmware/design.md
   - Hardware Documentation: hardware/index.md
   - Web Software and API documentation: backend/index.md
