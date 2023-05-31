@@ -9,24 +9,29 @@ repo_name: EnAccess/OpenSmartMeter
 repo_url: https://github.com/EnAccess/OpenSmartMeter
 edit_uri: edit/main/docs/
 
+# Configuration
 theme:
   name: material
+  icon:
+    repo: fontawesome/brands/github
   palette:
-    primary: light blue
+    # schema: enaccess
+    primary: custom
+    accent: custom
+  logo: assets/EnAccess_Logo_Digital_Inverse.svg
   features:
     - content.action.edit
     - content.action.view
+    - content.code.copy
+    - navigation.indexes
+    - navigation.sections
     - navigation.tabs
-
-markdown_extensions:
-  - admonition
-  - pymdownx.arithmatex:
-      generic: true
-
-extra_javascript:
-  - javascripts/mathjax.js
-  - https://polyfill.io/v3/polyfill.min.js?features=es6
-  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
+    # - toc.integrate
 
 # Customization
 extra:
@@ -36,6 +41,56 @@ extra:
     - icon: fontawesome/brands/twitter
       link: https://twitter.com/enaccessfdn
 
+extra_css:
+  - stylesheets/extra.css
+
+# Extensions
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:materialx.emoji.twemoji
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
+      user: EnAccess
+      repo: OpenSmartMeter
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist
+  - pymdownx.tilde
+
+# Extra stuff
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
 # Page tree
 nav:
   - Firmware Documentation:
@@ -44,3 +99,4 @@ nav:
     - Firmware Design: firmware/design.md
   - Hardware Documentation: hardware/index.md
   - Web Software and API documentation: backend/index.md
+  - Example: example.md
