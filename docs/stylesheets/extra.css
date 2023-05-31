@@ -1,0 +1,32 @@
+[data-md-color-scheme="default"] {
+    /* --md-primary-fg-color: #EE0F0F;
+    --md-primary-fg-color--light: #ECB7B7;
+    --md-primary-fg-color--dark: #90030C; */
+
+    --md-primary-fg-color: #1B75B9;
+    --md-primary-fg-color--light: #1B75B9;
+    --md-primary-fg-color--dark: #164669;
+    /* --md-primary-bg-color: hsla(0, 0%, 100%, 1); */
+    /* --md-primary-bg-color--light: hsla(0, 0%, 100%, 0.7); */
+
+    --md-accent-fg-color: #80A771;
+    /* --md-accent-fg-color--transparent: hsla(#{hex2hsl($clr-indigo-a200)}, 0.1); */
+    /* --md-accent-bg-color: hsla(0, 0%, 100%, 1); */
+    /* --md-accent-bg-color--light: hsla(0, 0%, 100%, 0.7); */
+
+    /* Footer color shades */
+    /* --md-footer-fg-color: hsla(0, 0%, 100%, 1); */
+    /* --md-footer-fg-color--light: hsla(0, 0%, 100%, 0.7); */
+    /* --md-footer-fg-color--lighter: hsla(0, 0%, 100%, 0.45); */
+    --md-footer-bg-color: #1B75B9;
+    --md-footer-bg-color--dark: #164669;
+}
+
+/* :root {
+    --md-primary-fg-color: #EE0F0F;
+    --md-primary-fg-color--light: #ECB7B7;
+    --md-primary-fg-color--dark: #90030C;
+
+    --md-footer-bg-color: #1B75B9;
+    --md-footer-bg-color--dark: #164669;
+} */
