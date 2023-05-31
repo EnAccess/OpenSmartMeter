@@ -192,7 +192,7 @@ $privatekey = 109;  // can be a number between 100 and 111
 
 The web platform is encrypted such that a meter can send or receive information from a webpage expect the API key used on the web page is same as the API key used on the firmware. The API key is changeable as desired in the subscribe.php under web software. The image is shown below.
 
-```php
+```php-inline
 $api_key_value = "tPmAT5Ab3j7F9";
 ```
 
