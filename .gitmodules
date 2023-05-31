@@ -1,0 +1,3 @@
+[submodule "Firmware code/smart_energy_meter/lib/OpenPAYGO-HW"]
+	path = Firmware code/smart_energy_meter/lib/OpenPAYGO-HW
+	url = git@github.com:EnAccess/OpenPAYGO-HW.git
