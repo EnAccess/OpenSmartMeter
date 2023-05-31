@@ -22,7 +22,11 @@ theme:
   features:
     - content.action.edit
     - content.action.view
+    # Disabled to prevent automatic inlining
+    # - content.code.annotate
     - content.code.copy
+    - content.tabs.link
+    - navigation.footer
     - navigation.indexes
     - navigation.sections
     - navigation.tabs
@@ -31,6 +35,7 @@ theme:
     - search.share
     - search.suggest
     - toc.follow
+    # I find this has a weird look and feel, but can be enabled.
     # - toc.integrate
 
 # Customization
