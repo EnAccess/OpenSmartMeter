@@ -116,9 +116,7 @@ _Figure 11: Paystack Landing page_
 
 Developer need to login to the Paystack account and navigate to settings, [API keys & webhooks](https://dashboard.paystack.com/#/settings/developer), then copy the test public key and put in _initialize.php_ code under the web software. The public key to be replaced looks like the below.
 
-![](RackMultipart20230531-1-pxi3mo_html_a0f751c4dd313271.png)
-
-FIXME
+![image](https://github.com/EnAccess/OpenSmartMeter/assets/14202480/c429bfca-4d23-45ef-8a9b-5680d179bf80)
 
 Once this is done, all transaction done on the webpage will be paid to the developers demo account, the public key and Paystack account setup is a demo version, to receive real payment into live account, developer needs to submit compliance form and go live by navigating to settings, accounts and fill/upload the necessary document to take account live and receive live payments.
 
