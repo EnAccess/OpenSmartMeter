@@ -22,6 +22,13 @@
 #include "time_management.hpp"
 #include "token_management.hpp"
 
+extern "C" {
+#include <opaygo_core.h>
+#include <opaygo_decoder.h>
+#include <device_payg_logic.h>
+#include <device_functions.h>
+}
+
 HardwareSerial Serial2(PA3, PA2);
 
 byte fe1[8] = {0b00011, 0b00011, 0b00011, 0b00011,
@@ -134,29 +141,61 @@ void setup() {
   }
   delay(10);
   relay_on();
-
+  select_mode();
 #if defined(TIM1)
   TIM_TypeDef* Instance = TIM1;
 #else
   TIM_TypeDef* Instance = TIM2;
 #endif
   HardwareTimer* MyTim = new HardwareTimer(Instance);
-  MyTim->setOverflow(20, HERTZ_FORMAT);
-  MyTim->attachInterrupt(urgeent);
-  MyTim->resume();
+  if(is_STSmode){
+    MyTim->setOverflow(20, HERTZ_FORMAT);
+    MyTim->attachInterrupt(urgeent);
+    MyTim->resume();
+  }
+  else{
+    #ifdef DEBUG
+    printf("Welcome to the OPAYGO Device Simulator\n");
+    printf("We're waiting for the * character to start recording the key presses. \n(You need to press ENTER after the key presses for the simulator to work)\n(Press the '#' key to see the device activation status)\n\n");
+    #endif
+    LoadActivationVariables(); // We load the activation variables
+
+    uint64_t InputToken;
+    TokenData Output;
+  }
+  
 }
 
 void loop() {
-  mesure();
-  if ((mains_input_value > 50)) {
-    credit_reminder();
+  if(is_STSmode){
+    mesure();
+    if ((mains_input_value > 50)) {
+      credit_reminder();
+    }
+    if ((mains_input_value < 50)) {
+      digitalWrite(red_led, LOW);
+      digitalWrite(green_led, LOW);
+    }
+    get_time();
+    if ((sts_mode == 0) && (mains_input_value > 50)) {
+      gsm_func();
+    }
   }
-  if ((mains_input_value < 50)) {
-    digitalWrite(red_led, LOW);
-    digitalWrite(green_led, LOW);
-  }
-  get_time();
-  if ((sts_mode == 0) && (mains_input_value > 50)) {
-    gsm_func();
+  else{
+    // We wait for a token to be entered
+        InputToken = WaitForTokenEntry();
+        // We get the activation value from the token
+        Output = GetDataFromToken(InputToken, &TokenCount, &UsedTokens, StartingCode, SECRET_KEY);
+
+        #ifdef DEBUG
+        printf("\n(Token entered: %llu)", InputToken);
+        printf("\n(Activation Value from Token: %d)", Output.Value); // Activation Value found in the token
+        printf("\n(Count: %d)", Output.Count); // Count found in the token
+        printf("\n(Max Count: %d)", TokenCount); // Count found in the token
+        printf("\n(Used Tokens: %d)\n", UsedTokens); // Count found in the token
+        #endif
+        
+        // We update the PAYG mode (ON or OFF) and the PAYG timer based on the activation value
+        UpdateDeviceStatusFromTokenValue(Output.Value, Output.Count);
   }
 }
