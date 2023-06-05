@@ -16,7 +16,7 @@ jobs:
       - uses: actions/checkout@v3
       - name: Run clang-format lint
         working-directory: Firmware code/smart_energy_meter
-        run: find include/ lib/ src/ \( -name '*.[ch]pp' -o -name '*.h' \) | xargs clang-format --verbose --style=file -n --Werror
+        run: find include/ src/ \( -name '*.[ch]pp' -o -name '*.h' \) | xargs clang-format --verbose --style=file -n --Werror
   editorconfig-checker:
     name: Lint EditorConfig
     runs-on: ubuntu-latest
@@ -28,7 +28,7 @@ jobs:
       - run: 'pip install "editorconfig-checker"'
       - name: Run editorconfig-checker
         working-directory: Firmware code/smart_energy_meter
-        run: ec
+        run: ec -exclude lib/
   compile-firmware-platform-io:
     name: Compile Firmware with PlatformIO
     runs-on: ubuntu-latest
