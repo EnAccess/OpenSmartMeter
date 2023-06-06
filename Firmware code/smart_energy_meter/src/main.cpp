@@ -22,7 +22,6 @@
 #include "time_management.hpp"
 #include "token_management.hpp"
 
-
 HardwareSerial Serial2(PA3, PA2);
 
 byte fe1[8] = {0b00011, 0b00011, 0b00011, 0b00011,
@@ -152,7 +151,7 @@ void setup() {
 }
 
 void loop() {
-  if(is_STSmode){
+  if (is_STSmode) {
     mesure();
     if ((mains_input_value > 50)) {
       credit_reminder();
@@ -165,9 +164,7 @@ void loop() {
     if ((sts_mode == 0) && (mains_input_value > 50)) {
       gsm_func();
     }
-  }
-  else
-  {
+  } else {
     printf("OpenPAYGO code written here");
   }
 }
