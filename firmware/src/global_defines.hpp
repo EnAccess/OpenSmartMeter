@@ -14,3 +14,8 @@
 // third party libraries
 
 // OpenSmartMeter libraries
+// typedef struct 
+// {
+//     uint8_t dev_status;
+
+// }meter_const_config;
