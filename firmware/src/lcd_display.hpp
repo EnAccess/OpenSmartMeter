@@ -78,87 +78,80 @@ void lcd_update() {
 }
 
 void parameters_display() {
-  if (parameters == 1) {
     lcd.setCursor(0, 0);
-    lcd.print("  Meter number  ");
-    lcd.setCursor(0, 1);
-    lcd.print("                ");
-    lcd.setCursor(3, 1);
-    lcd.print(meter);
-  }
-  if (parameters == 2) {
-    lcd.setCursor(0, 0);
-    lcd.print("date/time :     ");
-    lcd.setCursor(0, 1);
-    lcd.print("                ");
+    if (parameters == 1) {
+      lcd.print("  Meter number  ");
+      lcd.setCursor(0, 1);
+      lcd.print("                ");
+      lcd.setCursor(3, 1);
+      lcd.print(meter);
+    }
+    else if (parameters == 2) {
+      lcd.print("date/time :     ");
+      lcd.setCursor(0, 1);
+      lcd.print("                ");
 
-    lcd.setCursor(0, 1);
-    lcd.print(" ");
-    lcd.setCursor(1, 1);
-    lcd.print(rtcday);
-    lcd.setCursor(3, 1);
-    lcd.print("/");
+      lcd.setCursor(0, 1);
+      lcd.print(" ");
+      lcd.setCursor(1, 1);
+      lcd.print(rtcday);
+      lcd.setCursor(3, 1);
+      lcd.print("/");
 
-    lcd.setCursor(4, 1);
-    lcd.print(hours);
-    lcd.setCursor(6, 1);
-    lcd.print(":");
+      lcd.setCursor(4, 1);
+      lcd.print(hours);
+      lcd.setCursor(6, 1);
+      lcd.print(":");
 
-    lcd.setCursor(7, 1);
-    lcd.print(minutes);
-    lcd.setCursor(9, 1);
-    lcd.print(":");
+      lcd.setCursor(7, 1);
+      lcd.print(minutes);
+      lcd.setCursor(9, 1);
+      lcd.print(":");
 
-    lcd.setCursor(10, 1);
-    lcd.print(seconds);
-    lcd.setCursor(12, 1);
-    lcd.print("     ");
-  }
-  if (parameters == 3) {
-    lcd.setCursor(0, 0);
-    lcd.print("battery level :  ");
-    lcd.setCursor(0, 1);
-    lcd.print("                ");
-    lcd.setCursor(6, 1);
-    lcd.print(btt);
-  }
-  if (parameters == 4) {
-    lcd.setCursor(0, 0);
-    lcd.print("TARIFF =        ");
-    lcd.setCursor(0, 1);
-    lcd.print("                ");
-    lcd.setCursor(6, 1);
-    lcd.print(tariff);
-  }
-  if (parameters == 5) {
-    lcd.setCursor(0, 0);
-    lcd.print("Fault event :   ");
-    lcd.setCursor(0, 1);
-    lcd.print("                ");
-    tamper_log = mem.readLong(tamper_location);
-    lcd.setCursor(6, 1);
-    lcd.print(tamper_log);
-  }
-
-  if (parameters == 6) {
-    lcd.setCursor(0, 0);
-    lcd.print("Last month      ");
-    lcd.setCursor(0, 1);
-    lcd.print("billing date :  ");
-    lcd.setCursor(14, 1);
-    lcd.print(lastmonth_KWH);
-  }
-  if (parameters == 7) {
-    lcd.setCursor(0, 0);
-    lcd.print(" Last month KWH ");
-    lcd.setCursor(0, 1);
-    lcd.print("                ");
-    lcd.setCursor(6, 1);
-    lcd.print(lastmonth_KWH);
-    lcd.setCursor(12, 1);
-    lcd.print("KW/H");
-  }
-  if (parameters > 7) {
-    parameters = 0;
-  }
+      lcd.setCursor(10, 1);
+      lcd.print(seconds);
+      lcd.setCursor(12, 1);
+      lcd.print("     ");
+    }
+    else if (parameters == 3) {
+      lcd.print("battery level :  ");
+      lcd.setCursor(0, 1);
+      lcd.print("                ");
+      lcd.setCursor(6, 1);
+      lcd.print(btt);
+    }
+    else if (parameters == 4) {
+      lcd.print("TARIFF =        ");
+      lcd.setCursor(0, 1);
+      lcd.print("                ");
+      lcd.setCursor(6, 1);
+      lcd.print(tariff);
+    }
+    else if (parameters == 5) {
+      lcd.print("Fault event :   ");
+      lcd.setCursor(0, 1);
+      lcd.print("                ");
+      tamper_log = mem.readLong(tamper_location);
+      lcd.setCursor(6, 1);
+      lcd.print(tamper_log);
+    }
+    else if (parameters == 6) {
+      lcd.print("Last month      ");
+      lcd.setCursor(0, 1);
+      lcd.print("billing date :  ");
+      lcd.setCursor(14, 1);
+      lcd.print(lastmonth_KWH);
+    }
+    else if (parameters == 7) {
+      lcd.print(" Last month KWH ");
+      lcd.setCursor(0, 1);
+      lcd.print("                ");
+      lcd.setCursor(6, 1);
+      lcd.print(lastmonth_KWH);
+      lcd.setCursor(12, 1);
+      lcd.print("KW/H");
+    }
+    if (parameters > 7) {
+      parameters = 0;
+    }
 }
