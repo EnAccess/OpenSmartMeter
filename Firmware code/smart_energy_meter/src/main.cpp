@@ -134,7 +134,6 @@ void setup() {
   }
   delay(10);
   relay_on();
-  select_mode();
   if (is_STSmode) {
 #if defined(TIM1)
     TIM_TypeDef* Instance = TIM1;

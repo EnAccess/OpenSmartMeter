@@ -27,9 +27,6 @@ unsigned int over_load = 25000;
 unsigned int low_voltage = 150;
 unsigned int low_freq = 45;
 
-char selectKey;
-bool is_STSmode = false;  // by default on OpenPAYGO Token
-
 void urgeent() {
   if (true_power < 15) {
     true_power = 0;
@@ -97,28 +94,4 @@ void urgeent() {
       fault = 0;
     }
   }
-}
-
-void select_mode() {
-  lcd.clear();
-  lcd.setCursor(0, 0);
-  lcd.print("SELECT MODE:\n\n 0: PAYGO TOKEN MODE \n\n 1: STS MODE");
-  selectKey = customKeypad.getKey();
-  while ((selectKey = !'0') && (selectKey = !'1')) {
-    selectKey = customKeypad.getKey();
-    delay(100);
-  }
-
-  lcd.clear();
-  lcd.setCursor(0, 0);
-  if (selectKey == '0') {
-    lcd.print("OpenPAYGO Mode");
-    is_STSmode = false;
-  }
-
-  if (selectKey == '1') {
-    lcd.print("STS Mode");
-    is_STSmode = true;
-  }
-  delay(2000);
 }
