@@ -2,7 +2,7 @@
 @media only screen and (min-width: 992px) {
 }
 
-@media only screen and (min-width: 992px) and (max-width: 1200px) { 
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
 	.hero-text h1 {
 	    font-size: 45px;
 	}
@@ -39,7 +39,7 @@
 
 }
 /* Tablet Layout: 768px. */
-@media only screen and (min-width: 768px) and (max-width: 991px) { 
+@media only screen and (min-width: 768px) and (max-width: 991px) {
 	.hero-text h1 {
 	    font-size: 40px;
 	}
@@ -64,8 +64,8 @@
 	.order-details-wrap {
 	    margin-top: 50px;
 	}
-	.contact-form form p input[type=text], 
-	.contact-form form p input[type=tel], 
+	.contact-form form p input[type=text],
+	.contact-form form p input[type=tel],
 	.contact-form form p input[type=email] {
 	    width: 100%;
 	}
@@ -83,7 +83,7 @@
 		top: 30%;
 	}
 
-	.comment-template form p input[type=text], 
+	.comment-template form p input[type=text],
 	.comment-template form p input[type=email] {
 	    width: 100%;
 	}
@@ -286,7 +286,7 @@
 	.feature-bg:after {
 	    display: none;
 	}
-	
+
 	.text-block {
 	    margin-bottom: 50px;
 	}
@@ -307,8 +307,8 @@
 	    margin-top: 50px;
 	}
 
-	.contact-form form p input[type=text], 
-	.contact-form form p input[type=tel], 
+	.contact-form form p input[type=text],
+	.contact-form form p input[type=tel],
 	.contact-form form p input[type=email] {
 	    width: 100%;
 	}
@@ -330,7 +330,7 @@
 	    margin-top: 15px;
 	}
 
-	.comment-template form p input[type=text], 
+	.comment-template form p input[type=text],
 	.comment-template form p input[type=email] {
 	    width: 100%;
 	}
@@ -558,7 +558,7 @@
 	}
 }
 /* Wide Mobile Layout: 480px. */
-@media only screen and (min-width: 480px) and (max-width: 767px) { 
+@media only screen and (min-width: 480px) and (max-width: 767px) {
 	.hero-area div.hero-form {
 	    margin: 0 auto;
 	    right: auto;

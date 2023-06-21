@@ -8,11 +8,11 @@ $amount = $_POST["amount"];
 $meter_no = $_POST["meter_no"];
 $amount =$amount *100;
 
-$servername = "localhost"; 
+$servername = "localhost";
 $dbname = "id17130795_energymeter";
 $username = "id17130795_byker";
-$password = "Danielkomolafe00%"; 
-$con=mysqli_connect($servername, $username,  $password, $dbname) or die("Database Error");   
+$password = "Danielkomolafe00%";
+$con=mysqli_connect($servername, $username,  $password, $dbname) or die("Database Error");
 if (!$con) {
 echo "Unable to connect to DB: " . mysql_error();
 exit;
@@ -23,15 +23,15 @@ $output= (mysqli_fetch_assoc($result));
 $status = $output['status'];
 $email = $output['Email'];
 mysqli_close($con);
-  
-if($status == 'sucess' || $status == ''){ 
+
+if($status == 'sucess' || $status == ''){
 if($amount > 500){
 session_start();
 $_SESSION ["meter_no"] =  $meter_no;
 $_SESSION ["amount"] =  $amount ;
 
  // url to go to after payment
-$callback_url = 'https://paygotesting.000webhostapp.com/callback.php';  
+$callback_url = 'https://paygotesting.000webhostapp.com/callback.php';
 
 curl_setopt_array($curl, array(
   CURLOPT_URL => "https://api.paystack.co/transaction/initialize ",
@@ -40,7 +40,7 @@ curl_setopt_array($curl, array(
   CURLOPT_POSTFIELDS => json_encode([
     'amount'=>$amount,
     'email'=>$email,
-     
+
     'callback_url' => $callback_url
   ]),
   CURLOPT_HTTPHEADER => [
@@ -76,10 +76,10 @@ if($amount < 500){
 echo "Topup too low, minimum is 500naira" ;
 }
 }
-if($status == 'pending'){ 
+if($status == 'pending'){
 //echo "Sorry, last Topup is waiting to be confirmed by Meter, kindly use STS-Token generation to Topup manually and retry new Top-up payment.";
 header("Location: stspending.html");
 exit();
-    
+
 }
 ?>
