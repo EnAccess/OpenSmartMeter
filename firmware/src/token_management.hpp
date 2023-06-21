@@ -16,6 +16,8 @@
 char customKey;
 bool is_STSmode = false;  // by default on OpenPAYGO Token
 
+bool passWORD_set;
+
 // keypad
 const byte ROWS = 4;
 const byte COLS = 4;
@@ -36,6 +38,7 @@ byte parameters = 0;
 byte token_used = 0;
 String password = "1234";
 
+extern bool is_STSmode;
 //    for meter
 unsigned long sts_eeprom_fetched = 0;
 unsigned long token_eeprom_location = 20;
@@ -96,12 +99,54 @@ void preset_keyprocess() {
   }
 }
 
-void check_meterCMD(void) {}
+void check_meterCMD(void) {
+  bool authERR = false;
+  lcd.clear();
+  if (!is_STSmode && sts_data == "112") {  // Change to STS mode.
+    if (passWORD_set) {
+      is_STSmode = true;
+      lcd.print("STS MODE");
+      delay(1000);
+      passWORD_set = false;
+    } else
+      authERR = true;
+  } else if (is_STSmode && sts_data == "122") {  // Change to OpenPAYGO mode.
+    if (passWORD_set) {
+      is_STSmode = false;
+      lcd.print("OPENPAYGO MODE");
+      delay(1000);
+      passWORD_set = false;
+    } else
+      authERR = true;
+  }
+  // else if( sts_data == /* custom command*/)
+  // {
+  //
+  // }
+  else {
+    digitalWrite(buzzer, HIGH);
+    lcd.print("INVALID COMMAND");
+    delay(1000);
+    digitalWrite(buzzer, LOW);
+  }
+
+  if (authERR == true) {
+    digitalWrite(buzzer, HIGH);
+    lcd.print("PASSWORD REQUIRED");
+    delay(1000);
+    digitalWrite(buzzer, LOW);
+  }
+}
 
 void STS_keypad() {                   // Process KEYPRESS on Keypad.
   customKey = customKeypad.getKey();  // scan keypad.
 
-  if (customKey == 'A') {  // SCROLL up device parameter on LCD.
+  if (customKey == '*') {  // Clear screen and reset keypad.
+    preset_keyprocess();
+    sts_mode == 0;
+  }
+
+  else if (customKey == 'A') {  // SCROLL up device parameter on LCD.
     if (sts_mode)
       sts_mode = false;
     parameters = parameters + 1;
@@ -120,7 +165,7 @@ void STS_keypad() {                   // Process KEYPRESS on Keypad.
       }
     } else if (data_count == 3) {  // Check if 3digits command.
       Serial2.println("# Command entered\n");
-      check_meterCMD();
+      check_meterCMD();  // Confirm 3 digits command.
       preset_keyprocess();
     } else {  // ERROR, only 20 digits and 3 digits are allowed.
       Serial2.println("Invalid command\n");
@@ -132,13 +177,10 @@ void STS_keypad() {                   // Process KEYPRESS on Keypad.
       digitalWrite(buzzer, LOW);
       preset_keyprocess();
     }
-  }
-  //  else if (customKey != NO_KEY && customKey != '*' && customKey != '#' &&
-  //  customKey != 'D' ) { //Detect Keys and Display on LCD.
-  else if (customKey != NO_KEY &&
-           (0x30 >= customKey <=
-            0x39)) {  // Detect Numeric Keys (0-9) to display on LCD.
-    if (!sts_mode) {  // If first Key, set screen to display keys pressed.
+  } else if (customKey != NO_KEY &&
+             (0x30 >= customKey <=
+              0x39)) {  // Detect Numeric Keys (0-9) to display on LCD.
+    if (!sts_mode) {    // If first Key, set screen to display keys pressed.
       dt = 0;
       sts_value = lcd_count = parameters = 0;
       delay(20);
