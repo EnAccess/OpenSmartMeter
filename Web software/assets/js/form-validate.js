@@ -1,5 +1,5 @@
 function valid_datas( f ){
-	
+
 	if( f.name.value == '' ){
 		jQuery('#form_status').html('<span class="wrong">Your name must not be empty!</span>');
 		notice( f.name );
@@ -31,7 +31,7 @@ function valid_datas( f ){
 		jQuery('#fruitkha-contact').animate({opacity:0.3});
 		jQuery('#fruitkha-contact').find('input,textarea,button').css('border','none').attr({'disabled':''});
 	}
-	
+
 	return false;
 }
 

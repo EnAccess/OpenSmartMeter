@@ -134,29 +134,36 @@ void setup() {
   }
   delay(10);
   relay_on();
-
+  if (is_STSmode) {
 #if defined(TIM1)
-  TIM_TypeDef* Instance = TIM1;
+    TIM_TypeDef* Instance = TIM1;
 #else
-  TIM_TypeDef* Instance = TIM2;
+    TIM_TypeDef* Instance = TIM2;
 #endif
-  HardwareTimer* MyTim = new HardwareTimer(Instance);
-  MyTim->setOverflow(20, HERTZ_FORMAT);
-  MyTim->attachInterrupt(urgeent);
-  MyTim->resume();
+    HardwareTimer* MyTim = new HardwareTimer(Instance);
+    MyTim->setOverflow(20, HERTZ_FORMAT);
+    MyTim->attachInterrupt(urgeent);
+    MyTim->resume();
+  } else {
+    printf("OpenPAYGO code written here");
+  }
 }
 
 void loop() {
-  mesure();
-  if ((mains_input_value > 50)) {
-    credit_reminder();
-  }
-  if ((mains_input_value < 50)) {
-    digitalWrite(red_led, LOW);
-    digitalWrite(green_led, LOW);
-  }
-  get_time();
-  if ((sts_mode == 0) && (mains_input_value > 50)) {
-    gsm_func();
+  if (is_STSmode) {
+    mesure();
+    if ((mains_input_value > 50)) {
+      credit_reminder();
+    }
+    if ((mains_input_value < 50)) {
+      digitalWrite(red_led, LOW);
+      digitalWrite(green_led, LOW);
+    }
+    get_time();
+    if ((sts_mode == 0) && (mains_input_value > 50)) {
+      gsm_func();
+    }
+  } else {
+    printf("OpenPAYGO code written here");
   }
 }
