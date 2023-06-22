@@ -14,6 +14,7 @@
 #include "sts_token.hpp"
 
 char customKey;
+bool is_STSmode = false;  // by default on OpenPAYGO Token
 
 // keypad
 const byte ROWS = 4;
@@ -91,8 +92,10 @@ void STS_keypad() {
     lcd.clear();
     buss();
     lcd.setCursor(0, 0);
-    lcd.print("STS MODE        ");
     sts_mode = 1;
+    if (customKeypad.getState() == HOLD) {
+      lcd.println("Password:");
+    }
   }
 
   if (sts_mode == 1 && customKey != '*' && customKey != '#' &&
@@ -137,6 +140,22 @@ void STS_keypad() {
     check_tokenused();
     if (token_used == 0) {
       STStoken_decode();
+    }
+  }
+  if (data_count < 19 && data_count > 3) {
+    if (sts_data == "1234") {
+      lcd.clear();
+      lcd.setCursor(0, 0);
+      lcd.print("MODE: ");
+      data_count = 0;
+      lcd_count = 8;
+      dt = 0;
+    }
+    if (sts_data == "112") {
+      is_STSmode = true;
+    }
+    if (sts_data == "122") {
+      is_STSmode = false;
     }
   }
 }
