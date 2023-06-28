@@ -24,7 +24,7 @@ Several library was used to enable easy MQTT communication, library such as:
 - Arduinohttp client
 - TinyGSm library
 - pubsubclient library
-- things board.
+- ThingsBoard.
 
 The serial communication protocol between the Cicada GSM module and the micro-controller is USART(Universal Synchronous Asynchronous Receive Transmit), this protocol enables fast communication between the GSM module and the micro-controller, only two pin is required for communication between the micro-controller and GSM module (Rx & Tx), the receive pin of the GSM module is connected to the transmit pin of the micro-controller hardware awhile the receive pin of the Cicada GSM module is connected to the transmit pin of the micro-controller.
 
