@@ -29,7 +29,7 @@ The purpose of this document is to showcase the accuracy of the AC meter develop
 |15|Connection Diagram for system on terminal cover|Yes/No|Yes|
 |16|Self-diagnostic feature||(i) Time and calendar.<p>(ii) Real Time Clock.</p><p>(iii) RTC battery. Non-Volatile Memory.</p>|
 |17|Initial start-up of meter (meter shall be fully functional within 5 sec after reference voltage is applied to the meter terminals)||Yes|
-|18|<p>Terminal block</p><p>a) Depth of the Terminal holes.</p><p>b) Internal diameter of terminal holes</p><p>c) Clearance between adjacent terminals</p>|mm|<p>(a.) 9.5 (minimum).</p><p>(b.) 25</p><p>(c.) 3</p>|
+|18|Terminal block<br>a) Depth of the Terminal holes.<br>b) Internal diameter of terminal holes<br>c) Clearance between adjacent terminals</p>|mm|a) 9.5 (minimum).<br>b) 25<br>c) 3</p>|
 |19|Communication capabilities as per clause 4.31||RS485|
 |20|Immunity against HV ESD as defined in Cl. 4.32.2||(CBM) charged body model 2000V|
 |21|DC Immunity as defined in Cl. 4.33|||
@@ -278,8 +278,7 @@ The specifications are prepared in accordance with the following International S
 |4|Communication Modules|Communication modules shall be compatible for the two RS 232/485 ports one for optical port for communication with Meter reading instruments & the other, for the hardware. RS 232/485 port to communicate with various modems for AMR such as mobile telephony, radio frequency, fixed line, satellite, or power line communication technology with IEC 62056-21 DLMS/COSEM protocol.|Not comply (only RS232 provided)|
 |5|Optical Port|Optical port shall be used to transfer the Meter data to Meter reading instrument. The mechanical construction of the port shall be such to facilitate the data transfer easily.|Not comply|
 |6|Power Supply|The power supply shall be with the capabilities as per the relevant standards. The power supply unit of the Meter shall not be affected in case the maximum voltage of the system appears to the terminals due to faults or due to wrong connections.|Comply|
-|7|Electronic Components|The active and passive components shall be of the surface mount type to be handled|Not applicable for|
-|||and soldered by the state-of-the-art assembly processes. The components shall be positioned in such a way that the leads of components shall not be under stress and not touching the internal wires.|prototype|
+|7|Electronic Components|The active and passive components shall be of the surface mount type to be handled and soldered by the state-of-the-art assembly processes. The components shall be positioned in such a way that the leads of components shall not be under stress and not touching the internal wires.|Not applicable for prototype|
 |8|Mechanical Parts|<p>The internal electrical components shall be of electrolytic copper and shall be protected from corrosion, rust, etc.</p><p>The other mechanical components shall be protected from rust, corrosion, etc.by suitable plating and painting methods.</p>|Comply|
 |9|Battery|Lithium with minimum guaranteed life of 10 years and can last without recharging for 60 days|Comply|
 |10|RTC & Micro Controller|The accuracy of Real Time Clock shall be as per relevant IEC standards|Comply|
@@ -291,14 +290,11 @@ The specifications are prepared in accordance with the following International S
 
 |**SN**|**PARAMETER**|**TECHNICAL REQUIREMENTS**|**COMMENT**|
 | - | - | - | - |
-|1|On the Meter name-plate:|<p>a) Indelible Meter serial number shall not be more than twelve (12) digits and legibly printed.</p><p>b) Size of the digit of the Meter serialnumber shall be a minimum of 5mm x 3mm.</p><p>c) Bar code shall be printed below the Meter serial number</p><p>d) Manufacturer’s Name and Trade mark.</p><p>e) Place of manufacture.</p><p>f) Year of manufacture.</p><p>g) Reference Voltage, Current and Frequency.</p><p>h) Class index.</p><p>i) Meter Constant.</p><p>j) Owner/Utility’sIdentity.</p>|Comply<br><br><p>Comply</p><p>(c.)Not applicable for prototype</p><p>(d.) Comply</p><p>(e.) Comply</p><p>(f.) Comply</p><p>(g.) Comply</p><p>(h.) Comply</p><p>(i.) Comply</p><p>(j.) Comply</p>|
-
-<table>
-<tr><td colspan="1" valign="top">The manufacturer shall affix one seal on one side of the Meter</td><td colspan="1">Not applicable for prototype</td></tr>
-<tr><td colspan="1">The internal potential links shall be in closed position or link- less. Meters will be preferred and there shall not be any external link.</td><td colspan="1" valign="top">Not applicable for prototype</td></tr>
-<tr><td colspan="1">Terminal cover shall be fixed on Meter before dispatch</td><td colspan="1" valign="top">Comply</td></tr>
-<tr><td colspan="1">The operation manual and the inscriptions on the name plate shall be provided in English Language.</td><td colspan="1" valign="top">Comply</td></tr>
-</table>
+|1|On the Meter name-plate:|a) Indelible Meter serial number shall not be more than twelve (12) digits and legibly printed.<br>b) Size of the digit of the Meter serialnumber shall be a minimum of 5mm x 3mm.<br>c) Bar code shall be printed below the Meter serial number<br>d) Manufacturer’s Name and Trade mark.<br>e) Place of manufacture.<br>f) Year of manufacture.<br>g) Reference Voltage, Current and Frequency.<br>h) Class index.<br>i) Meter Constant.<br>j) Owner/Utility’sIdentity.</p>|a) Comply<br>b) Comply<br>c) Not applicable for prototype<br>d) Comply<br>e) Comply<br>f) Comply<br>g) Comply<br>h) Comply<br>i) Comply<br>j) Comply</p>|
+|||The manufacturer shall affix one seal on one side of the Meter|Not applicable for prototype|
+|||The internal potential links shall be in closed position or link- less. Meters will be preferred and there shall not be any external link.|Not applicable for prototype|
+|||Terminal cover shall be fixed on Meter before dispatch|Comply|
+|||The operation manual and the inscriptions on the name plate shall be provided in English Language.|Comply|
 
 ### **SINGLE PHASE (2Wire) 5(60) AMPS CREDIT STATIC METER**
 
@@ -328,14 +324,18 @@ The specifications are prepared in accordance with the following International S
 |20|Software & communication compatibility|<p>IR port to transfer locally through Common Meter Reading Instrument (CMRI) or laptop.</p><p>The service provider shall supply Software required for CMRI. He shall also provide training for the use of software. The software shall be compatible to Microsoft Windows systems latest version.</p><p>The Service Provider shall provide Meter-reading protocols and jointly work with the Utility to develop CMRI software for downloading and further uploading on computer. The service provider has to give an undertaking in this regard.</p>|Not comply|
 |21|Terminal hole Diameter|Shall be 9mm.|Comply|
 |22|<p>TAMPER EVENTS</p><p>Phase & neutral interchanged</p><p>I/C disconnected, Neutral & connected to earth neutral O/G load</p><p>I/C neutral disconnected, O/G neutral connected to earth through a resistor.</p><p>I/C phase & neutral interchanged, load connected to earth</p>|<p>METER BEHAVIOUR</p><p>Meter shall record forward energy</p>|Comply|
-|23|Influence parameters|<p>The Meter shall work satisfactorily with guaranteed accuracy limit under the presence of following influence quantities as per IEC 61036.</p><p>- External magnetic fields.</p><p>- Electromagnetic field induction.</p><p>- Radio frequency interference.</p><p>- Vibration etc.</p><p>- Waveform 10% of 3rd harmonics.</p><p>- Electromagnetic High Frequency</p><p>- (H.F.)Fields.</p><p>-DC Immunity test.</p>|Not tested|
-|24|**Display Sequence for parameters**|<p>**DEFAULT DISPLAY**</p><p>Cumulative KWh(cumulative KWh to be displayed continuously without decimal)</p><p>**ON DEMAND DISPLAY**</p><p>After pressing the push button, the following parameters shall be displayed</p><p>LCD Test</p><p>Date</p><p>Real time</p><p>Last month billing date</p><p>Last month billing KWh reading Meter serial number</p>|Comply|
+|23|<p>Influence parameters|The Meter shall work satisfactorily with guaranteed accuracy limit under the presence of following influence quantities as per IEC 61036.</p><p>- External magnetic fields.<br>- Electromagnetic field induction.<br>- Radio frequency interference.<br>- Vibration etc.<br>- Waveform 10% of 3rd harmonics.<br>- Electromagnetic High Frequency<br>- (H.F.)Fields.<br>-DC Immunity test.</p>|Not tested|
+|24|**Display Sequence for parameters**|<p>**DEFAULT DISPLAY**</p><p>Cumulative KWh(cumulative KWh to be displayed continuously without decimal)</p><p>**ON DEMAND DISPLAY**</p><p>After pressing the push button, the following parameters shall be displayed</p><p>LCD Test<br>Date<br>Real time<br>Last month billing date<br>Last month billing KWh reading Meter serial number</p>|Comply|
 
 ### **PREPAYMENT METERING SYSTEM**
 
 **All Prepayment Metering Installations shall be of the split type and conform to the details below.**
 
 ***KEYPAD SINGLE &THREE PHASE ELECTRICITY DISPENSER***
+
+!!! warning
+
+    SN: 17 is not clear
 
 ==**METERING CODE REF : 4.5.1**==
 
@@ -355,8 +355,8 @@ The specifications are prepared in accordance with the following International S
 |12|Protection|High resistance to short circuit|Comply|
 |13|Impulse withstand voltage|Preferably greater than 6 KV|Not tested|
 |14|Insulation withstand voltage|2 KV per minute|Not tested|
-|15|Name plate|a) Indelible Meter serial number shall not be more than twelve(12) digits and legibly printed<p>b) Size of the digit of the Meter</p><p>serial number shall be a minimum of 5mm x 3mm.</p><p>c) Barcode shall be printed below the Meter serial number</p><p>d) Manufacturer’s name and Trade mark.</p><p>e) Place of manufacture.</p><p>f) Year of manufacture.</p><p>g) Reference Voltage, Current and frequency.</p><p>h) Class index.</p><p>i) Meter Constant.</p><p>j) Owner/Utility’sIdentity.</p>|Comply<p>(b.) Comply</p><p>(c.)Not comply</p><p>(d.) Comply</p><p>(e.) Comply</p><p>(f.) Comply</p><p>(g.) Comply</p><p>(h.) Comply</p><p>(i.) Comply</p><p>(j.)Not comply</p>|
-|16|Front panel Indication/Display|<p>Include but not limited to the following: Three level credit LED display</p><p>- Green-when energy stored is full .</p><p>- Yellow-when remaining credit will last for 3- days. The red flashes when the remaining energy will last for 11/2 days.</p><p>- Blue-Consumption rate indicator. LCD credit status display. Credit transfer number accept/reject Tamper.</p>|<p>Comply Not comply</p><p>Comply</p>|
+|15|Name plate|a) Indelible Meter serial number shall not be more than twelve(12) digits and legibly printed<br>b) Size of the digit of the Meter serial number shall be a minimum of 5mm x 3mm.<br>c) Barcode shall be printed below the Meter serial number<br>d) Manufacturer’s name and Trade mark.<br>e) Place of manufacture.<br>f) Year of manufacture.<br>g) Reference Voltage, Current and frequency.<br>h) Class index.<br>i) Meter Constant.<br>j) Owner/Utility’sIdentity.|a) Comply<br>b) Comply<br>c) Not comply<br>d) Comply<br>e) Comply<br>f) Comply<br>g) Comply<br>h) Comply<br>i) Comply<br>j) Not comply|
+|16|Front panel Indication/Display|<p>Include but not limited to the following:</p><p>Three level credit LED display</p><p>- Green-when energy stored is full .<br>- Yellow-when remaining credit will last for 3- days. The red flashes when the remaining energy will last for 11/2 days.<br>- Blue-Consumption rate indicator. LCD credit status display. Credit transfer number accept/reject Tamper.</p>|<p>Comply</p><p>Not comply</p><p>Comply</p>|
 |17|Special Mode Display for Engineering/Management|<p>Display up to 3 parameters according to programming to be specified:</p><p>a) Normal display –LCD Duplicate copy of token inserted</p><p>Credit Dispensing Unit identification number and KWh (or voucher serial number) inserted.</p><p>Electricity Dispenser (ED) full of units. No power ON ED</p><p>No credit on ED</p><p>Credit rejects or accepts.</p><p>Remaining Credit.</p><p>Instantaneous Power</p><p>Total KWh used in the past 24 hrs. Total KWh used in the past 30 days.</p><p>Total KWh used since the ED was installed.</p><p>b) Display only available with valid codes.</p><p>c) Display only available within chosen</p><p>programming or engineering mode.</p><p>For the purpose of these specifications, items b) and c) above are treated as one. These shall staff. be accessible only to utility</p><p>Over current trip level.</p><p>Green-Yellow Light emitting diode (LED) display change over level in KWh</p><p>(high).</p><p>Yellow-Red LED display change over level in KWh (low).</p><p>Test on LED for tripping function. Display of LED number. Electronics faulty.</p><p>Power failure counter (Number of times power supply failed or disconnected)-400 cycles and back to Zero.</p><p>Enabling of disabled LED caused by tampering.</p><p>Number of days/hour into the current 30 days when there was power and total KWh used during the period.</p>|<p>Comply</p><p>Comply</p><p>Comply</p><p>Not comply</p><p>Not comply</p><p>Not comply</p><p>Not comply</p>|
 |18|EMC Compliance|Relevant section of IEC 61036.|Comply|
 |19|Burden|Preferably less than 2 VA per phase.|Not applicable(CT used)|
@@ -365,7 +365,6 @@ The specifications are prepared in accordance with the following International S
 |22|Sealing|Provision must be adequate to prevent tampering.|Comply|
 |23|Power Factor Range|-1 to +1|Comply|
 |24|Data Storage|Non-Volatile EPROM|Comply|
-|||||
 |25|Switching|Latching contactor.|Comply|
 |26|EMC Susceptibility|According to IEC 61036, 61268.Not adversely affected by external magnetic fields.|Not tested|
 |27|Life Span|Minimum 10 years|Comply|
@@ -380,10 +379,10 @@ The specifications are prepared in accordance with the following International S
 
 |**METERING CODE REF**|**DESCRIPTION**|**REQUIREMENT**|**COMMENT**|
 | :- | - | - | - |
-|2\.1|A Smart Metering System shall, as a minimum, include the following components:|<p>a Clock;</p><p>a Data Store;</p><p>an Electricity Meter; a HAN Interface; a Load Switch;</p><p>a User Interface; and a WAN Interface. Back-up battery</p>|Comply|
-|2\.2.||A Smart Metering System shall be mains powered and be capable of operating at a nominal voltage of 230VAC and consuming no more than an average of 4 watts of electricity under normal operating conditions.|Comply|
-|2\.3||A Smart Metering System shall be capable of automatically resuming operation after a power failure in its operating state prior to such failure.|Comply|
-|2\.4||The electricity smart meter shall comply with the provisions of the Nigeria Electricity Metering Code as amended.|Comply|
+|2.1|A Smart Metering System shall, as a minimum, include the following components:|a Clock;<br>a Data Store;<br>an Electricity Meter;<br>a HAN Interface;<br>a Load Switch;<br>a User Interface;<br>a WAN Interface. Back-up battery</p>|Comply|
+|2.2.||A Smart Metering System shall be mains powered and be capable of operating at a nominal voltage of 230VAC and consuming no more than an average of 4 watts of electricity under normal operating conditions.|Comply|
+|2.3||A Smart Metering System shall be capable of automatically resuming operation after a power failure in its operating state prior to such failure.|Comply|
+|2.4||The electricity smart meter shall comply with the provisions of the Nigeria Electricity Metering Code as amended.|Comply|
 
 ### **FUNCTIONAL REQUIRMENENTS**
 
@@ -416,7 +415,12 @@ The specifications are prepared in accordance with the following International S
 
 |**METERING CODE REF**|**DESCRIPTION**|**REQUIREMENT**|**COMMENT**|
 | :- | - | - | - |
-|7\.1|**Smart Meter**|<p>Meter specifications are particularly essential to provide for the technical functionalities stipulated in the Nigeria Metering Code and this regulation.</p><p>7.1.2. The smart meter shall have the ability to function as multi-source meter [utility, generator].</p><p>7.1.3. **Metering Standards**</p><p>The following are the minimum standards for electric smart meters:</p><p>**IEC Standard 62052-11**: General Requirements for meters.</p><p>**IEC Standard 62053-21**: Alternating current static meters for active energy (classes 1 and 2).</p><p>**IEC Standard 62053-22**: Alternating current static meters for active energy (classes 0.2 S and 0.5 S).</p><p>**IEC Standard 62053-23**: Alternating current static meters for reactive energy (classes 2 and 3).</p><p>**IEC Standard 62054 – 21**: Electricity metering (a.c.) - Tariff and load control - Part 21: Particular requirements for time switches ;</p><p>**IEC Standard 62056 – 21**: Electricity metering (a.c.) - Data exchange for meter reading, tariff and load control - Part 21: Direct local data exchange. **IEC Standards 62056-61**:</p><p>Electricity metering - Data exchange for meter reading, tariff and load control - Part 61: Object identification system</p><p>OBIS- For G, H, W, meters OBIS codes are specified in EN 13757-1 (CEN TC 294), interface objects are common.</p><p>The maximum service life of Meters and Metering Equipment shall be specified by the manufacturer of such equipment taking into account the technology obsolescence.</p><p>The maximum service life should take into account the roll out of all meters.</p><p>The Electric Smart Meter shall be suitable for operation under the following conditions:</p><p>Operating range voltage input : 230 V ± 15% ;</p><p>Basic current (maximum current) : 5 A (100 A) ; Reference frequency : 50 Hz ± 5% ;</p><p>Operating temperature: -40°C to +70°C Average relative humidity: up to 95%, non-condensing</p><p>The meter shall be equipped with a battery to maintain minimal time during minimal function. The meter shall consume no more than 2 Watts on average during normal operational conditions.</p><p>Meter should be integrated with in-built communication modem (s) for all its communication interfaces.</p>|<p>Comply</p><p>Comply</p><p>Not comply</p><p>Comply</p><p>Comply</p>|
+|7.1|**Smart Meter**|Meter specifications are particularly essential to provide for the technical functionalities stipulated in the Nigeria Metering Code and this regulation.||
+|7.1.2||The smart meter shall have the ability to function as multi-source meter [utility, generator].|Comply|
+|7.1.3|**Metering Standards**|<p>The following are the minimum standards for electric smart meters:</p><p>**IEC Standard 62052-11**: General Requirements for meters.<br>**IEC Standard 62053-21**: Alternating current static meters for active energy (classes 1 and 2).<br>**IEC Standard 62053-22**: Alternating current static meters for active energy (classes 0.2 S and 0.5 S).<<br>**IEC Standard 62053-23**: Alternating current static meters for reactive energy (classes 2 and 3).<br>**IEC Standard 62054 – 21**: Electricity metering (a.c.) - Tariff and load control - Part 21: Particular requirements for time switches ;<br>**IEC Standard 62056 – 21**: Electricity metering (a.c.) - Data exchange for meter reading, tariff and load control - Part 21: Direct local data exchange. **IEC Standards 62056-61**:</p>|<p>Comply</p>|
+||Electricity metering|<p>Data exchange for meter reading, tariff and load control - Part 61: Object identification system OBIS- For G, H, W, meters OBIS codes are specified in EN 13757-1 (CEN TC 294), interface objects are common.</p>|Not comply|
+|||The maximum service life of Meters and Metering Equipment shall be specified by the manufacturer of such equipment taking into account the technology obsolescence.<br>The maximum service life should take into account the roll out of all meters.|Comply|
+|||<p>The Electric Smart Meter shall be suitable for operation under the following conditions:</p><p>Operating range voltage input : 230 V ± 15% ;<br>Basic current (maximum current) : 5 A (100 A);<br>Reference frequency : 50 Hz ± 5% ;<br>Operating temperature: -40°C to +70°C Average relative humidity: up to 95%, non-condensing</</p><p>The meter shall be equipped with a battery to maintain minimal time during minimal function. The meter shall consume no more than 2 Watts on average during normal operational conditions.</p><p>Meter should be integrated with in-built communication modem (s) for all its communication interfaces.</p>|<p>Comply</p>|
 |7\.2|**Meter Protection and design**|<p>The meter shall be installable in current existing meter locations at consumer premises.</p><p>7\.2.2. The smart metering system components shall support local access and configuration by authorized personnel.</p><p>The smart metering system shall be installed and maintained in a manner that protects public safety.</p><p>The smart metering system shall display energy supply status (enabled or disabled) and origin of supply (grid or generator).</p><p>The smart metering system shall be protected from physical tampering or interference, e.g. security seals, tamper switches, etc.</p><p>The smart metering system should integrate a tampering detector, recognizing the following signals:</p><p>Removal of terminal cover when the meter is powered as well as when it is not powered</p><p>Reverse current flow Phase inversion (single-phase meters)</p><p>Current flow with no voltage</p><p>The meter and its measurement technology shall be highly resistant to tamper attempts with DC magnetic fields Phase rotation (for three phase meters) Single phasing (for three phase meters)</p>|<p>Not applicable</p><p>Comply</p>|
 
 ## **CONCLUSION**
