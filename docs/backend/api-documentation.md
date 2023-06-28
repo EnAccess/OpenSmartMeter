@@ -1,10 +1,10 @@
 # API Documentation
 
-This documents contains API guide for setting up Thingsboard web interface connecting to Paystack and database backend
+This documents contains API guide for setting up ThingsBoard web interface connecting to Paystack and database backend
 
 ## Introduction
 
-This document provides details on how to integrate Thingsboard API to developers metering application to view historic energy and to implement the designed web for top-up via Paystack, checking meter connectivity status, STS-token generation, set tariff per kWh and details to database.
+This document provides details on how to integrate ThingsBoard API to developers metering application to view historic energy and to implement the designed web for top-up via Paystack, checking meter connectivity status, STS-token generation, set tariff per kWh and details to database.
 
 ## Definitions
 
@@ -12,24 +12,24 @@ This document provides details on how to integrate Thingsboard API to developers
 
 **User:** is referred to in this document as the metering customer.
 
-## Thingsboard API integration:
+## ThingsBoard API integration:
 
-Thingsboard is an open-source server-side platform that allows you to monitor and control IOT devices. It is free for both personal and commercial use and can be deployed anywhere. Steps to set up a things board page is highlighted below:
+ThingsBoard is an open-source server-side platform that allows you to monitor and control IOT devices. It is free for both personal and commercial use and can be deployed anywhere. Steps to set up a ThingsBoard page is highlighted below:
 
-### Step 1: Signing up for Thingsboard
+### Step 1: Signing up for ThingsBoard
 
-The first step requires first time developer to setup a things board account by signing up using the [https://demo.thingsboard.io/login](https://demo.thingsboard.io/login) link, once this is done, the developer can sign in using the login details provided while signing up.
+The first step requires first time developer to setup a ThingsBoard account by signing up using the [https://demo.thingsboard.io/login](https://demo.thingsboard.io/login) link, once this is done, the developer can sign in using the login details provided while signing up.
 
 If the developer is on the right page, the developer should end up with the page highlighted below.
 
 <figure markdown>
-  ![Thingsboard dashboard](../assets/backend/thingsboard-dashboard.png)
-  <figcaption>Thingsboard dashboard</figcaption>
+  ![ThingsBoard dashboard](../assets/backend/thingsboard-dashboard.png)
+  <figcaption>ThingsBoard dashboard</figcaption>
 </figure>
 
-### Step 2: Setting up Thingsboard page
+### Step 2: Setting up ThingsBoard page
 
-Developer needs to setup the Thingsboard to view meter parameters such as energy and top-up balance. To do this, developer need to navigate to the asset's icon on the left side of the web page, click on it and locate the add asset button on the top right corner of the page. A sample of add icon picture and assets page is shown below.
+Developer needs to setup the ThingsBoard to view meter parameters such as energy and top-up balance. To do this, developer need to navigate to the asset's icon on the left side of the web page, click on it and locate the add asset button on the top right corner of the page. A sample of add icon picture and assets page is shown below.
 
 <figure markdown>
   ![Assets page](../assets/backend/assets-page.png)
@@ -65,7 +65,7 @@ Developer must create a relation between assets and devices by clicking on the a
 
 ### Step 6: Access Token
 
-To enable the meter send parameters to the Thingsboard API, developer will need to navigate to devices, click on the created devices and copy the access token of each created devices by navigating to the copy access token icon. The two copied token is pasted on the declared variable for `TOKEN` and `TOKEN1` on the firmware code.
+To enable the meter send parameters to the ThingsBoard API, developer will need to navigate to devices, click on the created devices and copy the access token of each created devices by navigating to the copy access token icon. The two copied token is pasted on the declared variable for `TOKEN` and `TOKEN1` on the firmware code.
 
 The page to copy the access token looks like picture pasted below.
 
@@ -76,7 +76,7 @@ The page to copy the access token looks like picture pasted below.
 
 ### Step 7: Creating Dashboard
 
-Developer is required to create dashboard to visualize sent information from the meter in forms like graph, charts, and lots more as desired by the developer.To create a dashboard to view meter parameters, user will need to navigate and click on the Dashboards icon on theThingsboard page, click the _add icon_ to create a dashboard and proceed to fill the necessary details shown on the page.
+Developer is required to create dashboard to visualize sent information from the meter in forms like graph, charts, and lots more as desired by the developer.To create a dashboard to view meter parameters, user will need to navigate and click on the Dashboards icon on theThingsBoard page, click the _add icon_ to create a dashboard and proceed to fill the necessary details shown on the page.
 
 Next developer clicks to _add entity_ aliases and fill the required details. User should end up with the below screen if all is done correctly.
 
