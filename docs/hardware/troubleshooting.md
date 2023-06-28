@@ -2,13 +2,13 @@
 
 ### POSSIBLE ERRORS
 
-1. Code not compiling. 
+1. Code not compiling.
 2. Incorrect voltage displaying as compared to a TRMS (True Root Mean Square)
-meter. 
-3. Incorrect current/power display. 
+meter.
+3. Incorrect current/power display.
 4. Meter refusing to send data to things board or not connecting to API
-(Application Programming Interface). 
-5. Keypad not displaying what is pressed correctly. 
+(Application Programming Interface).
+5. Keypad not displaying what is pressed correctly.
 6. Incorrect LED (Light Emitting Diode) display
 
 ### SOLUTION TO POSSIBLE ERROR
@@ -44,11 +44,11 @@ measured and displayed by the current measuring meter or device, which inturnaff
 
        4. METER REFUSING TO SEND DATA TO THINGS BOARDORNOTCONNECTING TO API:
 
-Change the APN (Access Point Name) to match the APN of the Simcard used, alsocheck to make sure there is match between the things board token on firmware andthings board page token created. 
+Change the APN (Access Point Name) to match the APN of the Simcard used, alsocheck to make sure there is match between the things board token on firmware andthings board page token created.
 
        5. KEYPAD NOT DISPLAYING WHAT IS PRESSED CORRECTLY:
 
-If meter does not display what is pressed correctly on the LCD while inputtingSTStoken, developer should reverse keypad connection on hardware. 
+If meter does not display what is pressed correctly on the LCD while inputtingSTStoken, developer should reverse keypad connection on hardware.
 
        6. INCORRECT LED DISPLAY:
 
