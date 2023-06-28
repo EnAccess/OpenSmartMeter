@@ -1,14 +1,14 @@
-# **ACCURACY TEST AND COMPLIANCE REPORT**
+# ACCURACY TEST AND COMPLIANCE REPORT
 
 **Abstract**
 
 This document summarizes the technical specification, accuracy tests and comparison with regulatory standards.
 
-## **OVERVIEW**
+## Overview
 
 The purpose of this document is to showcase the accuracy of the AC meter developed under this EnAccess opensource project. This will be primarily achieved by comparing the meter accuracy with international best practices by IEC standards, NEMSA metering guidelines and Nigerian smart meter regulation.
 
-## **METER DATASHEET**
+## Meter datasheet
 
 |S. NO.|DESCRIPTION|UNITS|AS FURNISHED BY BIDDER|
 | :- | - | - | :- |
@@ -49,13 +49,11 @@ The purpose of this document is to showcase the accuracy of the AC meter develop
 |35|Type test certificates|Yes/No|No|
 |36|Guarantee certificates|Yes/No|No|
 
-## **ACCURACY TEST**
+## Accuracy test
 
 Three sample prototype meters were manufactured in as required by the Nigerian Electricity Management Services Agency (NEMSA). These meters will be sent to NEMSA for an official type test and report will be provided accordingly.
 
 Tested meters: MT100, MT50 and MT25
-
-
 
 |**MT100**|**MT50**|**MT25**|
 | - | - | - |
@@ -97,8 +95,6 @@ Tested meters: MT100, MT50 and MT25
 
 **MT25**
 
-
-
 |**Test point (%)**|**Voltage supplied (V)**|**Actual voltage (V)**|**Current supplied (A)**|**Actual current (A)**|**Expected power (W)**|**Actual power (W)**|**Error (%)**|
 | :- | :- | - | - | :- | :- | :- | - |
 |**Imax 1.0**|240\.062|240\.8|80\.0008|79\.61|19151\.99|19170\.09|-0.5233|
@@ -114,9 +110,9 @@ Tested meters: MT100, MT50 and MT25
 
 **Table 3: Accuracy Test Result of Meter MT50**
 
-## **IEC (INTERNATIONAL ELECTROTECHNICAL COMMISSION) Metering Specification**
+## IEC (International Electrotechnical Commission) metering specification
 
-### **Short overview of IEC:**
+### Short overview of IEC
 
 The International Electrotechnical Commission (IEC) is a worldwide organization for standardization comprising all national electrotechnical committees (IEC National Committees). The objective of IEC is to promote international co-operation on all questions concerning standardization in the electrical and electronic fields. To this end and in addition to other activities, IEC publishes International Standards, Technical Specifications, Technical Reports, Publicly Available Specifications (PAS) and Guides (hereafter referred to as “IEC Publication(s)”). Their preparation is entrusted to technical committees; any IEC National Committee interested in the subject dealt with may participate in this preparatory work. International, governmental and non- governmental organizations liaising with the IEC also participate in this preparation. IEC collaborates closely with the International Organization for Standardization (ISO) in accordance with conditions determined by agreement between the two organizations. (webstore.iec.ch, n.d.). The IEC addresses safety aspects by establishing basic group and product safety publications. A *basic safety publication* covers a specific safety-related matter, applicable to many electrotechnical products. It is primarily intended for use by technical committees in the preparation of standards in accordance with the principles laid down in IEC Guide 104 and ISO/IEC Guide 51. It is not intended for use by manufacturers or certification bodies. One of the responsibilities of a technical committee is, wherever applicable, to make use of basic safety publications in the preparation of its publications. The requirements, test methods or test conditions of basic safety publications will not apply unless specifically referred to or included in the relevant publications. The IEC standard codes highlighted below are the plumbline for a design engineer as related to meter design. (webstore.iec.ch, n.d.).
 
@@ -204,13 +200,13 @@ This edition includes the following significant technical changes with respect t
     3. influence of fast load current variations (9.4.12);
     4. immunity to conducted differential current disturbances in the 2 kHz to 150 kHz frequency range (9.3.8). (webstore.iec.ch, n.d.).
 
-## **DESIGN JUSTIFICATION ACCORDING TO THE STATED IEC METERING STANDARD**
+## Design justification according to the stated iec metering standard
 
-### **ELECTRICAL DESIGN JUSTIFICATION:**
+### Electrical design justification
 
 According to the IEC design specification and standard highlighted above, **First Electric** has been able to achieve and meet the standards in Hardware design as related to CATII for high voltage handling capability, invariably the AFE (Analog Front End) chip used (ATM90e26) to measure all metering parameter have a high accuracy fitting for a class 0.1 meter, maximum measurement error of ±0.5%, Human Body Model (HBM) of 2000V according to JESD22-A114 test condition, Charged Device Model (CDM) of 500V according to JESD22-C101 test condition. We carried out meter accuracy-test according to the IEC metering specification standard using a reference meter test-bench, we were able to achieve an accuracy level of **±0.5%,** as highlighted in the percentage error row of the type test results in table 1,2 and 3. The accuracy test was done across different voltage, current and power factor range, with the result of three piece of meter highlighted above.
 
-### **MECHANICAL DESIGN JUSTIFICATION:**
+### Mechanical design justification
 
 Haven gone through the IEC specification as related to metering exterior casing and mechanical related design, the following was highlighted as designed in the meter.
 
@@ -227,11 +223,11 @@ According to IEC 62052-21/22, designed energy meter should have a high tolerance
 
 First Electric designed the exterior casing to be used alongside a terminal block bought in the market which ensure proper insulation as related to the relevant IEC standard.
 
-## **COMPARISON WITH NIGERIAN METERING CODE**
+## Comparison with nigerian metering code
 
 [Nigeria Metering Code Version 02](https://www.abujaelectricity.com/wp-content/uploads/2016/04/MeteringCode_V02_03112014.pdf)
 
-### **GENERAL**
+### General
 
 The technical specifications enunciated herein are a summary of minimum requirements for energy meters and metering accessories approved for use in Nigeria’s electricity network. It is aimed at promoting quality of energy metering in Nigeria to ensure fair play in energy transactions among utilities and customers and safety of all meter users. Among different meter specification highlighted in the Nigeria metering code version2, First Electric highlighted the below as relevant to the meter type constructed.
 
@@ -251,7 +247,7 @@ The specifications are prepared in accordance with the following International S
 1. IEC 62056.
 1. IEC 60044-1,2 and 3.
 
-### **TECHNICAL SPECIFICATIONS FOR STATIC/ELECTRONIC METERS. GENERAL CONSTRUCTION AND COMPONENT SPECIFICATIONS FOR STATIC ENERGY METERS.**
+### Technical specifications for static/electronic meters. General construction and component specifications for static energy meters
 
 ==**METERING CODE REF: 4.4.1**==
 
@@ -266,7 +262,7 @@ The specifications are prepared in accordance with the following International S
 |7|Guarantee/Warranty|5 years|Comply|
 |8|Resistance to heat and fire|The terminal block of Meter case shall be protected against the spread of fire. They shall not be ignited by thermal overload of live parts in contact with them.|Comply|
 
-### **OTHER GENERAL COMPONENT SPECIFICATIONS.**
+### Other general component specifications
 
 ==**METERING CODE REF: 4.4.2.**==
 
@@ -284,7 +280,7 @@ The specifications are prepared in accordance with the following International S
 |10|RTC & Micro Controller|The accuracy of Real Time Clock shall be as per relevant IEC standards|Comply|
 |11|P.C.B|Glass Epoxy, fire resistance grade FR4, with minimum thickness of 1.6mm|Comply|
 
-### **GENERAL REQUIREMENTS.**
+### General requirements
 
 ==**METERING CODE REF: 4.4.4.**==
 
@@ -296,7 +292,7 @@ The specifications are prepared in accordance with the following International S
 |||Terminal cover shall be fixed on Meter before dispatch|Comply|
 |||The operation manual and the inscriptions on the name plate shall be provided in English Language.|Comply|
 
-### **SINGLE PHASE (2Wire) 5(60) AMPS CREDIT STATIC METER**
+### Single phase (2wire) 5(60) AMPs credit static mete
 
 ==**METERING CODE REF : 4.4.5**==
 
@@ -327,7 +323,7 @@ The specifications are prepared in accordance with the following International S
 |23|<p>Influence parameters|The Meter shall work satisfactorily with guaranteed accuracy limit under the presence of following influence quantities as per IEC 61036.</p><p>- External magnetic fields.<br>- Electromagnetic field induction.<br>- Radio frequency interference.<br>- Vibration etc.<br>- Waveform 10% of 3rd harmonics.<br>- Electromagnetic High Frequency<br>- (H.F.)Fields.<br>-DC Immunity test.</p>|Not tested|
 |24|**Display Sequence for parameters**|<p>**DEFAULT DISPLAY**</p><p>Cumulative KWh(cumulative KWh to be displayed continuously without decimal)</p><p>**ON DEMAND DISPLAY**</p><p>After pressing the push button, the following parameters shall be displayed</p><p>LCD Test<br>Date<br>Real time<br>Last month billing date<br>Last month billing KWh reading Meter serial number</p>|Comply|
 
-### **PREPAYMENT METERING SYSTEM**
+### Prepayment metering system
 
 **All Prepayment Metering Installations shall be of the split type and conform to the details below.**
 
@@ -369,11 +365,11 @@ The specifications are prepared in accordance with the following International S
 |26|EMC Susceptibility|According to IEC 61036, 61268.Not adversely affected by external magnetic fields.|Not tested|
 |27|Life Span|Minimum 10 years|Comply|
 
-## **COMPARISON WITH NIGERIAN ELECTRICITY SMART METERING REGULATION**
+## Comparison with Nigerian electricity smart metering regulation
 
-[NIGERIAN ELECTRICITY SMART METERING REGULATION V01 ](file:///Users/daniel/Downloads/NESMR_EMM.pdf)
+[NIGERIAN ELECTRICITY SMART METERING REGULATION V01](https://nemsa.gov.ng/wp-content/uploads/2019/07/NESMR_EMM.pdf)
 
-### **PHYSICAL REQUIREMENTS**
+### Physical requirements
 
 ==**METERING CODE REF : 2**==
 
@@ -384,7 +380,7 @@ The specifications are prepared in accordance with the following International S
 |2.3||A Smart Metering System shall be capable of automatically resuming operation after a power failure in its operating state prior to such failure.|Comply|
 |2.4||The electricity smart meter shall comply with the provisions of the Nigeria Electricity Metering Code as amended.|Comply|
 
-### **FUNCTIONAL REQUIRMENENTS**
+### Functional requirmenents
 
 ==**METERING CODE REF : 3**==
 
@@ -399,7 +395,7 @@ The specifications are prepared in accordance with the following International S
 ||**RMS extreme over voltage detection**|<p>A SMS shall be capable of detecting when the RMS voltage is above the *RMS Extreme Over Voltage Threshold* (*5.2.20*) for longer than the continuous period defined in the *RMS Extreme Over Voltage Measurement Period(5.2.18)*, and on detection:</p><p>Generating an entry to that effect in the *Event Log*(*5.3.10*); and Sending an Alert to that effect via its WAN Interface.</p><p>Disable supply until RMS voltage normalizes</p>|<p>Comply</p><p>Not comply</p><p>Comply</p>|
 ||**RMS extreme under voltage detection**|<p>A SMS shall be capable of detecting when the RMS voltage is below the *RMS Extreme Under Voltage Threshold* (*5.2.21*) for longer than the continuous period defined in the *RMS Extreme Under Voltage Measurement Period (5.2.19)*, and on detection:<p>Generating an entry to that effect in the *Event Log*(*5.3.10*); and Sending an Alert to that effect via its WAN Interface.</p><p>disable supply until RMS voltage normalizes.</p></p>|<p>Comply</p><p>Not comply</p><p>Comply</p>|
 
-### **INTERFACE REQUIREMENTS**
+### Interface requirements
 
 ==**METERING CODE REF : 4 & 5**==
 
@@ -409,7 +405,7 @@ The specifications are prepared in accordance with the following International S
 |5.3.9|*Emergency Credit Balance*|The amount of Emergency Credit available to the Consumer after it has been activated by the Consumer.|Not applicable for prototype|
 |5.3.13|*Credit Balance*|The amount of money in Currency Units as determined by the SMS. If operating in Prepayment Mode, the Credit Balance represents the SMS’s determination of the amount of credit available to the Consumer (other than any *Emergency Credit Balance (5.3.9)*). If operating in Credit Mode, it represents the SMS’s determination of the amount of money due from the Consumer since the Credit Balance was last reset.|Not applicable for prototype|
 
-### **SMART METER SPECIFICATIONS AND SMS OWNERSHIP**
+### Smart meter specifications and SMS ownership
 
 ==**METERING CODE REF : 7**==
 
@@ -423,15 +419,13 @@ The specifications are prepared in accordance with the following International S
 |||<p>The Electric Smart Meter shall be suitable for operation under the following conditions:</p><p>Operating range voltage input : 230 V ± 15% ;<br>Basic current (maximum current) : 5 A (100 A);<br>Reference frequency : 50 Hz ± 5% ;<br>Operating temperature: -40°C to +70°C Average relative humidity: up to 95%, non-condensing</</p><p>The meter shall be equipped with a battery to maintain minimal time during minimal function. The meter shall consume no more than 2 Watts on average during normal operational conditions.</p><p>Meter should be integrated with in-built communication modem (s) for all its communication interfaces.</p>|<p>Comply</p>|
 |7\.2|**Meter Protection and design**|<p>The meter shall be installable in current existing meter locations at consumer premises.</p><p>7\.2.2. The smart metering system components shall support local access and configuration by authorized personnel.</p><p>The smart metering system shall be installed and maintained in a manner that protects public safety.</p><p>The smart metering system shall display energy supply status (enabled or disabled) and origin of supply (grid or generator).</p><p>The smart metering system shall be protected from physical tampering or interference, e.g. security seals, tamper switches, etc.</p><p>The smart metering system should integrate a tampering detector, recognizing the following signals:</p><p>Removal of terminal cover when the meter is powered as well as when it is not powered</p><p>Reverse current flow Phase inversion (single-phase meters)</p><p>Current flow with no voltage</p><p>The meter and its measurement technology shall be highly resistant to tamper attempts with DC magnetic fields Phase rotation (for three phase meters) Single phasing (for three phase meters)</p>|<p>Not applicable</p><p>Comply</p>|
 
-## **CONCLUSION**
+## Conclusion
 
 The open-source AC meter has been designed according to IEC Standards and follows majority of the requirements of the Nigerian metering code-02. There are a few design features that do not confirm to the metering code as listed in sections above. For those reasons, First Electric will be unable to obtain a compliance or test certification from NEMSA. Invariably, First Electric has been able to fulfill the design requirements of a standard energy meter with additional smart IOT feature for top-up and parameter monitoring following the relevant IEC specification standard for meter design. More as regards compliance to metering code alongside IEC standard is highlighted below in sections above.
 
-## **SINGLE-PHASE CALIBRATOR MULTI-FUNCTION ELECTRIC ENERGY METER TEST BENCH**
+## Single-phase calibrator multi-function electric energy meter test bench
 
 **Technical specification of test bench used:**
-
-
 
 |Description|Equipment value|
 | - | - |
@@ -455,7 +449,8 @@ The open-source AC meter has been designed according to IEC Standards and follow
 </figure>
 
 
-## **REFERENCES**
+## References
+
 1. webstore.iec.ch. (n.d.).IEC 62053-22:2020 | IEC Webstore. [online] Available at: <https://webstore.iec.ch/publication/29987> [Accessed 3 Sep. 2022].
 2. webstore.iec.ch. (n.d.). | IEC Webstore. [online] Available at: <https://webstore.iec.ch/preview/info_iec62052-31%7Bed1.0%7Den.pdf> [Accessed 3 Sep. 2022].
 3. Nigeria Metering Code. (n.d.). [online] Available at: [https://www.abujaelectricity.com/wp-content/uploads/2016/04/MeteringCode_V02_03112 ](https://www.abujaelectricity.com/wp-content/uploads/2016/04/MeteringCode_V02_03112014.pdf)014.pdf [Accessed 7 Sep. 2022].
