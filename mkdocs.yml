@@ -113,5 +113,6 @@ nav:
     - Product and specification manual: hardware/product_specification.md
     - Toubleshooting manual: hardware/troubleshooting.md
   - Web Software and API documentation: backend/api-documentation.md
+  - Lessons learnt: lessons-learnt.md
   - Example: example.md
   - EnAccess: https://enaccess.org/materials/smartmeter/
