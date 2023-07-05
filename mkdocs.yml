@@ -103,6 +103,7 @@ extra_javascript:
 
 # Page tree
 nav:
+  - Home: index.md
   - Firmware Documentation:
     - Firmware Design: firmware/design.md
     - Calibration: firmware/calibration.md
@@ -113,5 +114,4 @@ nav:
     - Toubleshooting manual: hardware/troubleshooting.md
   - Web Software and API documentation: backend/api-documentation.md
   - Example: example.md
-  - Readme: README.md
-
+  - EnAccess: https://enaccess.org/materials/smartmeter/
