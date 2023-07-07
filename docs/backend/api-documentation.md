@@ -106,7 +106,7 @@ Under dashboard, developer will navigate and click on _ADD NEW WIDGET_, then fil
 
 !!! note
 
-    Developer can not add different widget.
+    Developer can add different widget as desired.
 
 ## Paystack Integration:
 
