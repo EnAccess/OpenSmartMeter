@@ -77,7 +77,7 @@ TokenData GetDataFromToken(uint64_t InputToken, uint16_t *MaxCount, uint16_t *Us
     uint32_t CurrentToken = PutBaseInToken(StartingCode, TokenBase);
     uint32_t MaskedToken;
     int MaxCountTry;
-    int MinCountTry;
+    //int MinCountTry;
     int Value = DecodeBase(StartingCodeBase, TokenBase);
     TokenData output;
     bool ValidOlderToken = false;
