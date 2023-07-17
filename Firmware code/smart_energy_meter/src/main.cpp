@@ -161,7 +161,7 @@ void setup() {
     break;
   
   case 2:    
-    /*Opaygo */
+    /*OpenPayGo Token initializing code; */
     break;
   }
 }

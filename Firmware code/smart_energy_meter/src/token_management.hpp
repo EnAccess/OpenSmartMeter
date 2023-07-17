@@ -33,6 +33,7 @@ byte data_count = 0;
 byte dt = 0;
 byte parameters = 0;
 byte token_used = 0;
+String password = "1234";
 
 //    for meter
 unsigned long sts_eeprom_fetched = 0;
