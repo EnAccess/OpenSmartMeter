@@ -140,23 +140,51 @@ void setup() {
 #else
   TIM_TypeDef* Instance = TIM2;
 #endif
-  HardwareTimer* MyTim = new HardwareTimer(Instance);
+ HardwareTimer* MyTim = new HardwareTimer(Instance);
   MyTim->setOverflow(20, HERTZ_FORMAT);
-  MyTim->attachInterrupt(urgeent);
-  MyTim->resume();
+  switch (Mode_select)
+  {
+  case 0:
+    lcd.clear();
+    lcd.setCursor(0, 0);
+    lcd.println("No Configuration! ");
+    while(Mode_select == 0) // wait for mode configuration
+    {
+      STS_keypad();
+      delay(20);
+    }
+    break;
+
+  case 1:
+    MyTim->attachInterrupt(urgeent);
+    MyTim->resume();
+    break;
+  
+  case 2:    
+    /*Opaygo */
+    break;
+  }
 }
 
 void loop() {
-  mesure();
-  if ((mains_input_value > 50)) {
-    credit_reminder();
+  if(Mode_select == 1)
+  {
+    mesure();
+    if ((mains_input_value > 50)) {
+      credit_reminder();
+    }
+    if ((mains_input_value < 50)) {
+      digitalWrite(red_led, LOW);
+      digitalWrite(green_led, LOW);
+    }
+    get_time();
+    if ((sts_mode == 0) && (mains_input_value > 50)) {
+      gsm_func();
+    }
   }
-  if ((mains_input_value < 50)) {
-    digitalWrite(red_led, LOW);
-    digitalWrite(green_led, LOW);
-  }
-  get_time();
-  if ((sts_mode == 0) && (mains_input_value > 50)) {
-    gsm_func();
+
+  if(Mode_select == 2)
+  {
+    //OpenPayGo Token code;
   }
 }
