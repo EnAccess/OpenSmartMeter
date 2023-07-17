@@ -41,6 +41,7 @@ unsigned long eeprom_location_cnt = 40;
 
 unsigned long sts_value = 0;
 unsigned long sts_mode = 0;
+unsigned long Mode_select = 0;
 
 void buss() {
   digitalWrite(buzzer, HIGH);
@@ -88,11 +89,18 @@ void STS_keypad() {
     dt = 0;
     sts_value = 0;
     delay(20);
-    lcd.clear();
     buss();
+    lcd.clear();
     lcd.setCursor(0, 0);
-    lcd.print("STS MODE        ");
     sts_mode = 1;
+    if (customKeypad.getState() == HOLD)
+    { 
+      lcd.println("Password: ");
+    }
+    else{
+      lcd.print("TOKEN: ");
+    }
+    
   }
 
   if (sts_mode == 1 && customKey != '*' && customKey != '#' &&
@@ -132,11 +140,37 @@ void STS_keypad() {
     parameters = parameters + 1;
   }
 
-  if (customKey == '#' && sts_mode == 1 && data_count > 19) {
+  if (customKey == '#' && sts_mode == 1) {
     sts_data = Data;
-    check_tokenused();
-    if (token_used == 0) {
-      STStoken_decode();
+    if(data_count > 19)
+    {
+      check_tokenused();
+      if (token_used == 0) 
+      {
+        STStoken_decode();
+      }
+    }
+
+    if(data_count < 19 &&  data_count > 3)
+    {
+      if (sts_data == password)
+      {
+        lcd.clear();
+        lcd.setCursor(0, 0);
+        lcd.print("MODE: ");
+        data_count = 0;
+        lcd_count = 8;
+        dt = 0;
+      }
+      if (sts_data == "112")
+      {  
+        Mode_select = 1;
+      }
+
+      if (sts_data == "122")
+      {
+          Mode_select = 2;
+      }
     }
   }
 }
