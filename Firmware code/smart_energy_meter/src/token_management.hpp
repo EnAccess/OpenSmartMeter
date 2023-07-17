@@ -6,7 +6,7 @@
 // Arduino base libraries
 
 // third party libraries
-#include <Keypad.h>
+#include "../.pio/libdeps/bluepill_f103c8_128k/Keypad/src/Keypad.h"
 
 // OpenSmartMeter libraries
 #include "lcd_init.hpp"
