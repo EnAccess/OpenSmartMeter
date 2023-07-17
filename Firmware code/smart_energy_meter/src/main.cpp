@@ -22,6 +22,11 @@
 #include "time_management.hpp"
 #include "token_management.hpp"
 
+
+extern "C" {
+#include "opaygo_decoder.h"
+}
+
 HardwareSerial Serial2(PA3, PA2);
 
 byte fe1[8] = {0b00011, 0b00011, 0b00011, 0b00011,
