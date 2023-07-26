@@ -1,17 +1,36 @@
-# Welcome to MkDocs
+<p align="center">
+  <a href="https://github.com/EnAccess/OpenSmartMeter">
+    <img
+      src="https://enaccess.org/wp-content/uploads/2023/04/Open-Smart-Meter-GitHub-2240-%C3%97-800-transparent.svg"
+      alt="OpenSmartMeter"
+      width="640"
+    >
+  </a>
+</p>
+<p align="center">
+    <em>The Open Smart Meter solves a problem that affects most solar developers in the industry. This inexpensive and open source Smart Meter meets IEC and key elements of the local regulations in Nigeria.</em>
+</p>
+<p align="center">
+  <img
+    alt="Project Status"
+    src="https://img.shields.io/badge/Project%20Status-Functional%20prototype-yellow"
+  >
+  <img
+    alt="GitHub Workflow Status"
+    src="https://img.shields.io/github/actions/workflow/status/enaccess/OpenSmartMeter/opensmartmeter.yaml"
+  >
+  <a href="https://github.com/EnAccess/OpenSmartMeter/blob/main/LICENSE" target="_blank">
+    <img
+      alt="License"
+      src="https://img.shields.io/github/license/enaccess/OpenSmartMeter"
+    >
+  </a>
+</p>
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+---
 
-## Commands
+## Description
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+This repository contains manufacturing details as related to smart energy meter, details such as hardware design, web software, firmware, exterior casing STL files, rationale behind design, how-to document to guide a skilled user to replicate every part of the smart meter available in the repository.
 
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+![EnAcess PCB new](https://user-images.githubusercontent.com/99180312/196974871-8cfb9366-eee0-4abf-8d39-d806d01217dd.png)

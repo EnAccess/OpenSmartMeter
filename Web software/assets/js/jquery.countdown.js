@@ -1,17 +1,17 @@
 /*!
  * The Final Countdown for jQuery v2.0.4 (http://hilios.github.io/jQuery.countdown/)
  * Copyright (c) 2014 Edson Hilios
- * 
+ *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of
  * this software and associated documentation files (the "Software"), to deal in
  * the Software without restriction, including without limitation the rights to
  * use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
  * the Software, and to permit persons to whom the Software is furnished to do so,
  * subject to the following conditions:
- * 
+ *
  * The above copyright notice and this permission notice shall be included in all
  * copies or substantial portions of the Software.
- * 
+ *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
  * FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
@@ -19,14 +19,14 @@
  * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-(function(factory) {
+(function (factory) {
     "use strict";
     if (typeof define === "function" && define.amd) {
-        define([ "jquery" ], factory);
+        define(["jquery"], factory);
     } else {
         factory(jQuery);
     }
-})(function($) {
+})(function ($) {
     "use strict";
     var PRECISION = 100;
     var instances = [], matchers = [];
@@ -61,7 +61,7 @@
         S: "seconds"
     };
     function strftime(offsetObject) {
-        return function(format) {
+        return function (format) {
             var directives = format.match(/%(-|!)?[A-Z]{1}(:[^;]+;)?/gi);
             if (directives) {
                 for (var i = 0, len = directives.length; i < len; ++i) {
@@ -105,7 +105,7 @@
             return plural;
         }
     }
-    var Countdown = function(el, finalDate, callback) {
+    var Countdown = function (el, finalDate, callback) {
         this.el = el;
         this.$el = $(el);
         this.interval = null;
@@ -122,36 +122,36 @@
         this.start();
     };
     $.extend(Countdown.prototype, {
-        start: function() {
+        start: function () {
             if (this.interval !== null) {
                 clearInterval(this.interval);
             }
             var self = this;
             this.update();
-            this.interval = setInterval(function() {
+            this.interval = setInterval(function () {
                 self.update.call(self);
             }, PRECISION);
         },
-        stop: function() {
+        stop: function () {
             clearInterval(this.interval);
             this.interval = null;
             this.dispatchEvent("stoped");
         },
-        pause: function() {
+        pause: function () {
             this.stop.call(this);
         },
-        resume: function() {
+        resume: function () {
             this.start.call(this);
         },
-        remove: function() {
+        remove: function () {
             this.stop();
             instances[this.instanceNumber] = null;
             delete this.$el.data().countdownInstance;
         },
-        setFinalDate: function(value) {
+        setFinalDate: function (value) {
             this.finalDate = parseDateString(value);
         },
-        update: function() {
+        update: function () {
             if (this.$el.closest("html").length === 0) {
                 this.remove();
                 return;
@@ -176,7 +176,7 @@
                 this.dispatchEvent("update");
             }
         },
-        dispatchEvent: function(eventName) {
+        dispatchEvent: function (eventName) {
             var event = $.Event(eventName + ".countdown");
             event.finalDate = this.finalDate;
             event.offset = $.extend({}, this.offset);
@@ -184,9 +184,9 @@
             this.$el.trigger(event);
         }
     });
-    $.fn.countdown = function() {
+    $.fn.countdown = function () {
         var argumentsArray = Array.prototype.slice.call(arguments, 0);
-        return this.each(function() {
+        return this.each(function () {
             var instanceNumber = $(this).data("countdown-instance");
             if (instanceNumber !== undefined) {
                 var instance = instances[instanceNumber], method = argumentsArray[0];

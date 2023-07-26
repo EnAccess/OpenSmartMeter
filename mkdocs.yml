@@ -103,10 +103,16 @@ extra_javascript:
 
 # Page tree
 nav:
+  - Home: index.md
   - Firmware Documentation:
-    - Accuracy Test and Compliance Report: firmware/accuracy_and_compliance_report.md
-    - Calibration: firmware/calibration.md
     - Firmware Design: firmware/design.md
-  - Hardware Documentation: hardware/index.md
+    - Calibration: firmware/calibration.md
+    - Accuracy Test and Compliance Report: firmware/accuracy_and_compliance_report.md
+  - Hardware Documentation:
+    - PCB design rationate: hardware/pcb_design.md
+    - Product and specification manual: hardware/product_specification.md
+    - Toubleshooting manual: hardware/troubleshooting.md
   - Web Software and API documentation: backend/api-documentation.md
+  - Lessons learnt: lessons-learnt.md
   - Example: example.md
+  - EnAccess: https://enaccess.org/materials/smartmeter/
