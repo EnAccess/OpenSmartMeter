@@ -9,7 +9,7 @@
 #include "opaygo_decoder_extended.h"
 
 
-int32_t GetActivationValueFromExtendedToken(uint64_t InputToken, uint16_t *MaxCount, uint32_t StartingCode, unsigned char SECRET_KEY[16]) {
+int32_t GetActivationValueFromExtendedToken(uint64_t InputToken, uint16_t *MaxCount, uint32_t StartingCode, char SECRET_KEY[16]) {
     
     uint32_t StartingCodeBase = GetTokenBaseExtended(StartingCode);
     uint32_t TokenBase = GetTokenBaseExtended(InputToken);

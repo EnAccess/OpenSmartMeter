@@ -21,6 +21,6 @@ struct TokenDataStruct {
 };
 typedef struct TokenDataStruct TokenData;
 
-TokenData GetDataFromToken(uint64_t InputToken, uint16_t *MaxCount, uint16_t *UsedCounts, uint32_t StartingCode, unsigned char SECRET_KEY[16]);
+TokenData GetDataFromToken(uint64_t InputToken, uint16_t *MaxCount, uint16_t *UsedCounts, uint32_t StartingCode, char SECRET_KEY[16]);
 
 #endif
