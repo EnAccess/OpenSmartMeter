@@ -52,7 +52,7 @@ The PCB features a 2layer design incorporating CICADA GSM module for communicati
 ### Firmware, Web interface Development & API integration
 
 The firmware code was written in Arduino IDE using C++, while the web front end was written majorly in HTML and CSS while the back end was written majorly in PHP.
-Links to all these codes are here. Thingsboard API was used to view meter parameters such as energy, credit.
+Links to all these codes are here. ThingsBoard API was used to view meter parameters such as energy, credit.
 
 ### Calibration & Testing
 
@@ -146,7 +146,7 @@ The web software is split into different parts as highlighted below.
 
 1. Extraction of zip file from Github.
 2. Creating database.
-3. Linking Thingsboard public link to webpage.
+3. Linking ThingsBoard public link to webpage.
 
 ### Extraction of file from Github
 
@@ -159,9 +159,9 @@ The database schema file can be downloaded from the Github link provided below
 https://github.com/EnAccess/OpenSmartMeter/blob/main/Documentations/Web%20Software%20and%20API%20documentation/meter.sql for testing purpose, next user can assign a meter number as desired from MT1 to MT99990 and insert into the meter Database column for meter number.
 Developer need to change password and database name in web code to same password and database name as created by developer to enable access to the database.
 
-### Linking Thingsboard public link to webpage
+### Linking ThingsBoard public link to webpage
 
-After Thingsboard page is setup, developer make the data available by changing the privacy setting from private to public, next the public link is copied to the Thingsboard column specified in the database for each user.
+After ThingsBoard page is setup, developer make the data available by changing the privacy setting from private to public, next the public link is copied to the ThingsBoard column specified in the database for each user.
 
 ## Hardware
 The hardware is splitted into different parts as highlighted below.

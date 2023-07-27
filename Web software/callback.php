@@ -40,9 +40,9 @@ if('success' == $tranx->data->status){
   // please check other things like whether you already gave value for this ref
   // if the email matches the customer who owns the product etc
   // Give value
-  
+
   $ID = $reference;
-   
+
   //$ID = $reference;
   //$meternumber = $_SESSION ["meter_no"];
   //$_SESSION ["amount"];
@@ -53,21 +53,21 @@ if('success' == $tranx->data->status){
   //echo $meternumber;
   //DB();
   //session_destroy();
-  
-     
-   
+
+
+
   $meternumber = $_SESSION ["meter_no"];
   $_SESSION ["amount"];
   $temp_amount = $_SESSION ["amount"];
   $topup = substr($temp_amount,0,-2);
- 
-  session_destroy();   
- 
+
+  session_destroy();
+
   $servername = "localhost";
   $dbname = "id17130795_energymeter";
   $username = "id17130795_byker";
   $password = "Danielkomolafe00%";
- 
+
   $conn = mysqli_connect ($servername, $username, $password, $dbname);
   // Check connection
   if ($conn->connect_error) {
@@ -77,39 +77,39 @@ if('success' == $tranx->data->status){
   //$sql = "INSERT INTO meter (meterid, amount, status, transaction_id)
   //VALUES ('$meternumber', '$topup', 'pending', '$ID' )";
   $sql = "UPDATE meter SET amount='$topup', status='pending', transaction_id='$ID' WHERE meterid='$meternumber'";
-  
- 
+
+
  if ($conn->query($sql) === TRUE) {
   echo "Record updated successfully";
 } else {
   echo "Error updating record: " . $conn->error;
 }
-  
-   
 
-$conn->close();    
- echo "<h2>Thank you for making a purchase. Your file has been sent to your email.</h2>"; 
-  
+
+
+$conn->close();
+ echo "<h2>Thank you for making a purchase. Your file has been sent to your email.</h2>";
+
 }
 
 
 
 
 function DB(){
-    
-   
+
+
   $meternumber = $_SESSION ["meter_no"];
   $_SESSION ["amount"];
   $temp_amount = $_SESSION ["amount"];
   $topup = substr($temp_amount,0,-2);
- 
-  session_destroy();   
- 
+
+  session_destroy();
+
   $servername = "localhost";
   $dbname = "id17130795_energymeter";
   $username = "id17130795_byker";
   $password = "Danielkomolafe00%";
- 
+
   $conn = mysqli_connect ($servername, $username, $password, $dbname);
   // Check connection
   if ($conn->connect_error) {
@@ -122,9 +122,9 @@ function DB(){
   if (mysqli_query($conn, $sql)) {
   echo "New record replaced successfully";
   }
-   
 
-$conn->close();    
+
+$conn->close();
 }
 
 ?>
