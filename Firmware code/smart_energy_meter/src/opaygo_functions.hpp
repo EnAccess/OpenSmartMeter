@@ -9,7 +9,7 @@
 #include "Arduino.h"
 
 #define BLINK_PERIOD 250
-//#define DEBUG
+#define DEBUG
 
 #define STAR_KEY -1
 #define HASH_KEY -2
@@ -70,6 +70,14 @@ void BlinkGreenLED(int NumberOfBlinks, int BlinkPeriode) {
     BlinkLED(green_led, NumberOfBlinks, BlinkPeriode);
 }
 
+
+bool TokenEntryAllowed() {
+    if(TokenEntryLockedUntil > GetTimeInSeconds()) {
+        return false;
+    } else {
+        return true;
+    }
+}
 
 uint64_t WaitForTokenEntry() {
     uint64_t TempToken = 0;
@@ -144,14 +152,6 @@ void UpdateInvalidTokenWaitingPeriod() {
     // We add some forgiveness for the first 2 errors
     if(InvalidTokenCount > 2) {
         TokenEntryLockedUntil = Now + pow(2, InvalidTokenCount-2)*60;
-    }
-}
-
-bool TokenEntryAllowed() {
-    if(TokenEntryLockedUntil > GetTimeInSeconds()) {
-        return false;
-    } else {
-        return true;
     }
 }
 
