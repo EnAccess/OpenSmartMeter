@@ -8,7 +8,12 @@
 // Arduino base libraries
 #include "Arduino.h"
 
+#define BLINK_PERIOD 250
+//#define DEBUG
 
+#define STAR_KEY -1
+#define HASH_KEY -2
+#define NON_ACCEPTED_KEY -3
 
 // Device parameters location in Flash/EEPROM
 unsigned int TokenCount_eeprom_location = 6;
@@ -77,19 +82,19 @@ uint64_t WaitForTokenEntry() {
             if(TokenEntryAllowed()) {
                 NoToken = false;
             } else {
-                BlinkRedLED(1);
+                BlinkRedLED(1, BLINK_PERIOD);
                 #ifdef DEBUG
                 printf("\nToken entry locked for %d seconds", TokenEntryLockedUntil-GetTimeInSeconds());
                 #endif
             }
         } else if(LastKey == HASH_KEY) {
             if(IsActive()) {
-                BlinkGreenLED(1);
+                BlinkGreenLED(1, BLINK_PERIOD);
                 #ifdef DEBUG
                 printf("\nTime Left: %d seconds", ActiveUntil-GetTimeInSeconds());
                 #endif
             } else {
-                BlinkRedLED(1);
+                BlinkRedLED(1, BLINK_PERIOD);
             }
         }
     }
@@ -98,5 +103,9 @@ uint64_t WaitForTokenEntry() {
         TempToken += GetKeyPressed()*pow(10, (TOKEN_LENGTH-1)-i);
     }
     return TempToken;
+}
+
+void UpdateDeviceStatusFromTokenValue(int TokenValue, int ActivationCount){
+    
 }
 
