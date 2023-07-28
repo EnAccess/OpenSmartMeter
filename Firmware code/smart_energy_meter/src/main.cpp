@@ -183,6 +183,9 @@ void setup() {
   
   case 2:    
     /*OpenPayGo Token initializing code; */
+    printf("Welcome to the OPAYGO Device\n");
+    printf("We're waiting for the * character to start recording the key presses.\n(Press the '#' key to see the device activation status)\n\n");
+    LoadActivationVariables(); // We load the activation variableS
     break;
   }
 }
