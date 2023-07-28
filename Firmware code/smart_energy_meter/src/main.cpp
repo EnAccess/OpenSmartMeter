@@ -14,6 +14,7 @@
 #include "lcd_display.hpp"
 #include "lcd_init.hpp"
 #include "mem_init.hpp"
+#include "opaygo_functions.hpp"
 #include "power.hpp"
 #include "relay.hpp"
 #include "remote.hpp"
