@@ -28,21 +28,12 @@ extern "C" {
 #include "opaygo_decoder.h"
 }
 
+
 uint64_t InputToken;
 TokenData Output;
-
-// Device parameters (to be stored in Flash/EEPROM)
-uint16_t TokenCount = 1;
-uint16_t UsedTokens = 0;
-bool PAYGEnabled = true;
-uint32_t ActiveUntil = 0;
-uint32_t TokenEntryLockedUntil = 0;
-
-// WARNING: THIS SECRET KEY AND STARTING CODE IS ONLY HERE AS AN EXAMPLE AND SHOULD NEVER BE USED IN PRODUCTION
 uint32_t StartingCode = 123456789;
 unsigned char SECRET_KEY[16] = {0xa2, 0x9a, 0xb8, 0x2e, 0xdc, 0x5f, 0xbb, 0xc4, 0x1e, 0xc9, 0x53, 0xf, 0x6d, 0xac, 0x86, 0xb1};
 // char SECRET_KEY[16] = {...};
-
 
 HardwareSerial Serial2(PA3, PA2);
 
@@ -210,8 +201,19 @@ void loop() {
 
   if(Mode_select == 2)
   {
-    //OpenPayGo Token code;
-      Output = GetDataFromToken(InputToken, &TokenCount, &UsedTokens, StartingCode, SECRET_KEY);// We get the activation value from the token
+    // We wait for a token to be entered
+    InputToken = WaitForTokenEntry();
+        // We get the activation value from the token
+
+    Output = GetDataFromToken(InputToken, &TokenCount, &UsedTokens, StartingCode, SECRET_KEY);// We get the activation value from the token
+    
+    printf("\n(Token entered: %llu)", InputToken);
+    printf("\n(Activation Value from Token: %d)", Output.Value); // Activation Value found in the token
+    printf("\n(Count: %d)", Output.Count); // Count found in the token
+    printf("\n(Max Count: %d)", TokenCount); // Count found in the token
+    printf("\n(Used Tokens: %d)\n", UsedTokens); // Count found in the token
+
+    UpdateDeviceStatusFromTokenValue(Output.Value, Output.Count);
 
   }
 }
