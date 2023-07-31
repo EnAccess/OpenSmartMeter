@@ -7,6 +7,12 @@
 
 // Arduino base libraries
 #include "Arduino.h"
+#include <time.h>
+
+extern "C" {
+#include "opaygo_decoder.h"
+}
+
 
 #define BLINK_PERIOD 250
 #define DEBUG
@@ -14,6 +20,16 @@
 #define STAR_KEY -1
 #define HASH_KEY -2
 #define NON_ACCEPTED_KEY -3
+
+
+#define TIME_DIVIDER 1
+//#define RESTRICTED_DIGIT_SET_MODE
+
+#ifdef RESTRICTED_DIGIT_SET_MODE
+#define TOKEN_LENGTH 15
+#else
+#define TOKEN_LENGTH 9
+#endif
 
 // Device parameters location in Flash/EEPROM
 unsigned int TokenCount_eeprom_location = 6;
@@ -28,6 +44,8 @@ uint16_t UsedTokens = 0;
 bool PAYGEnabled = true;
 uint32_t ActiveUntil = 0;
 uint32_t TokenEntryLockedUntil = 0;
+
+int InvalidTokenCount = 0;
 
 void LoadActivationVariables() {
     TokenCount = mem.readInt(TokenCount_eeprom_location);// We load TokenCount (& UsedTokens if needed)
@@ -70,10 +88,112 @@ void BlinkGreenLED(int NumberOfBlinks, int BlinkPeriode) {
     BlinkLED(green_led, NumberOfBlinks, BlinkPeriode);
 }
 
+uint32_t GetTimeInSeconds() {
+    return (uint32_t) time(NULL);
+}
 
 bool TokenEntryAllowed() {
     if(TokenEntryLockedUntil > GetTimeInSeconds()) {
         return false;
+    } 
+    else {
+        return true;
+    }
+}
+
+int GetKeyPressed()
+/*
+ * returns the key pressed on the Keypad remote as a int (this function forces to put the key in a char, good practice)
+ */
+{
+  char incomingByte;
+  incomingByte = customKeypad.getKey();
+  Serial.print("incoming byte = ");
+  Serial.println(incomingByte);
+  switch (incomingByte) {
+    case '*':
+        return STAR_KEY;
+        break;
+            
+    case '#':
+        return HASH_KEY;
+        break;
+            
+    default:
+        return (int) (incomingByte - '0'); // this_char is now an int
+        break;
+    }
+}
+
+void UpdateInvalidTokenWaitingPeriod() {
+    uint32_t Now = GetTimeInSeconds();
+    
+    // We check that it does not become unbearably long
+    if(InvalidTokenCount > 11) {
+        InvalidTokenCount = 11;
+    }
+
+    // We add some forgiveness for the first 2 errors
+    if(InvalidTokenCount > 2) {
+        TokenEntryLockedUntil = Now + pow(2, InvalidTokenCount-2)*60;
+    }
+}
+
+
+
+void AddTime(int ActivationValue) {
+    uint32_t Now = GetTimeInSeconds();
+    int NumberOfSecondsToActivate = (ActivationValue*3600*24) / TIME_DIVIDER;
+    
+    if(ActiveUntil < Now) {
+        ActiveUntil = Now;
+    }
+    
+    ActiveUntil += NumberOfSecondsToActivate; // We add the number of days (converted in seconds for to compare to our RTC time)
+}
+
+void SetTime(int ActivationValue) {
+    uint32_t Now = GetTimeInSeconds();
+    int NumberOfSecondsToActivate = (ActivationValue*3600*24) / TIME_DIVIDER;
+    
+    ActiveUntil = Now + NumberOfSecondsToActivate; // We set the number of days (converted in seconds for to compare to our RTC time)
+}
+
+void UpdateDeviceStatusFromTokenValue(int TokenValue, int ActivationCount) {
+    if(TokenValue == -1) {
+        InvalidTokenCount++;
+        UpdateInvalidTokenWaitingPeriod();
+        BlinkRedLED(10, BLINK_PERIOD);
+    } else if(TokenValue == -2) {
+        BlinkGreenLED(1, BLINK_PERIOD); // We blink the green LED once to show that the token was valid but isnt anymore
+    } else {
+        InvalidTokenCount = 0;
+        if(TokenValue == COUNTER_SYNC_VALUE) {
+            BlinkGreenLED(3, BLINK_PERIOD); // We blink green twice to show that the token is good
+        } else if(TokenValue == PAYG_DISABLE_VALUE) {
+            PAYGEnabled = false;
+            BlinkGreenLED(5, BLINK_PERIOD); // We blink green twice to show that the device is active forever
+        } else {
+            if(ActivationCount % 2) {
+                PAYGEnabled = true;
+                SetTime(TokenValue);
+            } else {
+                AddTime(TokenValue);
+            }
+            BlinkGreenLED(2, BLINK_PERIOD); // We blink green twice to show that the token is good
+        }
+        StoreActivationVariables(); // We store in every case
+    }
+}
+
+
+bool IsActive() {
+    if(PAYGEnabled) {
+        if(ActiveUntil > GetTimeInSeconds()) {
+            return true;
+        } else {
+            return false;
+        }
     } else {
         return true;
     }
@@ -112,78 +232,4 @@ uint64_t WaitForTokenEntry() {
     }
     return TempToken;
 }
-
-void UpdateDeviceStatusFromTokenValue(int TokenValue, int ActivationCount) {
-    if(TokenValue == -1) {
-        InvalidTokenCount++;
-        UpdateInvalidTokenWaitingPeriod();
-        BlinkRedLED(10, BLINK_PERIOD);
-    } else if(TokenValue == -2) {
-        BlinkGreenLED(1, BLINK_PERIOD); // We blink the green LED once to show that the token was valid but isnt anymore
-    } else {
-        InvalidTokenCount = 0;
-        if(TokenValue == COUNTER_SYNC_VALUE) {
-            BlinkGreenLED(3, BLINK_PERIOD); // We blink green twice to show that the token is good
-        } else if(TokenValue == PAYG_DISABLE_VALUE) {
-            PAYGEnabled = false;
-            BlinkGreenLED(5, BLINK_PERIOD); // We blink green twice to show that the device is active forever
-        } else {
-            if(ActivationCount % 2) {
-                PAYGEnabled = true;
-                SetTime(TokenValue);
-            } else {
-                AddTime(TokenValue);
-            }
-            BlinkGreenLED(2, BLINK_PERIOD); // We blink green twice to show that the token is good
-        }
-        StoreActivationVariables(); // We store in every case
-    }
-}
-
-
-void UpdateInvalidTokenWaitingPeriod() {
-    uint32_t Now = GetTimeInSeconds();
-    
-    // We check that it does not become unbearably long
-    if(InvalidTokenCount > 11) {
-        InvalidTokenCount = 11;
-    }
-
-    // We add some forgiveness for the first 2 errors
-    if(InvalidTokenCount > 2) {
-        TokenEntryLockedUntil = Now + pow(2, InvalidTokenCount-2)*60;
-    }
-}
-
-
-void AddTime(int ActivationValue) {
-    uint32_t Now = GetTimeInSeconds();
-    int NumberOfSecondsToActivate = (ActivationValue*3600*24) / TIME_DIVIDER;
-    
-    if(ActiveUntil < Now) {
-        ActiveUntil = Now;
-    }
-    
-    ActiveUntil += NumberOfSecondsToActivate; // We add the number of days (converted in seconds for to compare to our RTC time)
-}
-
-void SetTime(int ActivationValue) {
-    uint32_t Now = GetTimeInSeconds();
-    int NumberOfSecondsToActivate = (ActivationValue*3600*24) / TIME_DIVIDER;
-    
-    ActiveUntil = Now + NumberOfSecondsToActivate; // We set the number of days (converted in seconds for to compare to our RTC time)
-}
-
-bool IsActive() {
-    if(PAYGEnabled) {
-        if(ActiveUntil > GetTimeInSeconds()) {
-            return true;
-        } else {
-            return false;
-        }
-    } else {
-        return true;
-    }
-}
-
 

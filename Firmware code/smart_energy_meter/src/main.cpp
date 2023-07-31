@@ -147,13 +147,12 @@ void setup() {
   }
   delay(10);
   relay_on();
-  if (is_STSmode) {
-#if defined(TIM1)
-    TIM_TypeDef* Instance = TIM1;
-#else
-    TIM_TypeDef* Instance = TIM2;
-#endif
- HardwareTimer* MyTim = new HardwareTimer(Instance);
+  #if defined(TIM1)
+      TIM_TypeDef* Instance = TIM1;
+  #else
+      TIM_TypeDef* Instance = TIM2;
+  #endif
+  HardwareTimer* MyTim = new HardwareTimer(Instance);
   MyTim->setOverflow(20, HERTZ_FORMAT);
   switch (Mode_select)
   {
