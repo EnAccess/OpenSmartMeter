@@ -44,3 +44,11 @@ jobs:
         # env:
         #   PLATFORMIO_BUILD_FLAGS: -Werror
         run: pio run
+  kibot:
+    name: Run KiBot
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run KiBot
+        run: |
+          docker run --rm -it  -v "$(pwd)/Meter hardware design/PCB CAD Design":/mnt -w /mnt ghcr.io/inti-cmnb/kicad7_auto_full:latest kibot -c opensmartmeter.kibot.yaml -d kibot_output

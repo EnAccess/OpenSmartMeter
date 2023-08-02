@@ -85,6 +85,7 @@ markdown_extensions:
       repo: OpenSmartMeter
   - pymdownx.mark
   - pymdownx.smartsymbols
+  - pymdownx.snippets
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
@@ -110,6 +111,7 @@ nav:
     - Accuracy Test and Compliance Report: firmware/accuracy_and_compliance_report.md
   - Hardware Documentation:
     - PCB design rationate: hardware/pcb_design.md
+    - Interactive Bill of Materials (BOM): ibom/EnAcess PCB-ibom.html
     - Product and specification manual: hardware/product_specification.md
     - Toubleshooting manual: hardware/troubleshooting.md
   - Web Software and API documentation: backend/api-documentation.md
