@@ -1,4 +1,4 @@
-The lessons learnt in the development of the smart energy meter has been split into hardware and firmware sections below:
+The lessons learnt in the development of the smart energy meter have been split into hardware and firmware sections below:
 
 ## Firmware
 
