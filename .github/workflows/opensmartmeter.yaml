@@ -52,3 +52,7 @@ jobs:
       - name: Run KiBot
         run: |
           docker run --rm -v "$(pwd)/Meter hardware design/PCB CAD Design":/mnt -w /mnt ghcr.io/inti-cmnb/kicad7_auto_full:latest kibot -c opensmartmeter.kibot.yaml -d kibot_output
+      - uses: actions/upload-artifact@v3
+        with:
+          name: KiBot output
+          path: Meter hardware design/PCB CAD Design/kibot_output
