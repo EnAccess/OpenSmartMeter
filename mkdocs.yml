@@ -45,6 +45,9 @@ extra:
       link: https://github.com/EnAccess
     - icon: fontawesome/brands/twitter
       link: https://twitter.com/enaccessfdn
+  analytics:
+    provider: google
+    property: G-PTQ3NKJGK5
 
 extra_css:
   - stylesheets/extra.css
