@@ -11455,7 +11455,7 @@
   (symbol (lib_id "Device:Crystal") (at 317.5 44.45 270) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid c2527136-0f75-4aef-8c94-ab45979936a4)
-    (property "Reference" "8.192MHz1" (at 314.96 50.8 90)
+    (property "Reference" "XTAL1" (at 314.96 50.8 90)
       (effects (font (size 0.8 0.8)) (justify left))
     )
     (property "Value" "Crystal" (at 316.23 49.53 90)
@@ -11467,12 +11467,12 @@
     (property "Datasheet" "~" (at 317.5 44.45 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 5a142558-e20d-46fc-a432-26240354d83b))
-    (pin "2" (uuid 7a7a3088-3f69-46e1-be95-1939cece5935))
+    (pin "1" (uuid 69ef7577-3f11-4ad0-8067-a74e85ee99f5))
+    (pin "2" (uuid cdfc59e3-7f02-43c7-83f1-68b1263ebb56))
     (instances
       (project "EnAcess PCB"
         (path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
-          (reference "8.192MHz1") (unit 1)
+          (reference "XTAL1") (unit 1)
         )
       )
     )
