@@ -44,3 +44,19 @@ jobs:
         # env:
         #   PLATFORMIO_BUILD_FLAGS: -Werror
         run: pio run
+  kibot:
+    name: Run KiBot
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      # For now, just use `docker run` to run KiBot to better represent
+      # how KiBot is run locally. Later, we can run the entire action
+      # on KiBot image rather than `ubuntu-latest`
+      - name: Run KiBot
+        run: |
+          docker run --rm -v "$(pwd)/Meter hardware design/PCB CAD Design":/mnt -w /mnt ghcr.io/inti-cmnb/kicad7_auto_full:latest kibot -c opensmartmeter.kibot.yaml -d kibot_output -vvvv
+      # Persist the KiBot output as a Workflow artifact for debugging
+      - uses: actions/upload-artifact@v3
+        with:
+          name: KiBot output
+          path: Meter hardware design/PCB CAD Design/kibot_output
