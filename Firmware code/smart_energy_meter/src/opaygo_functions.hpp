@@ -3,11 +3,12 @@
 // OpenSmartMeter libraries
 #include "global_defines.hpp"
 #include "mem_init.hpp"
-//#include "token_management.hpp"
+#include "time_management.hpp"
 
 // Arduino base libraries
+#include <inttypes.h>
 #include "Arduino.h"
-#include <time.h>
+//#include <time.h>
 
 extern "C" {
 #include "opaygo_decoder.h"
@@ -88,8 +89,14 @@ void BlinkGreenLED(int NumberOfBlinks, int BlinkPeriode) {
     BlinkLED(green_led, NumberOfBlinks, BlinkPeriode);
 }
 
+
 uint32_t GetTimeInSeconds() {
-    return (uint32_t) time(NULL);
+    /*
+     *Returns the unixtime in seconds of Now 
+     */
+    DateTime now = rtc.now();
+    uint32_t nowInSeconds = (now.unixtime() - timeInitializationRtc); // we substract the init time so that it's easier to read when debugging, and works the same as Arduino Time mgt
+    return(nowInSeconds);
 }
 
 bool TokenEntryAllowed() {
@@ -212,14 +219,14 @@ uint64_t WaitForTokenEntry() {
             } else {
                 BlinkRedLED(1, BLINK_PERIOD);
                 #ifdef DEBUG
-                printf("\nToken entry locked for %d seconds", TokenEntryLockedUntil-GetTimeInSeconds());
+                printf("\nToken entry locked for %" PRIu32 "seconds", TokenEntryLockedUntil-GetTimeInSeconds());
                 #endif
             }
         } else if(LastKey == HASH_KEY) {
             if(IsActive()) {
                 BlinkGreenLED(1, BLINK_PERIOD);
                 #ifdef DEBUG
-                printf("\nTime Left: %d seconds", ActiveUntil-GetTimeInSeconds());
+                printf("\nTime Left: %" PRIu32 "seconds", ActiveUntil-GetTimeInSeconds());
                 #endif
             } else {
                 BlinkRedLED(1, BLINK_PERIOD);

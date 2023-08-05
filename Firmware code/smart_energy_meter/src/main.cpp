@@ -123,7 +123,7 @@ void setup() {
     lcd.print("RTC is NOT running!");
     delay(2000);
   }
-
+  initializeTime();
   lcd.setCursor(0, 0);
   lcd.print("CSOne :         ");
   lcd.setCursor(8, 0);
