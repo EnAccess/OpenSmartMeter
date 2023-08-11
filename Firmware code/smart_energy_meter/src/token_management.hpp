@@ -95,14 +95,11 @@ void STS_keypad() {
     lcd.clear();
     lcd.setCursor(0, 0);
     sts_mode = 1;
-    if (customKeypad.getState() == HOLD)
-    { 
+    if (customKeypad.getState() == HOLD) {
       lcd.println("Password: ");
-    }
-    else{
+    } else {
       lcd.print("TOKEN: ");
     }
-    
   }
 
   if (sts_mode == 1 && customKey != '*' && customKey != '#' &&
@@ -144,19 +141,15 @@ void STS_keypad() {
 
   if (customKey == '#' && sts_mode == 1) {
     sts_data = Data;
-    if(data_count > 19)
-    {
+    if (data_count > 19) {
       check_tokenused();
-      if (token_used == 0) 
-      {
+      if (token_used == 0) {
         STStoken_decode();
       }
     }
 
-    if(data_count < 19 &&  data_count > 3)
-    {
-      if (sts_data == password)
-      {
+    if (data_count < 19 && data_count > 3) {
+      if (sts_data == password) {
         lcd.clear();
         lcd.setCursor(0, 0);
         lcd.print("MODE: ");
@@ -164,14 +157,12 @@ void STS_keypad() {
         lcd_count = 8;
         dt = 0;
       }
-      if (sts_data == "112")
-      {  
+      if (sts_data == "112") {
         Mode_select = 1;
       }
 
-      if (sts_data == "122")
-      {
-          Mode_select = 2;
+      if (sts_data == "122") {
+        Mode_select = 2;
       }
     }
   }

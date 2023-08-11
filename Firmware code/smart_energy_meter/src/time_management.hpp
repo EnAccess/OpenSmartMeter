@@ -1,6 +1,6 @@
 #ifndef time_management_hpp
 #define time_management_hpp
-//#pragma once
+// #pragma once
 
 // defines
 
@@ -13,9 +13,9 @@
 #include "mem_init.hpp"
 #include "thingsboard.hpp"
 
-
 RTC_DS1307 rtc;
-#define ACTIVE_UNTIL_NVRAM_ADDRESS 0 // 56 bytes address from 0 to 55 in the NVRAM
+#define ACTIVE_UNTIL_NVRAM_ADDRESS \
+  0  // 56 bytes address from 0 to 55 in the NVRAM
 #define TIME_INITIALIZATION_NVRAM_ADDRESS 4
 uint32_t timeInitializationRtc = 0;
 

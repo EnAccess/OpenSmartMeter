@@ -1,6 +1,6 @@
 #ifndef mem_init_hpp
 #define mem_init_hpp
-//#pragma once
+// #pragma once
 
 // defines
 

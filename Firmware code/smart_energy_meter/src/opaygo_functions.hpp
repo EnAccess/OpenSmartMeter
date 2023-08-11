@@ -1,22 +1,21 @@
 #ifndef opaygo_functions_hpp
 #define opaygo_functions_hpp
-//#pragma once
+// #pragma once
 
 // OpenSmartMeter libraries
 #include "global_defines.hpp"
+#include "helpers.hpp"
 #include "mem_init.hpp"
 #include "time_management.hpp"
-#include "helpers.hpp"
 
 // Arduino base libraries
 #include <inttypes.h>
 #include "Arduino.h"
-//#include <time.h>
+// #include <time.h>
 
 extern "C" {
 #include "opaygo_decoder.h"
 }
-
 
 #define BLINK_PERIOD 250
 #define DEBUG
@@ -25,14 +24,13 @@ extern "C" {
 #define HASH_KEY -2
 #define NON_ACCEPTED_KEY -3
 
-
 #define TIME_DIVIDER 1
-//#define RESTRICTED_DIGIT_SET_MODE
+// #define RESTRICTED_DIGIT_SET_MODE
 
 #ifdef RESTRICTED_DIGIT_SET_MODE
-#define TOKEN_LENGTH 15
+#  define TOKEN_LENGTH 15
 #else
-#define TOKEN_LENGTH 9
+#  define TOKEN_LENGTH 9
 #endif
 
 // Device parameters location in Flash/EEPROM
@@ -50,90 +48,103 @@ uint16_t UsedTokens = 0;
 bool PAYGEnabled = true;
 uint32_t ActiveUntil = 0;
 uint32_t TokenEntryLockedUntil = 0;
-uint8_t nbDisconnections = 0; 
+uint8_t nbDisconnections = 0;
 
 int InvalidTokenCount = 0;
 
 void LoadActivationVariables() {
-    TokenCount = mem.readInt(TokenCount_eeprom_location);// We load TokenCount (& UsedTokens if needed)
-    UsedTokens = mem.readInt(UsedTokens_eeprom_location);//We load UsedTokens if needed 
-    PAYGEnabled = mem.read(PAYGEnabled_eeprom_location);// We load PAYGEnabled //Verify this syntax
-    ActiveUntil = mem.readLong(ActiveUntil_eeprom_location);// We load ActiveUntil
-    TokenEntryLockedUntil = mem.readLong(TokenEntryLockedUntil_eeprom_location);// We load TokenEntryLockedUntil
+  TokenCount =
+      mem.readInt(TokenCount_eeprom_location);  // We load TokenCount (&
+                                                // UsedTokens if needed)
+  UsedTokens =
+      mem.readInt(UsedTokens_eeprom_location);  // We load UsedTokens if needed
+  PAYGEnabled = mem.read(
+      PAYGEnabled_eeprom_location);  // We load PAYGEnabled //Verify this syntax
+  ActiveUntil =
+      mem.readLong(ActiveUntil_eeprom_location);  // We load ActiveUntil
+  TokenEntryLockedUntil = mem.readLong(
+      TokenEntryLockedUntil_eeprom_location);  // We load TokenEntryLockedUntil
 }
 
 void StoreActivationVariables() {
-    mem.writeInt(TokenCount_eeprom_location,TokenCount);// We store TokenCount (& UsedTokens if needed)
-    mem.writeInt(UsedTokens_eeprom_location, UsedTokens);//We store UsedTokens if needed 
-    mem.write(PAYGEnabled_eeprom_location, PAYGEnabled);// We store PAYGEnabled //Verify this syntax
-    mem.writeLong(ActiveUntil_eeprom_location,ActiveUntil);// We store ActiveUntil
-    mem.writeLong(TokenEntryLockedUntil_eeprom_location,TokenEntryLockedUntil);// We store TokenEntryLockedUntil
+  mem.writeInt(TokenCount_eeprom_location,
+               TokenCount);  // We store TokenCount (& UsedTokens if needed)
+  mem.writeInt(UsedTokens_eeprom_location,
+               UsedTokens);  // We store UsedTokens if needed
+  mem.write(PAYGEnabled_eeprom_location,
+            PAYGEnabled);  // We store PAYGEnabled //Verify this syntax
+  mem.writeLong(ActiveUntil_eeprom_location,
+                ActiveUntil);  // We store ActiveUntil
+  mem.writeLong(TokenEntryLockedUntil_eeprom_location,
+                TokenEntryLockedUntil);  // We store TokenEntryLockedUntil
 }
 
-
-void storeTimeStampEEPROM(uint32_t timeStampInSeconds){
+void storeTimeStampEEPROM(uint32_t timeStampInSeconds) {
   mem.writeInt(LAST_TIME_STAMP_ADDRESS, timeStampInSeconds);
 }
 
-void storeNbDisconnectionsEEPROM(){
+void storeNbDisconnectionsEEPROM() {
   mem.writeInt(NB_DISCONNECTIONS_ADDRESS, nbDisconnections);
 }
 
-void incrementNbDisconnectionsEeprom(){
-    Serial.println("Disconnection spotted!!"); // will be displayed if DEBUG_MODE is uncommented
-    nbDisconnections = mem.readInt(NB_DISCONNECTIONS_ADDRESS);// just to be sure we have the proper nb of disconnections
-    nbDisconnections++;
-    storeNbDisconnectionsEEPROM();
+void incrementNbDisconnectionsEeprom() {
+  Serial.println("Disconnection spotted!!");  // will be displayed if DEBUG_MODE
+                                              // is uncommented
+  nbDisconnections =
+      mem.readInt(NB_DISCONNECTIONS_ADDRESS);  // just to be sure we have the
+                                               // proper nb of disconnections
+  nbDisconnections++;
+  storeNbDisconnectionsEEPROM();
 }
 
-
-void ChangeLedState(int ledPin)
-{
-    digitalRead(ledPin) == LOW ? digitalWrite(ledPin, HIGH) : digitalWrite(ledPin, LOW);
+void ChangeLedState(int ledPin) {
+  digitalRead(ledPin) == LOW ? digitalWrite(ledPin, HIGH)
+                             : digitalWrite(ledPin, LOW);
 }
 
 void BlinkLED(int LedPin, int NumberOfBlinks, int BlinkPeriode) {
-    int i;
-    for (i = 0; i < NumberOfBlinks; i++)
-    {
-        ChangeLedState(LedPin);
-        delay(BlinkPeriode);
-        ChangeLedState(LedPin);
-        delay(BlinkPeriode);
-    }
+  int i;
+  for (i = 0; i < NumberOfBlinks; i++) {
+    ChangeLedState(LedPin);
+    delay(BlinkPeriode);
+    ChangeLedState(LedPin);
+    delay(BlinkPeriode);
+  }
 }
 
-
 void BlinkRedLED(int NumberOfBlinks, int BlinkPeriode) {
-    BlinkLED(red_led, NumberOfBlinks, BlinkPeriode);
+  BlinkLED(red_led, NumberOfBlinks, BlinkPeriode);
 }
 
 void BlinkGreenLED(int NumberOfBlinks, int BlinkPeriode) {
-    BlinkLED(green_led, NumberOfBlinks, BlinkPeriode);
+  BlinkLED(green_led, NumberOfBlinks, BlinkPeriode);
 }
 
-
 uint32_t GetTimeInSeconds() {
-    /*
-     *Returns the unixtime in seconds of Now 
-     */
-    DateTime now = rtc.now();
-    uint32_t nowInSeconds = (now.unixtime() - timeInitializationRtc); // we substract the init time so that it's easier to read when debugging, and works the same as Arduino Time mgt
-    return(nowInSeconds);
+  /*
+   *Returns the unixtime in seconds of Now
+   */
+  DateTime now = rtc.now();
+  uint32_t nowInSeconds =
+      (now.unixtime() -
+       timeInitializationRtc);  // we substract the init time so that it's
+                                // easier to read when debugging, and works the
+                                // same as Arduino Time mgt
+  return (nowInSeconds);
 }
 
 bool TokenEntryAllowed() {
-    if(TokenEntryLockedUntil > GetTimeInSeconds()) {
-        return false;
-    } 
-    else {
-        return true;
-    }
+  if (TokenEntryLockedUntil > GetTimeInSeconds()) {
+    return false;
+  } else {
+    return true;
+  }
 }
 
 int GetKeyPressed()
 /*
- * returns the key pressed on the Keypad remote as a int (this function forces to put the key in a char, good practice)
+ * returns the key pressed on the Keypad remote as a int (this function forces
+ * to put the key in a char, good practice)
  */
 {
   char incomingByte;
@@ -142,150 +153,165 @@ int GetKeyPressed()
   Serial.println(incomingByte);
   switch (incomingByte) {
     case '*':
-        return STAR_KEY;
-        break;
-            
+      return STAR_KEY;
+      break;
+
     case '#':
-        return HASH_KEY;
-        break;
-            
+      return HASH_KEY;
+      break;
+
     default:
-        return (int) (incomingByte - '0'); // this_char is now an int
-        break;
-    }
+      return (int)(incomingByte - '0');  // this_char is now an int
+      break;
+  }
 }
 
 void UpdateInvalidTokenWaitingPeriod() {
-    uint32_t Now = GetTimeInSeconds();
-    
-    // We check that it does not become unbearably long
-    if(InvalidTokenCount > 11) {
-        InvalidTokenCount = 11;
-    }
+  uint32_t Now = GetTimeInSeconds();
 
-    // We add some forgiveness for the first 2 errors
-    if(InvalidTokenCount > 2) {
-        TokenEntryLockedUntil = Now + pow(2, InvalidTokenCount-2)*60;
-    }
+  // We check that it does not become unbearably long
+  if (InvalidTokenCount > 11) {
+    InvalidTokenCount = 11;
+  }
+
+  // We add some forgiveness for the first 2 errors
+  if (InvalidTokenCount > 2) {
+    TokenEntryLockedUntil = Now + pow(2, InvalidTokenCount - 2) * 60;
+  }
 }
 
-
 void AddTime(int ActivationValue) {
-    uint32_t Now = GetTimeInSeconds();
-    int NumberOfSecondsToActivate = (ActivationValue*3600*24) / TIME_DIVIDER;
-    
-    if(ActiveUntil < Now) {
-        ActiveUntil = Now;
-    }
-    
-    ActiveUntil += NumberOfSecondsToActivate; // We add the number of days (converted in seconds for to compare to our RTC time)
+  uint32_t Now = GetTimeInSeconds();
+  int NumberOfSecondsToActivate = (ActivationValue * 3600 * 24) / TIME_DIVIDER;
+
+  if (ActiveUntil < Now) {
+    ActiveUntil = Now;
+  }
+
+  ActiveUntil +=
+      NumberOfSecondsToActivate;  // We add the number of days (converted in
+                                  // seconds for to compare to our RTC time)
 }
 
 void SetTime(int ActivationValue) {
-    uint32_t Now = GetTimeInSeconds();
-    int NumberOfSecondsToActivate = (ActivationValue*3600*24) / TIME_DIVIDER;
-    
-    ActiveUntil = Now + NumberOfSecondsToActivate; // We set the number of days (converted in seconds for to compare to our RTC time)
+  uint32_t Now = GetTimeInSeconds();
+  int NumberOfSecondsToActivate = (ActivationValue * 3600 * 24) / TIME_DIVIDER;
+
+  ActiveUntil =
+      Now +
+      NumberOfSecondsToActivate;  // We set the number of days (converted in
+                                  // seconds for to compare to our RTC time)
 }
 
 void UpdateDeviceStatusFromTokenValue(int TokenValue, int ActivationCount) {
-    if(TokenValue == -1) {
-        InvalidTokenCount++;
-        UpdateInvalidTokenWaitingPeriod();
-        BlinkRedLED(10, BLINK_PERIOD);
-    } else if(TokenValue == -2) {
-        BlinkGreenLED(1, BLINK_PERIOD); // We blink the green LED once to show that the token was valid but isnt anymore
+  if (TokenValue == -1) {
+    InvalidTokenCount++;
+    UpdateInvalidTokenWaitingPeriod();
+    BlinkRedLED(10, BLINK_PERIOD);
+  } else if (TokenValue == -2) {
+    BlinkGreenLED(1, BLINK_PERIOD);  // We blink the green LED once to show that
+                                     // the token was valid but isnt anymore
+  } else {
+    InvalidTokenCount = 0;
+    if (TokenValue == COUNTER_SYNC_VALUE) {
+      BlinkGreenLED(
+          3,
+          BLINK_PERIOD);  // We blink green twice to show that the token is good
+    } else if (TokenValue == PAYG_DISABLE_VALUE) {
+      PAYGEnabled = false;
+      BlinkGreenLED(5, BLINK_PERIOD);  // We blink green twice to show that the
+                                       // device is active forever
     } else {
-        InvalidTokenCount = 0;
-        if(TokenValue == COUNTER_SYNC_VALUE) {
-            BlinkGreenLED(3, BLINK_PERIOD); // We blink green twice to show that the token is good
-        } else if(TokenValue == PAYG_DISABLE_VALUE) {
-            PAYGEnabled = false;
-            BlinkGreenLED(5, BLINK_PERIOD); // We blink green twice to show that the device is active forever
-        } else {
-            if(ActivationCount % 2) {
-                PAYGEnabled = true;
-                SetTime(TokenValue);
-            } else {
-                AddTime(TokenValue);
-            }
-            BlinkGreenLED(2, BLINK_PERIOD); // We blink green twice to show that the token is good
-        }
-        StoreActivationVariables(); // We store in every case
+      if (ActivationCount % 2) {
+        PAYGEnabled = true;
+        SetTime(TokenValue);
+      } else {
+        AddTime(TokenValue);
+      }
+      BlinkGreenLED(
+          2,
+          BLINK_PERIOD);  // We blink green twice to show that the token is good
     }
+    StoreActivationVariables();  // We store in every case
+  }
 }
 
-
 bool IsActive() {
-    if(PAYGEnabled) {
-        if(ActiveUntil > GetTimeInSeconds()) {
-            return true;
-        } else {
-            return false;
-        }
+  if (PAYGEnabled) {
+    if (ActiveUntil > GetTimeInSeconds()) {
+      return true;
     } else {
-        return true;
+      return false;
     }
+  } else {
+    return true;
+  }
 }
 
 uint64_t WaitForTokenEntry() {
-    uint64_t TempToken = 0;
-    bool NoToken = true;
-    int LastKey;
-    
-    while(NoToken) {
-        LastKey = GetKeyPressed();
-        if(LastKey == STAR_KEY) {
-            if(TokenEntryAllowed()) {
-                NoToken = false;
-            } else {
-                BlinkRedLED(1, BLINK_PERIOD);
-                #ifdef DEBUG
-                printf("\nToken entry locked for %" PRIu32 "seconds", TokenEntryLockedUntil-GetTimeInSeconds());
-                #endif
-            }
-        } else if(LastKey == HASH_KEY) {
-            if(IsActive()) {
-                BlinkGreenLED(1, BLINK_PERIOD);
-                #ifdef DEBUG
-                printf("\nTime Left: %" PRIu32 "seconds", ActiveUntil-GetTimeInSeconds());
-                #endif
-            } else {
-                BlinkRedLED(1, BLINK_PERIOD);
-            }
-        }
-    }
-    for(int i=0; i<TOKEN_LENGTH; i++) {
-        // We add the last key pressed to the token (as integer) if needed
-        TempToken += GetKeyPressed()*pow(10, (TOKEN_LENGTH-1)-i);
-    }
-    return TempToken;
-}
+  uint64_t TempToken = 0;
+  bool NoToken = true;
+  int LastKey;
 
-
-void initializeTime(){
-    if (! rtc.begin()) {
-      Serial.println("Couldn't find RTC");
-    while (1);
-    }
-    
-    if (! rtc.isrunning()) {
-      Serial.println("RTC is NOT running!");
-    }
-
-    //We check that it is not a disconnection power - Arduino
-    uint32_t nvramCheck = readUint32FromNvram(TIME_INITIALIZATION_NVRAM_ADDRESS);
-    if (nvramCheck == 0){ // it is the first setup of the Arduino
-      rtc.adjust(DateTime(F(__DATE__), F(__TIME__))); //sets the RTC to the date & time this sketch was compiled
-      DateTime now = rtc.now();
-      timeInitializationRtc = now.unixtime();
-      storeUint32InNvram(timeInitializationRtc, TIME_INITIALIZATION_NVRAM_ADDRESS);
-    } 
-    else{ // a disconnection happened
-      timeInitializationRtc = nvramCheck;
-      incrementNbDisconnectionsEeprom();
-      storeTimeStampEEPROM(GetTimeInSeconds()); // to avoid counting twice the disconnection if the previous TimeStamp was too long ago
+  while (NoToken) {
+    LastKey = GetKeyPressed();
+    if (LastKey == STAR_KEY) {
+      if (TokenEntryAllowed()) {
+        NoToken = false;
+      } else {
+        BlinkRedLED(1, BLINK_PERIOD);
+#ifdef DEBUG
+        printf("\nToken entry locked for %" PRIu32 "seconds",
+               TokenEntryLockedUntil - GetTimeInSeconds());
+#endif
+      }
+    } else if (LastKey == HASH_KEY) {
+      if (IsActive()) {
+        BlinkGreenLED(1, BLINK_PERIOD);
+#ifdef DEBUG
+        printf("\nTime Left: %" PRIu32 "seconds",
+               ActiveUntil - GetTimeInSeconds());
+#endif
+      } else {
+        BlinkRedLED(1, BLINK_PERIOD);
+      }
     }
   }
+  for (int i = 0; i < TOKEN_LENGTH; i++) {
+    // We add the last key pressed to the token (as integer) if needed
+    TempToken += GetKeyPressed() * pow(10, (TOKEN_LENGTH - 1) - i);
+  }
+  return TempToken;
+}
+
+void initializeTime() {
+  if (!rtc.begin()) {
+    Serial.println("Couldn't find RTC");
+    while (1)
+      ;
+  }
+
+  if (!rtc.isrunning()) {
+    Serial.println("RTC is NOT running!");
+  }
+
+  // We check that it is not a disconnection power - Arduino
+  uint32_t nvramCheck = readUint32FromNvram(TIME_INITIALIZATION_NVRAM_ADDRESS);
+  if (nvramCheck == 0) {  // it is the first setup of the Arduino
+    rtc.adjust(
+        DateTime(F(__DATE__), F(__TIME__)));  // sets the RTC to the date & time
+                                              // this sketch was compiled
+    DateTime now = rtc.now();
+    timeInitializationRtc = now.unixtime();
+    storeUint32InNvram(timeInitializationRtc,
+                       TIME_INITIALIZATION_NVRAM_ADDRESS);
+  } else {  // a disconnection happened
+    timeInitializationRtc = nvramCheck;
+    incrementNbDisconnectionsEeprom();
+    storeTimeStampEEPROM(
+        GetTimeInSeconds());  // to avoid counting twice the disconnection if
+                              // the previous TimeStamp was too long ago
+  }
+}
 
 #endif

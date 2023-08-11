@@ -1,6 +1,6 @@
 #ifndef sts_token_hpp
 #define sts_token_hpp
-//#pragma once
+// #pragma once
 
 // defines
 
@@ -60,7 +60,7 @@ void STStoken_decode() {
   String identifier = sts_third.substring(6, 7);
   String sts_encode = sts_data.substring(15, 20);
   long tariff_MT_NO = sts_encode.toInt();
-  //long tariff_gotten = ((tariff_MT_NO) - (meter_no * multiplier));
+  // long tariff_gotten = ((tariff_MT_NO) - (meter_no * multiplier));
   unsigned long trueMT_NO = tariff_MT_NO - tariff;
   trueMT_NO = trueMT_NO / multiplier;
 
