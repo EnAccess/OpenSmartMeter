@@ -1,9 +1,12 @@
-#pragma once
+#ifndef opaygo_functions_hpp
+#define opaygo_functions_hpp
+//#pragma once
 
 // OpenSmartMeter libraries
 #include "global_defines.hpp"
 #include "mem_init.hpp"
 #include "time_management.hpp"
+#include "helpers.hpp"
 
 // Arduino base libraries
 #include <inttypes.h>
@@ -38,6 +41,8 @@ unsigned int UsedTokens_eeprom_location = 8;
 unsigned int PAYGEnabled_eeprom_location = 10;
 unsigned int ActiveUntil_eeprom_location = 11;
 unsigned int TokenEntryLockedUntil_eeprom_location = 15;
+unsigned int LAST_TIME_STAMP_ADDRESS = 27;
+unsigned int NB_DISCONNECTIONS_ADDRESS = 32;
 
 // Device parameters (to be stored in Flash/EEPROM)
 uint16_t TokenCount = 1;
@@ -45,6 +50,7 @@ uint16_t UsedTokens = 0;
 bool PAYGEnabled = true;
 uint32_t ActiveUntil = 0;
 uint32_t TokenEntryLockedUntil = 0;
+uint8_t nbDisconnections = 0; 
 
 int InvalidTokenCount = 0;
 
@@ -63,6 +69,23 @@ void StoreActivationVariables() {
     mem.writeLong(ActiveUntil_eeprom_location,ActiveUntil);// We store ActiveUntil
     mem.writeLong(TokenEntryLockedUntil_eeprom_location,TokenEntryLockedUntil);// We store TokenEntryLockedUntil
 }
+
+
+void storeTimeStampEEPROM(uint32_t timeStampInSeconds){
+  mem.writeInt(LAST_TIME_STAMP_ADDRESS, timeStampInSeconds);
+}
+
+void storeNbDisconnectionsEEPROM(){
+  mem.writeInt(NB_DISCONNECTIONS_ADDRESS, nbDisconnections);
+}
+
+void incrementNbDisconnectionsEeprom(){
+    Serial.println("Disconnection spotted!!"); // will be displayed if DEBUG_MODE is uncommented
+    nbDisconnections = mem.readInt(NB_DISCONNECTIONS_ADDRESS);// just to be sure we have the proper nb of disconnections
+    nbDisconnections++;
+    storeNbDisconnectionsEEPROM();
+}
+
 
 void ChangeLedState(int ledPin)
 {
@@ -145,7 +168,6 @@ void UpdateInvalidTokenWaitingPeriod() {
         TokenEntryLockedUntil = Now + pow(2, InvalidTokenCount-2)*60;
     }
 }
-
 
 
 void AddTime(int ActivationValue) {
@@ -240,3 +262,30 @@ uint64_t WaitForTokenEntry() {
     return TempToken;
 }
 
+
+void initializeTime(){
+    if (! rtc.begin()) {
+      Serial.println("Couldn't find RTC");
+    while (1);
+    }
+    
+    if (! rtc.isrunning()) {
+      Serial.println("RTC is NOT running!");
+    }
+
+    //We check that it is not a disconnection power - Arduino
+    uint32_t nvramCheck = readUint32FromNvram(TIME_INITIALIZATION_NVRAM_ADDRESS);
+    if (nvramCheck == 0){ // it is the first setup of the Arduino
+      rtc.adjust(DateTime(F(__DATE__), F(__TIME__))); //sets the RTC to the date & time this sketch was compiled
+      DateTime now = rtc.now();
+      timeInitializationRtc = now.unixtime();
+      storeUint32InNvram(timeInitializationRtc, TIME_INITIALIZATION_NVRAM_ADDRESS);
+    } 
+    else{ // a disconnection happened
+      timeInitializationRtc = nvramCheck;
+      incrementNbDisconnectionsEeprom();
+      storeTimeStampEEPROM(GetTimeInSeconds()); // to avoid counting twice the disconnection if the previous TimeStamp was too long ago
+    }
+  }
+
+#endif
