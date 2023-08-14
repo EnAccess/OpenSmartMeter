@@ -1,5 +1,6 @@
-#pragma once
-
+//#pragma once
+#ifndef credit_hpp
+#define credit_hpp
 // defines
 
 // Arduino base libraries
@@ -44,3 +45,4 @@ void credit_reminder() {
     digitalWrite(green_led, HIGH);
   }
 }
+#endif
