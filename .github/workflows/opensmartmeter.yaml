@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Run clang-format lint
-        working-directory: Firmware code/smart_energy_meter
+        working-directory: firmware
         run: find include/ src/ \( -name '*.[ch]pp' -o -name '*.h' \) | xargs clang-format --verbose --style=file -n --Werror
   editorconfig-checker:
     name: Lint EditorConfig
@@ -39,7 +39,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install --upgrade platformio
       - name: Compile the firmware
-        working-directory: Firmware code/smart_energy_meter
+        working-directory: firmware
         # TBD: Once warnings are resolved
         # env:
         #   PLATFORMIO_BUILD_FLAGS: -Werror
