@@ -58,12 +58,27 @@ void LoadActivationVariables() {
                                                 // UsedTokens if needed)
   UsedTokens =
       mem.readInt(UsedTokens_eeprom_location);  // We load UsedTokens if needed
-  PAYGEnabled = mem.read(
+  switch (mem.read(PAYGEnabled_eeprom_location)) {
+    case 0:
+      PAYGEnabled = false;
+      break;
+    case 1:
+      PAYGEnabled = true;
+      break;
+  }
+
+  mem.read(
       PAYGEnabled_eeprom_location);  // We load PAYGEnabled //Verify this syntax
-  ActiveUntil =
-      mem.readLong(ActiveUntil_eeprom_location);  // We load ActiveUntil
   TokenEntryLockedUntil = mem.readLong(
       TokenEntryLockedUntil_eeprom_location);  // We load TokenEntryLockedUntil
+  if (Mode_select == 2) {
+    creditt =
+        mem.readLong(credit_eeprom_location);  // We load creditt in case of
+                                               // OpenPaygo Energy-based
+  } else {
+    ActiveUntil =
+        mem.readLong(ActiveUntil_eeprom_location);  // We load ActiveUntil
+  }
 }
 
 void StoreActivationVariables() {
@@ -71,12 +86,22 @@ void StoreActivationVariables() {
                TokenCount);  // We store TokenCount (& UsedTokens if needed)
   mem.writeInt(UsedTokens_eeprom_location,
                UsedTokens);  // We store UsedTokens if needed
-  mem.write(PAYGEnabled_eeprom_location,
-            PAYGEnabled);  // We store PAYGEnabled //Verify this syntax
-  mem.writeLong(ActiveUntil_eeprom_location,
-                ActiveUntil);  // We store ActiveUntil
+  if (PAYGEnabled) {
+    mem.writeInt(PAYGEnabled_eeprom_location, 1);  // We store PAYGEnabled
+  } else {
+    mem.writeInt(PAYGEnabled_eeprom_location, 0);  // We store PAYGEnabled
+  }
+
   mem.writeLong(TokenEntryLockedUntil_eeprom_location,
                 TokenEntryLockedUntil);  // We store TokenEntryLockedUntil
+  if (Mode_select == 2) {
+    mem.writeLong(
+        credit_eeprom_location,
+        creditt);  // We Store creditt in case of OpenPaygo Energy-based
+  } else {
+    mem.writeLong(ActiveUntil_eeprom_location,
+                  ActiveUntil);  // We store ActiveUntil
+  }
 }
 
 void storeTimeStampEEPROM(uint32_t timeStampInSeconds) {
