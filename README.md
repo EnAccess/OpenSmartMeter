@@ -156,7 +156,7 @@ After the code is downloaded, developer will need to host the web on a hosting p
 ### Creating database
 
 The database schema file can be downloaded from the Github link provided below
-https://github.com/EnAccess/OpenSmartMeter/blob/main/Documentations/Web%20Software%20and%20API%20documentation/meter.sql for testing purpose, next user can assign a meter number as desired from MT1 to MT99990 and insert into the meter Database column for meter number.
+https://github.com/EnAccess/OpenSmartMeter/blob/main/web_software/database_seed/meter.sql for testing purpose, next user can assign a meter number as desired from MT1 to MT99990 and insert into the meter Database column for meter number.
 Developer need to change password and database name in web code to same password and database name as created by developer to enable access to the database.
 
 ### Linking ThingsBoard public link to webpage
