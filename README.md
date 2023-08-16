@@ -156,7 +156,7 @@ After the code is downloaded, developer will need to host the web on a hosting p
 ### Creating database
 
 The database schema file can be downloaded from the Github link provided below
-https://github.com/EnAccess/OpenSmartMeter/blob/main/Documentations/Web%20Software%20and%20API%20documentation/meter.sql for testing purpose, next user can assign a meter number as desired from MT1 to MT99990 and insert into the meter Database column for meter number.
+https://github.com/EnAccess/OpenSmartMeter/blob/main/web_software/database_seed/meter.sql for testing purpose, next user can assign a meter number as desired from MT1 to MT99990 and insert into the meter Database column for meter number.
 Developer need to change password and database name in web code to same password and database name as created by developer to enable access to the database.
 
 ### Linking ThingsBoard public link to webpage
@@ -199,7 +199,7 @@ The meter calibration is done after the meter PCB component is fully assembled a
 
 The voltage and current is calibrated by calculating the value _measured by meter_ as compared to the true value _measured by a test bench_.
 
-- The excel sheet available in the link provided below is used to calibrate the voltage and current by inputting the measured and actual values of voltage and current in the appropriate cell of the [Excel calculator](https://github.com/EnAccess/OpenSmartMeter/blob/main/Documentations/Datasheet/Energy%20setpoint%20calculator.xlsx).
+- The excel sheet available in the link provided below is used to calibrate the voltage and current by inputting the measured and actual values of voltage and current in the appropriate cell of the [Excel calculator](https://github.com/EnAccess/OpenSmartMeter/blob/main/firmware/energy_setpoint_calculator.xlsx).
 
 - The HEX code gotten is written to the neccesary registers of `Ugain`, `IgainN` in the `SAM_UART.cpp` library provided [here](https://github.com/EnAccess/OpenSmartMeter/blob/main/Firmware%20code/Library/SamATM90E26_library).
 - The checksum2 value displayed on the LCD screen while the meter is starting up is written to the CSTwo register in the `SAM_UART.cpp` library
@@ -220,7 +220,7 @@ The impulse rate is changed by writing to `PLconstH` and `PLconstL` in the `SAM_
 
 **Step 3: calibrating impulse**
 
-A test bench is required to measure the % error of the meter, after this is done the design engineer can input the error gotten into the [Excel calculator](https://github.com/EnAccess/OpenSmartMeter/blob/main/Documentations/Datasheet/Energy%20setpoint%20calculator.xlsx).
+A test bench is required to measure the % error of the meter, after this is done the design engineer can input the error gotten into the [Excel calculator](https://github.com/EnAccess/OpenSmartMeter/blob/main/firmware/energy_setpoint_calculator.xlsx).
 After the error is calculated, the design engineer write the value gotten for Lgain and Igain to the neccesary register in the SAM_UART.cpp library, then the new value of checksum1 is rewritten to the library for the meter to blink properly.
 
 ### First trial
