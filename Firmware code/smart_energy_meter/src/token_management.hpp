@@ -158,11 +158,15 @@ void STS_keypad() {
         dt = 0;
       }
       if (sts_data == "112") {
-        Mode_select = 1;
+        Mode_select = 1; // For STS Mode (Energy-based)
       }
 
       if (sts_data == "122") {
-        Mode_select = 2;
+        Mode_select = 2; // For OpenPaygo Energy-based 
+      }
+      
+      if (sts_data == "132") {
+        Mode_select = 3; // For OpenPaygo Time-based
       }
     }
   }

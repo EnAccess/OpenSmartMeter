@@ -203,7 +203,28 @@ void SetTime(int ActivationValue) {
                                   // seconds for to compare to our RTC time)
 }
 
+void AddCreditt(int ActivationValue) {
+  mem.writeLong(credit_eeprom_location, creditt);  // write present credit
+  creditt = mem.readLong(credit_eeprom_location);  // fetch previous credit //
+  // add new if any to old credit //
+  creditt += ActivationValue;
+  mem.writeLong(credit_eeprom_location, creditt);
+  get_credit = 1;
+}
+
+void SetCreditt(int ActivationValue) {
+  creditt = ActivationValue;
+  mem.writeLong(credit_eeprom_location, creditt);  // write present credit
+  creditt = mem.readLong(credit_eeprom_location);  // fetch previous credit //
+  // add new if any to old credit //
+  creditt = ActivationValue;
+  mem.writeLong(credit_eeprom_location, creditt);
+  get_credit = 1;
+}
+
 void UpdateDeviceStatusFromTokenValue(int TokenValue, int ActivationCount) {
+  // TokenValue in case of OpenPaygo Energy-based is consider directly as a credit to add or set
+  // and in case of OpenPaygo Time-based it is consider as a number of day to add or to set
   if (TokenValue == -1) {
     InvalidTokenCount++;
     UpdateInvalidTokenWaitingPeriod();
@@ -224,9 +245,17 @@ void UpdateDeviceStatusFromTokenValue(int TokenValue, int ActivationCount) {
     } else {
       if (ActivationCount % 2) {
         PAYGEnabled = true;
-        SetTime(TokenValue);
+        if (Mode_select == 2) {
+          SetCreditt();
+        } else {
+          SetTime(TokenValue);
+        }
       } else {
-        AddTime(TokenValue);
+        if (Mode_select == 2) {
+          AddCreditt();
+        } else {
+          AddTime(TokenValue);
+        }
       }
       BlinkGreenLED(
           2,
@@ -238,11 +267,22 @@ void UpdateDeviceStatusFromTokenValue(int TokenValue, int ActivationCount) {
 
 bool IsActive() {
   if (PAYGEnabled) {
-    if (ActiveUntil > GetTimeInSeconds()) {
-      return true;
-    } else {
-      return false;
+    if (Mode_select == 2) {
+      if (creditt < 1 || fault == 1) {
+        return false;
+      } else {
+        return true;
+      }
     }
+
+    if (Mode_select == 3) {
+      if (ActiveUntil > GetTimeInSeconds()) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+
   } else {
     return true;
   }
@@ -269,8 +309,22 @@ uint64_t WaitForTokenEntry() {
       if (IsActive()) {
         BlinkGreenLED(1, BLINK_PERIOD);
 #ifdef DEBUG
-        printf("\nTime Left: %" PRIu32 "seconds",
-               ActiveUntil - GetTimeInSeconds());
+        if (Mode_select == 2) {  //
+          mesure();
+          if ((mains_input_value > 50)) {
+            credit_reminder();
+          }
+          if ((mains_input_value < 50)) {
+            digitalWrite(red_led, LOW);
+            digitalWrite(green_led, LOW);
+          }
+          urgeent();
+          printf("\nEnergy Left: %f KWH", ENERGY);
+        } else {
+          printf("\nTime Left: %" PRIu32 "seconds",
+                 ActiveUntil - GetTimeInSeconds());
+        }
+
 #endif
       } else {
         BlinkRedLED(1, BLINK_PERIOD);
