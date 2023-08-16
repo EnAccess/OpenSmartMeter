@@ -122,6 +122,7 @@ nav:
     - PCB design rationate: hardware/pcb_design.md
     - Product and specification manual: hardware/product_specification.md
     - Toubleshooting manual: hardware/troubleshooting.md
+    - Datasheets: hardware/datasheets.md
   - Web Software and API documentation: backend/api-documentation.md
   - Lessons learnt: lessons-learnt.md
   - Example: example.md
