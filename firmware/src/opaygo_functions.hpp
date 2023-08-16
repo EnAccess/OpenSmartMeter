@@ -309,9 +309,8 @@ bool IsActive() {
       }
     }
 
-  } else {
-    return true;
-  }
+  } 
+  return true;
 }
 
 uint64_t WaitForTokenEntry() {
