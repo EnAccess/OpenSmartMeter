@@ -39,7 +39,7 @@ void urgeent() {
     prev_pulsetime = pulsetime_now;
     credit_formular();
   }
- 
+
   if (Mode_select != 2) {
     STS_keypad();
   }

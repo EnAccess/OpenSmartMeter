@@ -1,4 +1,4 @@
-//#pragma once
+// #pragma once
 #ifndef credit_hpp
 #define credit_hpp
 // defines
