@@ -223,8 +223,9 @@ void SetCreditt(int ActivationValue) {
 }
 
 void UpdateDeviceStatusFromTokenValue(int TokenValue, int ActivationCount) {
-  // TokenValue in case of OpenPaygo Energy-based is consider directly as a credit to add or set
-  // and in case of OpenPaygo Time-based it is consider as a number of day to add or to set
+  // TokenValue in case of OpenPaygo Energy-based is consider directly as a
+  // credit to add or set and in case of OpenPaygo Time-based it is consider as
+  // a number of day to add or to set
   if (TokenValue == -1) {
     InvalidTokenCount++;
     UpdateInvalidTokenWaitingPeriod();
@@ -246,13 +247,13 @@ void UpdateDeviceStatusFromTokenValue(int TokenValue, int ActivationCount) {
       if (ActivationCount % 2) {
         PAYGEnabled = true;
         if (Mode_select == 2) {
-          SetCreditt();
+          SetCreditt(TokenValue);
         } else {
           SetTime(TokenValue);
         }
       } else {
         if (Mode_select == 2) {
-          AddCreditt();
+          AddCreditt(TokenValue);
         } else {
           AddTime(TokenValue);
         }
