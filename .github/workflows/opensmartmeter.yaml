@@ -27,7 +27,7 @@ jobs:
           python-version: 3.11
       - run: 'pip install "editorconfig-checker"'
       - name: Run editorconfig-checker
-        run: ec -exclude "Meter hardware design/"
+        run: ec -exclude "hardware/"
   compile-firmware-platform-io:
     name: Compile Firmware with PlatformIO
     runs-on: ubuntu-latest
