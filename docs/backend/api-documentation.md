@@ -15,7 +15,7 @@ This document provides details on how to integrate ThingsBoard API to developers
 ## Screen Recording Demo
 
 <video controls>
-<source src="../assets/backend/webdemo_screen_record.mp4" type="video/mp4">
+<source src="https://enaccess.github.io/OpenSmartMeter/assets/backend/webdemo_screen_record.mp4" type="video/mp4">
 </video>
 
 ## ThingsBoard API integration:
