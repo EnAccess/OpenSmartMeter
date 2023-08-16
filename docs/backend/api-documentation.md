@@ -12,6 +12,12 @@ This document provides details on how to integrate ThingsBoard API to developers
 
 **User:** is referred to in this document as the metering customer.
 
+## Screen Recording Demo
+
+<video controls>
+<source src="../assets/backend/webdemo_screen_record.mp4" type="video/mp4">
+</video>
+
 ## ThingsBoard API integration:
 
 ThingsBoard is an open-source server-side platform that allows you to monitor and control IOT devices. It is free for both personal and commercial use and can be deployed anywhere. Steps to set up a ThingsBoard page is highlighted below:
