@@ -308,8 +308,7 @@ bool IsActive() {
         return false;
       }
     }
-
-  } 
+  }
   return true;
 }
 
