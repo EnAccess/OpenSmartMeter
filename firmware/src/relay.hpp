@@ -1,4 +1,5 @@
-#pragma once
+#ifndef relay_hpp
+#define relay_hpp
 
 // defines
 
@@ -35,3 +36,5 @@ void relay_off() {
     on_exec = 0;
   }
 }
+
+#endif

@@ -1,4 +1,5 @@
-#pragma once
+#ifndef global_defines_hpp
+#define global_defines_hpp
 
 // defines
 #define buzzer PB5
@@ -14,3 +15,5 @@
 // third party libraries
 
 // OpenSmartMeter libraries
+
+#endif

@@ -1,4 +1,5 @@
-#pragma once
+#ifndef opaygo_functions_hpp
+#define opaygo_functions_hpp
 
 // OpenSmartMeter libraries
 #include "global_defines.hpp"
@@ -389,3 +390,5 @@ void initializeTime() {
                               // the previous TimeStamp was too long ago
   }
 }
+
+#endif

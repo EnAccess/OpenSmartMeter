@@ -1,4 +1,5 @@
-#pragma once
+#ifndef power_hpp
+#define power_hpp
 
 // defines
 
@@ -35,3 +36,5 @@ void mesure() {
   }
   delay(20);
 }
+
+#endif

@@ -1,4 +1,5 @@
-#pragma once
+#ifndef sts_token_hpp
+#define sts_token_hpp
 
 // defines
 
@@ -194,3 +195,5 @@ void STStoken_decode() {
     digitalWrite(buzzer, HIGH);
   }
 }
+
+#endif

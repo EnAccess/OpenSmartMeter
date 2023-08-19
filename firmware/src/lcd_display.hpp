@@ -1,4 +1,5 @@
-#pragma once
+#ifndef lcd_display_hpp
+#define lcd_display_hpp
 
 // defines
 
@@ -162,3 +163,5 @@ void parameters_display() {
     parameters = 0;
   }
 }
+
+#endif
