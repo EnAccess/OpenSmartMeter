@@ -29,6 +29,7 @@ uint64_t ConvertHashToTokenExtended(uint64_t this_hash) {
 }
 
 uint64_t GenerateOPAYGOTokenExtended(uint64_t LastToken, char SECRET_KEY[16]) {
+
     uint8_t a[8];
 
     a[0] = LastToken >> 56;
