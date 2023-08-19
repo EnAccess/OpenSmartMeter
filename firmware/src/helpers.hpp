@@ -1,6 +1,4 @@
-#ifndef helpers_hpp
-#define helpers_hpp
-// #pragma once
+#pragma once
 
 // defines
 
@@ -142,5 +140,3 @@ uint32_t readUint32FromNvram(int address) {
   rtc.readnvram(readData, 4, address);
   return (convertByteArrayToUint32(readData));
 }
-
-#endif

@@ -91,8 +91,8 @@ void STS_keypad() {
     dt = 0;
     sts_value = 0;
     delay(20);
-    buss();
     lcd.clear();
+    buss();//emit a sound to inform that it is ready to receive the token
     lcd.setCursor(0, 0);
     sts_mode = 1;
     if (customKeypad.getState() == HOLD) {

@@ -1,6 +1,4 @@
-#ifndef time_management_hpp
-#define time_management_hpp
-// #pragma once
+#pragma once
 
 // defines
 
@@ -57,5 +55,3 @@ void get_time() {
     nw_month_cnt = 0;
   }
 }
-
-#endif
