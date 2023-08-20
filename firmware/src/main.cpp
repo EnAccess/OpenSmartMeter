@@ -5,7 +5,6 @@
 #include "Arduino.h"
 
 // third party libraries
-#include <ArduinoHttpClient.h>
 
 // OpenSmartMeter libraries
 #include "credit.hpp"
