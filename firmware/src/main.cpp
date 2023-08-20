@@ -1,7 +1,6 @@
 // defines
 
 // Arduino base libraries
-#include <Wire.h>
 #include "Arduino.h"
 
 // third party libraries
