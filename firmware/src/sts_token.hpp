@@ -18,7 +18,7 @@ int private_stskey = 109;
 byte sts_accept = 0;
 byte c_chek = 0;
 
-int convertedsts_data = 0;
+unsigned int convertedsts_data = 0;
 unsigned long convertedsts_day = 0;
 unsigned long eeprom_sts_data = 0;
 
@@ -48,7 +48,7 @@ void STStoken_decode() {
 
   String sts_meter_no_count = sts_data.substring(4, 5);
   convertedsts_data = sts_data.toInt();
-  int stsnew_meter_no_count = sts_meter_no_count.toInt();
+  unsigned int stsnew_meter_no_count = sts_meter_no_count.toInt();
   // int stsnew_meter_no_count = sts_meter_no_count;
   String sts_day = sts_data.substring(6, 8);
   convertedsts_day = sts_day.toInt();
@@ -58,8 +58,8 @@ void STStoken_decode() {
   String identifier = sts_third.substring(6, 7);
   String sts_encode = sts_data.substring(15, 20);
   long tariff_MT_NO = sts_encode.toInt();
-  long tariff_gotten = ((tariff_MT_NO) - (meter_no * multiplier));
-  long trueMT_NO = tariff_MT_NO - tariff;
+  // long tariff_gotten = ((tariff_MT_NO) - (meter_no * multiplier));
+  unsigned long trueMT_NO = tariff_MT_NO - tariff;
   trueMT_NO = trueMT_NO / multiplier;
 
   if ((confirmkey == private_stskey) &&
