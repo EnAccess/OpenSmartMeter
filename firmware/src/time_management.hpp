@@ -12,6 +12,10 @@
 #include "thingsboard.hpp"
 
 RTC_DS1307 rtc;
+#define ACTIVE_UNTIL_NVRAM_ADDRESS \
+  0  // 56 bytes address from 0 to 55 in the NVRAM
+#define TIME_INITIALIZATION_NVRAM_ADDRESS 4
+uint32_t timeInitializationRtc = 0;
 
 unsigned int hours, minutes, seconds, rtcday = 0;
 long nw_month_cnt, rtcmonth, rtcnewmonth, billing_date = 0;
