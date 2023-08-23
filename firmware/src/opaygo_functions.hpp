@@ -390,5 +390,3 @@ void initializeTime() {
                               // the previous TimeStamp was too long ago
   }
 }
-
-#endif
