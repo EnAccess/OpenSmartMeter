@@ -17,30 +17,25 @@ jobs:
       - name: Run clang-format lint
         working-directory: firmware
         run: find include/ src/ \( -name '*.[ch]pp' -o -name '*.h' \) | xargs clang-format --verbose --style=file -n --Werror
+
   editorconfig-checker:
     name: Lint EditorConfig
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-python@v3
-        with:
-          python-version: 3.11
-      - run: 'pip install "editorconfig-checker"'
+      - run: pipx install "editorconfig-checker"
       - name: Run editorconfig-checker
         run: ec -exclude "hardware/"
+
   compile-firmware-platform-io:
     name: Compile Firmware with PlatformIO
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-python@v2
       - name: Install PlatformIO
-        run: |
-          python -m pip install --upgrade pip
-          pip install --upgrade platformio
+        run: pipx install platformio
       - name: Compile the firmware
         working-directory: firmware
-        # TBD: Once warnings are resolved
-        # env:
-        #   PLATFORMIO_BUILD_FLAGS: -Werror
+        env:
+          PLATFORMIO_BUILD_FLAGS: -Werror
         run: pio run
