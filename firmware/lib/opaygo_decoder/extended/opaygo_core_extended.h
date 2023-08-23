@@ -16,7 +16,7 @@
 #include <stdint.h>
 #include <stdio.h>
 
-uint64_t GenerateOPAYGOTokenExtended(uint64_t LastToken, char SECRET_KEY[16]);
+uint64_t GenerateOPAYGOTokenExtended(uint64_t LastToken, unsigned char SECRET_KEY[16]);
 uint32_t DecodeBaseExtended(uint32_t StartingCodeBase, uint32_t TokenBase);
 uint32_t GetTokenBaseExtended(uint64_t Token);
 uint64_t PutBaseInTokenExtended(uint64_t Token, uint32_t TokenBase);
