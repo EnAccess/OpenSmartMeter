@@ -120,6 +120,7 @@ nav:
     - Accuracy Test and Compliance Report: firmware/accuracy_and_compliance_report.md
   - Hardware Documentation:
     - PCB design rationate: hardware/pcb_design.md
+    - Interactive Bill of Materials (BOM): assets/hardware/ibom/EnAcess PCB-ibom.html
     - Product and specification manual: hardware/product_specification.md
     - Toubleshooting manual: hardware/troubleshooting.md
     - Datasheets: hardware/datasheets.md
