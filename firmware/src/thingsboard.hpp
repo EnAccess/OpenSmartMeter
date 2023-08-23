@@ -1,5 +1,4 @@
-#ifndef thingsboard_hpp
-#define thingsboard_hpp
+#pragma once
 
 // defines
 #define TOKEN "5GBw6kqNCN93BN3nuuvJ"  //"YOUR_ACCESS_TOKEN"
@@ -70,5 +69,3 @@ void post_to_thingsboard() {
   tb.sendTelemetryFloat("credit", creditt);
   tb.loop();
 }
-
-#endif

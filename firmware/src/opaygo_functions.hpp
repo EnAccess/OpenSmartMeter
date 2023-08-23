@@ -1,17 +1,17 @@
-#ifndef opaygo_functions_hpp
-#define opaygo_functions_hpp
+#pragma once
+
+// defines
+
+// Arduino base libraries
+#include "Arduino.h"
+
+// third party libraries
 
 // OpenSmartMeter libraries
 #include "global_defines.hpp"
 #include "helpers.hpp"
 #include "mem_init.hpp"
 #include "time_management.hpp"
-
-// Arduino base libraries
-#include <inttypes.h>
-#include "Arduino.h"
-// #include <time.h>
-
 extern "C" {
 #include "opaygo_decoder.h"
 }

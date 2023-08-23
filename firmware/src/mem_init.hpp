@@ -1,5 +1,4 @@
-#ifndef mem_init_hpp
-#define mem_init_hpp
+#pragma once
 
 // defines
 
@@ -12,5 +11,3 @@
 
 // EEPROM object
 AT24CX mem;
-
-#endif

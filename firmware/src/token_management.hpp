@@ -1,6 +1,4 @@
-#ifndef token_management_hpp
-#define token_management_hpp
-// #pragma once
+#pragma once
 
 // defines
 #define Lengths 20
@@ -173,5 +171,3 @@ void STS_keypad() {
     }
   }
 }
-
-#endif

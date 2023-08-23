@@ -1,5 +1,4 @@
-#ifndef remote_hpp
-#define remote_hpp
+#pragma once
 
 // defines
 #define TINY_GSM_MODEM_SIM800
@@ -165,5 +164,3 @@ void gsm_func() {
   Serial2.print("CREDIT : ");
   Serial2.println(creditt);
 }
-
-#endif
