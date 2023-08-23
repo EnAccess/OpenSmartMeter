@@ -209,5 +209,5 @@ Procfile          text
 #
 # Git LFS (https://git-lfs.com/)
 #
-*.step filter=lfs diff=lfs merge=lfs -text
-*.STEP filter=lfs diff=lfs merge=lfs -text
+hardware/pcb_cad_design/**/*.step filter=lfs diff=lfs merge=lfs -text
+hardware/pcb_cad_design/**/*.STEP filter=lfs diff=lfs merge=lfs -text
