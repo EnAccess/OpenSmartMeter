@@ -18,6 +18,6 @@
 #include "opaygo_core_extended.h"
 #include "opaygo_decoder.h"
 
-int32_t GetActivationValueFromExtendedToken(uint64_t InputToken, uint16_t *MaxCount, uint32_t StartingCode, char SECRET_KEY[16]);
+int32_t GetActivationValueFromExtendedToken(uint64_t InputToken, uint16_t *MaxCount, uint32_t StartingCode, unsigned char SECRET_KEY[16]);
 
 #endif /* opaygo_decoder_extended_h */

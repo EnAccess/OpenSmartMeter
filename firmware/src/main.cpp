@@ -30,7 +30,7 @@ TokenData Output;
 uint32_t StartingCode = 123456789;
 unsigned char SECRET_KEY[16] = {0xa2, 0x9a, 0xb8, 0x2e, 0xdc, 0x5f, 0xbb, 0xc4,
                                 0x1e, 0xc9, 0x53, 0xf,  0x6d, 0xac, 0x86, 0xb1};
-// char SECRET_KEY[16] = {...};
+// unsigned char SECRET_KEY[16] = {...};
 
 HardwareSerial Serial2(PA3, PA2);
 
