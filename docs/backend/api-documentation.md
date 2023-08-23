@@ -18,6 +18,27 @@ This document provides details on how to integrate ThingsBoard API to developers
 <source src="https://enaccess.github.io/OpenSmartMeter/assets/backend/webdemo_screen_record.mp4" type="video/mp4">
 </video>
 
+<style>
+  .youtube-embed-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow:
+    hidden; max-width: 100%;
+  }
+  .youtube-embed-container iframe,
+  .youtube-embed-container object,
+  .youtube-embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+</style>
+<div class="youtube-embed-container">
+  <iframe
+    src="https://www.youtube.com/embed/A8EmnRPDZHc?enablejsapi=1"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen>
+  </iframe>
+</div>
+
 ## ThingsBoard API integration:
 
 ThingsBoard is an open-source server-side platform that allows you to monitor and control IOT devices. It is free for both personal and commercial use and can be deployed anywhere. Steps to set up a ThingsBoard page is highlighted below:
