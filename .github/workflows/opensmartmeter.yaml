@@ -36,7 +36,6 @@ jobs:
         run: pipx install platformio
       - name: Compile the firmware
         working-directory: firmware
-        # TBD: Once warnings are resolved
-        # env:
-        #   PLATFORMIO_BUILD_FLAGS: -Werror
+        env:
+          PLATFORMIO_BUILD_FLAGS: -Werror
         run: pio run
