@@ -3555,7 +3555,7 @@
       (net 51 "Net-(D14-A)") (pintype "passive") (tstamp d4058d2b-9391-4898-8104-480968203314))
     (pad "6" thru_hole circle (at 25.146 1.905 90) (size 3 3) (drill 1.5) (layers "*.Cu" "*.Mask")
       (net 84 "Net-(D11--)") (pintype "passive") (tstamp d66f0618-b22b-4dba-be10-76e1c17d543c))
-    (model "/Users/admin/Desktop/kicad external lib/PQ-26-20_6+6_tx.step"
+    (model "${KIPRJMOD}/3dshapes/PQ-26-20_6+6_tx.step"
       (offset (xyz 12.5 7.5 6))
       (scale (xyz 1 1 1))
       (rotate (xyz 0 0 0))
@@ -8377,7 +8377,7 @@
       (scale (xyz 1 1 1))
       (rotate (xyz 0 0 0))
     )
-    (model "/Users/admin/Desktop/kicad external lib/rtc-modules-hw-111-1/HW-111_RTCmodule_DS1307.STEP"
+    (model "${KIPRJMOD}/3dshapes/HW-111_RTCmodule_DS1307.STEP"
       (offset (xyz -12.5 -8 9))
       (scale (xyz 1 1 1))
       (rotate (xyz 90 0 0))
@@ -14988,7 +14988,7 @@
       (scale (xyz 1 1 1))
       (rotate (xyz 0 0 0))
     )
-    (model "/Users/admin/Desktop/kicad external lib/stm32-bluepill-2/YAAJ_BluePill.step"
+    (model "${KIPRJMOD}/3dshapes/YAAJ_BluePill.step"
       (offset (xyz -14.5 0 7))
       (scale (xyz 1 1 1))
       (rotate (xyz 0 0 0))
