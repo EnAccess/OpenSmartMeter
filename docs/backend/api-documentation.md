@@ -14,10 +14,6 @@ This document provides details on how to integrate ThingsBoard API to developers
 
 ## Screen Recording Demo
 
-<video controls>
-<source src="https://enaccess.github.io/OpenSmartMeter/assets/backend/webdemo_screen_record.mp4" type="video/mp4">
-</video>
-
 <style>
   .youtube-embed-container {
     position: relative;
@@ -32,7 +28,7 @@ This document provides details on how to integrate ThingsBoard API to developers
 </style>
 <div class="youtube-embed-container">
   <iframe
-    src="https://www.youtube.com/embed/A8EmnRPDZHc?enablejsapi=1"
+    src="https://www.youtube.com/embed/Pm6gHKM-Btc?enablejsapi=1"
     frameborder="0"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
     allowfullscreen>
