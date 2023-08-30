@@ -86,58 +86,6 @@ void check_tokenused() {
   }
 }
 
-void preset_keyprocess() {
-  data_count = lcd_count = dt = sts_value = parameters = 0;
-  lcd.clear();
-  buss();  // emit a sound to inform that it is ready to receive the token
-  lcd.setCursor(0, 0);
-  sts_mode = 1;
-  if (customKeypad.getState() == HOLD) {
-    lcd.println("Password: ");
-  } else {
-    lcd.print("TOKEN: ");
-  }
-}
-
-void check_meterCMD(void) {
-  bool authERR = false;
-  lcd.clear();
-  if (!is_STSmode && sts_data == "112") {  // Change to STS mode.
-    if (passWORD_set) {
-      is_STSmode = true;
-      lcd.print("STS MODE");
-      delay(1000);
-      passWORD_set = false;
-    } else
-      authERR = true;
-  } else if (is_STSmode && sts_data == "122") {  // Change to OpenPAYGO mode.
-    if (passWORD_set) {
-      is_STSmode = false;
-      lcd.print("OPENPAYGO MODE");
-      delay(1000);
-      passWORD_set = false;
-    } else
-      authERR = true;
-  }
-  // else if( sts_data == /* custom command*/)
-  // {
-  //
-  // }
-  else {
-    digitalWrite(buzzer, HIGH);
-    lcd.print("INVALID COMMAND");
-    delay(1000);
-    digitalWrite(buzzer, LOW);
-  }
-
-  if (authERR == true) {
-    digitalWrite(buzzer, HIGH);
-    lcd.print("PASSWORD REQUIRED");
-    delay(1000);
-    digitalWrite(buzzer, LOW);
-  }
-}
-
 void STS_keypad() {                   // Process KEYPRESS on Keypad.
   customKey = customKeypad.getKey();  // scan keypad.
 
@@ -250,5 +198,57 @@ void STS_keypad() {                   // Process KEYPRESS on Keypad.
         Mode_select = 2;
       }
     }
+  }
+}
+
+void preset_keyprocess() {
+  data_count = lcd_count = dt = sts_value = parameters = 0;
+  lcd.clear();
+  buss();  // emit a sound to inform that it is ready to receive the token
+  lcd.setCursor(0, 0);
+  sts_mode = 1;
+  if (customKeypad.getState() == HOLD) {
+    lcd.println("Password: ");
+  } else {
+    lcd.print("TOKEN: ");
+  }
+}
+
+void check_meterCMD(void) {
+  bool authERR = false;
+  lcd.clear();
+  if (!is_STSmode && sts_data == "112") {  // Change to STS mode.
+    if (passWORD_set) {
+      is_STSmode = true;
+      lcd.print("STS MODE");
+      delay(1000);
+      passWORD_set = false;
+    } else
+      authERR = true;
+  } else if (is_STSmode && sts_data == "122") {  // Change to OpenPAYGO mode.
+    if (passWORD_set) {
+      is_STSmode = false;
+      lcd.print("OPENPAYGO MODE");
+      delay(1000);
+      passWORD_set = false;
+    } else
+      authERR = true;
+  }
+  // else if( sts_data == /* custom command*/)
+  // {
+  //
+  // }
+  else {
+    digitalWrite(buzzer, HIGH);
+    lcd.print("INVALID COMMAND");
+    delay(1000);
+    digitalWrite(buzzer, LOW);
+  }
+
+  if (authERR == true) {
+    digitalWrite(buzzer, HIGH);
+    lcd.print("PASSWORD REQUIRED");
+    delay(1000);
+    digitalWrite(buzzer, LOW);
   }
 }
