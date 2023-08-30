@@ -176,61 +176,56 @@ void setup() {
 
   delay(10);
   relay_on();
-  select_mode();
-
-  if (is_STSmode == true) {
 #if defined(TIM1)
-    TIM_TypeDef* Instance = TIM1;
+  TIM_TypeDef* Instance = TIM1;
 #else
-    TIM_TypeDef* Instance = TIM2;
+  TIM_TypeDef* Instance = TIM2;
 #endif
-    HardwareTimer* MyTim = new HardwareTimer(Instance);
-    MyTim->setOverflow(20, HERTZ_FORMAT);
-    switch (Mode_select) {
-      case 0:
-        lcd.clear();
-        lcd.setCursor(0, 0);
-        lcd.println("No Configuration! ");
-        while (Mode_select == 0)  // wait for mode configuration
-        {
-          STS_keypad();
-          delay(20);
-        }
-        break;
-
-      case 1:
-        MyTim->attachInterrupt(urgeent);
-        MyTim->resume();
-        break;
-
-      case 2:
-        /*OpenPayGo Token initializing code; */
-        printf("Welcome to the OPAYGO Device\n");
-        printf(
-            "We're waiting for the * character to start recording the key "
-            "presses.\n(Press the '#' key to see the device activation "
-            "status)\n\n");
-        LoadActivationVariables();  // We load the activation variableS
-        break;
-    }
-    Serial2.println("Setup Complete! \n");
-  }
-
-  void loop() {
-    if (Mode_select == 1) {
-      mesure();
-
-      /**RUN CODE FOR STS MODE**/
-      mesure();  // Read AFE parameters.
-      if ((mains_input_value > 50))
-        credit_reminder();
-      if ((mains_input_value < 50)) {
-        digitalWrite(red_led, LOW);
-        digitalWrite(green_led, LOW);
+  HardwareTimer* MyTim = new HardwareTimer(Instance);
+  MyTim->setOverflow(20, HERTZ_FORMAT);
+  switch (Mode_select) {
+    case 0:
+      lcd.clear();
+      lcd.setCursor(0, 0);
+      lcd.println("No Configuration! ");
+      while (Mode_select == 0)  // wait for mode configuration
+      {
+        STS_keypad();
+        delay(20);
       }
-      get_time();  // Update Date and Time.
-      if ((sts_mode == 0) && (mains_input_value > 50))
-        gsm_func();
+      break;
+
+    case 1:
+      MyTim->attachInterrupt(urgeent);
+      MyTim->resume();
+      break;
+
+    case 2:
+      /*OpenPayGo Token initializing code; */
+      printf("Welcome to the OPAYGO Device\n");
+      printf(
+          "We're waiting for the * character to start recording the key "
+          "presses.\n(Press the '#' key to see the device activation "
+          "status)\n\n");
+      LoadActivationVariables();  // We load the activation variableS
+      break;
+  }
+}
+
+void loop() {
+  if (Mode_select == 1) {
+    /**RUN CODE FOR STS MODE**/
+    mesure();  // Read AFE parameters.
+    if ((mains_input_value > 50)) {
+      credit_reminder();
+    }
+    if ((mains_input_value < 50)) {
+      digitalWrite(red_led, LOW);
+      digitalWrite(green_led, LOW);
+    }
+    get_time();  // Update Date and Time.
+    if ((sts_mode == 0) && (mains_input_value > 50)) {
+      gsm_func();
     }
   }
 
@@ -246,15 +241,10 @@ void setup() {
     printf("\n(Token entered: %llu)", InputToken);
     printf("\n(Activation Value from Token: %d)",
            Output.Value);  // Activation Value found in the token
-    printf("\n(Count: %d)", Output.Count);    // Count found in the token
-    printf("\n(Max Count: %d)", TokenCount);  // Count found in the token
-    printf("\n(Used Tokens: %d)\n",
-           UsedTokens);  // Count found in the token
+    printf("\n(Count: %d)", Output.Count);        // Count found in the token
+    printf("\n(Max Count: %d)", TokenCount);      // Count found in the token
+    printf("\n(Used Tokens: %d)\n", UsedTokens);  // Count found in the token
 
     UpdateDeviceStatusFromTokenValue(Output.Value, Output.Count);
-
-  } else {
-    /**RUN CODE FOR OpenPAYGO MODE**/
-    printf("OpenPAYGO code written here");
   }
 }
