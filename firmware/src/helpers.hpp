@@ -145,31 +145,3 @@ uint32_t readUint32FromNvram(int address) {
   rtc.readnvram(readData, 4, address);
   return (convertByteArrayToUint32(readData));
 }
-
-void select_mode() {
-  lcd.clear();
-  lcd.setCursor(0, 0);
-  lcd.print("SELECT MODE: ");
-  lcd.setCursor(0, 1);
-  lcd.print("OPG(0)   STS(1)");
-
-  while ((selectKey != '0') &&
-         (selectKey != '1')) {  // Wait till a mode is selected
-    selectKey = customKeypad.getKey();
-  }
-
-  lcd.clear();
-  lcd.setCursor(0, 0);
-  if (selectKey == '0') {
-    lcd.print(" OpenPAYGO MODE ");
-    is_STSmode = false;
-  } else if (selectKey == '1') {
-    buss();
-    lcd.print("    STS MODE    ");
-    is_STSmode = true;
-  }
-  lcd.setCursor(0, 1);
-  lcd.print("   ACTIVATED!!  ");
-  delay(2000);
-  lcd.clear();
-}
