@@ -86,8 +86,8 @@ void check_tokenused() {
   }
 }
 
-void STS_keypad() {                   // Process KEYPRESS on Keypad.
-  customKey = customKeypad.getKey();  // scan keypad.
+void STS_keypad() {
+  customKey = customKeypad.getKey();
 
   if (customKey == '*') {  // Clear screen and reset keypad.
     preset_keyprocess();
