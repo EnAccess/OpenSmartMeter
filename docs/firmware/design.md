@@ -5,7 +5,6 @@
 - LCD (Liquid Crystal Display) display to show periodic energy consumption, credit remaining and tariff.
 - Interface to Cicada communication module assuming GSM connection.
 
-
 ## Design specification and justification
 
 In the design of the GSM based prepaid energy meter, several meter designs were investigated, in other to have an historical experience on energy meter design in terms of design flaw, topology, advantage of one design over the other, NEMSA certification design guide/rule.
