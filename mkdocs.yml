@@ -118,6 +118,7 @@ nav:
     - Firmware Design: firmware/design.md
     - Calibration: firmware/calibration.md
     - Accuracy Test and Compliance Report: firmware/accuracy_and_compliance_report.md
+    - Control Flow: firmware/control_flow.md
   - Hardware Documentation:
     - PCB design rationate: hardware/pcb_design.md
     - Interactive Bill of Materials (BOM): assets/hardware/ibom/EnAcess PCB-ibom.html
