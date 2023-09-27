@@ -174,7 +174,8 @@ void setup() {
       printf("Welcome to the OpenPaygo Energy-based\n");
       printf(
           "We're waiting for the * character to start recording the key "
-          "presses.\n(Press the '#' key to see the device activation status)\n\n");
+          "presses.\n(Press the '#' key to see the device activation "
+          "status)\n\n");
       LoadActivationVariables();  // We load the activation variables
       break;
 
@@ -183,7 +184,8 @@ void setup() {
       printf("Welcome to the OpenPaygo Time-based\n");
       printf(
           "We're waiting for the * character to start recording the key "
-          "presses.\n(Press the '#' key to see the device activation status)\n\n");
+          "presses.\n(Press the '#' key to see the device activation "
+          "status)\n\n");
       LoadActivationVariables();  // We load the activation variables
       break;
   }
@@ -205,7 +207,9 @@ void loop() {
     }
   }
 
-  if (Mode_select == 2 || Mode_select == 3) {  // 2 = Module in OpenPaygo Energy-based; 3 = Module in OpenPaygo Time-based
+  if (Mode_select == 2 ||
+      Mode_select == 3) {  // 2 = Module in OpenPaygo Energy-based; 3 = Module
+                           // in OpenPaygo Time-based
     // We wait for a token to be entered
     InputToken = WaitForTokenEntry();
     // We get the activation value from the token
@@ -222,6 +226,5 @@ void loop() {
     printf("\n(Used Tokens: %d)\n", UsedTokens);  // Count found in the token
 
     UpdateDeviceStatusFromTokenValue(Output.Value, Output.Count);
-  }  
+  }
 }
-

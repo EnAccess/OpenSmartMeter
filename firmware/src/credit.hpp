@@ -19,7 +19,7 @@ void credit_formular() {
   if (true_power > 0) {
     ENERGY = ENERGY + ((true_power) /
                        (3600000));  // energy per KWH(energy gotten per sec)
-    billing = (true_power * tariff) / 3600000;  // cost per sec 
+    billing = (true_power * tariff) / 3600000;  // cost per sec
     if (creditt > billing) {
       creditt = (creditt - billing);
     }
