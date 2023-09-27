@@ -14,7 +14,6 @@
 #include "sts_token.hpp"
 
 char customKey;
-bool is_STSmode = false;  // by default on OpenPAYGO Token
 
 // keypad
 const byte ROWS = 4;

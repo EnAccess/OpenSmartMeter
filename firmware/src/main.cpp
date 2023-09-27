@@ -156,7 +156,7 @@ void setup() {
       lcd.clear();
       lcd.setCursor(0, 0);
       lcd.println("No Configuration! ");
-      while (Mode_select == 0)  // wait for mode configuration
+      while (Mode_select == 0)  // wait for configuration mode
       {
         STS_keypad();
         delay(20);
@@ -174,14 +174,17 @@ void setup() {
       printf("Welcome to the OpenPaygo Energy-based\n");
       printf(
           "We're waiting for the * character to start recording the key "
-          "presses.\n(Press the '#' key to see the device activation "
-          "status)\n\n");
+          "presses.\n(Press the '#' key to see the device activation status)\n\n");
       LoadActivationVariables();  // We load the activation variables
       break;
 
     case 3:  // Module in OpenPaygo Time-based
       /*OpenPaygo Time-based initializing code; */
-
+      printf("Welcome to the OpenPaygo Time-based\n");
+      printf(
+          "We're waiting for the * character to start recording the key "
+          "presses.\n(Press the '#' key to see the device activation status)\n\n");
+      LoadActivationVariables();  // We load the activation variables
       break;
   }
 }
@@ -202,7 +205,7 @@ void loop() {
     }
   }
 
-  if (Mode_select == 2) {  // Module in OpenPaygo Energy-based
+  if (Mode_select == 2 || Mode_select == 3) {  // 2 = Module in OpenPaygo Energy-based; 3 = Module in OpenPaygo Time-based
     // We wait for a token to be entered
     InputToken = WaitForTokenEntry();
     // We get the activation value from the token
@@ -219,25 +222,6 @@ void loop() {
     printf("\n(Used Tokens: %d)\n", UsedTokens);  // Count found in the token
 
     UpdateDeviceStatusFromTokenValue(Output.Value, Output.Count);
-  }
-
-  if (Mode_select == 3) {  // Module in OpenPaygo Time-based
-    /*Code for OpenPaygo Time-based*/
-    /* // We wait for a token to be entered
-     InputToken = WaitForTokenEntry();
-     // We get the activation value from the token
-
-     Output = GetDataFromToken(
-         InputToken, &TokenCount, &UsedTokens, StartingCode,
-         SECRET_KEY);  // We get the activation value from the token
-
-     printf("\n(Token entered: %llu)", InputToken);
-     printf("\n(Activation Value from Token: %d)",
-            Output.Value);  // Activation Value found in the token
-     printf("\n(Count: %d)", Output.Count);        // Count found in the token
-     printf("\n(Max Count: %d)", TokenCount);      // Count found in the token
-     printf("\n(Used Tokens: %d)\n", UsedTokens);  // Count found in the token
-
-     UpdateDeviceStatusFromTokenValue(Output.Value, Output.Count);*/
-  }
+  }  
 }
+

@@ -270,15 +270,15 @@ void UpdateDeviceStatusFromTokenValue(int TokenValue, int ActivationCount) {
     } else {
       if (ActivationCount % 2) {
         PAYGEnabled = true;
-        if (Mode_select == 2) {
+        if (Mode_select == 2) {// Module in OpenPaygo Energy-based
           SetCreditt(TokenValue);
-        } else {
+        } else { // Module in OpenPaygo Time-based
           SetTime(TokenValue);
         }
       } else {
-        if (Mode_select == 2) {
+        if (Mode_select == 2) {// Module in OpenPaygo Energy-based
           AddCreditt(TokenValue);
-        } else {
+        } else {// Module in OpenPaygo Time-based
           AddTime(TokenValue);
         }
       }
@@ -332,7 +332,7 @@ uint64_t WaitForTokenEntry() {
       if (IsActive()) {
         BlinkGreenLED(1, BLINK_PERIOD);
 #ifdef DEBUG
-        if (Mode_select == 2) {  //
+        if (Mode_select == 2) {  // Module in OpenPaygo Energy-based
           mesure();
           if ((mains_input_value > 50)) {
             credit_reminder();
@@ -343,7 +343,7 @@ uint64_t WaitForTokenEntry() {
           }
           urgeent();
           printf("\nEnergy Left: %f KWH", ENERGY);
-        } else {
+        } else { // Module in OpenPaygo Time-based
           printf("\nTime Left: %" PRIu32 "seconds",
                  ActiveUntil - GetTimeInSeconds());
         }
