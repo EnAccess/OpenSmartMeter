@@ -39,3 +39,8 @@ jobs:
         env:
           PLATFORMIO_BUILD_FLAGS: -Werror
         run: pio run
+      - name: Compile the firmware for Self Check
+        working-directory: firmware_selftest
+        env:
+          PLATFORMIO_BUILD_FLAGS: -Werror
+        run: pio run
