@@ -39,3 +39,16 @@ jobs:
         env:
           PLATFORMIO_BUILD_FLAGS: -Werror
         run: pio run
+
+  compile-firmware-selftest-platform-io:
+    name: Compile Firmware for Self Test with PlatformIO
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install PlatformIO
+        run: pipx install platformio
+      - name: Compile the firmware for Self Test
+        working-directory: firmware_selftest
+        env:
+          PLATFORMIO_BUILD_FLAGS: -Werror
+        run: pio run
