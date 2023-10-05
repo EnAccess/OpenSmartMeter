@@ -37,7 +37,7 @@ jobs:
           find . -type f -name "*.md" -exec grep -hEo "(http|https)://[a-zA-Z0-9./?=_%:-]*" {} \; | sort -u | while read -r URL
           do
             STATUS=$(curl -s -o /dev/null -I -w "%{http_code}" "$URL")
-            [ "$STATUS" -ge 400 ] && echo "::warning title=HTTP $STATUS::$URL returned $STATUS"
+            [ "$STATUS" -ge 400 ] && echo "::error title=HTTP $STATUS::$URL returned $STATUS"
           done || true
 
   compile-firmware-platform-io:
