@@ -81,7 +81,7 @@ This folder contain the web demo video to guide a developer developer on the fun
 #### Web software
 
 This folder contain the web software codes used.
-The link to the web demo is: https://paygotesting.000webhostapp.com
+The link to the web demo is: <https://paygotesting.000webhostapp.com>
 
 ## Quick look at the schematic
 
@@ -93,7 +93,6 @@ The link to the web demo is: https://paygotesting.000webhostapp.com
   src="https://user-images.githubusercontent.com/99180312/196975773-aa3449d5-49b1-4783-9f9f-867684f050d3.png">
 
 The voltage regulation stage contains the `7805IC` to regulate the voltage from the SMPS power supply to 5V as this is the safe voltage level to power the microcontroller, also this stage contains the `LM350IC` to regulate the SMPS power sully to 4V to power the GSM module.
-
 
 #### Analog front end chip connection
 
@@ -138,9 +137,11 @@ The firmware code folder contain the Firmware code and all library used in the s
 The meter hardware design folder contain all relating files as relating the manufacturing meter hardware such as design images, exterior casing design file, PCB CAD design file, GERBER file.
 
 #### Web software
+
 The meter web software folder contain the web software code, from the front end, backend, images, styling file e.t.c.
 
-## Web Software :
+## Web Software
+
 The web software is split into different parts as highlighted below.
 
 1. Extraction of zip file from Github.
@@ -149,13 +150,13 @@ The web software is split into different parts as highlighted below.
 
 ### Extraction of file from Github
 
-The web software can be replicated by any developer by downloading the code file from https://github.com/EnAccess/OpenSmartMeter/tree/main/Web%20software .
+The web software can be replicated by any developer by downloading the code file from <https://github.com/EnAccess/OpenSmartMeter/tree/main/web_software> .
 After the code is downloaded, developer will need to host the web on a hosting platform.
 
 ### Creating database
 
 The database schema file can be downloaded from the Github link provided below
-https://github.com/EnAccess/OpenSmartMeter/blob/main/web_software/database_seed/meter.sql for testing purpose, next user can assign a meter number as desired from MT1 to MT99990 and insert into the meter Database column for meter number.
+<https://github.com/EnAccess/OpenSmartMeter/blob/main/web_software/database_seed/meter.sql> for testing purpose, next user can assign a meter number as desired from MT1 to MT99990 and insert into the meter Database column for meter number.
 Developer need to change password and database name in web code to same password and database name as created by developer to enable access to the database.
 
 ### Linking ThingsBoard public link to webpage
@@ -163,6 +164,7 @@ Developer need to change password and database name in web code to same password
 After ThingsBoard page is setup, developer make the data available by changing the privacy setting from private to public, next the public link is copied to the ThingsBoard column specified in the database for each user.
 
 ## Hardware
+
 The hardware is splitted into different parts as highlighted below.
 
 1. Extracting manufacturing file.
@@ -171,8 +173,8 @@ The hardware is splitted into different parts as highlighted below.
 
 ### Extracting manufacturing file
 
-The first step is to extract the manufacturing/production file from Github in the link provided below
-https://github.com/EnAccess/OpenSmartMeter/tree/main/Meter%20hardware%20design/production%20file, the zip file is sent to a PCB manufacturing company for the board to be manufactured.
+The first step is to extract the manufacturing/production files from Github in the link provided below
+<https://github.com/EnAccess/OpenSmartMeter/tree/main/hardware/production_files>, the zip file is sent to a PCB manufacturing company for the board to be manufactured.
 The manufactured PCB is shipped back to the design engineer.
 
 ### Soldering/assembling PCB
@@ -200,7 +202,7 @@ The voltage and current is calibrated by calculating the value _measured by mete
 
 - The excel sheet available in the link provided below is used to calibrate the voltage and current by inputting the measured and actual values of voltage and current in the appropriate cell of the [Excel calculator](https://github.com/EnAccess/OpenSmartMeter/blob/main/firmware/energy_setpoint_calculator.xlsx).
 
-- The HEX code gotten is written to the neccesary registers of `Ugain`, `IgainN` in the `SAM_UART.cpp` library provided [here](https://github.com/EnAccess/OpenSmartMeter/blob/main/Firmware%20code/Library/SamATM90E26_library).
+- The HEX code gotten is written to the neccesary registers of `Ugain`, `IgainN` in the `SAM_UART.cpp` library provided [here](https://github.com/EnAccess/OpenSmartMeter/blob/main/firmware/src/SAM_UART.cpp).
 - The checksum2 value displayed on the LCD screen while the meter is starting up is written to the CSTwo register in the `SAM_UART.cpp` library
 - design engineer re-uploads the code to the chip and all measuring parameter is correct.
 
@@ -228,7 +230,7 @@ After the error is calculated, the design engineer write the value gotten for Lg
 
 After developer is done assembling the components on the PCB, it is advisable to test the PCB first by connecting the battery to the battery connector to test if all connection is correct or not, if all connection is correct the meter LCD will display, then meter boot and try connecting to internet before the LCD is turned off due to unavailability of mains and to preserve battery life.
 
-#### STEP 2:
+#### STEP 2
 
 Connect the input of the meter through an incandescent bulb without any load to the meter to prevent the components from going up in smoke if there is a short or mis-soldering, if the meter PCB is faulty the incandescence bulb will light up brightly, if all is ok, the meter will start up however the bulb may light up a little bit if all is ok.
 
@@ -238,8 +240,9 @@ the first thing to do is to Install STM32 Add-on to Arduino IDE by following the
 
 ### Step 1
 
-#### Add the URL below to Additional Board Manager URLs text box:
-https://github.com/stm32duino/BoardManagerFiles/raw/master/STM32/package_stm_index.json
+#### Add the URL below to Additional Board Manager URLs text box
+
+<https://github.com/stm32duino/BoardManagerFiles/raw/master/STM32/package_stm_index.json>
 
 ![STM32_addon](https://user-images.githubusercontent.com/99180312/199869088-a163b93e-a334-4630-9ccb-e97fff5a2613.jpg)
 
@@ -247,20 +250,21 @@ https://github.com/stm32duino/BoardManagerFiles/raw/master/STM32/package_stm_ind
 
 ![F103_board_manager_b](https://user-images.githubusercontent.com/99180312/199869190-283580e3-4e54-4b0f-a86a-7e7e673f808c.png)
 
-#### Search for STM32, select latest version and click Install.
+#### Search for STM32, select latest version and click Install
 
 ![board_manager_install](https://user-images.githubusercontent.com/99180312/199869297-91828edf-e6ff-4c66-9e37-c62477e7a937.png)
 
 ### Step 2: Installing STM32CubeProg
 
-##### Follow the instructions below to install STM32CubeProg to your computer.
-Download and install STM32CubeProg from ST.com: https://www.st.com/en/development-tools/stm32cubeprog.html
+##### Follow the instructions below to install STM32CubeProg to your computer
+
+Download and install STM32CubeProg from ST.com: <https://www.st.com/en/development-tools/stm32cubeprog.html>
 
 ![STM32CubeProg](https://user-images.githubusercontent.com/99180312/199869757-469fb24e-7a8f-43b7-9312-0069bfad0b34.png)
 
 ### Step 3: Flashing firmware to microcontroller using USB to 3.3V TTL adapter (Windows only)
 
-##### Wiring : Follow the wiring digram below to connect the STM32 Blue Pill to USB to 3.3V TTL adapter:
+##### Wiring : Follow the wiring digram below to connect the STM32 Blue Pill to USB to 3.3V TTL adapter
 
 <img
   width="315"
@@ -272,15 +276,15 @@ Download and install STM32CubeProg from ST.com: https://www.st.com/en/developmen
 Make sure the boot 0 jumper pin on the board is set to 1 (programming mode) while uploading the boot loader. Once the boot loader is flashed this pin can be changed back to initial position (operating mode).
 
 ### Step 4: Setup Arduino IDE
+
 Set the Upload method to STM32CubeProgrammer (Serial)
 ![F103_Upload_serial](https://user-images.githubusercontent.com/99180312/199870434-f61d9457-e50a-4fe5-895f-1408074dcb67.png)
-
 
 ##### Follow the configuration setting below to upload sketch
 
 ![F103_Serial_config](https://user-images.githubusercontent.com/99180312/199870488-910dce33-9abc-44df-956a-6d0e083dea6a.png)
 
-##### .
+#####
 
 ![STM32-Operating-and-Programming-Mode](https://user-images.githubusercontent.com/99180312/199870977-c64e9489-3a55-4f7f-8f12-951993fe7093.jpg)
 
@@ -301,12 +305,12 @@ There are some hardcoded variables in the firmware code which needs to be in syn
   alt="Screenshot 2022-11-05 at 4 28 49 AM"
   src="https://user-images.githubusercontent.com/99180312/200099031-cd5049f9-c523-42f1-9017-3e679856612e.png">
 
-More information as relating to the implementation of the firmware with the software is available in https://github.com/EnAccess/OpenSmartMeter/blob/main/Documentations/Web%20Software%20and%20API%20documentation/API%20Documentation.pdf
+More information as relating to the implementation of the firmware with the software is available in <https://enaccess.github.io/OpenSmartMeter/backend/api-documentation/>
 
 ### Things to consider in software/API deployment
 
 There are some variables that needs to be changed in the backend codes, the database details need to be changed to the databases details as created on the webserver.
-More information as relating to the implementation of the software/API deployment is available in https://github.com/EnAccess/OpenSmartMeter/blob/main/Documentations/Web%20Software%20and%20API%20documentation/API%20Documentation.pdf
+More information as relating to the implementation of the software/API deployment is available in <https://enaccess.github.io/OpenSmartMeter/backend/api-documentation/>
 
 ### Infrastructure diagram
 
