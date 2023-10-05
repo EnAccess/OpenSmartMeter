@@ -32,9 +32,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Check URLs
+      - name: Check URLs in Markdown files
         run: |
-          grep -hREo "(http|https)://[a-zA-Z0-9./?=_%:-]*" . | sort -u | while read -r URL
+          find . -type f -name "*.md" -exec grep -hEo "(http|https)://[a-zA-Z0-9./?=_%:-]*" {} \; | sort -u | while read -r URL
           do
             STATUS=$(curl -s -o /dev/null -I -w "%{http_code}" "$URL")
             [ "$STATUS" -ge 400 ] && echo "::warning title=HTTP $STATUS::$URL returned $STATUS"
