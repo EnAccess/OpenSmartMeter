@@ -7,9 +7,9 @@
 // third party libraries
 
 // OpenSmartMeter libraries
+#include "mem_operation.hpp"
 #include "power.hpp"
 #include "relay.hpp"
-#include "mem_operation.hpp"
 
 float billing = 0.0;
 byte fault = 0;
