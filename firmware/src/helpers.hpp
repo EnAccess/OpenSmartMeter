@@ -38,7 +38,9 @@ void urgeent() {
     credit_formular();
   }
 
-  STS_keypad();
+  if (Mode_select != 2) {
+    STS_keypad();
+  }
   warn_now = millis();
   if (c_chek == 1) {
     if (warn_now - warntime > 1500) {
