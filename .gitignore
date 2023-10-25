@@ -36,3 +36,4 @@ fp-info-cache
 .DS_Store
 .pio/
 .vscode/
+.idea/
