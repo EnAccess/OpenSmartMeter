@@ -55,9 +55,9 @@ Tested meters: MT100, MT50 and MT25
 
 |**MT100**|**MT50**|**MT25**|
 | - | - | - |
-|![](../assets/firmware/mt100.png)|![](../assets/firmware/mt50.png)|![](../assets/firmware/mt25.png)|
+|![MT100](../assets/firmware/mt100.png)|![MT50](../assets/firmware/mt50.png)|![MT25](../assets/firmware/mt25.png)|
 
-**MT100**
+### Accuracy test: MT100
 
 |**Test point (%)**|**Voltage supplied (V)**|**Actual voltage (V)**|**Current supplied (A)**|**Actual current (A)**|**Expected power (W)**|**Actual power (W)**|**Error (%)**|
 | :- | :- | - | - | :- | :- | :- | - |
@@ -72,9 +72,9 @@ Tested meters: MT100, MT50 and MT25
 |**5 (1.0)**|0|0|0|0|0|0|0|
 |**5 (0.5L)**|0|0|0|0|0|0|0|
 
-**Table 1: Accuracy Test Result of Meter MT100**
+Table 1: Accuracy Test Result of Meter MT100
 
-**MT50**
+### Accuracy test: MT50
 
 |**Test point (%)**|**Voltage supplied (V)**|**Actual voltage (V)**|**Current supplied (A)**|**Actual current (A)**|**Expected power (W)**|**Actual power (W)**|**Error (%)**|
 | :- | :- | - | - | :- | :- | :- | - |
@@ -89,9 +89,9 @@ Tested meters: MT100, MT50 and MT25
 |**5 (1.0)**|0|0|0|0|0|0|0|
 |**5 (0.5L)**|0|0|0|0|0|0|0|
 
-**Table 2: Accuracy Test Result of Meter MT50**
+Table 2: Accuracy Test Result of Meter MT50
 
-**MT25**
+### Accuracy test: MT25
 
 |**Test point (%)**|**Voltage supplied (V)**|**Actual voltage (V)**|**Current supplied (A)**|**Actual current (A)**|**Expected power (W)**|**Actual power (W)**|**Error (%)**|
 | :- | :- | - | - | :- | :- | :- | - |
@@ -106,7 +106,7 @@ Tested meters: MT100, MT50 and MT25
 |**5 (1.0)**|0|0|0|0|0|0|0|
 |**5 (0.5L)**|0|0|0|0|0|0|0|
 
-**Table 3: Accuracy Test Result of Meter MT50**
+Table 3: Accuracy Test Result of Meter MT50
 
 ## IEC (International Electrotechnical Commission) metering specification
 
