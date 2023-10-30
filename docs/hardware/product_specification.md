@@ -47,7 +47,6 @@ Enter 20-digit token via keypad available on meter, the token is generated from 
 | Dimension | 18cm x 15cm |
 | Display: | LCD 16x2 |
 
-
 #### Indicator
 
 | Indicator | Description |
@@ -55,17 +54,14 @@ Enter 20-digit token via keypad available on meter, the token is generated from 
 | Credit Indicator | Bi-color LED (red) <br> Green LED light on when credit is in highlevel <br> Red LED light on when credit is low <br> Red LED blinks when credit has finished |
 | Alarm indicator | The indicator blinks when event occur, event such as overload, low voltage, low credit or credit exhausted. |
 
-
-### Communication
+### Communication devices
 
 1. RS232 communication, used for local reading/monitoring.
 2. GPRS communication, used for on the air top-up, remote monitoringandcontrolling.
 
-
 ### Display of details on LCD
 
 ![meter]('../../../assets/hardware/meter.png)
-
 
 ### Safety Instructions
 

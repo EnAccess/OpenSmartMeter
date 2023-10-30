@@ -35,7 +35,7 @@ This document provides details on how to integrate ThingsBoard API to developers
   </iframe>
 </div>
 
-## ThingsBoard API integration:
+## ThingsBoard API integration
 
 ThingsBoard is an open-source server-side platform that allows you to monitor and control IOT devices. It is free for both personal and commercial use and can be deployed anywhere. Steps to set up a ThingsBoard page is highlighted below:
 
@@ -131,7 +131,7 @@ Under dashboard, developer will navigate and click on _ADD NEW WIDGET_, then fil
 
     Developer can add different widget as desired.
 
-## Paystack Integration:
+## Paystack Integration
 
 ### Step 1: Creating a Paystack Account
 
@@ -158,7 +158,7 @@ Once this is done, all transaction done on the webpage will be paid to the devel
 
 ## Database & Backend
 
-### Setting up each meter and assigning meter number:
+### Setting up each meter and assigning meter number
 
 Each meter is setup by firstly creating a database with same name in the file named subscribe.php under the web software folder. The database servername, dbname, username, password must be edited to same name as used in the database creation. A sample image is shown below.
 
@@ -183,7 +183,7 @@ After this is done, the developer can assign meter number to all designed meters
   <figcaption>Creating Meter ID</figcaption>
 </figure>
 
-### Setting Tariff:
+### Setting Tariff
 
 The tariff is set by navigating to the file named subscribe.php under the web software folder, the developer needs to locate the variable named tariff and change the value from 70 to the desired tariff, and automatically the meter will fetch the tariff in the 12th hour as designed in the firmware code.
 
@@ -191,7 +191,7 @@ The tariff is set by navigating to the file named subscribe.php under the web so
 $tarrif = "70";
 ```
 
-### STS Token Generation:
+### STS Token Generation
 
 The STS token generation is automatic once the developer assign a meter number between 1 and 99000, the meter number assigning can have any prefix as desired by developer, though in the sample code created, the prefix is set to be any two letters, if developers change the prefix before the meter number, user has to change the code below from 2 to the new number of suffix. The code is available in check.php inside the web software folder.
 
@@ -201,7 +201,7 @@ $mt_no = substr($MT,2, 10); //to extract the digit out of the meter code number
 
 Once the meter number is properly assigned and setup, the meter number is automatically generated.
 
-### Private key:
+### Private key
 
 To further encrypt the STS token generation algorithm, a private key was used to bind the token with the firmware code. The private key can be a value between 100 and 111 and is changeable under check.php in the web software folder, the image of the line to be changed is shown below.
 
@@ -211,7 +211,7 @@ $privatekey = 109;  // can be a number between 100 and 111
 
 **Note:** the private key used on the web code must be same as the private key used in the firmware code.
 
-### API encryption:
+### API encryption
 
 The web platform is encrypted such that a meter can send or receive information from a webpage expect the API key used on the web page is same as the API key used on the firmware. The API key is changeable as desired in the subscribe.php under web software. The image is shown below.
 

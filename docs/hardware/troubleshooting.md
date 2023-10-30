@@ -42,7 +42,6 @@ CT current = current transformer maximum current handling capability. <br>
 ^^Note:^^ the resistor value does not have to be exact, but close to the calculated value.
 After doing this and true value is not gotten as compared to a current measuring meter, developer will need to re-calibrate from the formula available ==void measure()== under ==curr=relcur*0.02545454545454545454545454545454== to get desired current as measured and displayed by the current measuring meter or device, which inturnaffect the power displayed.
 
-
 #### Meter refusing to send data to ThingsBoard or not connecting to API
 
 Change the APN (Access Point Name) to match the APN of the Simcard used, also check to make sure there is match between the ThingsBoard token on firmware and ThingsBoard page token created.

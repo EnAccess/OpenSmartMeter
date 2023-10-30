@@ -1,8 +1,6 @@
 # ACCURACY TEST AND COMPLIANCE REPORT
 
-**Abstract**
-
-This document summarizes the technical specification, accuracy tests and comparison with regulatory standards.
+**Abstract:** This document summarizes the technical specification, accuracy tests and comparison with regulatory standards.
 
 ## Overview
 
@@ -384,7 +382,6 @@ The specifications are prepared in accordance with the following International S
 
 ==**METERING CODE REF : 3**==
 
-
 |**METERING CODE REF**|**DESCRIPTION**|**REQUIREMENT**|**COMMENT**|
 | :- | - | - | - |
 |3.1|**Clock**|The Clock forming part of a Smart Metering System shall be capable of operating so as to be accurate to within 10 seconds of UTC+1 at all times.|Comply|
@@ -448,11 +445,10 @@ The open-source AC meter has been designed according to IEC Standards and follow
   <figcaption>Image of test bench used in testing meter accuracy level</figcaption>
 </figure>
 
-
 ## References
 
 1. webstore.iec.ch. (n.d.).IEC 62053-22:2020 | IEC Webstore. [online] Available at: <https://webstore.iec.ch/publication/29987> [Accessed 3 Sep. 2022].
 2. webstore.iec.ch. (n.d.). | IEC Webstore. [online] Available at: <https://webstore.iec.ch/preview/info_iec62052-31%7Bed1.0%7Den.pdf> [Accessed 3 Sep. 2022].
-3. Nigeria Metering Code. (n.d.). [online] Available at: [https://www.abujaelectricity.com/wp-content/uploads/2016/04/MeteringCode_V02_03112 ](https://www.abujaelectricity.com/wp-content/uploads/2016/04/MeteringCode_V02_03112014.pdf)014.pdf [Accessed 7 Sep. 2022].
+3. Nigeria Metering Code. (n.d.). [online] Available at: [https://www.abujaelectricity.com/wp-content/uploads/2016/04/MeteringCode_V02_03112](https://www.abujaelectricity.com/wp-content/uploads/2016/04/MeteringCode_V02_03112014.pdf)014.pdf [Accessed 7 Sep. 2022].
 4. Nigerian Electricity Smart Metering Regulation Nigerian Electricity Smart Metering Regulations. (n.d.). [online] Available at: <http://nemsa.gov.ng/wp-content/uploads/2019/07/NESMR_EMM.pdf> [Accessed 7 Sep. 2022].
-5. www.digikey.com. (n.d.).What are Multimeter CAT (Category) Safety Ratings?[online] Available at: [https://www.digikey.com/en/blog/what-are-multimeter-cat-safety-ratings ](https://www.digikey.com/en/blog/what-are-multimeter-cat-safety-ratings)[Accessed 7 Sep. 2022].
+5. <www.digikey.com>. (n.d.).What are Multimeter CAT (Category) Safety Ratings?[online] Available at: [https://www.digikey.com/en/blog/what-are-multimeter-cat-safety-ratings](https://www.digikey.com/en/blog/what-are-multimeter-cat-safety-ratings)(Accessed 7 Sep. 2022).
