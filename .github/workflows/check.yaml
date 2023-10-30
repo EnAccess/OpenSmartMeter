@@ -1,4 +1,4 @@
-name: OpenSmartMeter
+name: Check
 
 on:
   push:
