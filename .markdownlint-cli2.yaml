@@ -3,7 +3,7 @@ config:
   line-length: false
   no-inline-html: false
   first-line-h1: false
-  code-block-style: false # conflicts with MkDocs Admontions: https://squidfunk.github.io/mkdocs-material/reference/admonitions/
+  code-block-style: false  # conflicts with MkDocs Admontions: https://squidfunk.github.io/mkdocs-material/reference/admonitions/
   code-fence-style:
     style: backtick
 
