@@ -131,6 +131,11 @@ Under dashboard, developer will navigate and click on _ADD NEW WIDGET_, then fil
 
     Developer can add different widget as desired.
 
+asdfasdf
+
+    asdfsadfsdf
+    sdfsadf
+
 ## Paystack Integration
 
 ### Step 1: Creating a Paystack Account
