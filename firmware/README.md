@@ -1,6 +1,6 @@
 ## Get started / How to build it
 
-**Pre-requisits**
+### Pre-requisits
 
 - For this README we assume you have an installed version of either of
   - [PlatformIO VSCode Plugin](https://platformio.org/platformio-ide) (Recommended for quick start)
@@ -16,6 +16,7 @@ Click the button that says `Build`
 
 **CLI:**
 Run
+
 ```sh
 pio run
 ```
@@ -53,13 +54,14 @@ Click the button that says `Upload`.
 
 **CLI:**
 Run
+
 ```sh
 pio run --target upload
 ```
 
 ### Uploading using ST-LINK
 
-**TBD**
+**TBD:** Write how to use ST-LINK
 
 ### Serial Monitor
 
@@ -88,7 +90,7 @@ pio device monitor
 
 ### Serial Monitor using ST-LINK
 
-**TBD**
+**TBD:** Write how to use ST-LINK
 
 ## Additional step for PlatformIO Core (CLI) setup
 

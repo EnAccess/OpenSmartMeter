@@ -4,6 +4,8 @@ Just a quick example of additional Markdown extensions and features available in
 
 Find all the detailed documentation [here](https://squidfunk.github.io/mkdocs-material/reference/).
 
+## Markdown Elements
+
 ### Admontions (Notes, Warnings, etc..)
 
 ```md
@@ -128,7 +130,6 @@ This is #1 and !45
 
 ==smart==mark==
 
-
 ### Symbols
 
 ```md
@@ -139,15 +140,14 @@ This is #1 and !45
 
 ### Syntax Highlighting and Copy button
 
-
 ```python
 import this
 ```
 
+<!-- markdownlint-disable-next-line MD040 -->
 ```
 import this
 ```
-
 
 ### Tabbed Code blocks
 
@@ -190,7 +190,7 @@ import this
 
 - [x] Lorem ipsum dolor sit amet, consectetur adipiscing elit
 - [ ] Vestibulum convallis sit amet nisi a tincidunt
-    * [x] In hac habitasse platea dictumst
-    * [x] In scelerisque nibh non dolor mollis congue sed et metus
-    * [ ] Praesent sed risus massa
+  - [x] In hac habitasse platea dictumst
+  - [x] In scelerisque nibh non dolor mollis congue sed et metus
+  - [ ] Praesent sed risus massa
 - [ ] Aenean pretium efficitur erat, donec pharetra, ligula non scelerisque

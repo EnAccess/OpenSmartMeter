@@ -62,30 +62,30 @@ Further details including source code, schematics, and manufacturing files can b
 
 ## Repository structure
 
-#### documentations
+### documentations
 
 The documentation folder contain all information as related to manufacturing the smart energy meter, information such as Api documentation, rationale behind design, calibration report, trouble shooting manual, bill of material, datasheet for all components used.
 
-#### Firmware codes
+### Firmware codes
 
 The firware code folder contain the firmware code written in C++ on Arduino platform, the folder also contain the library files used in the code.
 
-#### Meter hardware design
+### Meter hardware design
 
 The meter hardware design folder contain the Kicad design file, gerber manufacturing file, exterior casing manufacturing files, design images.
 
-#### Web software demo video
+### Web software demo video
 
 This folder contain the web demo video to guide a developer developer on the functionality of the web software.
 
-#### Web software
+### Web software
 
 This folder contain the web software codes used.
 The link to the web demo is: <https://paygotesting.000webhostapp.com>
 
 ## Quick look at the schematic
 
-#### Microcontroller voltage regulation stage
+### Microcontroller voltage regulation stage
 
 <img
   width="716"
@@ -124,19 +124,21 @@ The master of this stage is the microcontroller(STM32f103ccu8) popularly known a
 This document summarizes the manufacturing guide to enable a skilled person to manufacture the smart energy meter.
 The foldered is structured as highlighted below including informations available in each folder.
 
-#### Documentations
+## Repository Layout
+
+### Documentations
 
 The documentation folder is sub-divided into different folder containing relating documents as named in the folder title.
 
-#### Firmware code
+### Firmware code
 
 The firmware code folder contain the Firmware code and all library used in the smart meter design.
 
-#### Meter hardware design
+### Meter hardware design (layout)
 
 The meter hardware design folder contain all relating files as relating the manufacturing meter hardware such as design images, exterior casing design file, PCB CAD design file, GERBER file.
 
-#### Web software
+### Web software (layout)
 
 The meter web software folder contain the web software code, from the front end, backend, images, styling file e.t.c.
 
@@ -188,7 +190,7 @@ Output(12v) = 10 turns.
 
 ![image](https://user-images.githubusercontent.com/99180312/199763826-1503af99-6df4-47a8-8b3b-69ebf9dac93e.gif)
 
-Figure 1 : Transformer configuration/turn diagram.
+Figure 1: Transformer configuration/turn diagram.
 
 ## Calibration
 
@@ -196,7 +198,7 @@ The meter calibration is done after the meter PCB component is fully assembled a
 
 > Note: A meter test bench is needed to know the true value of voltage and current to be calibrated into the meter.
 
-**Step 1: Calibrating voltage and current**
+**Step 1:** Calibrating voltage and current
 
 The voltage and current is calibrated by calculating the value _measured by meter_ as compared to the true value _measured by a test bench_.
 
@@ -206,7 +208,7 @@ The voltage and current is calibrated by calculating the value _measured by mete
 - The checksum2 value displayed on the LCD screen while the meter is starting up is written to the CSTwo register in the `SAM_UART.cpp` library
 - design engineer re-uploads the code to the chip and all measuring parameter is correct.
 
-**Step 2: setting impulse rate**
+**Step 2:** setting impulse rate
 
 The impulse rate is changed by writing to `PLconstH` and `PLconstL` in the `SAM_UART.cpp` library after inputting the correct value of
 
@@ -219,7 +221,7 @@ The impulse rate is changed by writing to `PLconstH` and `PLconstL` in the `SAM_
 
 > Note: The values specified above is the values used according to the resistor value used in meter PCB.
 
-**Step 3: calibrating impulse**
+**Step 3:** calibrating impulse
 
 A test bench is required to measure the % error of the meter, after this is done the design engineer can input the error gotten into the [Excel calculator](https://github.com/EnAccess/OpenSmartMeter/blob/main/firmware/energy_setpoint_calculator.xlsx).
 After the error is calculated, the design engineer write the value gotten for Lgain and Igain to the neccesary register in the SAM_UART.cpp library, then the new value of checksum1 is rewritten to the library for the meter to blink properly.
@@ -256,7 +258,7 @@ the first thing to do is to Install STM32 Add-on to Arduino IDE by following the
 
 ### Step 2: Installing STM32CubeProg
 
-##### Follow the instructions below to install STM32CubeProg to your computer
+#### Follow the instructions below to install STM32CubeProg to your computer
 
 Download and install STM32CubeProg from ST.com: <https://www.st.com/en/development-tools/stm32cubeprog.html>
 
@@ -264,7 +266,7 @@ Download and install STM32CubeProg from ST.com: <https://www.st.com/en/developme
 
 ### Step 3: Flashing firmware to microcontroller using USB to 3.3V TTL adapter (Windows only)
 
-##### Wiring : Follow the wiring digram below to connect the STM32 Blue Pill to USB to 3.3V TTL adapter
+#### Wiring : Follow the wiring digram below to connect the STM32 Blue Pill to USB to 3.3V TTL adapter
 
 <img
   width="315"
@@ -280,11 +282,11 @@ Make sure the boot 0 jumper pin on the board is set to 1 (programming mode) whil
 Set the Upload method to STM32CubeProgrammer (Serial)
 ![F103_Upload_serial](https://user-images.githubusercontent.com/99180312/199870434-f61d9457-e50a-4fe5-895f-1408074dcb67.png)
 
-##### Follow the configuration setting below to upload sketch
+#### Follow the configuration setting below to upload sketch
 
 ![F103_Serial_config](https://user-images.githubusercontent.com/99180312/199870488-910dce33-9abc-44df-956a-6d0e083dea6a.png)
 
-#####
+#### STM32 Operating and programming
 
 ![STM32-Operating-and-Programming-Mode](https://user-images.githubusercontent.com/99180312/199870977-c64e9489-3a55-4f7f-8f12-951993fe7093.jpg)
 

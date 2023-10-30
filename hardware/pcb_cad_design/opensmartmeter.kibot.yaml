@@ -46,7 +46,7 @@ outputs:
 
   - name: render_3d_high_quality
     type: blender_export
-    comment: "3D render (High Quality)"
+    comment: 3D render (High Quality)
     dir: render_3d
     options:
       render_options:
@@ -60,14 +60,14 @@ outputs:
         rotate_z: -20
       outputs:
         - type: render
-          output: "opensmartmeter_render_3d_high_quality.%x"  # filename
+          output: opensmartmeter_render_3d_high_quality.%x  # filename
 
   - name: render_3d_low_quality
     type: render_3d
-    comment: "3D render (Low Quality)"
+    comment: 3D render (Low Quality)
     dir: render_3d
     options:
-      output: "opensmartmeter_render_3d_low_quality.%x"  # filename
+      output: opensmartmeter_render_3d_low_quality.%x  # filename
       realistic: true
       ray_tracing: true
       transparent_background: true
