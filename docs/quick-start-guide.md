@@ -17,9 +17,8 @@ By default, the OSM is deactivated, which means it doesn't provide any energy in
 If the initial default configuration has been applied, you can test tokens available here:
 
 **Default configuration:**
-Starting Code:	407592873
+Starting Code: 407592873
 Secret Key: 47a01268b629e1b027fe20c99309643f
-
 
 | Time/Energy     | Serial OSM10000001 |
 | --------------- | ------------------ |
@@ -28,7 +27,7 @@ Secret Key: 47a01268b629e1b027fe20c99309643f
 | set 7 days/kWh  | 844 231 880        |
 | unlock forever  | 304 054 873        |
 
-Remark
+Remark:
 
 - We cannot jump back to a previous token if a later token has been already entered.
 
