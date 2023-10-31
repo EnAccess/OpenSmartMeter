@@ -1,14 +1,15 @@
-
-## Getting Started
+# Getting Started
 
 You have now an OpenSmartMeter in your hands and you want to test it? Here is how.
 
-### Initial configuration
+## Initial configuration
+
 ToDo: Do a tutorial on how to access the technical mode via the keypad of the OpenSmartMeter. Make pictures of the OSM.
 
 ToDo: How to set up secret key, starting code, etc.
 
-### Testing OpenPAYGO tokens
+## Testing OpenPAYGO tokens
+
 After plugging the OSM, it will appear the following screen:
 ToDo: Provide picture
 

@@ -34,4 +34,3 @@
 This repository contains manufacturing details as related to smart energy meter, details such as hardware design, web software, firmware, exterior casing STL files, rationale behind design, how-to document to guide a skilled user to replicate every part of the smart meter available in the repository.
 
 ![OpenSmartMeter 3D Render](assets/hardware/render_3d/opensmartmeter_render_3d_high_quality.png)
-
