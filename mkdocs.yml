@@ -114,6 +114,7 @@ extra_javascript:
 # Page tree
 nav:
   - Home: index.md
+  - Quick-start guide: quick-start-guide.md
   - Firmware Documentation:
       - Firmware Design: firmware/design.md
       - Calibration: firmware/calibration.md
