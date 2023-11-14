@@ -21,14 +21,17 @@ Test the entry of two types of tokens:
 
 1. STS Mode
     a- a correct token => supposed to set credit (energy)
+
     b- an incorrect token => supposed to do nothing 
 
 2. OpayGo Time-based Mode
     a- a correct token => supposed to set time
+
     b- an incorrect token => supposed to do nothing
 
 3. OpayGo Energy-based Mode
     a- a correct token => supposed to set credit (energy)
+
     b- an incorrect token => supposed to do nothing
 
 #### B. When the previous recharge is completed 
