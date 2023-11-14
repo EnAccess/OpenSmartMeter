@@ -104,4 +104,4 @@ Test the entry of three types of tokens:
 ##### 1. Enter setup mode using old password
 ##### 2. Replace the old password with the new one
 ##### 3. Test entering configuration mode using the old password => supposed to do nothing
-##### 3. Test entering configuration mode using the new password => supposed to work!
+##### 4. Test entering configuration mode using the new password => supposed to work!
