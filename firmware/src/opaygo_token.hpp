@@ -25,8 +25,6 @@ extern "C" {
 #  define TOKEN_LENGTH 9
 #endif
 
-int InvalidTokenCount = 0;
-
 bool TokenEntryAllowed() {
   if (TokenEntryLockedUntil > GetTimeInSeconds()) {
     return false;

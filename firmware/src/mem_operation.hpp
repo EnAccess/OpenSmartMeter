@@ -29,6 +29,8 @@ uint32_t ActiveUntil = 0;
 uint32_t TokenEntryLockedUntil = 0;
 uint8_t nbDisconnections = 0;
 
+int InvalidTokenCount = 0;
+
 void LoadActivationVariables() {
   TokenCount =
       mem.readInt(TokenCount_eeprom_location);  // We load TokenCount (&
