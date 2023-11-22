@@ -51,7 +51,8 @@ The PCB features a 2layer design incorporating CICADA GSM module for communicati
 ### Firmware, Web interface Development & API integration
 
 The firmware code was written in Arduino IDE using C++, while the web front end was written majorly in HTML and CSS while the back end was written majorly in PHP.
-Links to all these codes are here. ThingsBoard API was used to view meter parameters such as energy, credit.
+Links to all these codes are here.
+ThingsBoard API was used to view meter parameters such as energy, credit.
 
 ### Calibration & Testing
 
