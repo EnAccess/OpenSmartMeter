@@ -20,6 +20,10 @@ jobs:
         uses: actions/checkout@v4
       - name: Install editorconfig-checker
         run: pipx install "editorconfig-checker"
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
+        with:
+          limit-access-to-actor: true
       - name: Run editorconfig-checker
         run: ec .
 
