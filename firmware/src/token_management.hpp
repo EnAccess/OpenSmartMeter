@@ -19,7 +19,6 @@ byte dt = 0;
 byte parameters = 0;
 byte token_used = 0;
 String password = "1234";
-String new_password = "1234";
 
 //    for meter
 unsigned long sts_eeprom_fetched = 0;
@@ -29,8 +28,6 @@ unsigned long eeprom_location_cnt = 40;
 unsigned long sts_value = 0;
 unsigned long sts_mode = 0;
 unsigned long Mode_select = 0;
-unsigned long setting_mode =
-    0;  // when the value is 1 we are in Factory Setting Mode
 
 void check_tokenused() {
   token_eeprom_location = mem.readLong(eeprom_location_cnt);
