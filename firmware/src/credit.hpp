@@ -1,5 +1,4 @@
 #pragma once
-
 // defines
 
 // Arduino base libraries
