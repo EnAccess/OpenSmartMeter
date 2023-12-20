@@ -11,7 +11,7 @@
 #include "relay.hpp"
 
 float billing = 0.0;
-unsigned int tariff = 1;
+unsigned int tariff = 70;
 float creditt = 0.0;
 byte fault = 0;
 

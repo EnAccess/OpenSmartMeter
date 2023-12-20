@@ -168,37 +168,26 @@ void setup() {
       lcd.clear();
       lcd.setCursor(0, 0);
       lcd.println("No Configuration! ");
-      while (Mode_select == 0)  // wait for configuration mode
+      while (Mode_select == 0)  // wait for mode configuration
       {
         STS_keypad();
         delay(20);
       }
       break;
 
-    case 1:  // Module in STS Mode
-      printf("Welcome to the STS Energy-based\n");
+    case 1:
       MyTim->attachInterrupt(urgeent);
       MyTim->resume();
       break;
 
-    case 2:  // Module in OpenPaygo Energy-based
+    case 2:
       /*OpenPayGo Token initializing code; */
-      printf("Welcome to the OpenPaygo Energy-based\n");
+      printf("Welcome to the OPAYGO Device\n");
       printf(
           "We're waiting for the * character to start recording the key "
           "presses.\n(Press the '#' key to see the device activation "
           "status)\n\n");
-      LoadActivationVariables();  // We load the activation variables
-      break;
-
-    case 3:  // Module in OpenPaygo Time-based
-      /*OpenPaygo Time-based initializing code; */
-      printf("Welcome to the OpenPaygo Time-based\n");
-      printf(
-          "We're waiting for the * character to start recording the key "
-          "presses.\n(Press the '#' key to see the device activation "
-          "status)\n\n");
-      LoadActivationVariables();  // We load the activation variables
+      LoadActivationVariables();  // We load the activation variableS
       break;
   }
 
@@ -206,7 +195,7 @@ void setup() {
 }
 
 void loop() {
-  if (Mode_select == 1) {  // Module in STS Mode
+  if (Mode_select == 1) {
     mesure();
     if ((mains_input_value > 50)) {
       credit_reminder();
@@ -221,9 +210,7 @@ void loop() {
     }
   }
 
-  if (Mode_select == 2 ||
-      Mode_select == 3) {  // 2 = Module in OpenPaygo Energy-based; 3 = Module
-                           // in OpenPaygo Time-based
+  if (Mode_select == 2) {
     // We wait for a token to be entered
     InputToken = WaitForTokenEntry();
     // We get the activation value from the token
