@@ -36,7 +36,7 @@ unsigned short ATM90E26_UART::AFECHIP(unsigned char RW, unsigned char address,
       output = (MSByte << 8) | LSByte;  // join MSB and LSB;
       return output;
     }
-    Serial2.println("Read failed");
+    Serial.println("Read failed");
     delay(20);  // Delay from failed transaction
     return 0xFFFF;
   }
@@ -45,7 +45,7 @@ unsigned short ATM90E26_UART::AFECHIP(unsigned char RW, unsigned char address,
   else {
     byte atm90_chksum = ATM_UART->read();
     if (atm90_chksum != host_chksum) {
-      Serial2.println("Write failed");
+      Serial.println("Write failed");
       delay(20);  // Delay from failed transaction
     }
   }
@@ -148,8 +148,8 @@ void ATM90E26_UART::SET_register_values() {
                               // See pg 31 of datasheet.
   AFECHIP(0, CSOne, 0x327C);  // Write CSOne, as self calculated
 
-  Serial2.print("Checksum 1:");
-  Serial2.println(
+  Serial.print("Checksum 1:");
+  Serial.println(
       AFECHIP(1, CSOne, 0x0000),
       HEX);  // Checksum 1. Needs to be calculated based off the above values.
 
@@ -178,8 +178,8 @@ void ATM90E26_UART::SET_register_values() {
       0, CSTwo,
       0x993B);  // mt50,  0x13B5 Write CSTwo 0x6BB9, as self calculated 0x7F75
 
-  Serial2.print("Checksum 2:");
-  Serial2.println(
+  Serial.print("Checksum 2:");
+  Serial.println(
       AFECHIP(1, CSTwo, 0x0000),
       HEX);  // Checksum 2. Needs to be calculated based off the above values.
 
@@ -190,10 +190,10 @@ void ATM90E26_UART::SET_register_values() {
   systemstatus = FETCH_SysStatus();
   if (systemstatus & 0xC000) {
     // checksum 1 error
-    Serial2.println("Checksum 1 Error!!");
+    Serial.println("Checksum 1 Error!!");
   }
   if (systemstatus & 0x3000) {
     // checksum 2 error
-    Serial2.println("Checksum 2 Error!!");
+    Serial.println("Checksum 2 Error!!");
   }
 }
