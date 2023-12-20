@@ -7,12 +7,11 @@
 // third party libraries
 
 // OpenSmartMeter libraries
+#include "mem_operation.hpp"
 #include "power.hpp"
 #include "relay.hpp"
 
 float billing = 0.0;
-unsigned int tariff = 1;
-float creditt = 0.0;
 byte fault = 0;
 
 void credit_formular() {
@@ -43,4 +42,25 @@ void credit_reminder() {
     relay_on();
     digitalWrite(green_led, HIGH);
   }
+}
+
+// For Opaygo
+
+void AddCreditt(int ActivationValue) {
+  mem.writeLong(credit_eeprom_location, creditt);  // write present credit
+  creditt = mem.readLong(credit_eeprom_location);  // fetch previous credit //
+  // add new if any to old credit //
+  creditt += ActivationValue;
+  mem.writeLong(credit_eeprom_location, creditt);
+  get_credit = 1;
+}
+
+void SetCreditt(int ActivationValue) {
+  creditt = ActivationValue;
+  mem.writeLong(credit_eeprom_location, creditt);  // write present credit
+  creditt = mem.readLong(credit_eeprom_location);  // fetch previous credit //
+  // add new if any to old credit //
+  creditt = ActivationValue;
+  mem.writeLong(credit_eeprom_location, creditt);
+  get_credit = 1;
 }
