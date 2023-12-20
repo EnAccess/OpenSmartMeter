@@ -7,8 +7,8 @@
 // third party libraries
 
 // OpenSmartMeter libraries
+#include "credit.hpp"
 #include "global_defines.hpp"
-// #include "credit.hpp"
 #include "lcd_init.hpp"
 #include "mem_init.hpp"
 
@@ -17,12 +17,7 @@ int confirmkey = 0;
 int private_stskey = 109;
 byte sts_accept = 0;
 byte c_chek = 0;
-byte get_credit = 0;
-float creditt = 0.0;
 
-unsigned int tariff =
-    1;  // tariff is implemented upstream and we bypass it here by putting 1
-unsigned long credit_eeprom_location = 9;
 unsigned int convertedsts_data = 0;
 unsigned long convertedsts_day = 0;
 unsigned long eeprom_sts_data = 0;
@@ -37,9 +32,12 @@ unsigned int meter_no_count = 3;
 
 float topup = 0.0;
 unsigned long topupnew = 0;
+byte get_credit = 0;
 
 long warntime = 0;
 long warn_now = 0;
+
+unsigned long credit_eeprom_location = 9;
 
 void STStoken_decode() {
   String keycofirmation = sts_data.substring(0, 3);
