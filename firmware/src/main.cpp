@@ -54,12 +54,8 @@ void setup() {
   pinMode(red_led, OUTPUT);
   pinMode(green_led, OUTPUT);
 
-  Serial2.begin(115200);
-  Serial2.print("Device Powered! \n");
   digitalWrite(buzzer, HIGH);
 
-  // Display Intro Screen.
-  Serial2.print("Setting up LCD... \n");
   lcd.createChar(0, fe1);
   lcd.createChar(1, fe2);
   lcd.createChar(2, fe3);
@@ -68,8 +64,6 @@ void setup() {
   lcd.print("  DEVELOPED BY  ");
   lcd.setCursor(0, 1);
   lcd.print(" FIRST ELECTRIC ");
-
-  delay(2000);
 
   lcd.clear();
   lcd.setCursor(7, 0);
@@ -81,23 +75,25 @@ void setup() {
   lcd.setCursor(8, 1);
   lcd.write(byte(3));
 
-  Serial2.print("LCD Setup complete! \n");
-
+  ATM90E26.begin(9600);
+  AFE_chip.SET_register_values();
+  delay(1000);
   digitalWrite(buzzer, LOW);
 
-  // Begin Device Initialization.
-  lcd.setCursor(0, 0);
-  lcd.print(" SYSTEM BOOTING ");
-  lcd.setCursor(0, 1);
-  lcd.print(" #------------# ");
-
-  // Configure GSM modem.
-  Serial2.println("Initializing modem...");
+  Serial2.begin(115200);
+  Serial2.print("working");
   Serial1.begin(115200);
   delay(3000);
   Serial1.write("AT+IPR=9600\r\n");
   Serial1.end();
   Serial1.begin(9600);
+
+  lcd.setCursor(0, 0);
+  lcd.print(" SYSTEM BOOTING ");
+  lcd.setCursor(0, 1);
+  lcd.print(" ##             ");
+
+  Serial2.println("Initializing modem...");
   modem.restart();
   String modemInfo = modem.getModemInfo();
   lcd.setCursor(0, 0);
@@ -114,25 +110,17 @@ void setup() {
   delay(2000);
   lcd.clear();
 
-  // Configure RTC
-  while (rtc.begin() == false) {
+  if (!rtc.begin()) {
     lcd.print("Couldn't find RTC");
     delay(2000);
+    while (1)
+      ;
   }
   if (!rtc.isrunning()) {
     lcd.print("RTC is NOT running!");
     delay(2000);
   }
   initializeTime();
-
-  // Configure AFE
-  Serial2.print("Setting up AFE... \n");
-  ATM90E26.begin(9600);
-  AFE_chip.SET_register_values();
-  delay(1000);
-  Serial2.print("AFE Setup Complete! \n");
-
-  // Get Meter AFE checksum
   lcd.setCursor(0, 0);
   lcd.print("CSOne :         ");
   lcd.setCursor(8, 0);
@@ -142,9 +130,9 @@ void setup() {
   lcd.print("CSTwo :         ");
   lcd.setCursor(8, 1);
   lcd.print(AFE_chip.FETCH_MeterCSTwo());
-  delay(3000);
+  delay(1000);
 
-  // Configure EEPROM
+  // rtc eeprom
   // mem.writeLong(credit_eeprom_location, 200);
   //  mem.writeLong(eeprom_location_cnt, token_eeprom_location);
   //  delay(20);
@@ -190,8 +178,6 @@ void setup() {
       LoadActivationVariables();  // We load the activation variableS
       break;
   }
-
-  Serial2.println("Setup Complete! \n");
 }
 
 void loop() {
