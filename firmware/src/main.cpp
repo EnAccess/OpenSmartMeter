@@ -1,9 +1,11 @@
 // defines
 
 // Arduino base libraries
-#include <Arduino.h>
+// #include <Arduino.h>
 
 // third party libraries
+// #include <ArduinoHttpClient.h>
+// #include <Wire.h>
 
 // OpenSmartMeter libraries
 #include "credit.hpp"

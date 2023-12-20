@@ -8,7 +8,6 @@
 #include "Arduino.h"
 
 // third party libraries
-#include <ArduinoHttpClient.h>
 #include <TinyGsmClient.h>
 
 // OpenSmartMeter libraries
