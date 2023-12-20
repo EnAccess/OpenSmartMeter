@@ -176,7 +176,7 @@ void STStoken_decode() {
       mem.writeLong(credit_eeprom_location, creditt);  // write present credit
       creditt =
           mem.readLong(credit_eeprom_location);  // fetch previous credit //
-      creditt = creditt + topup;  // add new if any to old credit //
+      creditt = creditt + topup;  // add new   if any to old credit //
       mem.writeLong(credit_eeprom_location, creditt);
       get_credit = 1;
     }

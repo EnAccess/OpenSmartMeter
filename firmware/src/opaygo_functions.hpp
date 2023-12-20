@@ -57,27 +57,12 @@ void LoadActivationVariables() {
                                                 // UsedTokens if needed)
   UsedTokens =
       mem.readInt(UsedTokens_eeprom_location);  // We load UsedTokens if needed
-  switch (mem.read(PAYGEnabled_eeprom_location)) {
-    case 0:
-      PAYGEnabled = false;
-      break;
-    case 1:
-      PAYGEnabled = true;
-      break;
-  }
-
-  mem.read(
+  PAYGEnabled = mem.read(
       PAYGEnabled_eeprom_location);  // We load PAYGEnabled //Verify this syntax
+  ActiveUntil =
+      mem.readLong(ActiveUntil_eeprom_location);  // We load ActiveUntil
   TokenEntryLockedUntil = mem.readLong(
       TokenEntryLockedUntil_eeprom_location);  // We load TokenEntryLockedUntil
-  if (Mode_select == 2) {
-    creditt =
-        mem.readLong(credit_eeprom_location);  // We load creditt in case of
-                                               // OpenPaygo Energy-based
-  } else {
-    ActiveUntil =
-        mem.readLong(ActiveUntil_eeprom_location);  // We load ActiveUntil
-  }
 }
 
 void StoreActivationVariables() {
@@ -85,22 +70,12 @@ void StoreActivationVariables() {
                TokenCount);  // We store TokenCount (& UsedTokens if needed)
   mem.writeInt(UsedTokens_eeprom_location,
                UsedTokens);  // We store UsedTokens if needed
-  if (PAYGEnabled) {
-    mem.writeInt(PAYGEnabled_eeprom_location, 1);  // We store PAYGEnabled
-  } else {
-    mem.writeInt(PAYGEnabled_eeprom_location, 0);  // We store PAYGEnabled
-  }
-
+  mem.write(PAYGEnabled_eeprom_location,
+            PAYGEnabled);  // We store PAYGEnabled //Verify this syntax
+  mem.writeLong(ActiveUntil_eeprom_location,
+                ActiveUntil);  // We store ActiveUntil
   mem.writeLong(TokenEntryLockedUntil_eeprom_location,
                 TokenEntryLockedUntil);  // We store TokenEntryLockedUntil
-  if (Mode_select == 2) {
-    mem.writeLong(
-        credit_eeprom_location,
-        creditt);  // We Store creditt in case of OpenPaygo Energy-based
-  } else {
-    mem.writeLong(ActiveUntil_eeprom_location,
-                  ActiveUntil);  // We store ActiveUntil
-  }
 }
 
 void storeTimeStampEEPROM(uint32_t timeStampInSeconds) {
@@ -227,29 +202,7 @@ void SetTime(int ActivationValue) {
                                   // seconds for to compare to our RTC time)
 }
 
-void AddCreditt(int ActivationValue) {
-  mem.writeLong(credit_eeprom_location, creditt);  // write present credit
-  creditt = mem.readLong(credit_eeprom_location);  // fetch previous credit //
-  // add new if any to old credit //
-  creditt += ActivationValue;
-  mem.writeLong(credit_eeprom_location, creditt);
-  get_credit = 1;
-}
-
-void SetCreditt(int ActivationValue) {
-  creditt = ActivationValue;
-  mem.writeLong(credit_eeprom_location, creditt);  // write present credit
-  creditt = mem.readLong(credit_eeprom_location);  // fetch previous credit //
-  // add new if any to old credit //
-  creditt = ActivationValue;
-  mem.writeLong(credit_eeprom_location, creditt);
-  get_credit = 1;
-}
-
 void UpdateDeviceStatusFromTokenValue(int TokenValue, int ActivationCount) {
-  // TokenValue in case of OpenPaygo Energy-based is consider directly as a
-  // credit to add or set and in case of OpenPaygo Time-based it is consider as
-  // a number of day to add or to set
   if (TokenValue == -1) {
     InvalidTokenCount++;
     UpdateInvalidTokenWaitingPeriod();
@@ -270,17 +223,9 @@ void UpdateDeviceStatusFromTokenValue(int TokenValue, int ActivationCount) {
     } else {
       if (ActivationCount % 2) {
         PAYGEnabled = true;
-        if (Mode_select == 2) {  // Module in OpenPaygo Energy-based
-          SetCreditt(TokenValue);
-        } else {  // Module in OpenPaygo Time-based
-          SetTime(TokenValue);
-        }
+        SetTime(TokenValue);
       } else {
-        if (Mode_select == 2) {  // Module in OpenPaygo Energy-based
-          AddCreditt(TokenValue);
-        } else {  // Module in OpenPaygo Time-based
-          AddTime(TokenValue);
-        }
+        AddTime(TokenValue);
       }
       BlinkGreenLED(
           2,
@@ -292,23 +237,14 @@ void UpdateDeviceStatusFromTokenValue(int TokenValue, int ActivationCount) {
 
 bool IsActive() {
   if (PAYGEnabled) {
-    if (Mode_select == 2) {
-      if (creditt < 1 || fault == 1) {
-        return false;
-      } else {
-        return true;
-      }
+    if (ActiveUntil > GetTimeInSeconds()) {
+      return true;
+    } else {
+      return false;
     }
-
-    if (Mode_select == 3) {
-      if (ActiveUntil > GetTimeInSeconds()) {
-        return true;
-      } else {
-        return false;
-      }
-    }
+  } else {
+    return true;
   }
-  return true;
 }
 
 uint64_t WaitForTokenEntry() {
@@ -332,22 +268,8 @@ uint64_t WaitForTokenEntry() {
       if (IsActive()) {
         BlinkGreenLED(1, BLINK_PERIOD);
 #ifdef DEBUG
-        if (Mode_select == 2) {  // Module in OpenPaygo Energy-based
-          mesure();
-          if ((mains_input_value > 50)) {
-            credit_reminder();
-          }
-          if ((mains_input_value < 50)) {
-            digitalWrite(red_led, LOW);
-            digitalWrite(green_led, LOW);
-          }
-          urgeent();
-          printf("\nEnergy Left: %f KWH", ENERGY);
-        } else {  // Module in OpenPaygo Time-based
-          printf("\nTime Left: %" PRIu32 "seconds",
-                 ActiveUntil - GetTimeInSeconds());
-        }
-
+        printf("\nTime Left: %" PRIu32 "seconds",
+               ActiveUntil - GetTimeInSeconds());
 #endif
       } else {
         BlinkRedLED(1, BLINK_PERIOD);
