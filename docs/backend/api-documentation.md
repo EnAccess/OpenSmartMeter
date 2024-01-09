@@ -28,7 +28,7 @@ This document provides details on how to integrate ThingsBoard API to developers
 </style>
 <div class="youtube-embed-container">
   <iframe
-    src="https://www.youtube.com/embed/Pm6gHKM-Btc?enablejsapi=1"
+    src="https://www.youtube.com/embed/fpAWm42rUqg?enablejsapi=1"
     frameborder="0"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
     allowfullscreen>
