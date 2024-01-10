@@ -127,6 +127,7 @@ nav:
       - Toubleshooting manual: hardware/troubleshooting.md
       - Datasheets: hardware/datasheets.md
   - Web Software and API documentation: backend/api-documentation.md
-  - Lessons learnt: lessons-learnt.md
-  - Example: example.md
+  - Lessons learnt:
+      - Initial development: lessons-learnt/0_initial-development.md
+      - OpenPAYGO integration: lessons-learnt/1_openpaygo-integration.md
   - EnAccess: https://enaccess.org/materials/smartmeter/
