@@ -1,36 +1,39 @@
-import clsx from 'clsx';
-import Heading from '@theme/Heading';
-import styles from './styles.module.css';
+import clsx from "clsx";
+import Heading from "@theme/Heading";
+import styles from "./styles.module.css";
 
 const FeatureList = [
   {
-    title: 'About this project',
-    Svg: require('@site/static/img/about-this-project.svg').default,
+    title: "About this project",
+    Svg: require("@site/static/img/about-this-project.svg").default,
     description: (
       <>
-        The Open Smart Meter solves a problem that affects most solar developers in the industry.
-        This inexpensive and open source Smart Meter meets IEC and key elements of the local regulations in Nigeria.
+        The Open Smart Meter solves a problem that affects most solar developers
+        in the industry. This inexpensive and open source Smart Meter meets IEC
+        and key elements of the local regulations in Nigeria.
       </>
     ),
   },
   {
-    title: 'Get Started',
-    Svg: require('@site/static/img/get-started.svg').default,
+    title: "Get Started",
+    Svg: require("@site/static/img/get-started.svg").default,
     description: (
       <>
-        This document summarizes the manufacturing guide to enable a skilled person (with software engineering knowledge) to manufacture the smart energy meter.
-
-        Need some guidance with the Open Smart Meter? We can help!
+        This document summarizes the manufacturing guide to enable a skilled
+        person (with software engineering knowledge) to manufacture the smart
+        energy meter. Need some guidance with the Open Smart Meter? We can help!
       </>
     ),
   },
   {
-    title: 'Project Summary',
-    Svg: require('@site/static/img/summary.svg').default,
+    title: "Project Summary",
+    Svg: require("@site/static/img/summary.svg").default,
     description: (
       <>
-        First Electric plans to maintain ownership of solar equipment and charge customers per kWh, based on exact consumption.
-        For this solution to work effectively, they needed an inexpensive and OEM agnostic GSM prepaid smart energy meter.
+        First Electric plans to maintain ownership of solar equipment and charge
+        customers per kWh, based on exact consumption. For this solution to work
+        effectively, they needed an inexpensive and OEM agnostic GSM prepaid
+        smart energy meter.
       </>
     ),
   },
@@ -38,7 +41,7 @@ const FeatureList = [
 
 function Feature({ Svg, title, description }) {
   return (
-    <div className={clsx('col col--4')}>
+    <div className={clsx("col col--4")}>
       <div className="text--center">
         <Svg className={styles.featureSvg} role="img" />
       </div>
