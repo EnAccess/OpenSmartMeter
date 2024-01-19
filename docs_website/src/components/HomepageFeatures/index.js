@@ -5,7 +5,19 @@ import styles from "./styles.module.css";
 const FeatureList = [
   {
     title: "About this project",
-    Svg: require("@site/static/img/about-this-project.svg").default,
+    Svg: require("@site/static/img/about.svg").default,
+    description: (
+      <>
+        First Electric plans to maintain ownership of solar equipment and charge
+        customers per kWh, based on exact consumption. For this solution to work
+        effectively, they needed an inexpensive and OEM agnostic GSM prepaid
+        smart energy meter.
+      </>
+    ),
+  },
+  {
+    title: "Project Summary",
+    Svg: require("@site/static/img/opensmartmeter-icon.svg").default,
     description: (
       <>
         The Open Smart Meter solves a problem that affects most solar developers
@@ -22,18 +34,6 @@ const FeatureList = [
         This document summarizes the manufacturing guide to enable a skilled
         person (with software engineering knowledge) to manufacture the smart
         energy meter. Need some guidance with the Open Smart Meter? We can help!
-      </>
-    ),
-  },
-  {
-    title: "Project Summary",
-    Svg: require("@site/static/img/summary.svg").default,
-    description: (
-      <>
-        First Electric plans to maintain ownership of solar equipment and charge
-        customers per kWh, based on exact consumption. For this solution to work
-        effectively, they needed an inexpensive and OEM agnostic GSM prepaid
-        smart energy meter.
       </>
     ),
   },

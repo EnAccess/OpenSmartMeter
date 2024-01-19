@@ -13,7 +13,7 @@ const config = {
   title: "OpenSmartMeter",
   tagline:
     "Low-cost & OEM agnostic GSM prepaid smart energy meter with a customizable API.",
-  favicon: "img/favicon.ico",
+  favicon: "img/opensmartmeter-icon.svg",
 
   url: "https://enaccess.github.io/",
   // Set the /<baseUrl>/ pathname under which your site is served
