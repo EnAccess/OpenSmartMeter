@@ -15,11 +15,10 @@ const config = {
     "Low-cost & OEM agnostic GSM prepaid smart energy meter with a customizable API.",
   favicon: "img/favicon.ico",
 
-  // Set the production url of your site here
-  url: "https://your-docusaurus-site.example.com",
+  url: "https://enaccess.github.io/",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: "/",
+  baseUrl: "/OpenSmartMeter/",
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -113,6 +112,11 @@ const config = {
             sidebarId: "docsSidebar",
             position: "left",
             label: "Docs",
+          },
+          {
+            to: "/docs/quick-start-guide",
+            label: "Get Started",
+            position: "left",
           },
           { to: "/blog", label: "Blog", position: "left" },
           {
