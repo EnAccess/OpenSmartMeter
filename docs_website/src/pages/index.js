@@ -17,14 +17,14 @@ function HomepageHeader() {
         </Heading>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
         <div className={styles.buttons}>
+          <Link className="button button--secondary button--lg" to="/docs">
+            Read the documentation 📄
+          </Link>
           <Link
-            className="button button--secondary button--lg"
+            className="button button--info button--lg"
             to="/docs/quick-start-guide"
           >
             Get Started 🚀
-          </Link>
-          <Link className="button button--info button--lg" to="/docs">
-            Read the documentation 📄
           </Link>
         </div>
       </div>
