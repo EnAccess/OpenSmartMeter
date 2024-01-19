@@ -39,6 +39,7 @@ const config = {
 
   markdown: {
     format: "detect",
+    mermaid: true,
   },
 
   presets: [
@@ -78,6 +79,7 @@ const config = {
         highlightSearchTermsOnTargetPage: true,
       },
     ],
+    "@docusaurus/theme-mermaid",
   ],
 
   stylesheets: [
