@@ -105,6 +105,7 @@ const config = {
         logo: {
           alt: "EnAccess Logo",
           src: "img/enaccess-logo.svg",
+          srcDark: "img/enaccess-logo-white.svg",
         },
         items: [
           {
@@ -127,6 +128,7 @@ const config = {
         logo: {
           alt: "EnAccess Logo",
           src: "img/enaccess-logo.svg",
+          srcDark: "img/enaccess-logo-white.svg",
           href: "https://enaccess.org",
           width: 160,
           height: 51,
