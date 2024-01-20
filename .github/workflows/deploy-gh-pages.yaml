@@ -29,17 +29,19 @@ jobs:
         uses: actions/checkout@v3
       - name: Setup Pages
         uses: actions/configure-pages@v2
-      - uses: actions/setup-python@v3
+      - uses: actions/setup-node@v4
         with:
-          python-version: "3.10"
-      - name: Install MkDocs
-        run: pip install mkdocs mkdocs-material
-      - name: Build with MkDocs
-        run: mkdocs build
+          node-version-file: docs_website/.node-version
+      - name: Install Docusaurus
+        working-directory: docs_website
+        run: npm install
+      - name: Build docs with Docusaurus
+        working-directory: docs_website
+        run: npm run build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          path: site/
+          path: docs_website/build/
 
   # Deployment job
   deploy:

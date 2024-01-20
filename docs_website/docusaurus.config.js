@@ -161,8 +161,8 @@ const config = {
                 href: "https://community.enaccess.org/",
               },
               {
-                label: "Discord",
-                href: "TBD",
+                label: "Discord (TBD)",
+                href: "https://enaccess.org/",
               },
             ],
           },
