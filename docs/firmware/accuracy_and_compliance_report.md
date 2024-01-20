@@ -440,10 +440,7 @@ The open-source AC meter has been designed according to IEC Standards and follow
 |Load characteristics|Resistive, inductive, and capacitive (less than 4uF).|
 |Item Name|Energy Meter Test Bench|
 
-<figure markdown>
-  ![Image of test bench used in testing meter accuracy level](../assets/firmware/test-bench.jpeg)
-  <figcaption>Image of test bench used in testing meter accuracy level</figcaption>
-</figure>
+![Image of test bench used in testing meter accuracy level](../assets/firmware/test-bench.jpeg)
 
 ## References
 
