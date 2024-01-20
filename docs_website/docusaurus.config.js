@@ -48,7 +48,6 @@ const config = {
       ({
         docs: {
           path: "../docs",
-          sidebarPath: "./sidebars.js",
           // Please change this to your repo. Remove this to remove the "edit this page" links.
           editUrl:
             "https://github.com/EnAccess/OpenSmartMeter/tree/main/shared/",
@@ -108,17 +107,20 @@ const config = {
         },
         items: [
           {
-            type: "docSidebar",
-            sidebarId: "docsSidebar",
-            position: "left",
+            to: "/docs",
             label: "Docs",
+            position: "left",
           },
           {
             to: "/docs/quick-start-guide",
             label: "Get Started",
             position: "left",
           },
-          { to: "/blog", label: "Blog", position: "left" },
+          {
+            to: "/blog",
+            label: "Blog",
+            position: "left",
+          },
           {
             href: "https://github.com/EnAccess/OpenSmartMeter",
             position: "right",
