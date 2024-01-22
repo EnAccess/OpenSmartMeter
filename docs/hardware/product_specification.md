@@ -51,10 +51,12 @@ Enter 20-digit token via keypad available on meter, the token is generated from 
 
 ### Indicator
 
+<!-- prettier-ignore-start -->
 | Indicator | Description |
 | -- | -- |
 | Credit Indicator | Bi-color LED (red) <br> Green LED light on when credit is in highlevel <br> Red LED light on when credit is low <br> Red LED blinks when credit has finished |
 | Alarm indicator | The indicator blinks when event occur, event such as overload, low voltage, low credit or credit exhausted. |
+<!-- prettier-ignore-end -->
 
 ## Communication devices
 
