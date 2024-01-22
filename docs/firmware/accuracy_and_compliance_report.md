@@ -327,9 +327,11 @@ The specifications are prepared in accordance with the following International S
 
 ***KEYPAD SINGLE &THREE PHASE ELECTRICITY DISPENSER***
 
-!!! warning
+:::warning
 
-    SN: 17 is not clear
+SN: 17 is not clear
+
+:::
 
 ==**METERING CODE REF : 4.5.1**==
 

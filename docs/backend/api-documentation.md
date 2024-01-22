@@ -97,9 +97,11 @@ Under dashboard, developer will navigate and click on _ADD NEW WIDGET_, then fil
 
 ![Dashboard with Widget](../assets/backend/dashboard-with-widget.png)
 
-!!! note
+::: note
 
-    Developer can add different widget as desired.
+Developer can add different widget as desired.
+
+:::
 
 ## Paystack Integration
 

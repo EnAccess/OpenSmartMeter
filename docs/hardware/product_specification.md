@@ -65,15 +65,18 @@ Enter 20-digit token via keypad available on meter, the token is generated from 
 
 ### Safety Instructions
 
-!!! danger
-    **Information for Your Own Safety**
+:::danger Information for Your Own Safety
 
-    This manual does not contain all the safety measures for operation of this equipment
-    (module, device) because special operating conditions, local code requirements or
-    local regulations may necessitate further measures.
+This manual does not contain all the safety measures for operation of this equipment
+(module, device) because special operating conditions, local code requirements or
+local regulations may necessitate further measures.
+
+:::
 
 ### Qualified personnel
 
-!!! warning
+:::warning
 
-    Installation and operation, assembling of this equipment described in this manual mayonly be performed by qualified personnel. Only people who have good knowledge onpower/embedded system should assemble this equipment.
+Installation and operation, assembling of this equipment described in this manual mayonly be performed by qualified personnel. Only people who have good knowledge onpower/embedded system should assemble this equipment.
+
+:::
