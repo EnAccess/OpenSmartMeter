@@ -1,3 +1,5 @@
+# Calibration
+
 The [ATM90E26 Datasheet](http://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-46002-SE-M90E26-Datasheet.pdf) has an extensive list of calibration registers.
 Of these the ones we are most interested in are:
 
@@ -17,7 +19,7 @@ The steps are:
 
 - Setup default parameters and record voltage reported by ASIC and voltage reported by a multimeter with 0.1% accuracy at the AC bus.
 - Apply scaling to the `UGain` parameter to account for any discprepancy according to this formula.
-- UGain_n = (V oltage Actual / V oltage Measured) * UGain_o where UGain_n is the new Voltage gain and UGain_o is the old voltage gain.
+- UGain_n = (V oltage Actual / V oltage Measured) \* UGain_o where UGain_n is the new Voltage gain and UGain_o is the old voltage gain.
 
 ### Calibrating current gain
 
@@ -32,12 +34,12 @@ The current calibration requires use of the reference resistors described in the
 
 - Wire a 12V AC source in series with the reference resistor and an ammeter.
 - Clamp the live side of the wiring with the CT being used with the ASIC and
-note the current measurements on the ASIC and the ammeter.
+  note the current measurements on the ASIC and the ammeter.
 - Repeat the measurements with a few different reference Nicrome resistors, taking care not to exceed the power dissipation ratings of the resistors with heatsinks on.
   There are typically [4R, 8R and 10R](https://au.banggood.com/100W-Watt-Power-Metal-Shell-Case-Wirewound-Resistor-p-89494.html?ID=49543&cur_warehouse=CN) resistors in the calibration kit.
   With 1R resistors use 9V AC as input. The Voltage reference signal to the ASIC and current into the calibration resistors can come from separate transformers (ideally the same one is used).
 - Once a few actual vs measured current values are collected use an equation similar to the `UGain` one to compute `IGain`.
-  - IGain_n = (Current Actual / Current Measured) * IGain_o where IGain_n is the new current gain and IGain_o is the old current gain.
+  - IGain_n = (Current Actual / Current Measured) \* IGain_o where IGain_n is the new current gain and IGain_o is the old current gain.
   - Update Checksum as appropriate using built in [library methods](https://github.com/whatnick/ATM90E26_Arduino/blob/master/docs/Calibration_Software.md)
 
 ### Calibrating power

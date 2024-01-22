@@ -1,13 +1,13 @@
+# Troubleshooting
+
 ## TROUBLESHOOTING MANUAL
 
 ### Possible errors
 
 1. Code not compiling.
-2. Incorrect voltage displaying as compared to a TRMS (True Root Mean Square)
-meter.
+2. Incorrect voltage displaying as compared to a TRMS (True Root Mean Square) meter.
 3. Incorrect current/power display.
-4. Meter refusing to send data to ThingsBoard or not connecting to API
-(Application Programming Interface).
+4. Meter refusing to send data to ThingsBoard or not connecting to API (Application Programming Interface).
 5. Keypad not displaying what is pressed correctly.
 6. Incorrect LED (Light Emitting Diode) display
 
@@ -19,14 +19,14 @@ Code may not compile due to library used in code not installed in the library fo
 the Arduino IDE (Integrated Development Environment) installation path.
 Developer should copy the necessary library to the installation path, and restart the IDE then try re-compiling or install the libraries from
 
-==**SKETCH**== → ==**INCLUDE LIBRARY**== → ==**ADD ZIP LIBRARY**==, then add  the necessary library with the complain  on the **verbose** output.
+==**SKETCH**== → ==**INCLUDE LIBRARY**== → ==**ADD ZIP LIBRARY**==, then add the necessary library with the complain on the **verbose** output.
 
 ### Incorrect voltage displaying as compared to a TRMS meter
 
 Meter may display incorrect voltage if the developer did not tune the variable resistor
 to calibrate the voltage in comparison with a TRMS meter or another developer maychoose to change the calibration formula on the firmware to display the voltage correctly.
 
-The calibration formula can be seen in the ==void measure()== under ==mains_input_value=mains_v*0425560128029263831732967543667==.
+The calibration formula can be seen in the ==void measure()== under ==mains_input_value=mains_v\*0425560128029263831732967543667==.
 
 #### Incorrect current/power display
 
@@ -39,8 +39,10 @@ Aref = analog reference voltage(5v)<br>
 CT turns= current transformer turn ratio<br>
 CT current = current transformer maximum current handling capability. <br>
 
-^^Note:^^ the resistor value does not have to be exact, but close to the calculated value.
-After doing this and true value is not gotten as compared to a current measuring meter, developer will need to re-calibrate from the formula available ==void measure()== under ==curr=relcur*0.02545454545454545454545454545454== to get desired current as measured and displayed by the current measuring meter or device, which inturnaffect the power displayed.
+:::info note
+the resistor value does not have to be exact, but close to the calculated value.
+After doing this and true value is not gotten as compared to a current measuring meter, developer will need to re-calibrate from the formula available ==void measure()== under ==curr=relcur\*0.02545454545454545454545454545454== to get desired current as measured and displayed by the current measuring meter or device, which inturnaffect the power displayed.
+:::
 
 #### Meter refusing to send data to ThingsBoard or not connecting to API
 

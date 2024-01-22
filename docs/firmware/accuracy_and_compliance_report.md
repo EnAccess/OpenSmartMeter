@@ -1,4 +1,4 @@
-# ACCURACY TEST AND COMPLIANCE REPORT
+# Accuracy test and compliance report
 
 **Abstract:** This document summarizes the technical specification, accuracy tests and comparison with regulatory standards.
 
