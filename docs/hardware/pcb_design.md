@@ -60,12 +60,14 @@ Magnetic latching relay is used in place of electromagnetic relay due to cost,
 3
 reliability, power consumption, size. Comparison table is highlighted below.
 
+<!-- prettier-ignore-start -->
 | Electromagnetic relay | Magnetic latching relay|
 | -------- | -------- |
 | Terminal is susceptible to arching and carbon  which eventually lead to relay failure. |                Terminal is less susceptible to arching and carbon which eventually leadtorelay. |
 | High cost in comparison to current handling capability. | Low cost in comparison to current handling capability. |
 | Takes a lot of space. | Takes a very small considerable space. |
 | Continuous supply power is needed to keep relay active | A single pulse of power is only needed to trigger the relay on or off. |
+<!-- prettier-ignore-end -->
 
 The above advantage of magnetic latching relay as compared to electromagnetic relayin terms of **cost, size, terminal carbonizing, power consumption and current
 handling capability** is why we opted for a magnetic latching relay as opposed to using an electromagnetic relay.
