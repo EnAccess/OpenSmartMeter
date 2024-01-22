@@ -1,0 +1,25 @@
+name: Check Docs
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  prettier:
+    name: Lint prettier
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: docs_website/.node-version
+      - name: Run Prettier on Docs
+        working-directory: docs
+        run: npx prettier . --check
+      - name: Run Prettier on Docs website
+        working-directory: docs_website
+        run: npx prettier . --check
