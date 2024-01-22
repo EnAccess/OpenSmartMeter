@@ -1,3 +1,9 @@
+---
+title: OpenSmartMeter documentation
+hide_title: true
+sidebar_position: 0
+---
+
 <p align="center">
   <a href="https://github.com/EnAccess/OpenSmartMeter">
     <img

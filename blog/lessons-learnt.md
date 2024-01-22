@@ -1,3 +1,13 @@
+---
+title: Lessons learnt - OpenSmartMeter development
+authors:
+  name: Ajadi samuel
+  title: Electrical Engineer
+  url: https://github.com/Samajadi
+  image_url: https://github.com/Samajadi.png
+tags: [lessons-learnt, OpenSmartMeter, OpenSource]
+---
+
 The lessons learnt in the development of the smart energy meter have been split into hardware and firmware sections below:
 
 ## Firmware

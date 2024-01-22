@@ -1,4 +1,4 @@
-# ACCURACY TEST AND COMPLIANCE REPORT
+# Accuracy test and compliance report
 
 **Abstract:** This document summarizes the technical specification, accuracy tests and comparison with regulatory standards.
 
@@ -8,6 +8,7 @@ The purpose of this document is to showcase the accuracy of the AC meter develop
 
 ## Meter datasheet
 
+<!-- prettier-ignore-start -->
 |S. NO.|DESCRIPTION|UNITS|AS FURNISHED BY BIDDER|
 | :- | - | - | :- |
 |1|Type of meter||Single phase two wire|
@@ -46,6 +47,7 @@ The purpose of this document is to showcase the accuracy of the AC meter develop
 |34|Acceptance test certificates|Yes/No|No|
 |35|Type test certificates|Yes/No|No|
 |36|Guarantee certificates|Yes/No|No|
+<!-- prettier-ignore-end -->
 
 ## Accuracy test
 
@@ -53,12 +55,15 @@ Three sample prototype meters were manufactured in as required by the Nigerian E
 
 Tested meters: MT100, MT50 and MT25
 
+<!-- prettier-ignore-start -->
 |**MT100**|**MT50**|**MT25**|
 | - | - | - |
 |![MT100](../assets/firmware/mt100.png)|![MT50](../assets/firmware/mt50.png)|![MT25](../assets/firmware/mt25.png)|
+<!-- prettier-ignore-end -->
 
 ### Accuracy test: MT100
 
+<!-- prettier-ignore-start -->
 |**Test point (%)**|**Voltage supplied (V)**|**Actual voltage (V)**|**Current supplied (A)**|**Actual current (A)**|**Expected power (W)**|**Actual power (W)**|**Error (%)**|
 | :- | :- | - | - | :- | :- | :- | - |
 |**Imax 1.0**|239\.869|240|79\.9683|79\.96|19085\.1|19190\.4|-0.2752|
@@ -71,11 +76,13 @@ Tested meters: MT100, MT50 and MT25
 |**100 (0.5L)**|240\.141|240|5\.0033|5|602\.67|600|-0.0475|
 |**5 (1.0)**|0|0|0|0|0|0|0|
 |**5 (0.5L)**|0|0|0|0|0|0|0|
+<!-- prettier-ignore-end -->
 
 Table 1: Accuracy Test Result of Meter MT100
 
 ### Accuracy test: MT50
 
+<!-- prettier-ignore-start -->
 |**Test point (%)**|**Voltage supplied (V)**|**Actual voltage (V)**|**Current supplied (A)**|**Actual current (A)**|**Expected power (W)**|**Actual power (W)**|**Error (%)**|
 | :- | :- | - | - | :- | :- | :- | - |
 |**Imax 1.0**|240\.008|240|79\.995|79\.74|19111\.03|19137\.6|0\.4149|
@@ -88,11 +95,13 @@ Table 1: Accuracy Test Result of Meter MT100
 |**100 (0.5L)**|240\.027|240|5\.00001|5\.01|602\.7|601\.2|0\.0351|
 |**5 (1.0)**|0|0|0|0|0|0|0|
 |**5 (0.5L)**|0|0|0|0|0|0|0|
+<!-- prettier-ignore-end -->
 
 Table 2: Accuracy Test Result of Meter MT50
 
 ### Accuracy test: MT25
 
+<!-- prettier-ignore-start -->
 |**Test point (%)**|**Voltage supplied (V)**|**Actual voltage (V)**|**Current supplied (A)**|**Actual current (A)**|**Expected power (W)**|**Actual power (W)**|**Error (%)**|
 | :- | :- | - | - | :- | :- | :- | - |
 |**Imax 1.0**|240\.062|240\.8|80\.0008|79\.61|19151\.99|19170\.09|-0.5233|
@@ -105,6 +114,7 @@ Table 2: Accuracy Test Result of Meter MT50
 |**100 (0.5L)**|240\.039|241\.1|5\.00036|4\.96|613\.66|597\.928|-0.0689|
 |**5 (1.0)**|0|0|0|0|0|0|0|
 |**5 (0.5L)**|0|0|0|0|0|0|0|
+<!-- prettier-ignore-end -->
 
 Table 3: Accuracy Test Result of Meter MT50
 
@@ -112,7 +122,7 @@ Table 3: Accuracy Test Result of Meter MT50
 
 ### Short overview of IEC
 
-The International Electrotechnical Commission (IEC) is a worldwide organization for standardization comprising all national electrotechnical committees (IEC National Committees). The objective of IEC is to promote international co-operation on all questions concerning standardization in the electrical and electronic fields. To this end and in addition to other activities, IEC publishes International Standards, Technical Specifications, Technical Reports, Publicly Available Specifications (PAS) and Guides (hereafter referred to as “IEC Publication(s)”). Their preparation is entrusted to technical committees; any IEC National Committee interested in the subject dealt with may participate in this preparatory work. International, governmental and non- governmental organizations liaising with the IEC also participate in this preparation. IEC collaborates closely with the International Organization for Standardization (ISO) in accordance with conditions determined by agreement between the two organizations. (webstore.iec.ch, n.d.). The IEC addresses safety aspects by establishing basic group and product safety publications. A *basic safety publication* covers a specific safety-related matter, applicable to many electrotechnical products. It is primarily intended for use by technical committees in the preparation of standards in accordance with the principles laid down in IEC Guide 104 and ISO/IEC Guide 51. It is not intended for use by manufacturers or certification bodies. One of the responsibilities of a technical committee is, wherever applicable, to make use of basic safety publications in the preparation of its publications. The requirements, test methods or test conditions of basic safety publications will not apply unless specifically referred to or included in the relevant publications. The IEC standard codes highlighted below are the plumbline for a design engineer as related to meter design. (webstore.iec.ch, n.d.).
+The International Electrotechnical Commission (IEC) is a worldwide organization for standardization comprising all national electrotechnical committees (IEC National Committees). The objective of IEC is to promote international co-operation on all questions concerning standardization in the electrical and electronic fields. To this end and in addition to other activities, IEC publishes International Standards, Technical Specifications, Technical Reports, Publicly Available Specifications (PAS) and Guides (hereafter referred to as “IEC Publication(s)”). Their preparation is entrusted to technical committees; any IEC National Committee interested in the subject dealt with may participate in this preparatory work. International, governmental and non- governmental organizations liaising with the IEC also participate in this preparation. IEC collaborates closely with the International Organization for Standardization (ISO) in accordance with conditions determined by agreement between the two organizations. (webstore.iec.ch, n.d.). The IEC addresses safety aspects by establishing basic group and product safety publications. A _basic safety publication_ covers a specific safety-related matter, applicable to many electrotechnical products. It is primarily intended for use by technical committees in the preparation of standards in accordance with the principles laid down in IEC Guide 104 and ISO/IEC Guide 51. It is not intended for use by manufacturers or certification bodies. One of the responsibilities of a technical committee is, wherever applicable, to make use of basic safety publications in the preparation of its publications. The requirements, test methods or test conditions of basic safety publications will not apply unless specifically referred to or included in the relevant publications. The IEC standard codes highlighted below are the plumbline for a design engineer as related to meter design. (webstore.iec.ch, n.d.).
 
 1. **IEC 62052-11. (webstore.iec.ch, n.d.).**
 2. **IEC 62053-22. (webstore.iec.ch, n.d.).**
@@ -193,10 +203,10 @@ This edition includes the following significant technical changes with respect t
 1. Removed all meter safety requirements; the meter safety requirements are covered in IEC 62052-31: 2015.
 2. Moved the descriptions of all general requirements and test methods from IEC 62053-21: 2003, IEC 62053-22: 2003, IEC 62053-23: 2003, IEC 62053-24: 2003 to IEC 62052-11:2020; IEC 62053-21:2020, IEC 62053-22:2020, IEC 62053-23:2020, IEC 62053-24:2020 contain only accuracy class specific requirements.
 3. Added new requirements and tests concerning:
-    1. active energy meters of accuracy class 0,1S;
-    2. measurement uncertainty and repeatability (7.3, 7.8);
-    3. influence of fast load current variations (9.4.12);
-    4. immunity to conducted differential current disturbances in the 2 kHz to 150 kHz frequency range (9.3.8). (webstore.iec.ch, n.d.).
+   1. active energy meters of accuracy class 0,1S;
+   2. measurement uncertainty and repeatability (7.3, 7.8);
+   3. influence of fast load current variations (9.4.12);
+   4. immunity to conducted differential current disturbances in the 2 kHz to 150 kHz frequency range (9.3.8). (webstore.iec.ch, n.d.).
 
 ## Design justification according to the stated iec metering standard
 
@@ -249,6 +259,7 @@ The specifications are prepared in accordance with the following International S
 
 ==**METERING CODE REF: 4.4.1**==
 
+<!-- prettier-ignore-start -->
 |**SN**|**PARAMETERS**|**TECHNICAL REQUIREMENTS**|**COMMENT**|
 | - | - | - | - |
 |1|Body of Meter|Bakelite or Polycarbonate|Not applicable for prototype|
@@ -259,11 +270,13 @@ The specifications are prepared in accordance with the following International S
 |6|Meter Sealing|One seal shall be affixed on one side of Meter body|Not applicable for prototype|
 |7|Guarantee/Warranty|5 years|Comply|
 |8|Resistance to heat and fire|The terminal block of Meter case shall be protected against the spread of fire. They shall not be ignited by thermal overload of live parts in contact with them.|Comply|
+<!-- prettier-ignore-end -->
 
 ### Other general component specifications
 
 ==**METERING CODE REF: 4.4.2.**==
 
+<!-- prettier-ignore-start -->
 |**SN**|**COMPONENT FUNCTION**|**TECHNICAL REQUIREMENTS**|**COMMENT**|
 | - | :- | - | - |
 |1|Measurement or computing chips|The Measurement or computing chips used in the Meter shall be with the Surface mount type along with the ASCIIs.|Comply|
@@ -277,11 +290,13 @@ The specifications are prepared in accordance with the following International S
 |9|Battery|Lithium with minimum guaranteed life of 10 years and can last without recharging for 60 days|Comply|
 |10|RTC & Micro Controller|The accuracy of Real Time Clock shall be as per relevant IEC standards|Comply|
 |11|P.C.B|Glass Epoxy, fire resistance grade FR4, with minimum thickness of 1.6mm|Comply|
+<!-- prettier-ignore-end -->
 
 ### General requirements
 
 ==**METERING CODE REF: 4.4.4.**==
 
+<!-- prettier-ignore-start -->
 |**SN**|**PARAMETER**|**TECHNICAL REQUIREMENTS**|**COMMENT**|
 | - | - | - | - |
 |1|On the Meter name-plate:|a) Indelible Meter serial number shall not be more than twelve (12) digits and legibly printed.<br>b) Size of the digit of the Meter serialnumber shall be a minimum of 5mm x 3mm.<br>c) Bar code shall be printed below the Meter serial number<br>d) Manufacturer’s Name and Trade mark.<br>e) Place of manufacture.<br>f) Year of manufacture.<br>g) Reference Voltage, Current and Frequency.<br>h) Class index.<br>i) Meter Constant.<br>j) Owner/Utility’sIdentity.</p>|a) Comply<br>b) Comply<br>c) Not applicable for prototype<br>d) Comply<br>e) Comply<br>f) Comply<br>g) Comply<br>h) Comply<br>i) Comply<br>j) Comply</p>|
@@ -289,11 +304,13 @@ The specifications are prepared in accordance with the following International S
 |||The internal potential links shall be in closed position or link- less. Meters will be preferred and there shall not be any external link.|Not applicable for prototype|
 |||Terminal cover shall be fixed on Meter before dispatch|Comply|
 |||The operation manual and the inscriptions on the name plate shall be provided in English Language.|Comply|
+<!-- prettier-ignore-end -->
 
 ### Single phase (2wire) 5(60) AMPs credit static mete
 
 ==**METERING CODE REF : 4.4.5**==
 
+<!-- prettier-ignore-start -->
 |**SN**|**PARAMETERS**|**TECHNICAL REQUIREMENTS**|**COMMENT**|
 | - | - | - | - |
 |1|Standards|IEC 62052-11,62053-21|Comply|
@@ -320,19 +337,23 @@ The specifications are prepared in accordance with the following International S
 |22|<p>TAMPER EVENTS</p><p>Phase & neutral interchanged</p><p>I/C disconnected, Neutral & connected to earth neutral O/G load</p><p>I/C neutral disconnected, O/G neutral connected to earth through a resistor.</p><p>I/C phase & neutral interchanged, load connected to earth</p>|<p>METER BEHAVIOUR</p><p>Meter shall record forward energy</p>|Comply|
 |23|<p>Influence parameters|The Meter shall work satisfactorily with guaranteed accuracy limit under the presence of following influence quantities as per IEC 61036.</p><p>- External magnetic fields.<br>- Electromagnetic field induction.<br>- Radio frequency interference.<br>- Vibration etc.<br>- Waveform 10% of 3rd harmonics.<br>- Electromagnetic High Frequency<br>- (H.F.)Fields.<br>-DC Immunity test.</p>|Not tested|
 |24|**Display Sequence for parameters**|<p>**DEFAULT DISPLAY**</p><p>Cumulative KWh(cumulative KWh to be displayed continuously without decimal)</p><p>**ON DEMAND DISPLAY**</p><p>After pressing the push button, the following parameters shall be displayed</p><p>LCD Test<br>Date<br>Real time<br>Last month billing date<br>Last month billing KWh reading Meter serial number</p>|Comply|
+<!-- prettier-ignore-end -->
 
 ### Prepayment metering system
 
 **All Prepayment Metering Installations shall be of the split type and conform to the details below.**
 
-***KEYPAD SINGLE &THREE PHASE ELECTRICITY DISPENSER***
+**_KEYPAD SINGLE &THREE PHASE ELECTRICITY DISPENSER_**
 
-!!! warning
+:::warning
 
-    SN: 17 is not clear
+SN: 17 is not clear
+
+:::
 
 ==**METERING CODE REF : 4.5.1**==
 
+<!-- prettier-ignore-start -->
 |**SN**|**PARAMETERS**|**TECHNICAL REQUIREMENTS**|**COMMENT**|
 | - | - | - | - |
 |1|Nominal Voltage|1Ø-240V,1-ph,2-wire system|Comply|
@@ -362,6 +383,7 @@ The specifications are prepared in accordance with the following International S
 |25|Switching|Latching contactor.|Comply|
 |26|EMC Susceptibility|According to IEC 61036, 61268.Not adversely affected by external magnetic fields.|Not tested|
 |27|Life Span|Minimum 10 years|Comply|
+<!-- prettier-ignore-end -->
 
 ## Comparison with Nigerian electricity smart metering regulation
 
@@ -371,41 +393,48 @@ The specifications are prepared in accordance with the following International S
 
 ==**METERING CODE REF : 2**==
 
+<!-- prettier-ignore-start -->
 |**METERING CODE REF**|**DESCRIPTION**|**REQUIREMENT**|**COMMENT**|
 | :- | - | - | - |
 |2.1|A Smart Metering System shall, as a minimum, include the following components:|a Clock;<br>a Data Store;<br>an Electricity Meter;<br>a HAN Interface;<br>a Load Switch;<br>a User Interface;<br>a WAN Interface. Back-up battery</p>|Comply|
 |2.2.||A Smart Metering System shall be mains powered and be capable of operating at a nominal voltage of 230VAC and consuming no more than an average of 4 watts of electricity under normal operating conditions.|Comply|
 |2.3||A Smart Metering System shall be capable of automatically resuming operation after a power failure in its operating state prior to such failure.|Comply|
 |2.4||The electricity smart meter shall comply with the provisions of the Nigeria Electricity Metering Code as amended.|Comply|
+<!-- prettier-ignore-end -->
 
 ### Functional requirmenents
 
 ==**METERING CODE REF : 3**==
 
+<!-- prettier-ignore-start -->
 |**METERING CODE REF**|**DESCRIPTION**|**REQUIREMENT**|**COMMENT**|
 | :- | - | - | - |
 |3.1|**Clock**|The Clock forming part of a Smart Metering System shall be capable of operating so as to be accurate to within 10 seconds of UTC+1 at all times.|Comply|
 |3.3|**Data storage**|A SMS shall be capable of retaining all information held in its Data Store when in operation and during loss of power.|Comply|
-|3.5|**Monitoring**|A SMS shall be capable of determining when the Active Power Import (5.3.2) exceeds, for a continuous period of thirty seconds or more, the *Load Limit Power Threshold* (5.2.11) and on such an occurrence the SMS shall be capable of:|Comply|
+|3.5|**Monitoring**|A SMS shall be capable of determining when the Active Power Import (5.3.2) exceeds, for a continuous period of thirty seconds or more, the _Load Limit Power Threshold_ (5.2.11) and on such an occurrence the SMS shall be capable of:|Comply|
 |3.10|**Voltage quality measurements** | |
-|3.10.1| **Average RMS voltage** |<p>A SMS shall be capable of calculating the average value of RMS voltage over a configurable period as defined in the *Average RMS Voltage Measurement Period* (*5.2.3*), and:</p><p>Recording the value so calculated (including details of the period to which the value relates) in the *Average RMS Voltage Profile Data Log* (*5.3.4*).</p><p>Detecting when the value so calculated is above the *Average RMS Over Voltage Threshold* (*5.2.1*), and on detection:Generating an entry to that effect in the *Event Log (5.3.10)*;</p><p>Counting the number of such occurrences in the *Average RMS Over Voltage Counter* (*5.3.4*); and Sending an Alert to that effect via its WAN Interface.</p><p>Detecting when the value so calculated is below the *Average RMS Under Voltage Threshold* (*5.2.2*), and on detection:</p><p>Generating an entry to that effect in the *Event Log (5.3.10)*;</p><p>Counting the number of such occurrences in the *Average RMS Under Voltage Counter* (*5.3.5*); and Sending an Alert to that effect via its WAN Interface.|<p>Comply</p><p>Not comply</p><p>Comply</p><p>Not comply</p><p>Comply</p><p>Not comply</p><p>Not comply</p>|
-||**RMS extreme over voltage detection**|<p>A SMS shall be capable of detecting when the RMS voltage is above the *RMS Extreme Over Voltage Threshold* (*5.2.20*) for longer than the continuous period defined in the *RMS Extreme Over Voltage Measurement Period(5.2.18)*, and on detection:</p><p>Generating an entry to that effect in the *Event Log*(*5.3.10*); and Sending an Alert to that effect via its WAN Interface.</p><p>Disable supply until RMS voltage normalizes</p>|<p>Comply</p><p>Not comply</p><p>Comply</p>|
-||**RMS extreme under voltage detection**|<p>A SMS shall be capable of detecting when the RMS voltage is below the *RMS Extreme Under Voltage Threshold* (*5.2.21*) for longer than the continuous period defined in the *RMS Extreme Under Voltage Measurement Period (5.2.19)*, and on detection:<p>Generating an entry to that effect in the *Event Log*(*5.3.10*); and Sending an Alert to that effect via its WAN Interface.</p><p>disable supply until RMS voltage normalizes.</p></p>|<p>Comply</p><p>Not comply</p><p>Comply</p>|
+|3.10.1| **Average RMS voltage** |<p>A SMS shall be capable of calculating the average value of RMS voltage over a configurable period as defined in the *Average RMS Voltage Measurement Period_ (_5.2.3_), and:</p><p>Recording the value so calculated (including details of the period to which the value relates) in the _Average RMS Voltage Profile Data Log_ (_5.3.4_).</p><p>Detecting when the value so calculated is above the _Average RMS Over Voltage Threshold_ (_5.2.1_), and on detection:Generating an entry to that effect in the _Event Log (5.3.10)_;</p><p>Counting the number of such occurrences in the _Average RMS Over Voltage Counter_ (_5.3.4_); and Sending an Alert to that effect via its WAN Interface.</p><p>Detecting when the value so calculated is below the _Average RMS Under Voltage Threshold_ (_5.2.2_), and on detection:</p><p>Generating an entry to that effect in the _Event Log (5.3.10)_;</p><p>Counting the number of such occurrences in the _Average RMS Under Voltage Counter_ (_5.3.5_); and Sending an Alert to that effect via its WAN Interface.|<p>Comply</p><p>Not comply</p><p>Comply</p><p>Not comply</p><p>Comply</p><p>Not comply</p><p>Not comply</p>|
+||**RMS extreme over voltage detection**|<p>A SMS shall be capable of detecting when the RMS voltage is above the _RMS Extreme Over Voltage Threshold_ (_5.2.20_) for longer than the continuous period defined in the _RMS Extreme Over Voltage Measurement Period(5.2.18)_, and on detection:</p><p>Generating an entry to that effect in the _Event Log_(_5.3.10_); and Sending an Alert to that effect via its WAN Interface.</p><p>Disable supply until RMS voltage normalizes</p>|<p>Comply</p><p>Not comply</p><p>Comply</p>|
+||**RMS extreme under voltage detection**|<p>A SMS shall be capable of detecting when the RMS voltage is below the _RMS Extreme Under Voltage Threshold_ (_5.2.21_) for longer than the continuous period defined in the _RMS Extreme Under Voltage Measurement Period (5.2.19)_, and on detection:<p>Generating an entry to that effect in the _Event Log_(_5.3.10_); and Sending an Alert to that effect via its WAN Interface.</p><p>disable supply until RMS voltage normalizes.</p></p>|<p>Comply</p><p>Not comply</p><p>Comply</p>|
+<!-- prettier-ignore-end -->
 
 ### Interface requirements
 
 ==**METERING CODE REF : 4 & 5**==
 
+<!-- prettier-ignore-start -->
 |**METERING CODE REF**|**DESCRIPTION**|**REQUIREMENT**|**COMMENT**|
 | :- | - | - | - |
-|4.1|**HAN Interface Consumer Device Information Provision**|<p>A SMS shall be capable of providing the following information immediately upon establishment of a Communications Link with a Consumer Device (as set out in *3.2.4*), with updates of any changes to the instantaneous Active Power measurement every 10 seconds thereafter, and timely updates of any changes to the other information to that Consumer Device:</p><p>the *Credit Balance* (*5.3.13*);<br>the date and time of the last update of the *Credit Balance* (*5.3.13*);<br>the Clock time in UTC+1;<br>the *Total Active Import Register* (*5.3.21*);<br>the *Tariff TOU Register Matrix* (*5.3.18*) and *Tariff Block Counter Matrix* (*5.3.17*);<br>the *Tariff Switching Table* (*5.2.31*);<br>the *Daily Read Log (5.3.8*);<br>the *Emergency Credit Balance* (*5.3.9*) if Emergency Credit is activated;<br>the *Tariff TOU Price Matrix* (*5.2.33*) and *Tariff Block Price Matrix* (*5.2.30*) with an indication of the active Tariff Price;<br>the Time-based Debts from the *Time Debt Registers [1 ... 2]* (*5.3.19*);<br>the Time-based Debt Recovery rates from the *Debt Recovery Rates [1 ... 2]* (*5.2.6*); the Payment-based Debt from the *Payment Debt Register (5.3.14)*;<br>the accumulated debt from the *Accumulated Debt Register* (*5.3.1*)*;*<br>the *Low Medium Power Threshold* (*5.2.14*) and *Medium High Power Threshold* (*5.2.15*);<br>the instantaneous Active Power measurement;<br>the *Low Credit Threshold* (*5.2.13*);<br>the *Profile Data Log* (*5.3.15*)*; and*<br>the *Payment Mode (5.2.17)*.</p>|<p>Comply</p><p>Not comply</p>|
-|5.3.9|*Emergency Credit Balance*|The amount of Emergency Credit available to the Consumer after it has been activated by the Consumer.|Not applicable for prototype|
-|5.3.13|*Credit Balance*|The amount of money in Currency Units as determined by the SMS. If operating in Prepayment Mode, the Credit Balance represents the SMS’s determination of the amount of credit available to the Consumer (other than any *Emergency Credit Balance (5.3.9)*). If operating in Credit Mode, it represents the SMS’s determination of the amount of money due from the Consumer since the Credit Balance was last reset.|Not applicable for prototype|
+|4.1|**HAN Interface Consumer Device Information Provision**|<p>A SMS shall be capable of providing the following information immediately upon establishment of a Communications Link with a Consumer Device (as set out in _3.2.4_), with updates of any changes to the instantaneous Active Power measurement every 10 seconds thereafter, and timely updates of any changes to the other information to that Consumer Device:</p><p>the _Credit Balance_ (_5.3.13_);<br>the date and time of the last update of the _Credit Balance_ (_5.3.13_);<br>the Clock time in UTC+1;<br>the _Total Active Import Register_ (_5.3.21_);<br>the _Tariff TOU Register Matrix_ (_5.3.18_) and _Tariff Block Counter Matrix_ (_5.3.17_);<br>the _Tariff Switching Table_ (_5.2.31_);<br>the _Daily Read Log (5.3.8_);<br>the _Emergency Credit Balance_ (_5.3.9_) if Emergency Credit is activated;<br>the _Tariff TOU Price Matrix_ (_5.2.33_) and _Tariff Block Price Matrix_ (_5.2.30_) with an indication of the active Tariff Price;<br>the Time-based Debts from the _Time Debt Registers [1 ... 2]_ (_5.3.19_);<br>the Time-based Debt Recovery rates from the _Debt Recovery Rates [1 ... 2]_ (_5.2.6_); the Payment-based Debt from the _Payment Debt Register (5.3.14)_;<br>the accumulated debt from the _Accumulated Debt Register_ (_5.3.1_)_;_<br>the _Low Medium Power Threshold_ (_5.2.14_) and _Medium High Power Threshold_ (_5.2.15_);<br>the instantaneous Active Power measurement;<br>the _Low Credit Threshold_ (_5.2.13_);<br>the _Profile Data Log_ (_5.3.15_)_; and_<br>the _Payment Mode (5.2.17)_.</p>|<p>Comply</p><p>Not comply</p>|
+|5.3.9|_Emergency Credit Balance_|The amount of Emergency Credit available to the Consumer after it has been activated by the Consumer.|Not applicable for prototype|
+|5.3.13|_Credit Balance_|The amount of money in Currency Units as determined by the SMS. If operating in Prepayment Mode, the Credit Balance represents the SMS’s determination of the amount of credit available to the Consumer (other than any _Emergency Credit Balance (5.3.9)_). If operating in Credit Mode, it represents the SMS’s determination of the amount of money due from the Consumer since the Credit Balance was last reset.|Not applicable for prototype|
+<!-- prettier-ignore-end -->
 
 ### Smart meter specifications and SMS ownership
 
 ==**METERING CODE REF : 7**==
 
+<!-- prettier-ignore-start -->
 |**METERING CODE REF**|**DESCRIPTION**|**REQUIREMENT**|**COMMENT**|
 | :- | - | - | - |
 |7.1|**Smart Meter**|Meter specifications are particularly essential to provide for the technical functionalities stipulated in the Nigeria Metering Code and this regulation.||
@@ -415,6 +444,7 @@ The specifications are prepared in accordance with the following International S
 |||The maximum service life of Meters and Metering Equipment shall be specified by the manufacturer of such equipment taking into account the technology obsolescence.<br>The maximum service life should take into account the roll out of all meters.|Comply|
 |||<p>The Electric Smart Meter shall be suitable for operation under the following conditions:</p><p>Operating range voltage input : 230 V ± 15% ;<br>Basic current (maximum current) : 5 A (100 A);<br>Reference frequency : 50 Hz ± 5% ;<br>Operating temperature: -40°C to +70°C Average relative humidity: up to 95%, non-condensing</</p><p>The meter shall be equipped with a battery to maintain minimal time during minimal function. The meter shall consume no more than 2 Watts on average during normal operational conditions.</p><p>Meter should be integrated with in-built communication modem (s) for all its communication interfaces.</p>|<p>Comply</p>|
 |7\.2|**Meter Protection and design**|<p>The meter shall be installable in current existing meter locations at consumer premises.</p><p>7\.2.2. The smart metering system components shall support local access and configuration by authorized personnel.</p><p>The smart metering system shall be installed and maintained in a manner that protects public safety.</p><p>The smart metering system shall display energy supply status (enabled or disabled) and origin of supply (grid or generator).</p><p>The smart metering system shall be protected from physical tampering or interference, e.g. security seals, tamper switches, etc.</p><p>The smart metering system should integrate a tampering detector, recognizing the following signals:</p><p>Removal of terminal cover when the meter is powered as well as when it is not powered</p><p>Reverse current flow Phase inversion (single-phase meters)</p><p>Current flow with no voltage</p><p>The meter and its measurement technology shall be highly resistant to tamper attempts with DC magnetic fields Phase rotation (for three phase meters) Single phasing (for three phase meters)</p>|<p>Not applicable</p><p>Comply</p>|
+<!-- prettier-ignore-end -->
 
 ## Conclusion
 
@@ -424,6 +454,7 @@ The open-source AC meter has been designed according to IEC Standards and follow
 
 **Technical specification of test bench used:**
 
+<!-- prettier-ignore-start -->
 |Description|Equipment value|
 | - | - |
 |Model Number|FYL-SS1000|
@@ -439,11 +470,9 @@ The open-source AC meter has been designed according to IEC Standards and follow
 |Harmonic output|2nd-21st harmonic, content≤40%; 3rd, 5th, 7th, or any 3 harmonics superposition, accumulative content≤40% ; Odd harmonic: sub-harmonic.|
 |Load characteristics|Resistive, inductive, and capacitive (less than 4uF).|
 |Item Name|Energy Meter Test Bench|
+<!-- prettier-ignore-end -->
 
-<figure markdown>
-  ![Image of test bench used in testing meter accuracy level](../assets/firmware/test-bench.jpeg)
-  <figcaption>Image of test bench used in testing meter accuracy level</figcaption>
-</figure>
+![Image of test bench used in testing meter accuracy level](../assets/firmware/test-bench.jpeg)
 
 ## References
 

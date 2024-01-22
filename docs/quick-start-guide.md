@@ -1,3 +1,7 @@
+---
+sidebar_position: 1
+---
+
 # Getting Started
 
 You have now an OpenSmartMeter in your hands and you want to test it? Here is how.
@@ -17,8 +21,11 @@ By default, the OSM is deactivated, which means it doesn't provide any energy in
 If the initial default configuration has been applied, you can test tokens available here:
 
 **Default configuration:**
+
+```sh
 Starting Code: 407592873
 Secret Key: 47a01268b629e1b027fe20c99309643f
+```
 
 | Time/Energy     | Serial OSM10000001 |
 | --------------- | ------------------ |
@@ -27,15 +34,17 @@ Secret Key: 47a01268b629e1b027fe20c99309643f
 | set 7 days/kWh  | 844 231 880        |
 | unlock forever  | 304 054 873        |
 
-Remark:
+:::warning Remark
 
-- We cannot jump back to a previous token if a later token has been already entered.
+We cannot jump back to a previous token if a later token has been already entered.
+
+:::
 
 If you want to create other tokens:
 
 1. Open the repository on an IDE with python3.9 or above.
 2. Install the Python requirements (in OpenSmartMeter/firmware/test):
-   pip3 install -r requirements.txt
+   `pip3 install -r requirements.txt`
 3. Change initial parameters in "test_openpaygo.py"
    Token_value can be days or kWh, depending on the initial default configuration you have defined on the OSM itself.
 4. Run the script and get your desired token in the console output.

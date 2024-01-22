@@ -45,46 +45,31 @@ The first step requires first time developer to setup a ThingsBoard account by s
 
 If the developer is on the right page, the developer should end up with the page highlighted below.
 
-<figure markdown>
-  ![ThingsBoard dashboard](../assets/backend/thingsboard-dashboard.png)
-  <figcaption>ThingsBoard dashboard</figcaption>
-</figure>
+![ThingsBoard dashboard](../assets/backend/thingsboard-dashboard.png)
 
 ### Step 2: Setting up ThingsBoard page
 
 Developer needs to setup the ThingsBoard to view meter parameters such as energy and top-up balance. To do this, developer need to navigate to the asset's icon on the left side of the web page, click on it and locate the add asset button on the top right corner of the page. A sample of add icon picture and assets page is shown below.
 
-<figure markdown>
-  ![Assets page](../assets/backend/assets-page.png)
-  <figcaption>Assets page</figcaption>
-</figure>
+![Assets page](../assets/backend/assets-page.png)
 
 ### Step 3: Add Asset
 
 Once developer clicks on "Add Assets", user will end up with the page shown below. Developer can proceed to fill **Name, Assets type, Label, Customer**. However, the most important is name and asset type. Once the information is filled, user can proceed to click the add button and the name will show up in the assets page.
 
-<figure markdown>
-  ![Entering details in Asset Page](../assets/backend/entering-details-in-assests-page.png)
-  <figcaption>Entering details in Asset Page</figcaption>
-</figure>
+![Entering details in Asset Page](../assets/backend/entering-details-in-assests-page.png)
 
 ### Step 4: Add Devices
 
 Once developer is done setting up the assets, user can proceed to click on the devices button and add devices. Image of the add process is shown below, in our case we added "credit" and "energy".
 
-<figure markdown>
-  ![Creating Devices](../assets/backend/creating-devices.png)
-  <figcaption>Creating Devices</figcaption>
-</figure>
+![Creating Devices](../assets/backend/creating-devices.png)
 
 ### Step 5: Create relations between assets and devices
 
 Developer must create a relation between assets and devices by clicking on the assets button and navigating to the asset previously created in step 3. developer can add relation by navigating to relations and select the entity type as devices then entity name as the name created under devices. If all is done correctly, user should end up with the highlighted page below.
 
-<figure markdown>
-  ![Creating Relations](../assets/backend/creating-relations.png)
-  <figcaption>Creating Relations</figcaption>
-</figure>
+![Creating Relations](../assets/backend/creating-relations.png)
 
 ### Step 6: Access Token
 
@@ -92,10 +77,7 @@ To enable the meter send parameters to the ThingsBoard API, developer will need 
 
 The page to copy the access token looks like picture pasted below.
 
-<figure markdown>
-  ![Access Token](../assets/backend/access-token.png)
-  <figcaption>Access Token</figcaption>
-</figure>
+![Access Token](../assets/backend/access-token.png)
 
 ### Step 7: Creating Dashboard
 
@@ -103,33 +85,23 @@ Developer is required to create dashboard to visualize sent information from the
 
 Next developer clicks to _add entity_ aliases and fill the required details. User should end up with the below screen if all is done correctly.
 
-<figure markdown>
-  ![Setting up Dashboards](../assets/backend/setting-up-dashboards.png)
-  <figcaption>Setting up Dashboards</figcaption>
-</figure>
+![Setting up Dashboards](../assets/backend/setting-up-dashboards.png)
 
-<figure markdown>
-  ![Setting up Dashboards II](../assets/backend/setting-up-dashboards-2.png)
-  <figcaption>Setting up Dashboards II</figcaption>
-</figure>
+![Setting up Dashboards II](../assets/backend/setting-up-dashboards-2.png)
 
 ### Step 8: Add Widget
 
 Under dashboard, developer will navigate and click on _ADD NEW WIDGET_, then fill the necessary parameters as created. If all is properly filled, developer should end up with the below screen.
 
-<figure markdown>
-  ![Adding Widget](../assets/backend/adding-widget.png)
-  <figcaption>Adding Widget</figcaption>
-</figure>
+![Adding Widget](../assets/backend/adding-widget.png)
 
-<figure markdown>
-  ![Dashboard with Widget](../assets/backend/dashboard-with-widget.png)
-  <figcaption>Dashboard with Widget</figcaption>
-</figure>
+![Dashboard with Widget](../assets/backend/dashboard-with-widget.png)
 
-!!! note
+::: note
 
-    Developer can add different widget as desired.
+Developer can add different widget as desired.
+
+:::
 
 ## Paystack Integration
 
@@ -137,10 +109,7 @@ Under dashboard, developer will navigate and click on _ADD NEW WIDGET_, then fil
 
 Developer will begin by creating a Paystack account using [https://dashboard.paystack.co/#/signup](https://dashboard.paystack.co/#/signup) link to sign up, after the necessary details is filled and user has successfully signed up, the user will be redirected to his/her dashboard. If the account is created successfully, user should end up with the page below.
 
-<figure markdown>
-  ![Paystack Landing page](../assets/backend/paystack-landing-page.png)
-  <figcaption>Paystack Landing page</figcaption>
-</figure>
+![Paystack Landing page](../assets/backend/paystack-landing-page.png)
 
 ### Step 2: Copy and replace public key
 
@@ -173,15 +142,12 @@ After the database is setup and the developer has changed all necessary paramete
 
 1. **meterid :** The meter id row holds the assigned meter number.
 2. **amount :** The amount row holds the amount topped up by user.
-3. **transaction\_id :** The transaction\_id row holds the transaction id sent by Paystack.
+3. **transaction_id :** The transaction_id row holds the transaction id sent by Paystack.
 4. **status :** he status row holds the status of each transaction if successful or failure.
 
 After this is done, the developer can assign meter number to all designed meters by navigating to the database and add desired meter number. Meter number can be from 1 to 99,000. Each meter number can have any prefix as desired by user, sample of different created and assigned meter is shown below in the meterid row.
 
-<figure markdown>
-  ![Creating Meter ID](../assets/backend/creating-meter-id.png)
-  <figcaption>Creating Meter ID</figcaption>
-</figure>
+![Creating Meter ID](../assets/backend/creating-meter-id.png)
 
 ### Setting Tariff
 
@@ -236,7 +202,7 @@ All folders in the web interface is named below:
 11. Initialize.php.
 12. Stspending.html.
 13. Subcribe.php.
-14. Topup\_check.html.
+14. Topup_check.html.
 15. Topup.html.
 
 **Assets:** Assets hold other files for the front end of the webpage such as the javassript file, css file and others.
@@ -265,6 +231,6 @@ All folders in the web interface is named below:
 
 **Subcribe.php:** The subscribe.php receives incoming request from individual meter and fetch tariff, topup status, topup amount if available and pass to the meter.
 
-**Topup\_check.html:** The topup\_check,html creates interface to insert meter number in other to check if meter number exist before trying to topup the meter.
+**Topup_check.html:** The topup_check,html creates interface to insert meter number in other to check if meter number exist before trying to topup the meter.
 
 **Topup.html:** The topup,html creates interface to insert meter number, amount, user email address for meter topup purpose.
