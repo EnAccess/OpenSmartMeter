@@ -17,6 +17,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version-file: docs_website/.node-version
-      - name: Run Prettier
+      - name: Run Prettier on Docs
+        working-directory: docs
+        run: npx prettier . --check
+      - name: Run Prettier on Docs website
         working-directory: docs_website
         run: npx prettier . --check
