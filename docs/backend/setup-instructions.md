@@ -1,6 +1,6 @@
-# API Documentation
+# Setup instructions
 
-This documents contains API guide for setting up ThingsBoard web interface connecting to Paystack and database backend
+This documents contains the guide for setting up ThingsBoard web interface connecting to Paystack and database backend
 
 ## Introduction
 
@@ -97,10 +97,8 @@ Under dashboard, developer will navigate and click on _ADD NEW WIDGET_, then fil
 
 ![Dashboard with Widget](../assets/backend/dashboard-with-widget.png)
 
-::: note
-
+:::note
 Developer can add different widget as desired.
-
 :::
 
 ## Paystack Integration
