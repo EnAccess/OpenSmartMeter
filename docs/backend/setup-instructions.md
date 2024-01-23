@@ -1,6 +1,6 @@
-# API Documentation
+# Setup instructions
 
-This documents contains API guide for setting up ThingsBoard web interface connecting to Paystack and database backend
+This documents contains the guide for setting up ThingsBoard web interface connecting to Paystack and database backend
 
 ## Introduction
 
@@ -28,7 +28,7 @@ This document provides details on how to integrate ThingsBoard API to developers
 </style>
 <div class="youtube-embed-container">
   <iframe
-    src="https://www.youtube.com/embed/fpAWm42rUqg?enablejsapi=1"
+    src="https://www.youtube.com/embed/nNwb8N43fPs?enablejsapi=1"
     frameborder="0"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
     allowfullscreen>
@@ -97,10 +97,8 @@ Under dashboard, developer will navigate and click on _ADD NEW WIDGET_, then fil
 
 ![Dashboard with Widget](../assets/backend/dashboard-with-widget.png)
 
-::: note
-
+:::note
 Developer can add different widget as desired.
-
 :::
 
 ## Paystack Integration
@@ -113,10 +111,11 @@ Developer will begin by creating a Paystack account using [https://dashboard.pay
 
 ### Step 2: Copy and replace public key
 
-Developer need to login to the Paystack account and navigate to settings, [API keys & webhooks](https://dashboard.paystack.com/#/settings/developer), then copy the test public key and put in _initialize.php_ code under the web software. The public key to be replaced looks like the below.
+Developer need to login to the Paystack account and navigate to settings, [API keys & webhooks](https://dashboard.paystack.com/#/settings/developer), then copy the test public key and put in `initialize.php`` code under the web software. The public key to be replaced looks like the below.
 
-```php-inline
+```php title="web_software/initialize.php"
 CURLOPT_HTTPHEADER => [
+  // highlight-next-line
   "authorization: Bearer sk_test_5a679ebeb2769a355091ac05f843d7187b0e7b0e", //replace this with your own test key
   "content-type: application/json",
   "cache-control: no-cache"
@@ -129,23 +128,27 @@ Once this is done, all transaction done on the webpage will be paid to the devel
 
 ### Setting up each meter and assigning meter number
 
-Each meter is setup by firstly creating a database with same name in the file named subscribe.php under the web software folder. The database servername, dbname, username, password must be edited to same name as used in the database creation. A sample image is shown below.
+Each meter is setup by firstly creating a database with same name in the file named `subscribe.php` under the web software folder.
+The database `servername`, `dbname`, `username`, `password` must be edited to same name as used in the database creation.
 
-```php-inline
+A sample is shown below.
+
+```php
 $servername = "localhost";
 $dbname = "id17130795_energymeter";
 $username = "id17130795_byker";
 $password = "Danielkomolafe00%";
 ```
 
-After the database is setup and the developer has changed all necessary parameters in the subscribe.php, the developer will need to create a table named meter with four rows as named below :
+After the database is setup and the developer has changed all necessary parameters in the `subscribe.php`, the developer will need to create a table named meter with four rows as named below :
 
 1. **meterid :** The meter id row holds the assigned meter number.
 2. **amount :** The amount row holds the amount topped up by user.
 3. **transaction_id :** The transaction_id row holds the transaction id sent by Paystack.
 4. **status :** he status row holds the status of each transaction if successful or failure.
 
-After this is done, the developer can assign meter number to all designed meters by navigating to the database and add desired meter number. Meter number can be from 1 to 99,000. Each meter number can have any prefix as desired by user, sample of different created and assigned meter is shown below in the meterid row.
+After this is done, the developer can assign meter number to all designed meters by navigating to the database and add desired meter number. Meter number can be from 1 to 99,000.
+Each meter number can have any prefix as desired by user, sample of different created and assigned meter is shown below in the meterid row.
 
 ![Creating Meter ID](../assets/backend/creating-meter-id.png)
 
@@ -153,7 +156,7 @@ After this is done, the developer can assign meter number to all designed meters
 
 The tariff is set by navigating to the file named subscribe.php under the web software folder, the developer needs to locate the variable named tariff and change the value from 70 to the desired tariff, and automatically the meter will fetch the tariff in the 12th hour as designed in the firmware code.
 
-```php-inline
+```php title="web_software/subscribe.php"
 $tarrif = "70";
 ```
 
@@ -161,7 +164,7 @@ $tarrif = "70";
 
 The STS token generation is automatic once the developer assign a meter number between 1 and 99000, the meter number assigning can have any prefix as desired by developer, though in the sample code created, the prefix is set to be any two letters, if developers change the prefix before the meter number, user has to change the code below from 2 to the new number of suffix. The code is available in check.php inside the web software folder.
 
-```php-inline
+```php title="web_software/token_generation.php"
 $mt_no = substr($MT,2, 10); //to extract the digit out of the meter code number
 ```
 
@@ -171,7 +174,7 @@ Once the meter number is properly assigned and setup, the meter number is automa
 
 To further encrypt the STS token generation algorithm, a private key was used to bind the token with the firmware code. The private key can be a value between 100 and 111 and is changeable under check.php in the web software folder, the image of the line to be changed is shown below.
 
-```php-inline
+```php title="web_software/token_generation.php"
 $privatekey = 109;  // can be a number between 100 and 111
 ```
 
@@ -181,7 +184,7 @@ $privatekey = 109;  // can be a number between 100 and 111
 
 The web platform is encrypted such that a meter can send or receive information from a webpage expect the API key used on the web page is same as the API key used on the firmware. The API key is changeable as desired in the subscribe.php under web software. The image is shown below.
 
-```php-inline
+```php title="web_software/subscribe.php"
 $api_key_value = "tPmAT5Ab3j7F9";
 ```
 
