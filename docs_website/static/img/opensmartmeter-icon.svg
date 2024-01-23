@@ -36,9 +36,11 @@
       .cls-7 {
         fill: #c5e1b4;
       }
-      .cls-3,
-      .cls-4 {
+      .cls-3 {
         fill: none;
+      }
+      .cls-4 {
+        fill: #ffffff;
       }
     </style>
   </defs>
