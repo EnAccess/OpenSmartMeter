@@ -11,12 +11,14 @@
       .cls-1,
       .cls-2,
       .cls-3,
-      .cls-4 {
+      .cls-4,
+      .cls-8 {
         stroke: #164669;
         stroke-width: 5px;
       }
       .cls-1,
-      .cls-3 {
+      .cls-3,
+      .cls-8 {
         stroke-linecap: round;
         stroke-linejoin: round;
       }
@@ -42,6 +44,9 @@
       .cls-4 {
         fill: #ffffff;
       }
+      .cls-8 {
+        fill: #fad087;
+      }
     </style>
   </defs>
   <g id="Layer_1-2">
@@ -62,7 +67,7 @@
         ></path>
       </g>
       <path
-        class="cls-3"
+        class="cls-8"
         d="M246.23,193.89c-14.48,20.84-28.97,41.68-43.45,62.52,20.92,.38,29.37,.31,30.59,0,.02,0,.05-.01,.08,0,1.27,.45-5.65,23.03-13.83,48.33,17.44-20.99,34.88-41.97,52.32-62.96h-30.6c1.63-15.96,3.25-31.92,4.88-47.89Z"
       ></path>
       <path
