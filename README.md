@@ -61,29 +61,6 @@ Due to varying tolerances of used components, it is vital to perform a calibrati
 This is used to correct any errors due to varying tolerances.
 Further details including source code, schematics, and manufacturing files can be found in the EnAccess github repository
 
-## Repository structure
-
-### documentations
-
-The documentation folder contain all information as related to manufacturing the smart energy meter, information such as Api documentation, rationale behind design, calibration report, trouble shooting manual, bill of material, datasheet for all components used.
-
-### Firmware codes
-
-The firware code folder contain the firmware code written in C++ on Arduino platform, the folder also contain the library files used in the code.
-
-### Meter hardware design
-
-The meter hardware design folder contain the Kicad design file, gerber manufacturing file, exterior casing manufacturing files, design images.
-
-### Web software demo video
-
-This folder contain the web demo video to guide a developer developer on the functionality of the web software.
-
-### Web software
-
-This folder contain the web software codes used.
-The link to the web demo is: <https://paygotesting.000webhostapp.com>
-
 ## Quick look at the schematic
 
 ### Microcontroller voltage regulation stage
@@ -124,24 +101,6 @@ The master of this stage is the microcontroller(STM32f103ccu8) popularly known a
 
 This document summarizes the manufacturing guide to enable a skilled person to manufacture the smart energy meter.
 The foldered is structured as highlighted below including informations available in each folder.
-
-## Repository Layout
-
-### Documentations
-
-The documentation folder is sub-divided into different folder containing relating documents as named in the folder title.
-
-### Firmware code
-
-The firmware code folder contain the Firmware code and all library used in the smart meter design.
-
-### Meter hardware design (layout)
-
-The meter hardware design folder contain all relating files as relating the manufacturing meter hardware such as design images, exterior casing design file, PCB CAD design file, GERBER file.
-
-### Web software (layout)
-
-The meter web software folder contain the web software code, from the front end, backend, images, styling file e.t.c.
 
 ## Web Software
 
