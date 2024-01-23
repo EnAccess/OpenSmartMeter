@@ -26,11 +26,12 @@ The manufactured PCB is shipped back to the design engineer.
 The PCB is assembled, soldered according to the components value as labeled on the silkscreen layer of the PCB board.
 
 The turn ratio of the ferrite core transformer is given below
-Feed back turn = 7turns
-Input (100v - 270v) = 53 turns
-Output(12v) = 10 turns
 
-![image](https://user-images.githubusercontent.com/99180312/199763826-1503af99-6df4-47a8-8b3b-69ebf9dac93e.gif)
+- Feedback = **7 turns**
+- Input (100v - 270v) = **53 turns**
+- Output(12v) = **10 turns**
+
+![ferrite-core-transformer-windings](assets/ferrite-core-transformer-windings.png)
 
 ### First trial of the assembly
 
