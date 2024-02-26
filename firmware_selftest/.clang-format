@@ -6,7 +6,6 @@ AllowShortFunctionsOnASingleLine: Empty
 IncludeBlocks: Preserve
 IndentPPDirectives: AfterHash
 DerivePointerAlignment: false
-InsertNewlineAtEOF: true
 # This is only available in Clang-16, see
 # https://clang.llvm.org/docs/ClangFormatStyleOptions.html#insertnewlineateof
 # However, Github runners currently only ship with Clang-15, see
