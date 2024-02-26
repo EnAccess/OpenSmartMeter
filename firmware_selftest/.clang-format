@@ -6,6 +6,11 @@ AllowShortFunctionsOnASingleLine: Empty
 IncludeBlocks: Preserve
 IndentPPDirectives: AfterHash
 DerivePointerAlignment: false
+# This is only available in Clang-16, see
+# https://clang.llvm.org/docs/ClangFormatStyleOptions.html#insertnewlineateof
+# However, Github runners currently only ship with Clang-15, see
+# https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2204-Readme.md
+# InsertNewlineAtEOF: true
 
 # Always break after if to get accurate coverage
 AllowShortIfStatementsOnASingleLine: false
